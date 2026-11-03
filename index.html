@@ -174,33 +174,32 @@
     </div>
   </div>
 
-  <!-- ==================== 1. HERO SECTION (With Black Audi RS7 Background Video) ==================== -->
-  <section class="relative min-h-[680px] lg:min-h-[780px] flex items-center pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-[#101820]">
+  <!-- ==================== 1. HERO SECTION (With Black Audi RS7 Background Video - 100% Opacity) ==================== -->
+  <section class="relative min-h-[700px] lg:min-h-[820px] flex items-center pt-20 pb-24 lg:pt-28 lg:pb-32 overflow-hidden bg-black">
     
-    <!-- 1. FULL BACKGROUND VIDEO -->
+    <!-- 1. FULL BACKGROUND VIDEO (100% Opacity) -->
     <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
       <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" 
-             class="w-full h-full object-cover object-center scale-105 transition-opacity duration-1000">
+             class="w-full h-full object-cover object-center opacity-100 scale-100">
         <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
         <source src="assets/videos/hero-bg.mp4" type="video/mp4">
       </video>
       
-      <!-- Cinema-grade dark gradient overlays to guarantee perfect text contrast -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#101820]/95 via-[#101820]/80 to-[#101820]/65"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-[#101820]/70"></div>
-      <div class="absolute top-1/4 left-1/3 w-[600px] h-[300px] bg-[#D6FF36]/15 blur-[140px] rounded-full"></div>
+      <!-- Subtle edge scrims to keep text readable without dimming video -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#101820] to-transparent"></div>
     </div>
 
     <!-- Video Play/Pause & Audio Toggle Button (Bottom-Right) -->
     <div class="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2">
       <button onclick="toggleHeroVideoPlay()" id="btn-hero-video-toggle" aria-label="Pause Background Video" 
-              class="h-9 px-3 rounded-xl bg-black/60 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md text-xs font-bold flex items-center gap-1.5 transition-all shadow-lg">
+              class="h-9 px-3 rounded-xl bg-black/70 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md text-xs font-bold flex items-center gap-1.5 transition-all shadow-lg">
         <i data-lucide="pause" id="icon-hero-video-pause" class="w-3.5 h-3.5"></i>
         <i data-lucide="play" id="icon-hero-video-play" class="w-3.5 h-3.5 hidden"></i>
         <span id="text-hero-video-status">Pause Video</span>
       </button>
       <button onclick="toggleHeroVideoMute()" id="btn-hero-audio-toggle" aria-label="Unmute Background Video" 
-              class="w-9 h-9 rounded-xl bg-black/60 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
+              class="w-9 h-9 rounded-xl bg-black/70 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md flex items-center justify-center transition-all shadow-lg">
         <i data-lucide="volume-x" id="icon-hero-audio-muted" class="w-4 h-4"></i>
         <i data-lucide="volume-2" id="icon-hero-audio-unmuted" class="w-4 h-4 hidden"></i>
       </button>
@@ -211,37 +210,37 @@
         
         <!-- Left Text Content -->
         <div class="lg:col-span-7 space-y-6 text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-[#D6FF36]/40 backdrop-blur-md text-xs font-black tracking-wider uppercase text-[#D6FF36] shadow-md">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#D6FF36]/50 backdrop-blur-md text-xs font-black tracking-wider uppercase text-[#D6FF36] shadow-xl">
             <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping"></span>
             DOORSTEP CAR CARE · AUDI RS7 LIVE FLEET
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight font-heading leading-tight text-white">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight font-heading leading-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
             Your Car Deserves a <br class="hidden sm:inline">
-            <span class="text-[#D6FF36] drop-shadow-md">Better Shine.</span>
+            <span class="text-[#D6FF36] drop-shadow-[0_4px_24px_rgba(214,255,54,0.4)]">Better Shine.</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-gray-200 max-w-xl leading-relaxed">
+          <p class="text-base sm:text-lg text-gray-100 max-w-xl leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
             Professional car washing and detailing, delivered right to your doorstep. We bring pure de-ionized water, silent generator power, and high-end detailing tools straight to your parking spot.
           </p>
 
           <!-- CTAs -->
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="customer/book-wash.html" class="btn-primary !h-[50px] text-base font-bold px-7 glow-lime-sm">
+            <a href="customer/book-wash.html" class="btn-primary !h-[50px] text-base font-bold px-7 glow-lime">
               <span>Book a Wash</span>
               <i data-lucide="arrow-right" class="w-5 h-5 rtl:rotate-180"></i>
             </a>
-            <a href="services.html" class="h-[50px] px-6 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md text-base font-bold inline-flex items-center justify-center transition-all">
+            <a href="services.html" class="h-[50px] px-6 rounded-xl bg-black/60 hover:bg-black/80 text-white border border-white/30 backdrop-blur-md text-base font-bold inline-flex items-center justify-center transition-all hover:border-[#D6FF36] hover:text-[#D6FF36]">
               <span>Explore Services</span>
             </a>
-            <a href="hero-animation.html" class="inline-flex items-center gap-2 h-[50px] px-5 rounded-xl bg-black/60 text-[#D6FF36] border border-[#D6FF36]/40 backdrop-blur-md text-xs font-bold hover:bg-[#D6FF36] hover:text-[#101820] transition-all shadow-md">
+            <a href="hero-animation.html" class="inline-flex items-center gap-2 h-[50px] px-5 rounded-xl bg-black/70 text-[#D6FF36] border border-[#D6FF36]/40 backdrop-blur-md text-xs font-bold hover:bg-[#D6FF36] hover:text-[#101820] transition-all shadow-xl">
               <i data-lucide="play" class="w-4 h-4 fill-current"></i>
               <span>Watch 3D Car Reveal</span>
             </a>
           </div>
 
           <!-- Trust Sub-badge -->
-          <div class="flex items-center gap-6 pt-4 border-t border-white/15">
+          <div class="flex items-center gap-6 pt-4 border-t border-white/20">
             <div class="flex items-center gap-1.5">
               <div class="flex text-[#D6FF36]">
                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -250,38 +249,39 @@
                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
               </div>
-              <span class="font-extrabold text-sm text-white">4.9 / 5</span>
+              <span class="font-extrabold text-sm text-white drop-shadow">4.9 / 5</span>
             </div>
-            <div class="text-xs text-gray-300 font-medium">
+            <div class="text-xs text-gray-200 font-medium drop-shadow">
               Over <strong class="text-white">25,000+</strong> Spotless Doorstep Washes Completed
             </div>
           </div>
         </div>
 
-        <!-- Right Floating Glassmorphic Stats Card -->
+        <!-- Right Floating Glassmorphic Dispatch & Booking Widget (No Static Image) -->
         <div class="lg:col-span-5 relative">
-          <div class="relative mx-auto rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-black/40 backdrop-blur-xl p-6 space-y-6">
+          <div class="relative mx-auto rounded-3xl overflow-hidden border border-white/25 shadow-2xl bg-black/50 backdrop-blur-xl p-6 sm:p-8 space-y-6">
             
-            <div class="flex items-center justify-between pb-4 border-b border-white/10">
-              <div class="flex items-center gap-2">
+            <div class="flex items-center justify-between pb-4 border-b border-white/15">
+              <div class="flex items-center gap-2.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#D6FF36] animate-pulse"></span>
-                <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Live Detailing Dispatch</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-200">Live Detailing Fleet</span>
               </div>
-              <span class="badge-lime text-[11px]">18 Vans Active</span>
+              <span class="badge-lime text-[11px] font-extrabold">18 Vans Active</span>
             </div>
 
-            <!-- Vehicle Feature Highlight -->
-            <div class="rounded-2xl overflow-hidden border border-white/10 bg-black/60 relative group">
-              <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=700&q=80" 
-                   alt="Car Entering a Luxury Garage" 
-                   class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                <div>
-                  <h4 class="text-xs font-bold text-white uppercase">Black Audi RS7 Signature Shine</h4>
-                  <span class="text-[10px] text-gray-300">Reverse-Osmosis Deionized Foam Treatment</span>
-                </div>
-                <span class="badge-lime text-[10px] !py-0.5 !px-2">Active</span>
+            <!-- Real-time status points -->
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs">
+                <span class="text-gray-300">Active Mobile Rigs:</span>
+                <strong class="text-white font-mono">18 / 18 In Service</strong>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs">
+                <span class="text-gray-300">Average Doorstep Arrival:</span>
+                <strong class="text-[#D6FF36] font-mono">28 Mins</strong>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs">
+                <span class="text-gray-300">Water & Power Hookups:</span>
+                <strong class="text-emerald-400 font-bold">Zero Required (100% Self-Fed)</strong>
               </div>
             </div>
 
@@ -296,7 +296,7 @@
                   <p class="text-sm font-extrabold text-white">Today at 11:30 AM</p>
                 </div>
               </div>
-              <a href="customer/book-wash.html" class="px-3.5 py-2 rounded-xl bg-[#D6FF36] text-[#101820] text-xs font-extrabold hover:brightness-110 shadow-md">
+              <a href="customer/book-wash.html" class="px-4 py-2 rounded-xl bg-[#D6FF36] text-[#101820] text-xs font-black hover:brightness-110 shadow-lg transition-transform hover:scale-105">
                 Instant Book
               </a>
             </div>
@@ -304,7 +304,7 @@
             <!-- Self-sufficiency Guarantee -->
             <div class="text-xs text-gray-300 flex items-center justify-center gap-2 pt-1">
               <i data-lucide="shield-check" class="w-4 h-4 text-[#D6FF36]"></i>
-              <span>100% Water & Silent Power Self-Sufficient</span>
+              <span>100% Pure RO Deionized Water Guarantee</span>
             </div>
 
           </div>
