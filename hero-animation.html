@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAR SHINE – Cinematic Hero Animation</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  <link rel="stylesheet" href="css/hero.css">
+</head>
+<body>
+
+  <!-- Top Demo Control Bar for Testing Variations & Camera Angle -->
+  <div class="demo-control-bar">
+    <button onclick="replayHeroAnimation()" class="demo-btn" title="Replay the entrance animation">
+      <span>↻</span> Replay Animation
+    </button>
+
+    <select class="demo-select" onchange="setHeroAnimationMode(this.value)">
+      <option value="default">Movement: Drives Forward from Darkness</option>
+      <option value="reveal">Movement: Light Reveal (No Driving)</option>
+      <option value="close">Movement: Drives & Stops Close to Viewer</option>
+    </select>
+
+    <a href="index.html" class="demo-btn" style="text-decoration:none;">
+      Back to Website →
+    </a>
+  </div>
+
+  <!-- THE HERO SECTION -->
+  <section class="hero">
+    <!-- Top Spotlights Focusing on Car -->
+    <div class="spotlight left-light"></div>
+    <div class="spotlight right-light"></div>
+
+    <!-- Radial Headlight Glow & Front Projection Cones -->
+    <div class="headlight"></div>
+    <div class="headlight-cone-left"></div>
+    <div class="headlight-cone-right"></div>
+
+    <!-- Black Luxury Sedan (Mercedes Maybach Front Three-Quarter View) -->
+    <img src="assets/images/luxury-car.png" class="car" alt="Luxury Mercedes Maybach S-Class Sedan">
+
+    <!-- Hero Content (Reveals after car entrance) -->
+    <div class="hero-content">
+      <span>PREMIUM DOORSTEP CAR CARE</span>
+      <h1>
+        Your Car Deserves
+        <strong>A Better Shine.</strong>
+      </h1>
+      <p>
+        Professional car washing and detailing delivered right to your doorstep. Pure reverse-osmosis deionized water, quiet generator power, and master craftsmanship.
+      </p>
+      
+      <div class="cta-group">
+        <a href="customer/book-wash.html" class="btn-cta">Book a Wash →</a>
+        <a href="services.html" class="btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/hero.js"></script>
+</body>
+</html>

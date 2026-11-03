@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* ==================== HERO WRAPPER ==================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+}
+
+/* TOP LIGHT BEAMS */
+.spotlight {
+  position: absolute;
+  top: -10%;
+  width: 42%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  filter: blur(28px);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.85),
+    rgba(214, 255, 54, 0.25),
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
+.left-light {
+  left: 4%;
+  transform: rotate(-3deg);
+}
+
+.right-light {
+  right: 4%;
+  transform: rotate(3deg);
+}
+
+/* HEADLIGHT GLOW EFFECT */
+.headlight {
+  position: absolute;
+  width: 65%;
+  height: 32%;
+  bottom: 18%;
+  left: 17.5%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(220, 245, 255, 0.45) 0%,
+    rgba(214, 255, 54, 0.2) 35%,
+    transparent 70%
+  );
+  filter: blur(35px);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* DUAL CONE BEAMS EMANATING FROM VEHICLE HEADLIGHTS */
+.headlight-cone-left,
+.headlight-cone-right {
+  position: absolute;
+  bottom: 22%;
+  width: 35%;
+  height: 45%;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.headlight-cone-left {
+  left: 36%;
+  background: linear-gradient(
+    135deg,
+    rgba(240, 250, 255, 0.5) 0%,
+    rgba(214, 255, 54, 0.15) 40%,
+    transparent 80%
+  );
+  transform: rotate(-15deg);
+}
+
+.headlight-cone-right {
+  left: 54%;
+  background: linear-gradient(
+    115deg,
+    rgba(240, 250, 255, 0.6) 0%,
+    rgba(214, 255, 54, 0.15) 40%,
+    transparent 80%
+  );
+  transform: rotate(8deg);
+}
+
+/* CAR VEHICLE */
+.car {
+  position: absolute;
+  width: min(85%, 1000px);
+  left: 50%;
+  bottom: 5%;
+  z-index: 3;
+  opacity: 0;
+  transform: translate(-50%, 120px) scale(0.65);
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.95));
+  user-select: none;
+  pointer-events: none;
+}
+
+/* HERO TEXT CONTENT */
+.hero-content {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  z-index: 4;
+  max-width: 550px;
+  color: #ffffff;
+  opacity: 0;
+}
+
+.hero-content span {
+  color: #d6ff36;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.hero-content h1 {
+  font-size: clamp(38px, 5vw, 68px);
+  margin: 18px 0;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero-content strong {
+  display: block;
+  color: #d6ff36;
+  text-shadow: 0 0 25px rgba(214, 255, 54, 0.35);
+}
+
+.hero-content p {
+  color: #cccccc;
+  line-height: 1.7;
+  font-size: 16px;
+  max-width: 480px;
+}
+
+.hero-content .cta-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.hero-content a.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  background: #d6ff36;
+  color: #101820;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+}
+
+.hero-content a.btn-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(214, 255, 54, 0.45);
+}
+
+.hero-content a.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 12px;
+  backdrop-blur: 10px;
+  transition: all 0.2s;
+}
+
+.hero-content a.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #d6ff36;
+  color: #d6ff36;
+}
+
+/* ==================== ANIMATION SEQUENCE ==================== */
+.hero.start .left-light {
+  animation: lightOn 2s ease 0.5s forwards;
+}
+
+.hero.start .right-light {
+  animation: lightOn 2s ease 0.9s forwards;
+}
+
+.hero.start .headlight {
+  animation: lightOn 1.5s ease 0.3s forwards;
+}
+
+.hero.start .headlight-cone-left {
+  animation: lightOn 1.8s ease 1.1s forwards;
+}
+
+.hero.start .headlight-cone-right {
+  animation: lightOn 1.8s ease 1.3s forwards;
+}
+
+.hero.start .car {
+  animation: carEnter 2.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+.hero.start .hero-content {
+  animation: textShow 1s ease 3.5s forwards;
+}
+
+/* ==================== ALTERNATIVE ANIMATION MODES ==================== */
+/* Mode 2: Light Reveal (no driving movement) */
+.hero.mode-reveal.start .car {
+  animation: carReveal 2.2s ease-out 1.0s forwards;
+}
+
+/* Mode 3: Drive Close (drives and stops close to viewer with suspension settle) */
+.hero.mode-close.start .car {
+  animation: carDriveClose 2.8s cubic-bezier(0.12, 0.8, 0.33, 1) 1.1s forwards;
+}
+
+/* ==================== KEYFRAMES ==================== */
+@keyframes lightOn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Default: Drives forward from darkness */
+@keyframes carEnter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 120px) scale(0.65);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4)) brightness(0.3);
+  }
+  40% {
+    opacity: 0.7;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7)) brightness(0.65);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.95)) brightness(1);
+  }
+}
+
+/* Mode 2: Light Reveal (slow appearance in place) */
+@keyframes carReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(1);
+    filter: brightness(0) blur(4px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: brightness(0.5) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: brightness(1) blur(0) drop-shadow(0 25px 40px rgba(0, 0, 0, 0.95));
+  }
+}
+
+/* Mode 3: Drive forward & stop close with suspension settle */
+@keyframes carDriveClose {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 150px) scale(0.58);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -8px) scale(1.03);
+  }
+  85% {
+    transform: translate(-50%, 3px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.95));
+  }
+}
+
+@keyframes textShow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== INTERACTIVE CONTROLS BAR ==================== */
+.demo-control-bar {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 24, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 12px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.demo-btn {
+  background: #252e35;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.demo-btn:hover {
+  background: #d6ff36;
+  color: #101820;
+  border-color: #d6ff36;
+}
+
+.demo-select {
+  background: #101820;
+  color: #d6ff36;
+  border: 1px solid rgba(214, 255, 54, 0.3);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .hero-content {
+    left: 6%;
+    right: 6%;
+    top: 10%;
+    max-width: 90%;
+  }
+  .hero-content h1 {
+    font-size: 42px;
+  }
+  .car {
+    width: 105%;
+    bottom: 8%;
+  }
+  .demo-control-bar {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 34px;
+  }
+  .car {
+    width: 125%;
+    bottom: 12%;
+  }
+}
