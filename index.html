@@ -174,15 +174,52 @@
     </div>
   </div>
 
-  <!-- ==================== 1. HERO SECTION (100% Video Fit - Edge to Edge, Fully Shown, Zero Cropping, No Buttons) ==================== -->
+  <!-- ==================== 1. HERO SECTION (100% Video Fit with Centered Top Content & Soft Bottom Transition) ==================== -->
   <section id="hero-section" class="relative w-full bg-black overflow-hidden flex items-center justify-center">
+    
+    <!-- 1. Full 16:9 Background Video (100% Fully Shown, No Cropping) -->
     <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" 
            class="w-full h-auto block aspect-video object-contain mx-auto cursor-pointer">
       <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
+
+    <!-- 2. Simple Centered Text Content (Placed at the Top Center of Hero) -->
+    <div class="absolute top-6 sm:top-10 md:top-14 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-3xl mx-auto pointer-events-none">
+      
+      <!-- Minimalist Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#D6FF36]/40 backdrop-blur-md text-[11px] sm:text-xs font-black tracking-widest uppercase text-[#D6FF36] mb-3 shadow-xl">
+        <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
+        DOORSTEP CAR CARE & DETAILING
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+        Your Car Deserves a <span class="text-[#D6FF36] drop-shadow-[0_4px_24px_rgba(214,255,54,0.4)]">Better Shine.</span>
+      </h1>
+
+      <!-- Simple Subtitle -->
+      <p class="text-xs sm:text-sm md:text-base text-gray-200 font-medium mt-2 max-w-lg leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+        Professional mobile car washing delivered directly to your doorstep.
+      </p>
+
+      <!-- Clean Action CTAs -->
+      <div class="flex items-center justify-center gap-3 mt-4 pointer-events-auto">
+        <a href="customer/book-wash.html" class="btn-primary !h-[42px] px-6 text-xs sm:text-sm font-black shadow-xl glow-lime">
+          <span>Book a Wash</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+        </a>
+        <a href="#services" class="h-[42px] px-5 rounded-xl bg-black/60 hover:bg-black/80 text-white border border-white/30 backdrop-blur-md text-xs sm:text-sm font-bold inline-flex items-center justify-center hover:border-[#D6FF36] hover:text-[#D6FF36] transition-all shadow-lg">
+          <span>Explore Services</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- 3. Soft Bottom Edge Feather (Reduces sharp transition into Section 2) -->
+    <div class="absolute inset-x-0 bottom-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-white dark:from-[#1A232C] via-white/40 dark:via-[#1A232C]/40 to-transparent pointer-events-none z-10"></div>
     
-    <!-- Cinematic Soundtrack (Original Video Audio is Permanently OFF) -->
+    <!-- 4. Cinematic Soundtrack (Original Video Audio is Permanently OFF) -->
     <audio id="hero-bg-audio" loop preload="auto">
       <source src="assets/audio/hero-soundtrack.mp3" type="audio/mpeg">
       <source src="assets/audio/8-second_cinematic_l_#4-1793714937989.mp3" type="audio/mpeg">
@@ -190,7 +227,7 @@
   </section>
 
   <!-- ==================== 2. OUR SERVICES (4 Core Services with Images) ==================== -->
-  <section id="services" class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+  <section id="services" class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
