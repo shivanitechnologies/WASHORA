@@ -35,6 +35,29 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    /* 3-Second Delayed Entrance for Hero Text Content */
+    @keyframes heroTextReveal3s {
+      0% {
+        opacity: 0;
+        transform: translateY(-14px);
+        visibility: hidden;
+      }
+      1% {
+        visibility: visible;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+    }
+    .hero-enter-3s {
+      opacity: 0;
+      visibility: hidden;
+      animation: heroTextReveal3s 1s cubic-bezier(0.16, 1, 0.3, 1) 3s forwards;
+    }
+  </style>
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
 
@@ -184,32 +207,26 @@
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
 
-    <!-- 2. Simple Centered Text Content (Placed at the Top Center of Hero) -->
-    <div class="absolute top-6 sm:top-10 md:top-14 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-3xl mx-auto pointer-events-none">
+    <!-- 2. Simple Centered Text Content (Enters after 3s delay, Smaller Refined Typography, No Badge) -->
+    <div id="hero-center-content" class="hero-enter-3s absolute top-5 sm:top-8 md:top-12 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-2xl mx-auto pointer-events-none">
       
-      <!-- Minimalist Pill Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#D6FF36]/40 backdrop-blur-md text-[11px] sm:text-xs font-black tracking-widest uppercase text-[#D6FF36] mb-3 shadow-xl">
-        <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
-        DOORSTEP CAR CARE & DETAILING
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-        Your Car Deserves a <span class="text-[#D6FF36] drop-shadow-[0_4px_24px_rgba(214,255,54,0.4)]">Better Shine.</span>
+      <!-- Main Headline (Decreased Size) -->
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading tracking-tight text-white leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+        Your Car Deserves a <span class="text-[#D6FF36] drop-shadow-[0_4px_20px_rgba(214,255,54,0.4)]">Better Shine.</span>
       </h1>
 
-      <!-- Simple Subtitle -->
-      <p class="text-xs sm:text-sm md:text-base text-gray-200 font-medium mt-2 max-w-lg leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+      <!-- Simple Subtitle (Decreased Size) -->
+      <p class="text-xs sm:text-sm text-gray-200 font-medium mt-1.5 max-w-md leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
         Professional mobile car washing delivered directly to your doorstep.
       </p>
 
-      <!-- Clean Action CTAs -->
-      <div class="flex items-center justify-center gap-3 mt-4 pointer-events-auto">
-        <a href="customer/book-wash.html" class="btn-primary !h-[42px] px-6 text-xs sm:text-sm font-black shadow-xl glow-lime">
+      <!-- Clean Action CTAs (Compact Sizing) -->
+      <div class="flex items-center justify-center gap-3 mt-3.5 pointer-events-auto">
+        <a href="customer/book-wash.html" class="btn-primary !h-[38px] px-5 text-xs font-black shadow-xl glow-lime">
           <span>Book a Wash</span>
-          <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
         </a>
-        <a href="#services" class="h-[42px] px-5 rounded-xl bg-black/60 hover:bg-black/80 text-white border border-white/30 backdrop-blur-md text-xs sm:text-sm font-bold inline-flex items-center justify-center hover:border-[#D6FF36] hover:text-[#D6FF36] transition-all shadow-lg">
+        <a href="#services" class="h-[38px] px-4 rounded-xl bg-black/60 hover:bg-black/80 text-white border border-white/30 backdrop-blur-md text-xs font-bold inline-flex items-center justify-center hover:border-[#D6FF36] hover:text-[#D6FF36] transition-all shadow-md">
           <span>Explore Services</span>
         </a>
       </div>
@@ -899,6 +916,19 @@
             if (audio) audio.pause();
           }
         });
+
+        // 4. Ensure hero text enters at 3 seconds of video playback
+        const heroContent = document.getElementById('hero-center-content');
+        if (heroContent) {
+          video.addEventListener('timeupdate', function onTime() {
+            if (video.currentTime >= 3.0) {
+              heroContent.style.visibility = 'visible';
+              heroContent.style.opacity = '1';
+              heroContent.style.transform = 'translateY(0)';
+              video.removeEventListener('timeupdate', onTime);
+            }
+          });
+        }
       }
     })();
   </script>

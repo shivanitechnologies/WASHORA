@@ -55,3 +55,26 @@
   box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(214, 255, 54, 0.2);
 }
 
+/* Hero Text 3-second Delayed Entrance */
+@keyframes heroTextReveal3s {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+    visibility: hidden;
+  }
+  1% {
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+.hero-enter-3s {
+  opacity: 0;
+  visibility: hidden;
+  animation: heroTextReveal3s 1s cubic-bezier(0.16, 1, 0.3, 1) 3s forwards;
+}
+
