@@ -189,7 +189,7 @@
         <label onclick="chosenTechId = '${t.id}'" class="p-4 rounded-2xl border-2 ${t.id === chosenTechId ? 'border-[#D6FF36] bg-[#101820] text-white' : 'border-gray-200 dark:border-[#252E35] bg-[#F5F6F3] dark:bg-[#101820] text-gray-900 dark:text-white'} flex items-center justify-between gap-4 cursor-pointer transition-all">
           <div class="flex items-center gap-3">
             <input type="radio" name="tech-radio" value="${t.id}" ${t.id === chosenTechId ? 'checked' : ''} class="hidden">
-            <img src="${t.avatar}" alt="${t.name}" class="w-12 h-12 rounded-xl object-cover border border-[#252E35]">
+            <img src="${t.avatar}" alt="${t.name}" class="w-12 h-12 aspect-square rounded-xl object-cover object-center border border-[#252E35] flex-shrink-0 shadow-sm">
             <div>
               <h4 class="font-bold text-xs">${t.name}</h4>
               <p class="text-[11px] text-gray-400">Van: <span class="font-mono text-[#D6FF36]">${t.vanNumber}</span> · ${t.currentLocation}</p>

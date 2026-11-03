@@ -279,6 +279,39 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   border-color: rgba(214, 255, 54, 0.3);
 }
 
+/* Global Image Fitting & Edge Polish */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Force hardware-accelerated rounded clipping on WebKit / Chromium */
+[class*="rounded-"].overflow-hidden,
+.rounded-2xl.overflow-hidden,
+.rounded-3xl.overflow-hidden {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  isolation: isolate;
+}
+
+[class*="rounded-"].overflow-hidden > img,
+[class*="rounded-"] > .overflow-hidden > img {
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Person Avatar Images - Always Perfectly Circular & Crisp */
+.avatar-img {
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 9999px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  flex-shrink: 0 !important;
+  border: 2px solid #D6FF36;
+}
+
 /* Modal styles */
 .modal-backdrop {
   backdrop-filter: blur(8px);
