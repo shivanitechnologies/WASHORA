@@ -141,17 +141,19 @@
     </div>
   </div>
 
-  <!-- Header & Category Filter -->
-  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="badge-lime uppercase tracking-widest text-xs mb-3">Knowledge & Care Tips</div>
-      <h1 class="text-4xl sm:text-5xl font-black font-heading">The Detailing Journal</h1>
-      <p class="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto mt-3">
-        Expert insights on paint preservation, swirl elimination, and keeping your car pristine in Indian weather.
+  <!-- SECTION 1: HERO (Car Care Tips & Expert Advice Banner) -->
+  <section class="py-20 bg-gradient-to-b from-white to-[#F5F6F3] dark:from-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35] text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="badge-lime uppercase tracking-widest text-xs mb-3">Knowledge & Care Hub</div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight">
+        Car Care Tips & Expert Advice
+      </h1>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
+        Master detailing secrets, paint preservation strategies, and easy maintenance habits to keep your car looking showroom new.
       </p>
 
       <!-- Category Filter Pills & Search Input -->
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-3xl mx-auto">
         <div class="flex flex-wrap items-center justify-center gap-2">
           <button onclick="filterBlog('all')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-[#101820] text-[#D6FF36] dark:bg-[#252E35]">All Posts</button>
           <button onclick="filterBlog('maintenance')" class="cat-pill px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:text-white hover:bg-[#252E35] transition-colors">Maintenance</button>
@@ -161,31 +163,82 @@
 
         <div class="relative w-full sm:w-64">
           <input type="text" id="blog-search" oninput="searchBlog(event)" placeholder="Search articles..." 
-                 class="w-full h-10 pl-9 pr-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-medium outline-none focus:border-[#D6FF36]">
-          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                 class="w-full h-11 pl-10 pr-3 rounded-xl bg-white dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-medium outline-none focus:border-[#D6FF36]">
+          <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Editorial Blog Grid -->
-  <section class="py-20">
+  <!-- SECTION 2: FEATURED ARTICLE (Most Important / Newest Lead Story) -->
+  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36]/40 shadow-2xl relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4 text-left">
+            <div class="flex items-center gap-3">
+              <span class="badge-lime text-xs font-black uppercase tracking-wider">Featured Story</span>
+              <span class="text-xs text-gray-400">Nov 2, 2026 · 6 min read</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading leading-tight">
+              <a href="blog-details.html?post=featured" class="hover:text-[#D6FF36] transition-colors">
+                Why Doorstep Snow Foam Washes Protect Paint 3x Longer Than Local Street Washes
+              </a>
+            </h2>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
+              Street washing with sandy buckets and dirty rags creates micro-scratches called swirl marks. Learn how pH-neutral active foam encapsulates grit before a single wash mitt touches your clear coat.
+            </p>
+            <div class="pt-2 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Ramesh Kumar" class="w-10 h-10 rounded-full object-cover border border-[#D6FF36]">
+                <div>
+                  <h4 class="text-xs font-bold">Ramesh Kumar</h4>
+                  <span class="text-[10px] text-gray-400">Head of Master Detailing</span>
+                </div>
+              </div>
+              <a href="blog-details.html?post=featured" class="btn-primary !h-10 text-xs font-bold px-5">
+                <span>Read Full Article</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden border border-[#2F3B44] shadow-lg">
+              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=700&q=80" 
+                   alt="Foam Washing Technique" class="w-full h-64 sm:h-72 object-cover">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LATEST ARTICLES (Grid of Recent Posts) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="badge-lime uppercase tracking-widest text-xs mb-2">Recent Insights</div>
+          <h2 class="text-3xl font-extrabold font-heading">Latest Articles</h2>
+        </div>
+        <p class="text-xs text-gray-500 max-w-sm">Weekly expert detailing write-ups for automobile enthusiasts and car owners.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="blog-grid">
         
-        <!-- Article 1 -->
+        <!-- Post 1 -->
         <article class="blog-card bg-white dark:bg-[#1A232C] rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow" data-category="maintenance">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=700&q=80" alt="Car Wash Frequency" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 badge-lime">Maintenance</span>
+            <div class="relative h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80" alt="Car Wash Frequency" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">Maintenance</span>
             </div>
             <div class="p-6">
-              <div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
-                <span>Nov 1, 2026</span> • <span>4 min read</span>
-              </div>
-              <h3 class="text-xl font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
+              <div class="text-xs text-gray-400 mb-2">Nov 1, 2026 · 4 min read</div>
+              <h3 class="text-lg font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
                 <a href="blog-details.html?post=1">How Often Should You Wash Your Car in Indian Weather?</a>
               </h3>
               <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
@@ -196,24 +249,22 @@
           <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-[#252E35]">
             <span class="text-xs font-bold text-gray-400">By Ramesh Kumar</span>
             <a href="blog-details.html?post=1" class="text-xs font-bold text-[#D6FF36] flex items-center gap-1 hover:underline">
-              Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+              Read <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
             </a>
           </div>
         </article>
 
-        <!-- Article 2 -->
+        <!-- Post 2 -->
         <article class="blog-card bg-white dark:bg-[#1A232C] rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow" data-category="interior">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=700&q=80" alt="Interior Maintenance" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 badge-lime">Interior</span>
+            <div class="relative h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=600&q=80" alt="Interior Maintenance" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">Interior</span>
             </div>
             <div class="p-6">
-              <div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
-                <span>Oct 28, 2026</span> • <span>5 min read</span>
-              </div>
-              <h3 class="text-xl font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
-                <a href="blog-details.html?post=2">5 Proven Tips to Maintain Your Car Interior Like Showroom New</a>
+              <div class="text-xs text-gray-400 mb-2">Oct 28, 2026 · 5 min read</div>
+              <h3 class="text-lg font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
+                <a href="blog-details.html?post=2">5 Proven Tips to Maintain Your Interior Like Showroom New</a>
               </h3>
               <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
                 Leather conditioning, AC vent steam sanitization, and UV dashboard protection secrets to eliminate foul odours and sun cracks.
@@ -223,23 +274,21 @@
           <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-[#252E35]">
             <span class="text-xs font-bold text-gray-400">By Suresh V.</span>
             <a href="blog-details.html?post=2" class="text-xs font-bold text-[#D6FF36] flex items-center gap-1 hover:underline">
-              Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+              Read <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
             </a>
           </div>
         </article>
 
-        <!-- Article 3 -->
+        <!-- Post 3 -->
         <article class="blog-card bg-white dark:bg-[#1A232C] rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow" data-category="paint">
           <div>
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=700&q=80" alt="Car Polishing" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 badge-lime">Paint Care</span>
+            <div class="relative h-52 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=600&q=80" alt="Car Polishing" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">Paint Care</span>
             </div>
             <div class="p-6">
-              <div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
-                <span>Oct 20, 2026</span> • <span>6 min read</span>
-              </div>
-              <h3 class="text-xl font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
+              <div class="text-xs text-gray-400 mb-2">Oct 20, 2026 · 6 min read</div>
+              <h3 class="text-lg font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
                 <a href="blog-details.html?post=3">Why Machine Car Polishing Is Essential for Swirl Removal</a>
               </h3>
               <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
@@ -250,65 +299,291 @@
           <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-[#252E35]">
             <span class="text-xs font-bold text-gray-400">By Rajesh M.</span>
             <a href="blog-details.html?post=3" class="text-xs font-bold text-[#D6FF36] flex items-center gap-1 hover:underline">
-              Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+              Read <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
             </a>
           </div>
         </article>
 
-        <!-- Article 4 -->
-        <article class="blog-card bg-white dark:bg-[#1A232C] rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow" data-category="maintenance">
-          <div>
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=700&q=80" alt="Wash vs Detailing" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 badge-lime">Guides</span>
-            </div>
-            <div class="p-6">
-              <div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
-                <span>Oct 14, 2026</span> • <span>4 min read</span>
-              </div>
-              <h3 class="text-xl font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
-                <a href="blog-details.html?post=4">Exterior Wash vs Full Detailing: Which Does Your Car Need?</a>
-              </h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
-                A simple guide comparing maintenance foam washing with deep corrective detailing so you never pay for services you don’t need.
-              </p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-[#252E35]">
-            <span class="text-xs font-bold text-gray-400">By Ramesh Kumar</span>
-            <a href="blog-details.html?post=4" class="text-xs font-bold text-[#D6FF36] flex items-center gap-1 hover:underline">
-              Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
-            </a>
-          </div>
-        </article>
+      </div>
+    </div>
+  </section>
 
-        <!-- Article 5 -->
-        <article class="blog-card bg-white dark:bg-[#1A232C] rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow" data-category="paint">
-          <div>
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=700&q=80" alt="Ceramic Paint Protection" class="w-full h-full object-cover">
-              <span class="absolute top-4 left-4 badge-lime">Paint Care</span>
-            </div>
-            <div class="p-6">
-              <div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
-                <span>Oct 05, 2026</span> • <span>7 min read</span>
-              </div>
-              <h3 class="text-xl font-bold font-heading mb-2 hover:text-[#D6FF36] transition-colors">
-                <a href="blog-details.html?post=5">How to Protect Your Car Paint Against Bird Droppings & Hard Water</a>
-              </h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">
-                Why chemical acid etching happens in less than 48 hours and how hydrophobic ceramic coatings create a sacrificial shield.
-              </p>
-            </div>
-          </div>
-          <div class="p-6 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-[#252E35]">
-            <span class="text-xs font-bold text-gray-400">By Rajesh M.</span>
-            <a href="blog-details.html?post=5" class="text-xs font-bold text-[#D6FF36] flex items-center gap-1 hover:underline">
-              Read Article <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
-            </a>
-          </div>
-        </article>
+  <!-- SECTION 4: CAR CLEANING TIPS (Practical Maintenance Cards with Images) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">DIY Care Secrets</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Pro Car Cleaning Tips</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Small habits that keep your car immaculate between professional doorstep detailing visits.
+        </p>
+      </div>
 
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4 card-hover-glow">
+          <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="bucket" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold font-heading">Use Two Buckets</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            Always rinse your mitt in a fresh water bucket before re-dipping into soapy water. This traps sand at the bottom and prevents scratch swirls.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4 card-hover-glow">
+          <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold font-heading">Microfiber Towel Rules</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            Never wash microfiber towels with fabric softener, as it clogs the microscopic split fibers and destroys their water-absorption capacity.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4 card-hover-glow">
+          <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="droplet" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold font-heading">Avoid Dish Soaps</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            Household dishwashing liquid contains aggressive degreasers that strip carnauba wax and dry out clear coat resins. Use pH-neutral automotive shampoo.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4 card-hover-glow">
+          <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="sun" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold font-heading">Never Wash in Direct Sun</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            Sunlight evaporates water drops rapidly, leaving concentrated mineral and calcium deposits that bake into clear coat etch marks.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DETAILING GUIDES (Step-by-Step Advice Cards) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">In-Depth Tutorials</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Comprehensive Detailing Guides</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Step-by-step master breakdowns of professional automotive reconditioning techniques.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Guide 1 -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div class="space-y-4">
+            <span class="badge-lime text-[10px]">Intermediate Guide</span>
+            <h3 class="text-xl font-bold font-heading">Machine Polishing 101: Eliminating Swirls & Haze</h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Learn how dual-action random orbital polishers safely level microscopic clear coat imperfections without burning through automotive paint edges.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-gray-100 dark:border-[#252E35] mt-6 flex justify-between items-center text-xs">
+            <span class="text-gray-400">8 Step Checklist</span>
+            <a href="blog-details.html?guide=polishing" class="font-bold text-[#D6FF36] hover:underline">Read Guide →</a>
+          </div>
+        </div>
+
+        <!-- Guide 2 -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div class="space-y-4">
+            <span class="badge-lime text-[10px]">Master Guide</span>
+            <h3 class="text-xl font-bold font-heading">9H Ceramic Shield: How Nanotechnology Bonds to Paint</h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Silicon dioxide (SiO2) crystal lattices cure into a permanent sacrificial glass layer that deflects acid rain, bird lime, and intense UV rays.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-gray-100 dark:border-[#252E35] mt-6 flex justify-between items-center text-xs">
+            <span class="text-gray-400">12 Step Checklist</span>
+            <a href="blog-details.html?guide=ceramic" class="font-bold text-[#D6FF36] hover:underline">Read Guide →</a>
+          </div>
+        </div>
+
+        <!-- Guide 3 -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div class="space-y-4">
+            <span class="badge-lime text-[10px]">Safety Guide</span>
+            <h3 class="text-xl font-bold font-heading">Engine Bay Steam Detailing: What to Cover & How to Clean</h3>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              How to safely de-grease alternator connectors, battery terminals, and plastic intake manifolds with dry vapor steam without electrical faults.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-gray-100 dark:border-[#252E35] mt-6 flex justify-between items-center text-xs">
+            <span class="text-gray-400">6 Step Checklist</span>
+            <a href="blog-details.html?guide=engine" class="font-bold text-[#D6FF36] hover:underline">Read Guide →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SEASONAL CAR CARE (Summer, Monsoon, Winter Care Cards) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Climate Protection</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Seasonal Car Care in Chennai</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          How to protect your vehicle against extreme coastal heat, torrential monsoon humidity, and winter morning fog.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Summer -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
+            <i data-lucide="sun" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading">Summer Heat & UV Defense</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Chennai summer temperatures can push dashboard surface heat past 65°C. Apply weekly UV vinyl conditioner to avoid dashboard cracking and ceramic wax to prevent clear coat chalking.
+          </p>
+          <ul class="space-y-1.5 text-xs text-gray-500">
+            <li>• Use reflective windshield sunshades</li>
+            <li>• Apply leather moisturizing conditioner</li>
+            <li>• Check coolant and wiper fluid levels</li>
+          </ul>
+        </div>
+
+        <!-- Monsoon -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold">
+            <i data-lucide="cloud-rain" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading">Monsoon Anti-Rust & Mud Care</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Puddle water carries industrial runoff and salt. Regular high-pressure underbody washes prevent rust corrosion, while hydrophobic glass coatings maintain 100% windshield vision during heavy downpours.
+          </p>
+          <ul class="space-y-1.5 text-xs text-gray-500">
+            <li>• Apply rain-repellent windshield coating</li>
+            <li>• Bi-weekly undercarriage mud flushing</li>
+            <li>• Steam clean AC cabin filters to kill damp mold</li>
+          </ul>
+        </div>
+
+        <!-- Winter -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+            <i data-lucide="cloud-fog" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading">Winter Morning Dew & Clarity</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Morning condensation collects air pollution particles that stick to paint. Wipe down morning dew with plush microfiber mitts and restore yellowed headlight lenses for crisp night and fog visibility.
+          </p>
+          <ul class="space-y-1.5 text-xs text-gray-500">
+            <li>• Headlight UV de-oxidation treatment</li>
+            <li>• Interior anti-fog glass treatment</li>
+            <li>• Tyre pressure calibration for cold tarmac</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: POPULAR ARTICLES (Ranked Most Read Articles) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Community Favorites</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Most Read Articles</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">The top detailing tutorials bookmarked by our registered car owners.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <a href="blog-details.html?post=5" class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-center justify-between gap-4 card-hover-glow block">
+          <div class="flex items-center gap-4">
+            <span class="text-3xl font-black font-heading text-gray-300 dark:text-gray-600">01</span>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-[#D6FF36] transition-colors">
+                How Ceramic Coating Stops Bird Dropping Acid Etching in Under 48 Hours
+              </h4>
+              <span class="text-xs text-gray-400">14.2k reads · Paint Care</span>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 rtl:rotate-180 flex-shrink-0"></i>
+        </a>
+
+        <a href="blog-details.html?post=4" class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-center justify-between gap-4 card-hover-glow block">
+          <div class="flex items-center gap-4">
+            <span class="text-3xl font-black font-heading text-gray-300 dark:text-gray-600">02</span>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-[#D6FF36] transition-colors">
+                Exterior Wash vs Full Detailing: Which Does Your Car Truly Need?
+              </h4>
+              <span class="text-xs text-gray-400">11.8k reads · Guides</span>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 rtl:rotate-180 flex-shrink-0"></i>
+        </a>
+
+        <a href="blog-details.html?post=2" class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-center justify-between gap-4 card-hover-glow block">
+          <div class="flex items-center gap-4">
+            <span class="text-3xl font-black font-heading text-gray-300 dark:text-gray-600">03</span>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-[#D6FF36] transition-colors">
+                Hard Water Spots: How Mineral Scale Bonds and How to Dissolve It
+              </h4>
+              <span class="text-xs text-gray-400">9.5k reads · Maintenance</span>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 rtl:rotate-180 flex-shrink-0"></i>
+        </a>
+
+        <a href="blog-details.html?post=3" class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-center justify-between gap-4 card-hover-glow block">
+          <div class="flex items-center gap-4">
+            <span class="text-3xl font-black font-heading text-gray-300 dark:text-gray-600">04</span>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 dark:text-white hover:text-[#D6FF36] transition-colors">
+                Leather Seat Care: pH Balancing & Preventing Deep Creasing
+              </h4>
+              <span class="text-xs text-gray-400">8.1k reads · Interior</span>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 rtl:rotate-180 flex-shrink-0"></i>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: NEWSLETTER (Subscribe for Car Care Tips) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-10 sm:p-14 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <div class="w-12 h-12 rounded-2xl bg-[#252E35] text-[#D6FF36] flex items-center justify-center mx-auto">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">
+            Subscribe for Weekly Detailing Wisdom
+          </h2>
+          <p class="text-sm sm:text-base text-gray-300">
+            Get practical paint protection guides, doorstep discounts, and seasonal maintenance checklists sent straight to your inbox.
+          </p>
+
+          <form onsubmit="handleNewsletter(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+            <input type="email" id="newsletter-email" required placeholder="Enter your email address" 
+                   class="flex-1 h-12 px-4 rounded-xl bg-[#252E35] border border-[#35424D] text-white text-sm outline-none focus:border-[#D6FF36]">
+            <button type="submit" class="btn-primary !h-12 px-6 text-xs font-bold whitespace-nowrap glow-lime-sm">
+              <span>Subscribe Free</span>
+            </button>
+          </form>
+          <div id="newsletter-toast" class="text-xs font-bold text-[#D6FF36] hidden"></div>
+          <p class="text-[11px] text-gray-500">We respect your inbox. No spam, ever. Unsubscribe anytime with 1 click.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -401,7 +676,15 @@
         }
       });
     }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const toast = document.getElementById('newsletter-toast');
+      const email = document.getElementById('newsletter-email').value;
+      toast.textContent = `Thank you! ${email} has been subscribed to CAR SHINE Detailing Weekly.`;
+      toast.classList.remove('hidden');
+      document.getElementById('newsletter-email').value = '';
+    }
   </script>
 </body>
 </html>
-

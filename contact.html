@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | CAR SHINE – Doorstep Car Detailing Chennai</title>
-  <meta name="description" content="Get in touch with CAR SHINE customer concierge. Doorstep service enquiries, enterprise fleet detailing, or custom bookings.">
+  <title>Contact Us | CAR SHINE – Doorstep Car Detailing Concierge</title>
+  <meta name="description" content="Get in touch with CAR SHINE customer concierge. Doorstep service enquiries, enterprise fleet detailing, or custom bookings in Chennai.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,6 +28,11 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Leaflet CSS & JS for Interactive Location Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
 </head>
@@ -141,130 +146,49 @@
     </div>
   </div>
 
-  <!-- Header Section -->
-  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35] text-center">
+  <!-- SECTION 1: HERO (We're Here to Help) -->
+  <section class="relative py-20 bg-gradient-to-b from-white to-[#F5F6F3] dark:from-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="badge-lime uppercase tracking-widest text-xs mb-3">Get in Touch</div>
-      <h1 class="text-4xl sm:text-5xl font-black font-heading">We’re Here for Your Car</h1>
-      <p class="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto mt-3">
-        Have a question about our services, corporate fleet contracts, or custom detailing appointments? Send us a message or reach out directly.
-      </p>
-    </div>
-  </section>
-
-  <!-- Main Contact Section -->
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Left: Contact Details & Direct Channels -->
-        <div class="lg:col-span-5 space-y-6">
-          <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-lg space-y-6">
-            <h3 class="text-2xl font-bold font-heading">Direct Channels</h3>
-            
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="phone" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Call Us</h4>
-                  <a href="tel:+919840123456" class="text-sm font-extrabold text-gray-900 dark:text-white hover:text-[#D6FF36] block mt-0.5">
-                    +91 98401 23456
-                  </a>
-                  <span class="text-xs text-gray-500">Mon - Sun: 7:00 AM - 8:00 PM</span>
-                </div>
-              </div>
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <div class="inline-flex items-center gap-2 badge-lime uppercase tracking-widest text-xs font-black">
+            <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+            <span>Doorstep Support Concierge · 7 Days a Week</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight">
+            We’re Here to Help. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-[#101820] to-gray-600 dark:from-white dark:via-gray-200 dark:to-gray-400">Your Car Deserves the Best.</span>
+          </h1>
+          <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            Have questions about doorstep service slots, custom paint protection packages, or corporate fleet contracts? Our team responds within 2 hours.
+          </p>
 
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="mail" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Email Support</h4>
-                  <a href="mailto:support@carshine.com" class="text-sm font-extrabold text-gray-900 dark:text-white hover:text-[#D6FF36] block mt-0.5">
-                    support@carshine.com
-                  </a>
-                  <span class="text-xs text-gray-500">Fast 2-hour response window</span>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="map-pin" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Headquarters & Fleet Hub</h4>
-                  <p class="text-sm font-extrabold text-gray-900 dark:text-white mt-0.5">
-                    12B Nelson Manickam Road, Aminjikarai, Chennai, Tamil Nadu - 600029
-                  </p>
-                  <span class="text-xs text-gray-500">Central Dispatch & Logistics Centre</span>
-                </div>
-              </div>
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="phone-call" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Instant Call Connect</span>
             </div>
-
-            <!-- WhatsApp Direct Action Button -->
-            <div class="pt-4 border-t border-gray-100 dark:border-[#252E35]">
-              <a href="https://wa.me/919840123456?text=Hello%20CAR%20SHINE!%20I%20would%20like%20to%20inquire%20about%20doorstep%20car%20detailing." 
-                 target="_blank"
-                 class="w-full h-12 rounded-xl bg-[#25D366] text-white font-bold text-sm flex items-center justify-center gap-2 hover:brightness-110 shadow-md transition-all">
-                <i data-lucide="message-square" class="w-5 h-5"></i>
-                <span>Chat Instantly on WhatsApp</span>
-              </a>
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="message-square" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>WhatsApp Concierge</span>
             </div>
-
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="shield" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>100% Satisfaction Backed</span>
+            </div>
           </div>
         </div>
 
-        <!-- Right: Interactive Contact Form -->
-        <div class="lg:col-span-7">
-          <div class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl">
-            <h3 class="text-2xl font-bold font-heading mb-2">Send an Enquiry</h3>
-            <p class="text-xs text-gray-500 mb-8">Fill in your requirements below and our team will get back to you shortly.</p>
-
-            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Full Name *</label>
-                  <input type="text" id="contact-name" required placeholder="e.g. Pravin Kumar" 
-                         class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
-                </div>
-                <div>
-                  <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Email Address *</label>
-                  <input type="email" id="contact-email" required placeholder="e.g. pravin@example.com" 
-                         class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Phone Number *</label>
-                  <input type="tel" id="contact-phone" required placeholder="e.g. +91 98401 23456" 
-                         class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
-                </div>
-                <div>
-                  <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Subject</label>
-                  <select id="contact-subject" class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
-                    <option value="General Doorstep Service Enquiry">General Doorstep Service Enquiry</option>
-                    <option value="Monthly Subscription Question">Monthly Subscription Question</option>
-                    <option value="Commercial / Fleet Wash Booking">Commercial / Fleet Wash Booking</option>
-                    <option value="Service Area Expansion Request">Service Area Expansion Request</option>
-                    <option value="Feedback or Complaint">Feedback or Complaint</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Your Message *</label>
-                <textarea id="contact-message" required rows="4" placeholder="Tell us about your vehicle model, preferred location in Chennai, and any special requests..." 
-                          class="w-full p-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]"></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary w-full !h-12 text-sm font-bold">
-                <i data-lucide="send" class="w-4 h-4"></i>
-                <span>Submit Message</span>
-              </button>
-            </form>
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-[#252E35]">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" 
+                 alt="Doorstep Detailing Support" class="w-full h-[360px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+              <span class="badge-lime text-[11px] self-start mb-2">Central Dispatch</span>
+              <h3 class="text-lg font-bold">Fast Fleet Turnaround</h3>
+              <p class="text-xs text-gray-300 mt-1">Dedicated dispatch controllers coordinate technician routing across Chennai.</p>
+            </div>
           </div>
         </div>
 
@@ -272,16 +196,236 @@
     </div>
   </section>
 
-  <!-- FAQ Accordion Section -->
-  <section class="py-20 bg-white dark:bg-[#1A232C] border-t border-gray-200 dark:border-[#252E35]">
+  <!-- SECTION 2: CONTACT INFORMATION (4 Info Cards) -->
+  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Info 1: Phone -->
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-3 card-hover-glow">
+          <div class="w-12 h-12 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Call Dispatch</h4>
+            <a href="tel:+919840123456" class="text-base font-extrabold text-gray-900 dark:text-white hover:text-[#D6FF36] block mt-1">
+              +91 98401 23456
+            </a>
+            <span class="text-xs text-gray-500 mt-1 block">Toll-free customer hotline</span>
+          </div>
+        </div>
+
+        <!-- Info 2: Email -->
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-3 card-hover-glow">
+          <div class="w-12 h-12 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Email Concierge</h4>
+            <a href="mailto:support@carshine.com" class="text-base font-extrabold text-gray-900 dark:text-white hover:text-[#D6FF36] block mt-1">
+              support@carshine.com
+            </a>
+            <span class="text-xs text-gray-500 mt-1 block">Guaranteed 2-hr response</span>
+          </div>
+        </div>
+
+        <!-- Info 3: Address -->
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-3 card-hover-glow">
+          <div class="w-12 h-12 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">Central Hub</h4>
+            <p class="text-sm font-extrabold text-gray-900 dark:text-white mt-1">
+              12B Nelson Manickam Rd
+            </p>
+            <span class="text-xs text-gray-500 mt-1 block">Aminjikarai, Chennai - 600029</span>
+          </div>
+        </div>
+
+        <!-- Info 4: WhatsApp -->
+        <div class="p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-3 card-hover-glow">
+          <div class="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center font-bold">
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold">WhatsApp Direct</h4>
+            <a href="https://wa.me/919840123456?text=Hi%20CAR%20SHINE,%20I%20want%20to%20book%20a%20doorstep%20wash" target="_blank" class="text-base font-extrabold text-[#25D366] hover:underline block mt-1">
+              Chat Instantly →
+            </a>
+            <span class="text-xs text-gray-500 mt-1 block">Live technician coordination</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SEND US A MESSAGE (Interactive Form) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="badge-lime uppercase tracking-widest text-xs mb-2">Common Questions</div>
-        <h2 class="text-3xl font-extrabold font-heading">Frequently Asked Questions</h2>
+      <div class="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <div class="badge-lime uppercase tracking-widest text-xs mb-2">Message Dispatch</div>
+          <h2 class="text-3xl font-extrabold font-heading">Send Us a Direct Message</h2>
+          <p class="text-xs sm:text-sm text-gray-500 mt-2">
+            Tell us about your vehicle model, preferred service date, or corporate fleet requirements.
+          </p>
+        </div>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Full Name *</label>
+              <input type="text" id="contact-name" required placeholder="e.g. Pravin Kumar" 
+                     class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Email Address *</label>
+              <input type="email" id="contact-email" required placeholder="e.g. pravin@example.com" 
+                     class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Phone Number *</label>
+              <input type="tel" id="contact-phone" required placeholder="e.g. +91 98401 23456" 
+                     class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Subject</label>
+              <select id="contact-subject" class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]">
+                <option value="General Doorstep Service Enquiry">General Doorstep Service Enquiry</option>
+                <option value="Monthly Subscription Question">Monthly Subscription Question</option>
+                <option value="Commercial / Fleet Wash Booking">Commercial / Fleet Wash Booking</option>
+                <option value="Service Area Expansion Request">Service Area Expansion Request</option>
+                <option value="Feedback or Complaint">Feedback or Complaint</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">Your Message *</label>
+            <textarea id="contact-message" required rows="4" placeholder="Tell us about your vehicle model, location in Chennai, and any special requests..." 
+                      class="w-full p-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36]"></textarea>
+          </div>
+
+          <div id="form-success-banner" class="hidden p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800 text-emerald-400 text-sm font-semibold text-center"></div>
+
+          <button type="submit" class="btn-primary w-full !h-12 text-sm font-bold glow-lime-sm">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Submit Message</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: OUR LOCATION (Where We Are Based with Interactive Map) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div class="badge-lime uppercase tracking-widest text-xs">Operations HQ</div>
+          <h2 class="text-3xl font-extrabold font-heading">Where We Are Based</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Our central logistics depot and detailing master studio is situated in Aminjikarai, strategically adjacent to Poonamallee High Road and Anna Nagar for instant cross-city dispatch.
+          </p>
+
+          <div class="space-y-3 text-xs">
+            <div class="flex items-center gap-3">
+              <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>5 mins from Shenoy Nagar Metro Station</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="truck" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>18 Custom Detailing Vans Stationed On-Site</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Walk-in Ceramic Coating Studio Available</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="p-3 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] shadow-xl">
+            <div id="contact-map" class="w-full h-80 rounded-2xl overflow-hidden z-10"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: BUSINESS HOURS (Working Days & Schedule Cards) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Operating Hours</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Working Days & Dispatch Timings</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Reliable doorstep service 365 days a year. Rain or shine, our vans roll out early and detail late.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-2 card-hover-glow">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Weekdays</span>
+          <h4 class="text-lg font-bold font-heading">Monday – Friday</h4>
+          <div class="text-2xl font-black font-heading text-gray-900 dark:text-white">7:00 AM – 8:00 PM</div>
+          <p class="text-xs text-gray-500">Early bird office & apartment slots</p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-2 card-hover-glow">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Saturday</span>
+          <h4 class="text-lg font-bold font-heading">Weekend Prime</h4>
+          <div class="text-2xl font-black font-heading text-gray-900 dark:text-white">7:00 AM – 8:30 PM</div>
+          <p class="text-xs text-gray-500">Popular family wash days</p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-2 card-hover-glow">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Sunday</span>
+          <h4 class="text-lg font-bold font-heading">Full Detailing Day</h4>
+          <div class="text-2xl font-black font-heading text-[#D6FF36]">6:30 AM – 9:00 PM</div>
+          <p class="text-xs text-gray-500">Full 360° deep detailing slots</p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-2 card-hover-glow">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Support</span>
+          <h4 class="text-lg font-bold font-heading">Online Concierge</h4>
+          <div class="text-2xl font-black font-heading text-gray-900 dark:text-white">24 / 7 Live</div>
+          <p class="text-xs text-gray-500">App booking & cancellation</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FREQUENTLY ASKED QUESTIONS (Accordion) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Instant Answers</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Support & Booking FAQs</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">Quick clarity on doorstep logistics and technician arrival.</p>
       </div>
 
       <div class="space-y-4">
         
+        <details class="p-6 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] group">
+          <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
+            <span>How do I give gate permission to the technician at my apartment?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+            When your booking is confirmed, you will receive your technician's name, phone number, and van registration plate number (e.g. TN 09 AZ 4521) in the app and via SMS. You can easily pre-approve entry on MyGate, NoBrokerHood, or ApnaComplex.
+          </p>
+        </details>
+
         <details class="p-6 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] group">
           <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
             <span>What happens if it rains during or right after my wash?</span>
@@ -304,14 +448,41 @@
 
         <details class="p-6 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] group">
           <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
-            <span>What payment methods are supported?</span>
+            <span>Can I pay with Cash or UPI after inspecting my vehicle?</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
           </summary>
           <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-            We support online payment at booking (UPI, Google Pay, Credit/Debit Cards, Net Banking) or Doorstep Pay upon job completion by scanning the technician’s QR code or paying cash.
+            Yes, absolutely. We support "Doorstep Pay." You only scan the technician’s QR code or hand over payment once you have inspected the paint shine and clean interior.
           </p>
         </details>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: NEED A CAR WASH? (Quick Booking CTA) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-10 sm:p-14 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <span class="badge-lime text-xs font-bold uppercase tracking-wider">Fast Chennai Dispatch</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">
+            Need a Car Wash Today?
+          </h2>
+          <p class="text-sm sm:text-base text-gray-300">
+            Book your doorstep slot now. Our equipped mobile rig will reach your driveway with reverse-osmosis deionized water and expert care.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="customer/book-wash.html" class="btn-primary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto glow-lime-sm">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Book Doorstep Wash Now</span>
+            </a>
+            <a href="tel:+919840123456" class="btn-secondary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>Call +91 98401 23456</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -374,6 +545,34 @@
   <script src="assets/js/rtl.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
+    function initContactMap() {
+      const hqCoords = [13.0694, 80.2186]; // Aminjikarai / Nelson Manickam Rd
+      const map = L.map('contact-map').setView(hqCoords, 14);
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+
+      const marker = L.circleMarker(hqCoords, {
+        radius: 12,
+        fillColor: '#D6FF36',
+        color: '#101820',
+        weight: 3,
+        opacity: 1,
+        fillOpacity: 1
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <div style="font-family: Inter, sans-serif; padding: 4px;">
+          <strong style="color: #101820; font-size: 13px;">CAR SHINE Central HQ</strong><br>
+          <span style="font-size: 11px; color: #555;">12B Nelson Manickam Road</span><br>
+          <span style="font-size: 11px; font-weight: bold; color: #16a34a;">● Main Operations Hub & Dispatch</span>
+        </div>
+      `).openPopup();
+    }
+
     function handleContactSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('contact-name').value;
@@ -384,10 +583,16 @@
 
       StorageService.addMessage({ name, email, phone, subject, message });
 
-      showToast('Thank you! Your message has been sent to our dispatch team.', 'success');
+      const banner = document.getElementById('form-success-banner');
+      banner.innerHTML = `✓ Thank you, <strong>${name}</strong>! Your message has been received. Our concierge will call or email you at <strong>${email}</strong> within 2 hours.`;
+      banner.classList.remove('hidden');
+
       document.getElementById('contact-form').reset();
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initContactMap();
+    });
   </script>
 </body>
 </html>
-

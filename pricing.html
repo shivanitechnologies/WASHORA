@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing & Plans | CAR SHINE – Transparent Doorstep Detailing</title>
-  <meta name="description" content="Clear, upfront pricing for one-time car wash packages and money-saving monthly wash subscriptions.">
+  <title>Pricing & Membership Plans | CAR SHINE – Transparent Doorstep Detailing</title>
+  <meta name="description" content="Clear, upfront pricing for one-time car wash packages and money-saving monthly car wash subscriptions in Chennai.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -141,107 +141,49 @@
     </div>
   </div>
 
-  <!-- Header Section -->
-  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35] text-center">
+  <!-- SECTION 1: HERO (Simple Pricing. Premium Car Care.) -->
+  <section class="relative py-20 bg-gradient-to-b from-white to-[#F5F6F3] dark:from-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35] overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="badge-lime uppercase tracking-widest text-xs mb-3">Clear & Upfront Rates</div>
-      <h1 class="text-4xl sm:text-5xl font-black font-heading">Pricing & Membership Plans</h1>
-      <p class="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto mt-3">
-        Choose single on-demand visits or save up to 35% with our hassle-free monthly recurring wash memberships.
-      </p>
-
-      <!-- Toggle Switch between One-Time and Subscription -->
-      <div class="mt-8 inline-flex items-center p-1.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
-        <button id="btn-tab-onetime" onclick="switchPricingTab('onetime')" class="px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#101820] text-[#D6FF36] dark:bg-[#252E35] shadow-sm transition-all">
-          Per Service (One-Time)
-        </button>
-        <button id="btn-tab-monthly" onclick="switchPricingTab('monthly')" class="px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-all flex items-center gap-1.5">
-          <span>Monthly Plans</span>
-          <span class="badge-lime !py-0.5 !px-1.5 text-[10px]">Save 35%</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAB 1: ONE-TIME PACKAGES -->
-  <section id="pricing-onetime" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Package 1: Basic Wash -->
-        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
-          <div>
-            <span class="text-xs font-black tracking-widest text-gray-400 uppercase">01. Essential</span>
-            <h3 class="text-2xl font-bold font-heading mt-2">Basic Wash</h3>
-            <div class="my-6">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-black font-heading">₹499</span>
-                <span class="text-xs text-gray-500">/ per service</span>
-              </div>
-              <p class="text-xs text-gray-500 mt-1">Example price for Hatchback / Sedan</p>
-            </div>
-            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Exterior body wash</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Wheel cleaning</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Window cleaning</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Basic drying</li>
-            </ul>
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <div class="inline-flex items-center gap-2 badge-lime uppercase tracking-widest text-xs font-black">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>No Hidden Costs · Transparent Billing</span>
           </div>
-          <div class="pt-8">
-            <a href="customer/book-wash.html?plan=basic" class="btn-secondary w-full text-sm">Choose Basic</a>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight">
+            Simple Pricing. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-[#101820] to-gray-600 dark:from-white dark:via-gray-200 dark:to-gray-400">Premium Car Care.</span>
+          </h1>
+          <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            Choose pay-as-you-go single visits or subscribe to our flexible monthly plans and save up to 35%. Complete doorstep care with zero apartment water or power needed.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Free Cancellation</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Unused Washes Rollover</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>24hr Rain Guarantee</span>
+            </div>
           </div>
         </div>
 
-        <!-- Package 2: Premium Wash (Most Popular Highlighted) -->
-        <div class="p-8 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] flex flex-col justify-between relative shadow-2xl scale-105 z-10">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D6FF36] text-[#101820] text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
-            MOST POPULAR
-          </div>
-          <div>
-            <span class="text-xs font-black tracking-widest text-[#D6FF36] uppercase">02. Recommended</span>
-            <h3 class="text-2xl font-bold font-heading mt-2">Premium Wash</h3>
-            <div class="my-6">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-black font-heading text-[#D6FF36]">₹999</span>
-                <span class="text-xs text-gray-400">/ per service</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Complete interior vacuum & exterior gloss</p>
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-[#252E35]">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
+                 alt="Glossy Car Finish" class="w-full h-[360px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+              <span class="badge-lime text-[11px] self-start mb-2">Showroom Mirror Finish</span>
+              <h3 class="text-lg font-bold">Guaranteed Swirl-Free Washing</h3>
+              <p class="text-xs text-gray-300 mt-1">Every visit uses pH-neutral German snow foam and fresh microfiber mitts.</p>
             </div>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Exterior wash</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Interior vacuum</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Dashboard cleaning</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Tyre polishing</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Interior fragrance</li>
-            </ul>
-          </div>
-          <div class="pt-8">
-            <a href="customer/book-wash.html?plan=premium" class="btn-primary w-full text-sm font-bold">Choose Premium</a>
-          </div>
-        </div>
-
-        <!-- Package 3: Full Detailing -->
-        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
-          <div>
-            <span class="text-xs font-black tracking-widest text-gray-400 uppercase">03. Master Studio</span>
-            <h3 class="text-2xl font-bold font-heading mt-2">Full Detailing</h3>
-            <div class="my-6">
-              <div class="flex items-baseline gap-1">
-                <span class="text-4xl font-black font-heading">₹2,999</span>
-                <span class="text-xs text-gray-500">/ per service</span>
-              </div>
-              <p class="text-xs text-gray-500 mt-1">Complete 360° showroom rejuvenation</p>
-            </div>
-            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Complete exterior wash</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Deep interior cleaning</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Paint polishing</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Tyre and wheel detailing</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Full finishing</li>
-            </ul>
-          </div>
-          <div class="pt-8">
-            <a href="customer/book-wash.html?plan=detailing" class="btn-secondary w-full text-sm">Choose Full Detailing</a>
           </div>
         </div>
 
@@ -249,29 +191,160 @@
     </div>
   </section>
 
-  <!-- TAB 2: MONTHLY SUBSCRIPTION PLANS -->
-  <section id="pricing-monthly" class="py-20 hidden">
+  <!-- SECTION 2: INDIVIDUAL SERVICES (Pay-As-You-Go Single Washes) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Pay Per Service</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Individual Detailing Services</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Book on demand whenever your car needs a quick refresh or specialized restorative care.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Service Card 1 -->
+        <div class="rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] overflow-hidden flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=500&q=80" alt="Exterior Foam Wash" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">35 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-1">Exterior Wash</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="text-3xl font-black font-heading text-gray-900 dark:text-white">₹499</span>
+                <span class="text-xs text-gray-500">/ visit</span>
+              </div>
+              <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> High-pressure snow foam</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Alloy & tyre degreasing</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Streak-free window cleaning</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Plush microfiber drying</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="customer/book-wash.html?plan=basic" class="btn-secondary w-full !h-11 text-xs font-bold text-center">Book Exterior Wash</a>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] overflow-hidden flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=500&q=80" alt="Interior Deep Clean" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">60 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-1">Interior Deep Clean</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="text-3xl font-black font-heading text-gray-900 dark:text-white">₹799</span>
+                <span class="text-xs text-gray-500">/ visit</span>
+              </div>
+              <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Deep high-suction vacuum</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Dashboard & console scrub</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Leather/fabric upholstery care</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Odor neutralizing fragrance</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="customer/book-wash.html?plan=interior" class="btn-secondary w-full !h-11 text-xs font-bold text-center">Book Interior Clean</a>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] overflow-hidden flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=500&q=80" alt="Car Polishing" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">90 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-1">Car Machine Polish</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="text-3xl font-black font-heading text-gray-900 dark:text-white">₹1,499</span>
+                <span class="text-xs text-gray-500">/ visit</span>
+              </div>
+              <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Dual-action machine polish</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Swirl & light scratch reduction</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Carnauba gloss glaze layer</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> 60-day hydrophobic barrier</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="customer/book-wash.html?plan=polishing" class="btn-secondary w-full !h-11 text-xs font-bold text-center">Book Machine Polish</a>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] overflow-hidden flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=500&q=80" alt="Full Car Detailing" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 badge-lime text-[10px]">150 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-1">Full Car Detailing</h3>
+              <div class="flex items-baseline gap-1 my-3">
+                <span class="text-3xl font-black font-heading text-gray-900 dark:text-white">₹2,999</span>
+                <span class="text-xs text-gray-500">/ visit</span>
+              </div>
+              <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-400">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> 360° Interior + Exterior overhaul</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Machine glaze paint shine</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> AC vent antibacterial steam</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Engine bay dry steam dressing</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="customer/book-wash.html?plan=detailing" class="btn-primary w-full !h-11 text-xs font-bold text-center">Book Full Detailing</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: MONTHLY SUBSCRIPTION PLANS (Save up to 35%) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Recurring Care</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Money-Saving Monthly Plans</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Enjoy scheduled weekly or bi-weekly doorstep detailing. Guaranteed preferred slot, rollover unused visits, and priority technician dispatch.
+        </p>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         
         <!-- Subscription 1: Weekly Wash -->
         <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
           <div>
-            <div class="badge-lime text-[11px] mb-2">4 Washes Included</div>
+            <div class="badge-lime text-[11px] mb-3">4 Washes Included</div>
             <h3 class="text-2xl font-bold font-heading">Weekly Wash</h3>
-            <p class="text-xs text-gray-500 mt-1">One doorstep wash every week</p>
+            <p class="text-xs text-gray-500 mt-1">One doorstep wash every week for daily drivers</p>
+            
             <div class="my-6">
               <div class="flex items-baseline gap-1">
                 <span class="text-4xl font-black font-heading">₹1,599</span>
                 <span class="text-xs text-gray-500">/ month</span>
               </div>
-              <span class="text-xs text-emerald-500 font-bold">Save ₹400 vs individual washes</span>
+              <span class="text-xs text-emerald-500 font-bold">Save ₹400 compared to individual visits</span>
             </div>
+
             <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 4 Exterior Foam Washes per month</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 1 Interior Vacuum Session</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Validity: 30 Days (Unused washes rollover)</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Free slot rescheduling</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 4 Exterior Snow Foam Washes per month</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 1 Complete Interior Vacuum session</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Unused washes rollover to next month</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Reschedule anytime up to 2 hours prior</li>
             </ul>
           </div>
           <div class="pt-8">
@@ -279,26 +352,28 @@
           </div>
         </div>
 
-        <!-- Subscription 2: Premium Monthly (Highlighted) -->
+        <!-- Subscription 2: Premium Monthly (Most Popular) -->
         <div class="p-8 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] flex flex-col justify-between relative shadow-2xl scale-105 z-10">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D6FF36] text-[#101820] text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
-            BEST VALUE
+            MOST POPULAR
           </div>
           <div>
-            <div class="badge-lime text-[11px] mb-2">4 Premium Washes</div>
+            <div class="badge-lime text-[11px] mb-3">4 Full Premium Washes</div>
             <h3 class="text-2xl font-bold font-heading">Premium Monthly</h3>
-            <p class="text-xs text-gray-400 mt-1">Complete interior + exterior weekly care</p>
+            <p class="text-xs text-gray-400 mt-1">Complete interior vacuum and exterior gloss weekly</p>
+            
             <div class="my-6">
               <div class="flex items-baseline gap-1">
                 <span class="text-4xl font-black font-heading text-[#D6FF36]">₹2,999</span>
                 <span class="text-xs text-gray-400">/ month</span>
               </div>
-              <span class="text-xs text-[#D6FF36] font-bold">Save ₹1,000 vs individual washes</span>
+              <span class="text-xs text-[#D6FF36] font-bold">Save ₹1,000 compared to individual visits</span>
             </div>
+
             <ul class="space-y-3 text-sm text-gray-300">
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 4 Full Exterior Snow Foam Washes</li>
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 4 Complete Cabin Deep Vacuums</li>
-              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Tyre shine & dashboard UV protection</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Tyre shine & dashboard UV dressing</li>
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Dedicated master technician assigned</li>
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> VIP priority scheduling window</li>
             </ul>
@@ -311,16 +386,18 @@
         <!-- Subscription 3: Family Car Plan -->
         <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
           <div>
-            <div class="badge-lime text-[11px] mb-2">Multiple Vehicles</div>
-            <h3 class="text-2xl font-bold font-heading">Family Car Plan</h3>
-            <p class="text-xs text-gray-500 mt-1">Up to 2-3 household vehicles</p>
+            <div class="badge-lime text-[11px] mb-3">2-3 Household Vehicles</div>
+            <h3 class="text-2xl font-bold font-heading">Family Plan</h3>
+            <p class="text-xs text-gray-500 mt-1">Multi-car doorstep care for busy families</p>
+            
             <div class="my-6">
               <div class="flex items-baseline gap-1">
                 <span class="text-4xl font-black font-heading">₹4,999</span>
                 <span class="text-xs text-gray-500">/ month</span>
               </div>
-              <span class="text-xs text-emerald-500 font-bold">Save 35% on multi-car garage</span>
+              <span class="text-xs text-emerald-500 font-bold">Save 35% on multi-vehicle households</span>
             </div>
+
             <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 8 Washes split across registered family cars</li>
               <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 1 Free Machine Glaze Polish per vehicle</li>
@@ -337,18 +414,278 @@
     </div>
   </section>
 
-  <!-- Pricing Comparison & Guarantee Notice -->
-  <section class="py-16 bg-white dark:bg-[#1A232C] border-t border-gray-200 dark:border-[#252E35]">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <div class="p-6 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-4 text-left">
-        <div class="w-12 h-12 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold flex-shrink-0">
-          <i data-lucide="help-circle" class="w-6 h-6"></i>
+  <!-- SECTION 4: COMPARE PLANS (Feature Comparison Table) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Feature Matrix</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Compare Plans at a Glance</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          See exactly what is included in each package to choose the ideal fit for your driving style.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-[#252E35] shadow-lg">
+        <table class="w-full text-left text-sm border-collapse">
+          <thead>
+            <tr class="bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+              <th class="p-5 font-bold text-gray-900 dark:text-white">Features & Inclusions</th>
+              <th class="p-5 font-bold text-center text-gray-700 dark:text-gray-300">Basic Wash</th>
+              <th class="p-5 font-bold text-center text-gray-700 dark:text-gray-300">Premium Wash</th>
+              <th class="p-5 font-bold text-center text-[#D6FF36] bg-[#101820] dark:bg-[#252E35]">Weekly Sub</th>
+              <th class="p-5 font-bold text-center text-gray-700 dark:text-gray-300">Full Detailing</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-[#252E35] text-xs sm:text-sm">
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">High-Pressure Snow Foam Body Wash</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Wheel, Alloy & Tyre Shine Treatment</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Full Interior High-Power Vacuum</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Dashboard & Center Console UV Dressing</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Dual-Action Machine Paint Polish</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30 text-xs text-gray-400">Add-on (₹999)</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">AC Vent Antibacterial Steam Disinfection</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30 text-xs text-gray-400">1x / quarter</td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Unused Washes Rollover Protection</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center text-gray-400">—</td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center text-gray-400">—</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-gray-800 dark:text-gray-200">Assigned Master Technician</td>
+              <td class="p-4 text-center text-gray-400">Random</td>
+              <td class="p-4 text-center text-gray-400">Standard</td>
+              <td class="p-4 text-center bg-[#101820]/5 dark:bg-[#252E35]/30"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+              <td class="p-4 text-center"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36] mx-auto"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: EXTRA SERVICES (Add-on Services with Thumbnails) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Custom Upgrades</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Extra Add-On Services</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Add any of these specialized treatments to your booking during checkout.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Addon 1 -->
+        <div class="p-4 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm flex items-center gap-4 card-hover-glow">
+          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=200&q=80" 
+               alt="Engine Bay Cleaning" class="w-20 h-20 rounded-2xl object-cover flex-shrink-0">
+          <div>
+            <h4 class="font-bold text-sm">Engine Bay Steam Clean</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Dry steam + anti-static dressing</p>
+            <div class="text-sm font-black text-[#D6FF36] bg-[#101820] px-2 py-0.5 rounded inline-block mt-2">+₹599</div>
+          </div>
         </div>
-        <div>
-          <h4 class="font-bold text-sm">Sample Design Rates Disclaimer</h4>
-          <p class="text-xs text-gray-500 mt-1">
-            All prices shown are sample design values based on standard hatchback and sedan profiles. Actual pricing may vary slightly based on oversize SUV dimensions or heavy off-road mud restoration requirements.
+
+        <!-- Addon 2 -->
+        <div class="p-4 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm flex items-center gap-4 card-hover-glow">
+          <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=200&q=80" 
+               alt="Headlight Restoration" class="w-20 h-20 rounded-2xl object-cover flex-shrink-0">
+          <div>
+            <h4 class="font-bold text-sm">Headlight UV De-Oxidation</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Restores yellowed lens clarity</p>
+            <div class="text-sm font-black text-[#D6FF36] bg-[#101820] px-2 py-0.5 rounded inline-block mt-2">+₹499</div>
+          </div>
+        </div>
+
+        <!-- Addon 3 -->
+        <div class="p-4 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm flex items-center gap-4 card-hover-glow">
+          <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=200&q=80" 
+               alt="Pet Hair Removal" class="w-20 h-20 rounded-2xl object-cover flex-shrink-0">
+          <div>
+            <h4 class="font-bold text-sm">Pet Hair Deep Extraction</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Rubber blade + electrostatic brush</p>
+            <div class="text-sm font-black text-[#D6FF36] bg-[#101820] px-2 py-0.5 rounded inline-block mt-2">+₹399</div>
+          </div>
+        </div>
+
+        <!-- Addon 4 -->
+        <div class="p-4 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm flex items-center gap-4 card-hover-glow">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=200&q=80" 
+               alt="Ozone Odour Sanitization" class="w-20 h-20 rounded-2xl object-cover flex-shrink-0">
+          <div>
+            <h4 class="font-bold text-sm">AC Ozone Odor Purifier</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Kills 99.9% germs & damp smell</p>
+            <div class="text-sm font-black text-[#D6FF36] bg-[#101820] px-2 py-0.5 rounded inline-block mt-2">+₹449</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: HOW SUBSCRIPTION WORKS (Step-by-Step Graphic) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Effortless Ownership</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">How Subscription Works</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Enjoy a clean vehicle year-round without ever calling to negotiate or re-schedule manually.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            01
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Pick Your Plan & Slot</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Select weekly or monthly washes and reserve your preferred repeating slot (e.g. Saturdays at 9:00 AM).
           </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            02
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Van Arrives Automatically</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Our self-powered mobile detailing van reaches your doorstep without bothering you for power or water hookups.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            03
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Rollover & Pause Anytime</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Travelling out of town? Pause your subscription with 1-click in the dashboard. Unused washes never expire.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: PRICING FAQS (Interactive Accordion) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Transparent Policy</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Frequently Asked Questions</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">Everything you need to know about our billing, refunds, and guarantees.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group">
+          <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
+            <span>Can I cancel or pause my subscription anytime?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+            Yes, absolutely. There are no lock-in contracts or cancellation fees. You can pause your plan whenever you travel or cancel instantly from your Customer Dashboard. Any remaining washes will stay active in your wallet for 60 days.
+          </p>
+        </details>
+
+        <details class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group">
+          <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
+            <span>What happens if I miss a scheduled weekly wash?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+            Your wash is never lost! We have an automatic rollover policy. If you reschedule with at least 2 hours' notice or skip a week, that wash credits automatically to your next billing cycle.
+          </p>
+        </details>
+
+        <details class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group">
+          <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
+            <span>Do prices include GST and technician gratuity?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+            All prices listed include 18% GST with GST-compliant tax invoices provided immediately in your customer portal. Tipping your technician is entirely optional.
+          </p>
+        </details>
+
+        <details class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group">
+          <summary class="font-bold text-sm sm:text-base cursor-pointer list-none flex items-center justify-between">
+            <span>Is there an additional charge for large SUVs or 7-seaters?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+            Standard pricing covers hatchbacks and standard sedans. Full-size 7-seater SUVs (e.g., Toyota Fortuner, MG Gloster) incur a nominal ₹150 size surcharge to cover the additional snow foam volume and detailing labor.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: BOOK YOUR PLAN (Final Conversion CTA) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-10 sm:p-14 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <span class="badge-lime text-xs font-bold uppercase tracking-wider">Ready for a Cleaner Ride?</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">
+            Choose Your Detailing Plan & Get Started
+          </h2>
+          <p class="text-sm sm:text-base text-gray-300">
+            Book your doorstep wash in under 60 seconds. Our equipped mobile rig will arrive with reverse-osmosis deionized water and expert care.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="customer/book-wash.html" class="btn-primary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto glow-lime-sm">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Book Single Wash</span>
+            </a>
+            <a href="customer/book-wash.html?plan=sub_premium" class="btn-secondary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto">
+              <span>Subscribe Monthly (Save 35%)</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -412,31 +749,9 @@
   <script src="assets/js/rtl.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    function switchPricingTab(tab) {
-      const oneTimeSection = document.getElementById('pricing-onetime');
-      const monthlySection = document.getElementById('pricing-monthly');
-      const btnOneTime = document.getElementById('btn-tab-onetime');
-      const btnMonthly = document.getElementById('btn-tab-monthly');
-
-      if (tab === 'monthly') {
-        oneTimeSection.classList.add('hidden');
-        monthlySection.classList.remove('hidden');
-        btnMonthly.className = 'px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#101820] text-[#D6FF36] dark:bg-[#252E35] shadow-sm transition-all flex items-center gap-1.5';
-        btnOneTime.className = 'px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-all';
-      } else {
-        monthlySection.classList.add('hidden');
-        oneTimeSection.classList.remove('hidden');
-        btnOneTime.className = 'px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-[#101820] text-[#D6FF36] dark:bg-[#252E35] shadow-sm transition-all';
-        btnMonthly.className = 'px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-all flex items-center gap-1.5';
-      }
-      if (window.lucide) window.lucide.createIcons();
-    }
-
-    // Check URL hash if user clicked direct link (e.g. #subscriptions)
-    if (window.location.hash === '#subscriptions') {
-      switchPricingTab('monthly');
+    if (window.lucide) {
+      window.lucide.createIcons();
     }
   </script>
 </body>
 </html>
-

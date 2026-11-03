@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Service Areas | CAR SHINE – Doorstep Car Detailing Network</title>
-  <meta name="description" content="Check live doorstep car wash coverage across Chennai. Anna Nagar, Velachery, Tambaram, Porur, Guindy, OMR, and more.">
+  <title>Service Areas | CAR SHINE – Doorstep Detailing Coverage</title>
+  <meta name="description" content="Explore CAR SHINE active doorstep car wash service zones across Chennai. Check your pincode for immediate van dispatch.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -146,63 +146,219 @@
     </div>
   </div>
 
-  <!-- Hero Section with Live Availability Search -->
-  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="badge-lime uppercase tracking-widest text-xs mb-3">City Coverage</div>
-      <h1 class="text-4xl sm:text-5xl font-black font-heading">Doorstep Detailing Network</h1>
-      <p class="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto mt-3">
-        We dispatch mobile units across Chennai. Enter your postal code or neighborhood name below to check immediate technician turnaround time.
-      </p>
+  <!-- SECTION 1: HERO (Professional Car Wash at Your Location) -->
+  <section class="relative py-20 bg-gradient-to-b from-white to-[#F5F6F3] dark:from-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <div class="inline-flex items-center gap-2 badge-lime uppercase tracking-widest text-xs font-black">
+            <span class="w-2 h-2 rounded-full bg-[#101820] animate-ping"></span>
+            <span>18 Active Mobile Detailing Vans in Chennai</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight">
+            Professional Car Wash <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-[#101820] to-gray-600 dark:from-white dark:via-gray-200 dark:to-gray-400">At Your Location.</span>
+          </h1>
+          <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            From Anna Nagar to OMR, our self-powered Mercedes Sprinter & Tata Winger detailing rigs reach your apartment or office driveway in under 30 minutes.
+          </p>
 
-      <!-- Search Input Container -->
-      <div class="max-w-xl mx-auto mt-8">
-        <form onsubmit="searchServiceArea(event)" class="relative flex items-center">
-          <input type="text" id="area-search-input" placeholder="Enter PIN (e.g. 600040) or Area (e.g. Velachery)" 
-                 class="w-full h-14 pl-12 pr-32 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border-2 border-gray-300 dark:border-[#252E35] focus:border-[#D6FF36] text-sm font-semibold outline-none transition-colors">
-          <i data-lucide="map-pin" class="w-5 h-5 text-[#D6FF36] absolute left-4 pointer-events-none"></i>
-          <button type="submit" class="btn-primary !h-11 absolute right-1.5 text-xs font-bold px-4">
-            Check Area
-          </button>
-        </form>
-        <div id="search-feedback" class="mt-4 text-sm font-semibold hidden"></div>
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="clock" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>30-Min Avg Arrival</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="droplet" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>100% Self-Watered (200L RO)</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-bold text-gray-700 dark:text-gray-300">
+              <i data-lucide="zap" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Quiet Generator Power</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-[#252E35]">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" 
+                 alt="Mobile Detailing Rig" class="w-full h-[360px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+              <span class="badge-lime text-[11px] self-start mb-2">Live Doorstep Logistics</span>
+              <h3 class="text-lg font-bold">100% Self-Contained Mobile Unit</h3>
+              <p class="text-xs text-gray-300 mt-1">We arrive equipped with pressure washers, steamers, and lighting rigs.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Interactive Map & Covered Areas -->
-  <section class="py-20">
+  <!-- SECTION 2: CHECK YOUR LOCATION (Live PIN Code & Neighborhood Search) -->
+  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="badge-lime uppercase tracking-widest text-xs mb-3">Live Dispatch Checker</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Check If We Serve Your Street</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-sm max-w-xl mx-auto mt-2">
+        Enter your 6-digit postal code or area name below to check immediate technician availability.
+      </p>
+
+      <div class="max-w-xl mx-auto mt-8">
+        <form onsubmit="searchServiceArea(event)" class="relative flex items-center">
+          <input type="text" id="area-search-input" placeholder="e.g. 600040 or Anna Nagar" 
+                 class="w-full h-14 pl-12 pr-36 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border-2 border-gray-300 dark:border-[#252E35] focus:border-[#D6FF36] text-sm font-semibold outline-none transition-colors">
+          <i data-lucide="map-pin" class="w-5 h-5 text-[#D6FF36] absolute left-4 pointer-events-none"></i>
+          <button type="submit" class="btn-primary !h-11 absolute right-1.5 text-xs font-bold px-5">
+            Check Service
+          </button>
+        </form>
+        <div id="search-feedback" class="mt-4 text-sm font-semibold hidden text-left"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: AREAS WE SERVE (Cards of All Served Neighborhoods) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Left: Coverage Map -->
-        <div class="lg:col-span-7 space-y-4">
-          <div class="p-4 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl">
-            <div class="flex items-center justify-between pb-3 px-2">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#D6FF36] animate-pulse"></span>
-                <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Chennai Fleet Live Dispatch Radar</span>
-              </div>
-              <span class="badge-lime text-[11px]">18 Active Vans</span>
-            </div>
-            <!-- Leaflet Map Container -->
-            <div id="coverage-map" class="w-full h-[460px] rounded-2xl overflow-hidden border border-gray-200 dark:border-[#252E35] z-10"></div>
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Active Hubs</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Chennai Neighborhoods We Serve</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Our mobile units are permanently stationed across key hubs to guarantee quick turnaround.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="areas-grid-cards">
+        <!-- Rendered via JS from StorageService -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: COVERAGE MAP (Visual Interactive Map) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Fleet GPS Radar</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Interactive Coverage Map</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Explore real-time hub pins across Chennai. Click on any pin to view average arrival speeds.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] shadow-2xl">
+        <div class="flex items-center justify-between pb-3 px-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#D6FF36] animate-pulse"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Chennai Live Fleet Coverage</span>
           </div>
-          <p class="text-xs text-gray-500 flex items-center gap-1.5 px-2">
-            <i data-lucide="info" class="w-3.5 h-3.5 text-[#D6FF36]"></i>
-            Click on any green pin to view average technician arrival speed and book direct.
+          <span class="badge-lime text-[11px]">10 Active Service Zones</span>
+        </div>
+        <div id="coverage-map" class="w-full h-[480px] rounded-2xl overflow-hidden border border-gray-200 dark:border-[#252E35] z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: DOORSTEP SERVICE PROCESS (How We Reach You) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Seamless Logistics</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">How We Reach Your Doorstep</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          Three simple steps between booking and watching your car get detailed at your home or office.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-black text-xl shadow-md">
+            01
+          </div>
+          <h3 class="text-xl font-bold font-heading">Pin Your Parking Bay</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Provide your apartment gate number, basement parking bay, or villa address. We coordinate security entry smoothly.
           </p>
         </div>
 
-        <!-- Right: Operational Zones List -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="flex items-center justify-between">
-            <h3 class="text-lg font-bold font-heading">Available Chennai Hubs</h3>
-            <span class="text-xs text-gray-500" id="area-count-label">10 Areas</span>
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-black text-xl shadow-md">
+            02
           </div>
+          <h3 class="text-xl font-bold font-heading">Mobile Rig Arrives</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Our certified technician drives up with on-board water, high-pressure foam cannons, and battery-powered polishers.
+          </p>
+        </div>
 
-          <div id="areas-list" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
-            <!-- Dynamically populated from storage.js -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] text-[#D6FF36] flex items-center justify-center font-black text-xl shadow-md">
+            03
+          </div>
+          <h3 class="text-xl font-bold font-heading">Inspect & Drive Sparkling</h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Review the 360° shine with your detailer. Pay online or via UPI QR code only after you are 100% satisfied.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SERVICE AVAILABILITY (Operating Hours and Days) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Operating Schedule</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Service Availability & Hours</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          We operate 7 days a week, 365 days a year across Chennai with convenient morning, afternoon, and evening slots.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Schedule 1 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-lg font-bold font-heading">Central & North Hubs</h4>
+            <span class="badge-lime text-[10px]">Active</span>
+          </div>
+          <p class="text-xs text-gray-500">Anna Nagar, T. Nagar, Nungambakkam, K.K. Nagar</p>
+          <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2 text-xs">
+            <div class="flex justify-between"><strong>Mon – Fri:</strong> <span>7:00 AM – 8:00 PM</span></div>
+            <div class="flex justify-between"><strong>Saturday:</strong> <span>7:00 AM – 8:30 PM</span></div>
+            <div class="flex justify-between"><strong>Sunday:</strong> <span>6:30 AM – 9:00 PM</span></div>
+          </div>
+        </div>
+
+        <!-- Schedule 2 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-lg font-bold font-heading">South & IT Corridor Hubs</h4>
+            <span class="badge-lime text-[10px]">Active</span>
+          </div>
+          <p class="text-xs text-gray-500">OMR, Velachery, Adyar, Guindy</p>
+          <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2 text-xs">
+            <div class="flex justify-between"><strong>Mon – Fri:</strong> <span>7:00 AM – 8:00 PM</span></div>
+            <div class="flex justify-between"><strong>Saturday:</strong> <span>7:00 AM – 8:30 PM</span></div>
+            <div class="flex justify-between"><strong>Sunday:</strong> <span>6:30 AM – 9:00 PM</span></div>
+          </div>
+        </div>
+
+        <!-- Schedule 3 -->
+        <div class="p-8 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-lg font-bold font-heading">West & Suburban Hubs</h4>
+            <span class="badge-lime text-[10px]">Active</span>
+          </div>
+          <p class="text-xs text-gray-500">Tambaram, Porur, Poonamallee</p>
+          <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2 text-xs">
+            <div class="flex justify-between"><strong>Mon – Fri:</strong> <span>7:30 AM – 7:30 PM</span></div>
+            <div class="flex justify-between"><strong>Saturday:</strong> <span>7:00 AM – 8:00 PM</span></div>
+            <div class="flex justify-between"><strong>Sunday:</strong> <span>7:00 AM – 8:30 PM</span></div>
           </div>
         </div>
 
@@ -210,17 +366,85 @@
     </div>
   </section>
 
-  <!-- Book Banner -->
-  <section class="py-16 bg-[#101820] text-white border-t border-[#252E35] text-center">
-    <div class="max-w-3xl mx-auto px-4 space-y-4">
-      <h2 class="text-3xl font-extrabold font-heading">Don't see your neighborhood listed?</h2>
-      <p class="text-sm text-gray-400">
-        We frequently open new doorstep corridors. Drop your pincode and phone number and our logistics dispatcher will notify you the moment vans enter your area.
-      </p>
-      <div class="pt-2">
-        <a href="contact.html" class="btn-primary !h-[48px] px-8 text-sm font-bold">
-          Request Area Expansion
-        </a>
+  <!-- SECTION 7: AREAS COMING SOON (Neighborhoods Expanding Next) -->
+  <section class="py-20 bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Expanding Fleet</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Neighborhoods Coming Soon</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">
+          We are rolling out 12 new Mercedes Sprinter vans to serve outer Chennai corridors by Q2 2026.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">Coming Q2 2026</span>
+            <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+          </div>
+          <h4 class="text-lg font-bold font-heading">Chengalpattu Outer</h4>
+          <p class="text-xs text-gray-500">Mahindra World City & Singaperumal Koil belt</p>
+          <span class="text-[11px] text-gray-400 block pt-2 border-t border-gray-100 dark:border-[#252E35]">142 Pre-signups</span>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">Coming Q2 2026</span>
+            <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+          </div>
+          <h4 class="text-lg font-bold font-heading">Sriperumbudur Hub</h4>
+          <p class="text-xs text-gray-500">Automotive corridor & residential townships</p>
+          <span class="text-[11px] text-gray-400 block pt-2 border-t border-gray-100 dark:border-[#252E35]">210 Pre-signups</span>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">Coming Q3 2026</span>
+            <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+          </div>
+          <h4 class="text-lg font-bold font-heading">Avadi & Ambattur North</h4>
+          <p class="text-xs text-gray-500">Industrial & residential gated communities</p>
+          <span class="text-[11px] text-gray-400 block pt-2 border-t border-gray-100 dark:border-[#252E35]">98 Pre-signups</span>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">Coming Q3 2026</span>
+            <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+          </div>
+          <h4 class="text-lg font-bold font-heading">Kanchipuram Outer</h4>
+          <p class="text-xs text-gray-500">Walajabad & temple town periphery</p>
+          <span class="text-[11px] text-gray-400 block pt-2 border-t border-gray-100 dark:border-[#252E35]">85 Pre-signups</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: BOOK YOUR SERVICE (Select Area & Book Now CTA) -->
+  <section class="py-20 bg-white dark:bg-[#1A232C]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-10 sm:p-14 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <span class="badge-lime text-xs font-bold uppercase tracking-wider">Fast Chennai Dispatch</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">
+            Book Doorstep Car Care in Your Area
+          </h2>
+          <p class="text-sm sm:text-base text-gray-300">
+            Select your service package, set your doorstep address, and relax while our master detailing van comes to you.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="customer/book-wash.html" class="btn-primary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto glow-lime-sm">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Book in Your Area Now</span>
+            </a>
+            <a href="contact.html" class="btn-secondary !h-[48px] px-8 text-sm font-bold w-full sm:w-auto">
+              <span>Request New Location</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -331,22 +555,29 @@
       });
     }
 
-    function renderAreas(list) {
-      const container = document.getElementById('areas-list');
+    function renderAreasGrid(list) {
+      const container = document.getElementById('areas-grid-cards');
+      if (!container) return;
       container.innerHTML = list.map(a => `
-        <div class="p-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-center justify-between card-hover-glow">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
-              <i data-lucide="map-pin" class="w-5 h-5"></i>
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center font-bold">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <span class="badge-lime text-[10px]">${a.status}</span>
             </div>
-            <div>
-              <h4 class="font-bold text-sm text-gray-900 dark:text-white">${a.area}</h4>
-              <p class="text-xs text-gray-500">PIN: ${a.pin} · ${a.city}</p>
+            <h4 class="font-bold text-base text-gray-900 dark:text-white">${a.area}</h4>
+            <p class="text-xs text-gray-500 mt-1">PIN: ${a.pin} · ${a.city}</p>
+            <div class="mt-4 p-2.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] text-xs flex items-center justify-between">
+              <span class="text-gray-400">Avg Arrival:</span>
+              <strong class="text-emerald-500">${a.turnaround}</strong>
             </div>
           </div>
-          <div class="text-right">
-            <span class="badge-lime text-[10px] mb-1">${a.status}</span>
-            <div class="text-[11px] text-gray-400">${a.turnaround}</div>
+          <div class="pt-6">
+            <a href="customer/book-wash.html?pincode=${a.pin}" class="btn-secondary w-full !h-10 text-xs font-bold text-center">
+              Book in ${a.area.split(' ')[0]}
+            </a>
           </div>
         </div>
       `).join('');
@@ -361,7 +592,7 @@
       feedback.classList.remove('hidden');
 
       if (result) {
-        feedback.className = 'mt-4 text-sm font-bold text-emerald-400 p-3 rounded-xl bg-emerald-950/40 border border-emerald-800';
+        feedback.className = 'mt-4 text-sm font-bold text-emerald-400 p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800';
         feedback.innerHTML = `Awesome! <strong>${result.area} (${result.pin})</strong> is in our active fleet route! Turnaround: <strong>${result.turnaround}</strong>. <a href="customer/book-wash.html?pincode=${result.pin}" class="underline ml-2 text-white">Book Now →</a>`;
         
         const coords = areaCoordinates[result.area];
@@ -369,16 +600,15 @@
           map.setView(coords, 14);
         }
       } else {
-        feedback.className = 'mt-4 text-sm font-bold text-amber-400 p-3 rounded-xl bg-amber-950/40 border border-amber-800';
-        feedback.innerHTML = `No instant van hub registered at "${val}" yet. However, we do custom visits for full detailing packages. <a href="contact.html" class="underline ml-2 text-white">Contact us</a>`;
+        feedback.className = 'mt-4 text-sm font-bold text-amber-400 p-4 rounded-2xl bg-amber-950/40 border border-amber-800';
+        feedback.innerHTML = `No instant van hub registered at "${val}" yet. However, we do custom visits for full detailing packages. <a href="contact.html" class="underline ml-2 text-white">Contact dispatch concierge</a>`;
       }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       initMap();
-      renderAreas(areas);
+      renderAreasGrid(areas);
     });
   </script>
 </body>
 </html>
-
