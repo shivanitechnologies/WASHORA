@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Inquiries & Messages | CAR SHINE Command Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- ADMIN SIDEBAR -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
+      <div>
+        <!-- Logo -->
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
+        </div>
+
+        <!-- Admin Badge -->
+        <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black text-xs">
+            OP
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white">Operations Head</h4>
+            <span class="text-[10px] text-[#D6FF36]">Fleet Dispatch SuperAdmin</span>
+          </div>
+        </div>
+
+        <!-- Admin Nav Items -->
+        <nav class="space-y-1 text-xs font-semibold">
+          <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
+          <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
+          <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
+          <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
+          <a href="assign-technician.html" class="dash-nav-item"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
+          <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
+          <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
+          <a href="subscriptions.html" class="dash-nav-item"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
+          <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
+          <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
+          <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
+          <a href="messages.html" class="dash-nav-item active"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
+          <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
+          <a href="settings.html" class="dash-nav-item"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Admin Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Admin Content Area -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <!-- Top Bar -->
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">Inquiries & Contact Inbox</h1>
+            <p class="text-xs text-gray-500">Submissions from Contact Us page & WhatsApp booking leads</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="handleExportMessages()" class="btn-secondary !h-10 text-xs font-bold px-4">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Export CSV</span>
+          </button>
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
+            RTL
+          </button>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-6 flex-1">
+        
+        <!-- KPI METRICS -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+            <span class="text-xs text-gray-500 font-medium">Total Inquiries</span>
+            <h3 id="stat-total-msgs" class="text-2xl font-black font-heading mt-2">--</h3>
+            <span class="text-[11px] text-gray-400 mt-1 block">From web & corporate forms</span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+            <span class="text-xs text-gray-500 font-medium">Unread Inquiries</span>
+            <h3 id="stat-unread-msgs" class="text-2xl font-black font-heading text-amber-500 mt-2">--</h3>
+            <span class="text-[11px] text-amber-400 mt-1 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> Needs quick response
+            </span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+            <span class="text-xs text-gray-500 font-medium">Replied / Resolved</span>
+            <h3 id="stat-replied-msgs" class="text-2xl font-black font-heading text-emerald-500 mt-2">--</h3>
+            <span class="text-[11px] text-gray-400 mt-1 block">Directly answered</span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+            <span class="text-xs text-gray-500 font-medium">Avg Response Time</span>
+            <h3 class="text-2xl font-black font-heading text-[#D6FF36] mt-2">12 Mins</h3>
+            <span class="text-[11px] text-gray-400 mt-1 block">Chennai SLA: &lt; 30 mins</span>
+          </div>
+        </div>
+
+        <!-- SEARCH AND FILTER BAR -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-white dark:bg-[#1A232C] p-4 rounded-2xl border border-gray-200 dark:border-[#252E35]">
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+            <button onclick="filterMessages('all')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-[#D6FF36] text-[#101820]" data-filter="all">All Messages</button>
+            <button onclick="filterMessages('Unread')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300" data-filter="Unread">Unread</button>
+            <button onclick="filterMessages('Replied')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300" data-filter="Replied">Replied</button>
+          </div>
+
+          <div class="relative w-full sm:w-72">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="msg-search" oninput="handleSearchMessages(event)" placeholder="Search sender, subject or email..." class="w-full h-10 pl-9 pr-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs focus:border-[#D6FF36] outline-none">
+          </div>
+        </div>
+
+        <!-- MESSAGES TABLE / LIST -->
+        <div class="bg-white dark:bg-[#1A232C] rounded-3xl border border-gray-200 dark:border-[#252E35] overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-gray-200 dark:border-[#252E35] bg-gray-50/50 dark:bg-[#101820]/40 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                  <th class="py-4 px-6">Sender Details</th>
+                  <th class="py-4 px-6">Subject & Message Preview</th>
+                  <th class="py-4 px-6">Date Received</th>
+                  <th class="py-4 px-6">Status</th>
+                  <th class="py-4 px-6 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="messages-tbody" class="divide-y divide-gray-100 dark:divide-[#252E35] text-xs">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- VIEW & REPLY MODAL -->
+  <div id="view-msg-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] w-full max-w-xl rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <div class="flex items-center gap-2">
+          <i data-lucide="mail-open" class="w-5 h-5 text-[#D6FF36]"></i>
+          <h3 class="font-bold text-base font-heading">Customer Inquiry Details</h3>
+        </div>
+        <button onclick="closeModal('view-msg-modal')" class="p-1 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div id="modal-msg-content" class="py-5 space-y-5">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function renderMessages() {
+      const allMsgs = StorageService.getMessages();
+
+      // Stats
+      const unreadCount = allMsgs.filter(m => m.status === 'Unread').length;
+      const repliedCount = allMsgs.filter(m => m.replied || m.status === 'Replied').length;
+      document.getElementById('stat-total-msgs').textContent = allMsgs.length;
+      document.getElementById('stat-unread-msgs').textContent = unreadCount;
+      document.getElementById('stat-replied-msgs').textContent = repliedCount;
+
+      let filtered = allMsgs;
+      if (currentFilter === 'Unread') {
+        filtered = filtered.filter(m => m.status === 'Unread');
+      } else if (currentFilter === 'Replied') {
+        filtered = filtered.filter(m => m.replied || m.status === 'Replied');
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        filtered = filtered.filter(m => 
+          (m.name && m.name.toLowerCase().includes(q)) ||
+          (m.email && m.email.toLowerCase().includes(q)) ||
+          (m.subject && m.subject.toLowerCase().includes(q)) ||
+          (m.message && m.message.toLowerCase().includes(q))
+        );
+      }
+
+      const tbody = document.getElementById('messages-tbody');
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" class="py-12 text-center text-gray-500">
+              <i data-lucide="inbox" class="w-10 h-10 text-gray-400 mx-auto mb-2"></i>
+              <p class="font-bold text-sm">No inquiries in this folder</p>
+              <p class="text-[11px] text-gray-400">All customer messages have been attended to.</p>
+            </td>
+          </tr>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(m => {
+        const isUnread = m.status === 'Unread';
+        const isReplied = m.replied || m.status === 'Replied';
+
+        return `
+          <tr class="hover:bg-gray-50/50 dark:hover:bg-[#101820]/40 transition-colors ${isUnread ? 'bg-[#D6FF36]/5' : ''}">
+            <td class="py-4 px-6">
+              <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                ${m.name}
+                ${isUnread ? '<span class="w-2 h-2 rounded-full bg-[#D6FF36] inline-block"></span>' : ''}
+              </div>
+              <div class="text-[11px] text-gray-500 mt-0.5">${m.email}</div>
+              <div class="text-[11px] text-gray-400 font-mono">${m.phone || 'N/A'}</div>
+            </td>
+
+            <td class="py-4 px-6 max-w-xs">
+              <div class="font-bold text-gray-900 dark:text-white truncate">${m.subject || 'Doorstep Service Inquiry'}</div>
+              <div class="text-gray-500 truncate text-[11px] mt-0.5">${m.message}</div>
+            </td>
+
+            <td class="py-4 px-6 text-gray-400 text-[11px]">
+              ${m.date}
+            </td>
+
+            <td class="py-4 px-6">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                isReplied ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/30' :
+                isUnread ? 'bg-amber-500/10 text-amber-500 border border-amber-500/30 font-bold' :
+                'bg-gray-500/10 text-gray-400 border border-gray-500/30'
+              }">
+                ${isReplied ? '✓ Replied' : isUnread ? '● Unread' : 'Seen'}
+              </span>
+            </td>
+
+            <td class="py-4 px-6 text-right space-x-2">
+              <button onclick="openViewModal('${m.id}')" class="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-[#252E35] hover:bg-[#D6FF36] hover:text-[#101820] text-xs font-bold transition-colors">
+                View & Reply
+              </button>
+              <button onclick="handleDeleteMessage('${m.id}')" class="p-1.5 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors" title="Delete Inquiry">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterMessages(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-[#D6FF36] text-[#101820]';
+        } else {
+          btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300';
+        }
+      });
+      renderMessages();
+    }
+
+    function handleSearchMessages(e) {
+      searchQuery = e.target.value;
+      renderMessages();
+    }
+
+    function openViewModal(id) {
+      const msgs = StorageService.getMessages();
+      const m = msgs.find(item => item.id === id);
+      if (!m) return;
+
+      // Mark as read if unread
+      if (m.status === 'Unread') {
+        StorageService.updateMessageStatus(id, 'Read');
+        renderMessages();
+      }
+
+      const modalContent = document.getElementById('modal-msg-content');
+      modalContent.innerHTML = `
+        <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-400">From</span>
+            <span class="text-xs text-gray-400">${m.date}</span>
+          </div>
+          <h4 class="text-base font-bold text-gray-900 dark:text-white">${m.name}</h4>
+          <div class="flex flex-wrap items-center gap-4 text-xs">
+            <a href="mailto:${m.email}" class="text-[#D6FF36] hover:underline flex items-center gap-1">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> ${m.email}
+            </a>
+            ${m.phone ? `
+              <a href="tel:${m.phone}" class="text-gray-400 hover:text-white flex items-center gap-1">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i> ${m.phone}
+              </a>
+              <a href="https://wa.me/${m.phone.replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-500 hover:underline flex items-center gap-1 font-bold">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp Lead
+              </a>
+            ` : ''}
+          </div>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Subject</span>
+          <p class="text-sm font-bold text-gray-900 dark:text-white font-heading">${m.subject || 'Doorstep Car Detailing Query'}</p>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Customer Message</span>
+          <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] text-xs leading-relaxed text-gray-700 dark:text-gray-200">
+            ${m.message}
+          </div>
+        </div>
+
+        ${m.reply ? `
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-emerald-500 flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Sent Response
+              </span>
+              <span class="text-[10px] text-gray-400">${m.replyDate || 'Recently'}</span>
+            </div>
+            <p class="text-xs text-gray-300 italic">"${m.reply}"</p>
+          </div>
+        ` : ''}
+
+        <form onsubmit="handleSendReply(event, '${m.id}')" class="space-y-3 pt-2">
+          <label class="block text-xs font-bold text-gray-400 uppercase">
+            ${m.reply ? 'Send Follow-up Message' : 'Compose Doorstep Support Reply'}
+          </label>
+          <textarea id="reply-text" required rows="3" placeholder="Type your reply to ${m.name}... (will notify customer via SMS/Email simulation)" class="w-full p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs"></textarea>
+
+          <div class="flex items-center justify-end gap-3 pt-2">
+            <button type="button" onclick="closeModal('view-msg-modal')" class="px-5 h-11 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35]">Close</button>
+            <button type="submit" class="btn-primary !h-11 text-xs font-bold px-6">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Send Reply</span>
+            </button>
+          </div>
+        </form>
+      `;
+
+      openModal('view-msg-modal');
+      lucide.createIcons();
+    }
+
+    function handleSendReply(e, id) {
+      e.preventDefault();
+      const replyText = document.getElementById('reply-text').value.trim();
+      StorageService.replyMessage(id, replyText);
+      closeModal('view-msg-modal');
+      showToast('Doorstep customer reply sent successfully!', 'success');
+      renderMessages();
+    }
+
+    function handleDeleteMessage(id) {
+      if (confirm('Delete this inquiry message permanently?')) {
+        StorageService.deleteMessage(id);
+        showToast('Message inquiry deleted', 'info');
+        renderMessages();
+      }
+    }
+
+    function handleExportMessages() {
+      const msgs = StorageService.getMessages();
+      const csv = "ID,Name,Email,Phone,Subject,Date,Status\n" + msgs.map(m => 
+        `"${m.id}","${m.name}","${m.email}","${m.phone || ''}","${(m.subject || '').replace(/"/g, '""')}","${m.date}","${m.status}"`
+      ).join("\n");
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `car_shine_inquiries_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      showToast('Exported inquiries CSV successfully', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMessages();
+
+      const openBtn = document.getElementById('sidebar-open-btn');
+      const closeBtn = document.getElementById('sidebar-close-btn');
+      const sidebar = document.getElementById('dash-sidebar');
+
+      if (openBtn && sidebar) {
+        openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+      }
+      if (closeBtn && sidebar) {
+        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+      }
+    });
+  </script>
+</body>
+</html>
+

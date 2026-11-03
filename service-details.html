@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details | CAR SHINE – Doorstep Car Detailing</title>
+  <meta name="description" content="In-depth breakdown of our doorstep detailing services, steps, inclusions, car segment pricing, and benefits.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#101820]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading">
+            CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+          </span>
+          <span class="block text-[10px] tracking-widest text-gray-500 uppercase font-medium">Doorstep Detailing</span>
+        </div>
+      </a>
+
+      <nav class="hidden xl:flex items-center space-x-7 rtl:space-x-reverse text-sm font-semibold">
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1 py-2">
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-1 w-44 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 1 – Classic</a>
+            <a href="home-2.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 2 – Premium</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">About</a>
+        <a href="services.html" class="public-nav-link text-[#D6FF36] font-bold">Services</a>
+        <a href="pricing.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Pricing</a>
+        <a href="service-areas.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Service Areas</a>
+        <a href="blog.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Blog</a>
+        <a href="contact.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Contact</a>
+
+        <!-- Last Link: Dashboard -->
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1.5 py-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Dashboard</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="absolute right-0 rtl:right-auto rtl:left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="customer/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Portal
+            </a>
+            <a href="admin/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Panel
+            </a>
+            <a href="technician/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <a href="login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36]">
+          Login
+        </a>
+
+        <a href="customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <button id="mobile-menu-toggle" aria-label="Open mobile menu" class="xl:hidden w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Content Container -->
+  <main id="service-details-container" class="pb-24">
+    <!-- Populated by JavaScript -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#101820] text-gray-400 pt-16 pb-8 border-t border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#252E35]">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-[#252E35] flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider text-white uppercase font-heading">
+              CAR <span class="text-[#D6FF36]">SHINE</span>
+            </span>
+          </div>
+          <p class="text-xs text-gray-400">YOUR CAR, ALWAYS SHINING. Mobile Car Wash & Doorstep Detailing in Chennai.</p>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="index.html" class="hover:text-[#D6FF36]">Home</a></li>
+            <li><a href="about.html" class="hover:text-[#D6FF36]">About Us</a></li>
+            <li><a href="services.html" class="hover:text-[#D6FF36]">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-[#D6FF36]">Pricing</a></li>
+            <li><a href="contact.html" class="hover:text-[#D6FF36]">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Our Services</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="service-details.html?id=srv_01" class="hover:text-[#D6FF36]">Exterior Wash</a></li>
+            <li><a href="service-details.html?id=srv_02" class="hover:text-[#D6FF36]">Interior Cleaning</a></li>
+            <li><a href="service-details.html?id=srv_03" class="hover:text-[#D6FF36]">Car Polishing</a></li>
+            <li><a href="service-details.html?id=srv_05" class="hover:text-[#D6FF36]">Full Car Detailing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Contact & Support</h4>
+          <ul class="space-y-3 text-xs">
+            <li>+91 98401 23456</li>
+            <li>support@carshine.com</li>
+            <li>12B Nelson Manickam Road, Chennai - 600029</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>© 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.</div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+          <a href="legal/privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="legal/terms.html" class="hover:text-gray-300">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceId = urlParams.get('id') || 'srv_05'; // Default to Full Car Detailing
+      const service = StorageService.getServiceById(serviceId) || StorageService.getServices()[4];
+      const allServices = StorageService.getServices();
+      const container = document.getElementById('service-details-container');
+
+      // Calculate sample pricing by vehicle segment
+      const hatchbackPrice = service.price;
+      const sedanPrice = Math.round(service.price * 1.15);
+      const suvPrice = Math.round(service.price * 1.35);
+      const luxuryPrice = Math.round(service.price * 1.6);
+
+      container.innerHTML = `
+        <!-- Banner & Hero -->
+        <section class="relative bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35] py-14">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+              <a href="services.html" class="hover:text-[#D6FF36]">Services</a>
+              <span>/</span>
+              <span class="text-[#D6FF36] font-bold">${service.name}</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <div class="badge-lime text-xs uppercase tracking-widest">${service.badge || 'Professional Doorstep Detailing'}</div>
+                <h1 class="text-3xl sm:text-5xl font-black font-heading">${service.name}</h1>
+                <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">${service.tagline}</p>
+                <div class="flex items-center gap-6 pt-2">
+                  <div class="flex items-center gap-2 text-sm font-semibold">
+                    <i data-lucide="clock" class="w-4 h-4 text-[#D6FF36]"></i>
+                    <span>${service.duration}</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm font-semibold">
+                    <i data-lucide="truck" class="w-4 h-4 text-[#D6FF36]"></i>
+                    <span>100% Doorstep Service</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm font-semibold">
+                    <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-current"></i>
+                    <span>4.9 / 5 Rating</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-5 text-left lg:text-right">
+                <div class="inline-block p-6 rounded-3xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] text-left">
+                  <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Starting from</span>
+                  <div class="text-4xl font-black text-[#101820] dark:text-[#D6FF36] font-heading my-1">
+                    ₹${service.price.toLocaleString('en-IN')}
+                  </div>
+                  <p class="text-xs text-gray-500 mb-4">Includes taxes, materials & doorstep fee</p>
+                  <a href="customer/book-wash.html?service=${service.id}" class="btn-primary w-full text-sm font-bold">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Book This Service
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Details Content -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <div class="lg:col-span-8 space-y-12">
+              
+              <!-- Featured Image -->
+              <div class="rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] shadow-xl">
+                <img src="${service.image}" alt="${service.name}" class="w-full h-[400px] object-cover">
+              </div>
+
+              <!-- Detailed Explanation -->
+              <div>
+                <h2 class="text-2xl font-bold font-heading mb-4">Detailed Service Explanation</h2>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm mb-4">
+                  ${service.description}
+                </p>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                  Our mobile detailing fleet is engineered to perform without relying on your residence's electricity or water tanks. Our certified detailers bring pH-neutral detergents, dual-action Rupes polishers, steam generators, and commercial extraction vacuum units.
+                </p>
+              </div>
+
+              <!-- What's Included -->
+              <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+                <h3 class="text-xl font-bold font-heading mb-6 flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-[#D6FF36]"></i>
+                  What's Included in This Package?
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  ${service.included.map(item => `
+                    <div class="flex items-start gap-3 p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-100 dark:border-[#252E35]">
+                      <i data-lucide="check" class="w-4 h-4 text-[#D6FF36] flex-shrink-0 mt-0.5"></i>
+                      <span class="text-xs font-semibold">${item}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Step-by-Step Process -->
+              <div>
+                <h3 class="text-xl font-bold font-heading mb-6">Step-by-Step Execution Process</h3>
+                <div class="space-y-4">
+                  <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+                    <div>
+                      <h4 class="font-bold text-sm">Arrival & Paint Thickness Walkaround</h4>
+                      <p class="text-xs text-gray-500 mt-1">Technician arrives in the mobile van, verifies parking safety, and checks vehicle condition with client.</p>
+                    </div>
+                  </div>
+                  <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+                    <div>
+                      <h4 class="font-bold text-sm">Decontamination & Pre-Foam Soak</h4>
+                      <p class="text-xs text-gray-500 mt-1">Snow foam breaks loose grit, iron particles and grime without mechanical contact, preventing swirl scratches.</p>
+                    </div>
+                  </div>
+                  <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+                    <div>
+                      <h4 class="font-bold text-sm">Treatment & Precision Detailing</h4>
+                      <p class="text-xs text-gray-500 mt-1">Steam extraction, machine polishing or protective coating applied meticulously panel by panel.</p>
+                    </div>
+                  </div>
+                  <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex items-start gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+                    <div>
+                      <h4 class="font-bold text-sm">Final Quality Inspection & Handover</h4>
+                      <p class="text-xs text-gray-500 mt-1">Detailed review with digital invoice and digital sign-off from customer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pricing Table by Car Segment -->
+              <div>
+                <h3 class="text-xl font-bold font-heading mb-4">Pricing Table by Car Segment</h3>
+                <div class="overflow-x-auto rounded-2xl border border-gray-200 dark:border-[#252E35]">
+                  <table class="w-full text-left text-sm">
+                    <thead class="bg-gray-100 dark:bg-[#1A232C] text-xs uppercase text-gray-500 font-bold">
+                      <tr>
+                        <th class="p-4">Car Segment</th>
+                        <th class="p-4">Examples</th>
+                        <th class="p-4">Estimated Time</th>
+                        <th class="p-4">Price</th>
+                        <th class="p-4 text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-[#252E35]">
+                      <tr>
+                        <td class="p-4 font-bold">Hatchback</td>
+                        <td class="p-4 text-xs text-gray-500">Swift, i20, Polo, Tiago</td>
+                        <td class="p-4 text-xs">${service.duration}</td>
+                        <td class="p-4 font-black text-[#D6FF36]">₹${hatchbackPrice.toLocaleString('en-IN')}</td>
+                        <td class="p-4 text-right">
+                          <a href="customer/book-wash.html?service=${service.id}&type=Hatchback" class="text-xs font-bold text-[#D6FF36] hover:underline">Select</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-bold">Sedan</td>
+                        <td class="p-4 text-xs text-gray-500">City, Verna, Ciaz, Slavia</td>
+                        <td class="p-4 text-xs">${service.duration}</td>
+                        <td class="p-4 font-black text-[#D6FF36]">₹${sedanPrice.toLocaleString('en-IN')}</td>
+                        <td class="p-4 text-right">
+                          <a href="customer/book-wash.html?service=${service.id}&type=Sedan" class="text-xs font-bold text-[#D6FF36] hover:underline">Select</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-bold">Compact / Full SUV</td>
+                        <td class="p-4 text-xs text-gray-500">Creta, Seltos, Harrier, Fortuner</td>
+                        <td class="p-4 text-xs">${service.duration}</td>
+                        <td class="p-4 font-black text-[#D6FF36]">₹${suvPrice.toLocaleString('en-IN')}</td>
+                        <td class="p-4 text-right">
+                          <a href="customer/book-wash.html?service=${service.id}&type=SUV" class="text-xs font-bold text-[#D6FF36] hover:underline">Select</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-bold">Luxury & Exotic</td>
+                        <td class="p-4 text-xs text-gray-500">BMW, Mercedes-Benz, Audi, Porsche</td>
+                        <td class="p-4 text-xs">${service.duration}</td>
+                        <td class="p-4 font-black text-[#D6FF36]">₹${luxuryPrice.toLocaleString('en-IN')}</td>
+                        <td class="p-4 text-right">
+                          <a href="customer/book-wash.html?service=${service.id}&type=Luxury" class="text-xs font-bold text-[#D6FF36] hover:underline">Select</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- FAQs for this service -->
+              <div>
+                <h3 class="text-xl font-bold font-heading mb-4">Frequently Asked Questions</h3>
+                <div class="space-y-3">
+                  <div class="p-4 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+                    <h4 class="font-bold text-sm">Do I need to supply water or an extension cord?</h4>
+                    <p class="text-xs text-gray-500 mt-1">No! Our mobile detailing van is 100% self-sufficient. We carry our own deionized pure water tank and quiet generator power.</p>
+                  </div>
+                  <div class="p-4 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+                    <h4 class="font-bold text-sm">Can this service be done in an apartment basement?</h4>
+                    <p class="text-xs text-gray-500 mt-1">Yes, our water reclamation mat and zero-splatter methods mean no mess or dirty puddles are left in the basement parking.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="lg:col-span-4 space-y-6">
+              
+              <!-- Quick Booking Card -->
+              <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-lg sticky top-28">
+                <h3 class="text-lg font-bold font-heading mb-2">Book This Service</h3>
+                <p class="text-xs text-gray-500 mb-6">Select your slot in 60 seconds with instant booking confirmation.</p>
+                
+                <div class="space-y-4 mb-6">
+                  <div class="flex items-center justify-between text-xs pb-3 border-b border-gray-100 dark:border-[#252E35]">
+                    <span class="text-gray-500">Service:</span>
+                    <span class="font-bold">${service.name}</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs pb-3 border-b border-gray-100 dark:border-[#252E35]">
+                    <span class="text-gray-500">Estimated Duration:</span>
+                    <span class="font-bold">${service.duration}</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs pb-3 border-b border-gray-100 dark:border-[#252E35]">
+                    <span class="text-gray-500">Starting Price:</span>
+                    <span class="font-black text-base text-[#D6FF36]">₹${service.price.toLocaleString('en-IN')}</span>
+                  </div>
+                </div>
+
+                <a href="customer/book-wash.html?service=${service.id}" class="btn-primary w-full text-sm font-bold mb-3">
+                  <i data-lucide="calendar" class="w-4 h-4"></i> Proceed to Book
+                </a>
+                
+                <a href="https://wa.me/919840123456?text=Hi%20Car%20Shine,%20I%20have%20a%20question%20about%20${encodeURIComponent(service.name)}" target="_blank" class="btn-secondary w-full text-xs font-semibold">
+                  <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i> WhatsApp Us
+                </a>
+
+                <!-- Related Services -->
+                <div class="pt-6 mt-6 border-t border-gray-100 dark:border-[#252E35]">
+                  <h4 class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-3">Explore Other Services</h4>
+                  <div class="space-y-2">
+                    ${allServices.filter(s => s.id !== service.id).slice(0, 3).map(rel => `
+                      <a href="service-details.html?id=${rel.id}" class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-[#252E35] transition-colors text-xs">
+                        <span class="font-semibold">${rel.name}</span>
+                        <span class="text-[#D6FF36] font-bold">₹${rel.price}</span>
+                      </a>
+                    `).join('')}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      `;
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

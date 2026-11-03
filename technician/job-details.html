@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Execution Console | CAR SHINE Mobile Fleet</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- TECHNICIAN SIDEBAR -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
+      <div>
+        <!-- Logo -->
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">FLEET</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
+        </div>
+
+        <!-- Technician Profile Card -->
+        <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Ramesh Kumar" class="w-10 h-10 rounded-xl object-cover border border-[#D6FF36]">
+          <div class="min-w-0 flex-1">
+            <h4 class="text-xs font-bold text-white truncate">Ramesh Kumar</h4>
+            <span class="text-[10px] text-[#D6FF36] font-mono">Van: TN 09 AZ 4521</span>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="space-y-1 text-xs font-semibold">
+          <a href="dashboard.html" class="dash-nav-item">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Fleet Cockpit</span>
+          </a>
+          <a href="assigned-jobs.html" class="dash-nav-item">
+            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+            <span>Assigned Jobs</span>
+            <span class="w-5 h-5 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-[10px] font-black ml-auto">3</span>
+          </a>
+          <a href="#" class="dash-nav-item active">
+            <i data-lucide="play-circle" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Execution Console</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>End Shift & Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <!-- Top Bar -->
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <a href="assigned-jobs.html" class="p-2 rounded-xl bg-gray-100 dark:bg-[#252E35] text-gray-400 hover:text-white transition-colors" title="Back to jobs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <h1 class="text-lg font-bold font-heading flex items-center gap-2">
+              <span>Job Execution Console</span>
+              <span id="header-booking-id" class="text-xs px-2 py-0.5 rounded-lg bg-[#D6FF36] text-[#101820] font-mono font-black">#CS1024</span>
+            </h1>
+            <p class="text-xs text-gray-500">Live service stage progression and customer sign-off</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
+            RTL
+          </button>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-6xl">
+        
+        <!-- STEP PROGRESSION WORKFLOW PANEL -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200 dark:border-[#252E35]">
+            <div>
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Service Progression Workflow</span>
+              <h2 class="text-xl font-black font-heading mt-0.5">
+                Current Status: <span id="current-status-badge" class="text-[#D6FF36] font-mono">On the Way</span>
+              </h2>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">
+              Live GPS Sync: Anna Nagar East Radial Road
+            </div>
+          </div>
+
+          <!-- 6-STEP WORKFLOW BUTTONS -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <button onclick="setWorkflowStage('Assigned')" id="btn-step-Assigned" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400">
+              <span class="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black">1</span>
+              <span class="text-[11px] font-bold">Assigned</span>
+            </button>
+
+            <button onclick="setWorkflowStage('Accepted')" id="btn-step-Accepted" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400">
+              <span class="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black">2</span>
+              <span class="text-[11px] font-bold">Accepted</span>
+            </button>
+
+            <button onclick="setWorkflowStage('On the Way')" id="btn-step-On the Way" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-[#D6FF36]/15 border-[#D6FF36] text-[#101820] dark:text-[#D6FF36]">
+              <span class="w-7 h-7 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-xs font-black">3</span>
+              <span class="text-[11px] font-bold">On the Way</span>
+            </button>
+
+            <button onclick="setWorkflowStage('Arrived')" id="btn-step-Arrived" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400">
+              <span class="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black">4</span>
+              <span class="text-[11px] font-bold">Arrived</span>
+            </button>
+
+            <button onclick="setWorkflowStage('In Progress')" id="btn-step-In Progress" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400">
+              <span class="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black">5</span>
+              <span class="text-[11px] font-bold">In Progress</span>
+            </button>
+
+            <button onclick="setWorkflowStage('Completed')" id="btn-step-Completed" class="workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400">
+              <span class="w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black">6</span>
+              <span class="text-[11px] font-bold">Completed</span>
+            </button>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <span class="text-gray-500">Clicking any stage immediately notifies customer via SMS and synchronizes the live customer tracking map.</span>
+            <button onclick="advanceNextStage()" class="btn-primary !h-10 text-xs font-bold px-5 whitespace-nowrap">
+              <span>Advance to Next Stage →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- DETAILS GRID: CUSTOMER + VEHICLE + SERVICE -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- CUSTOMER CARD -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+            <div class="flex items-center gap-3 pb-3 border-b border-gray-100 dark:border-[#252E35]">
+              <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+                <i data-lucide="user" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm font-heading">Customer Contact</h3>
+                <p class="text-[11px] text-gray-500">Doorstep booking owner</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="text-gray-400 block text-[11px]">Full Name</span>
+                <p id="c-name" class="font-bold text-sm text-gray-900 dark:text-white">Pravin Kumar</p>
+              </div>
+
+              <div>
+                <span class="text-gray-400 block text-[11px]">Contact Phone</span>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <a id="c-phone-link" href="tel:+919840123456" class="font-mono font-bold text-emerald-500 hover:underline flex items-center gap-1">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    <span id="c-phone">+91 98401 23456</span>
+                  </a>
+                  <a id="c-wa-link" href="https://wa.me/919840123456" target="_blank" class="p-1 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-gray-400 block text-[11px]">Doorstep Address</span>
+                <p id="c-address" class="text-gray-700 dark:text-gray-300 leading-relaxed mt-0.5">
+                  Flat 4B, Emerald Heights, 2nd Avenue, Anna Nagar West, Chennai - 600040
+                </p>
+                <a id="c-nav-link" href="https://maps.google.com/?q=Anna+Nagar+West+Chennai" target="_blank" class="inline-flex items-center gap-1 text-[#D6FF36] font-bold text-xs mt-2 hover:underline">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                  <span>Launch Google Maps GPS</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- VEHICLE CARD -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+            <div class="flex items-center gap-3 pb-3 border-b border-gray-100 dark:border-[#252E35]">
+              <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                <i data-lucide="car" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm font-heading">Vehicle Details</h3>
+                <p class="text-[11px] text-gray-500">Assigned vehicle specifications</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="text-gray-400 block text-[11px]">Make & Model</span>
+                <p id="v-model" class="font-bold text-sm text-gray-900 dark:text-white">Honda City ZX</p>
+              </div>
+
+              <div>
+                <span class="text-gray-400 block text-[11px]">Registration Number</span>
+                <p id="v-reg" class="font-mono font-bold text-sm text-amber-400">TN 09 CB 1234</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <span class="text-gray-400 block text-[11px]">Body Type</span>
+                  <p id="v-type" class="font-bold text-gray-900 dark:text-white">Sedan</p>
+                </div>
+                <div>
+                  <span class="text-gray-400 block text-[11px]">Paint Color</span>
+                  <p id="v-color" class="font-bold text-gray-900 dark:text-white">Platinum White</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICE & BILLING CARD -->
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+            <div class="flex items-center gap-3 pb-3 border-b border-gray-100 dark:border-[#252E35]">
+              <div class="w-10 h-10 rounded-2xl bg-[#D6FF36]/10 text-[#D6FF36] flex items-center justify-center">
+                <i data-lucide="receipt" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm font-heading">Service Package</h3>
+                <p class="text-[11px] text-gray-500">Inclusions & payment method</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="text-gray-400 block text-[11px]">Package Name</span>
+                <p id="s-name" class="font-bold text-sm text-gray-900 dark:text-white">Full Car Detailing</p>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-gray-400 block text-[11px]">Price</span>
+                  <p id="s-price" class="font-black text-base text-emerald-500">₹2,999</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-gray-400 block text-[11px]">Payment Status</span>
+                  <span id="s-pay-status" class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black bg-emerald-500/10 text-emerald-500 border border-emerald-500/30">
+                    PAID (UPI)
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-gray-400 block text-[11px]">Scheduled Window</span>
+                <p id="s-time" class="font-medium text-gray-700 dark:text-gray-300">2026-11-03 • 10:30 AM - 01:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DETAILING CHECKLIST & PHOTO INSPECTION -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
+          <div>
+            <h3 class="font-bold text-base font-heading">Doorstep Detailing Checklist</h3>
+            <p class="text-xs text-gray-500">Standard operating procedure for CAR SHINE mobile technicians</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+              <input type="checkbox" checked class="w-4 h-4 mt-0.5 accent-[#D6FF36]">
+              <div>
+                <span class="font-bold block">1. Pre-Wash Inspection & Swirl Check</span>
+                <span class="text-gray-400 text-[11px]">Inspect paint for scratches, stone chips and dent conditions.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+              <input type="checkbox" checked class="w-4 h-4 mt-0.5 accent-[#D6FF36]">
+              <div>
+                <span class="font-bold block">2. pH Neutral Snow Foam & High Pressure Rinse</span>
+                <span class="text-gray-400 text-[11px]">Full body lift without surface micro-abrasions.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+              <input type="checkbox" id="chk-step-3" class="w-4 h-4 mt-0.5 accent-[#D6FF36]">
+              <div>
+                <span class="font-bold block">3. Dual-Action Polishing & Sealant</span>
+                <span class="text-gray-400 text-[11px]">Swirl reduction and hydrophobic paint glaze coating.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+              <input type="checkbox" id="chk-step-4" class="w-4 h-4 mt-0.5 accent-[#D6FF36]">
+              <div>
+                <span class="font-bold block">4. Interior Vacuuming & Antibacterial AC Steam</span>
+                <span class="text-gray-400 text-[11px]">Upholstery extraction, dashboard UV coat, air freshener.</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- PHOTO INSPECTION UPLOAD SIMULATION -->
+          <div class="pt-3 border-t border-gray-100 dark:border-[#252E35]">
+            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Customer Proof of Work Photos</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div class="p-4 rounded-2xl border-2 border-dashed border-gray-300 dark:border-[#252E35] text-center flex flex-col items-center justify-center cursor-pointer hover:border-[#D6FF36] transition-colors" onclick="handleSimulateUpload('Pre-Wash Exterior')">
+                <i data-lucide="camera" class="w-6 h-6 text-gray-400 mb-1"></i>
+                <span class="text-[11px] font-bold">Pre-Wash Front</span>
+                <span class="text-[9px] text-emerald-500 font-bold mt-1">✓ Attached</span>
+              </div>
+
+              <div class="p-4 rounded-2xl border-2 border-dashed border-gray-300 dark:border-[#252E35] text-center flex flex-col items-center justify-center cursor-pointer hover:border-[#D6FF36] transition-colors" onclick="handleSimulateUpload('Pre-Wash Swirls')">
+                <i data-lucide="camera" class="w-6 h-6 text-gray-400 mb-1"></i>
+                <span class="text-[11px] font-bold">Pre-Wash Swirls</span>
+                <span class="text-[9px] text-emerald-500 font-bold mt-1">✓ Attached</span>
+              </div>
+
+              <div class="p-4 rounded-2xl border-2 border-dashed border-gray-300 dark:border-[#252E35] text-center flex flex-col items-center justify-center cursor-pointer hover:border-[#D6FF36] transition-colors" onclick="handleSimulateUpload('Post-Detail Gloss')">
+                <i data-lucide="upload" class="w-6 h-6 text-[#D6FF36] mb-1"></i>
+                <span class="text-[11px] font-bold">Post-Detail Gloss</span>
+                <span class="text-[9px] text-gray-400 mt-1">Click to Capture</span>
+              </div>
+
+              <div class="p-4 rounded-2xl border-2 border-dashed border-gray-300 dark:border-[#252E35] text-center flex flex-col items-center justify-center cursor-pointer hover:border-[#D6FF36] transition-colors" onclick="handleSimulateUpload('Interior Cleanliness')">
+                <i data-lucide="upload" class="w-6 h-6 text-[#D6FF36] mb-1"></i>
+                <span class="text-[11px] font-bold">Interior Cabin</span>
+                <span class="text-[9px] text-gray-400 mt-1">Click to Capture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUSTOMER SIGN-OFF & COMPLETE TRIGGER -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-[#101820] border-2 border-[#D6FF36] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-2xl">
+          <div>
+            <span class="text-xs font-bold text-[#D6FF36] uppercase tracking-wider block">Job Sign-off & Handover</span>
+            <h3 class="text-xl font-black font-heading mt-0.5">Satisfied Doorstep Handover</h3>
+            <p class="text-xs text-gray-300 mt-1">Customer inspected shine and approved the spotless finish.</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="handleCompleteJob()" class="btn-primary !h-12 text-xs font-black px-8 shadow-lg shadow-[#D6FF36]/30">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Mark Job Completed</span>
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookingId = urlParams.get('id') || 'CS1024';
+    let currentBooking = null;
+
+    const stages = ['Assigned', 'Accepted', 'On the Way', 'Arrived', 'In Progress', 'Completed'];
+
+    function loadJobDetails() {
+      const b = StorageService.getBookingById(bookingId) || StorageService.getBookings()[0];
+      currentBooking = b;
+
+      if (!b) {
+        showToast('Booking not found', 'error');
+        return;
+      }
+
+      document.getElementById('header-booking-id').textContent = '#' + b.id;
+      document.getElementById('c-name').textContent = b.customer?.name || 'Customer';
+      document.getElementById('c-phone').textContent = b.customer?.phone || '+91 98401 23456';
+      document.getElementById('c-phone-link').href = 'tel:' + (b.customer?.phone || '+919840123456');
+      document.getElementById('c-wa-link').href = 'https://wa.me/' + (b.customer?.phone || '919840123456').replace(/[^0-9]/g, '');
+      document.getElementById('c-address').textContent = b.address;
+      document.getElementById('c-nav-link').href = 'https://maps.google.com/?q=' + encodeURIComponent(b.address);
+
+      document.getElementById('v-model').textContent = `${b.vehicle?.brand} ${b.vehicle?.model}`;
+      document.getElementById('v-reg').textContent = b.vehicle?.regNumber || 'TN Registered';
+      document.getElementById('v-type').textContent = b.vehicle?.type || 'Sedan';
+      document.getElementById('v-color').textContent = b.vehicle?.color || 'Showroom Finish';
+
+      document.getElementById('s-name').textContent = b.service;
+      document.getElementById('s-price').textContent = '₹' + b.servicePrice;
+      document.getElementById('s-pay-status').textContent = b.paymentStatus === 'Paid' ? 'PAID (' + (b.paymentMethod || 'Online') + ')' : 'DUE (' + (b.paymentMethod || 'Doorstep Cash') + ')';
+      document.getElementById('s-time').textContent = `${b.date} • ${b.timeSlot}`;
+
+      updateWorkflowUI(b.status);
+    }
+
+    function updateWorkflowUI(activeStage) {
+      document.getElementById('current-status-badge').textContent = activeStage;
+
+      const activeIdx = stages.indexOf(activeStage);
+
+      stages.forEach((stage, idx) => {
+        const btn = document.getElementById('btn-step-' + stage);
+        if (!btn) return;
+
+        if (idx < activeIdx) {
+          // Completed prior step
+          btn.className = 'workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-emerald-500/10 border-emerald-500/40 text-emerald-400';
+          btn.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-emerald-500 text-[#101820] flex items-center justify-center text-xs font-black';
+          btn.querySelector('span:first-child').innerHTML = '✓';
+        } else if (idx === activeIdx) {
+          // Current active step
+          btn.className = 'workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-[#D6FF36]/15 border-[#D6FF36] text-[#101820] dark:text-[#D6FF36] shadow-lg shadow-[#D6FF36]/10';
+          btn.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-xs font-black';
+          btn.querySelector('span:first-child').textContent = (idx + 1);
+        } else {
+          // Future step
+          btn.className = 'workflow-btn p-3 rounded-2xl border text-center transition-all flex flex-col items-center gap-1.5 bg-gray-100 dark:bg-[#101820] border-gray-200 dark:border-[#252E35] text-gray-400';
+          btn.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-gray-200 dark:bg-[#252E35] flex items-center justify-center text-xs font-black';
+          btn.querySelector('span:first-child').textContent = (idx + 1);
+        }
+      });
+    }
+
+    function setWorkflowStage(newStatus) {
+      if (!currentBooking) return;
+      StorageService.updateBookingStatus(currentBooking.id, newStatus);
+      currentBooking.status = newStatus;
+      updateWorkflowUI(newStatus);
+      showToast(`Booking stage updated to: ${newStatus}`, 'success');
+    }
+
+    function advanceNextStage() {
+      if (!currentBooking) return;
+      const currentIdx = stages.indexOf(currentBooking.status);
+      if (currentIdx < stages.length - 1) {
+        setWorkflowStage(stages[currentIdx + 1]);
+      } else {
+        showToast('Service is already marked Completed!', 'info');
+      }
+    }
+
+    function handleSimulateUpload(label) {
+      showToast(`Capturing photo for ${label}...`, 'info');
+      setTimeout(() => {
+        showToast(`Photo for "${label}" uploaded to customer job report!`, 'success');
+      }, 1000);
+    }
+
+    function handleCompleteJob() {
+      setWorkflowStage('Completed');
+      document.getElementById('chk-step-3').checked = true;
+      document.getElementById('chk-step-4').checked = true;
+      showToast('🎉 Job #CS1024 completed! Customer invoiced and feedback request triggered.', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadJobDetails();
+
+      const openBtn = document.getElementById('sidebar-open-btn');
+      const closeBtn = document.getElementById('sidebar-close-btn');
+      const sidebar = document.getElementById('dash-sidebar');
+
+      if (openBtn && sidebar) {
+        openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+      }
+      if (closeBtn && sidebar) {
+        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+      }
+    });
+  </script>
+</body>
+</html>
+

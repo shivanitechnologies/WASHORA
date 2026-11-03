@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found | CAR SHINE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Top bar with equal dimension controls -->
+  <header class="p-6 flex items-center justify-between max-w-7xl mx-auto w-full">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading">
+          CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+        </span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+      </button>
+
+      <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+        <i data-lucide="languages" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- 404 Hero Container -->
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12">
+    <div class="max-w-xl w-full text-center space-y-6">
+      
+      <div class="relative inline-block">
+        <span class="text-8xl sm:text-9xl font-black font-heading text-gray-200 dark:text-[#252E35] tracking-widest select-none">
+          404
+        </span>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-20 h-20 rounded-3xl bg-[#101820] dark:bg-[#1A232C] border-2 border-[#D6FF36] flex items-center justify-center text-[#D6FF36] shadow-xl animate-bounce">
+            <i data-lucide="compass" class="w-10 h-10"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <h1 class="text-2xl sm:text-4xl font-black font-heading text-gray-900 dark:text-white">
+          Took a Wrong Turn!
+        </h1>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-md mx-auto">
+          The page or service you are searching for is currently in our detailing wash bay or has been moved to a new route.
+        </p>
+      </div>
+
+      <!-- Quick Search -->
+      <div class="max-w-sm mx-auto relative">
+        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input type="text" onkeydown="if(event.key==='Enter') window.location.href='../services.html'" placeholder="Search detailing packages..." class="w-full h-11 pl-9 pr-4 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-300 dark:border-[#252E35] text-xs focus:border-[#D6FF36] outline-none">
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="../index.html" class="btn-primary !h-12 text-xs font-black px-6 shadow-lg shadow-[#D6FF36]/20 flex items-center gap-2">
+          <i data-lucide="home" class="w-4 h-4"></i>
+          <span>Back to Homepage</span>
+        </a>
+        <a href="../services.html" class="px-6 h-12 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-300 dark:border-[#252E35] hover:border-[#D6FF36] text-xs font-bold flex items-center gap-2 transition-colors">
+          <i data-lucide="layers" class="w-4 h-4 text-[#D6FF36]"></i>
+          <span>Explore Services</span>
+        </a>
+      </div>
+
+      <!-- Quick Helpful Links -->
+      <div class="pt-6 border-t border-gray-200 dark:border-[#252E35] flex flex-wrap justify-center gap-6 text-xs text-gray-500">
+        <a href="../pricing.html" class="hover:text-[#D6FF36]">Pricing Plans</a>
+        <a href="../service-areas.html" class="hover:text-[#D6FF36]">Chennai Hubs</a>
+        <a href="../customer/dashboard.html" class="hover:text-[#D6FF36]">Customer Portal</a>
+        <a href="../contact.html" class="hover:text-[#D6FF36]">Support Hotline</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="p-6 text-center text-xs text-gray-500">
+    © 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+

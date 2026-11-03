@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancellation & Refund Policy | CAR SHINE – Doorstep Detailing</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <!-- PUBLIC HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#101820]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#252E35] transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading">
+            CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+          </span>
+          <span class="block text-[10px] tracking-widest text-gray-500 uppercase font-medium">Doorstep Detailing</span>
+        </div>
+      </a>
+
+      <!-- Navigation (Strict Stackly Order) -->
+      <nav class="hidden xl:flex items-center space-x-7 rtl:space-x-reverse text-sm font-semibold">
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1 py-2">
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-1 w-44 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="../index.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 1 – Classic</a>
+            <a href="../home-2.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 2 – Premium</a>
+          </div>
+        </div>
+
+        <a href="../about.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">About</a>
+        <a href="../services.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Services</a>
+        <a href="../pricing.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Pricing</a>
+        <a href="../service-areas.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Service Areas</a>
+        <a href="../blog.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Blog</a>
+        <a href="../contact.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Contact</a>
+
+        <!-- Last: Dashboard -->
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1.5 py-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Dashboard</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="absolute right-0 rtl:right-auto rtl:left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="../customer/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Portal
+            </a>
+            <a href="../admin/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Panel
+            </a>
+            <a href="../technician/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <a href="../login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36]">
+          Login
+        </a>
+
+        <a href="../customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35] text-gray-700 dark:text-gray-300">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end xl:hidden">
+    <div class="bg-white dark:bg-[#1A232C] rounded-t-3xl p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <span class="text-base font-extrabold uppercase font-heading">Menu</span>
+        <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <nav class="space-y-2 text-sm font-semibold">
+        <a href="../index.html" class="block py-2">Home 1 – Classic</a>
+        <a href="../home-2.html" class="block py-2">Home 2 – Premium</a>
+        <a href="../about.html" class="block py-2">About Us</a>
+        <a href="../services.html" class="block py-2">Services</a>
+        <a href="../pricing.html" class="block py-2">Pricing & Plans</a>
+        <a href="../service-areas.html" class="block py-2">Service Areas</a>
+        <a href="../blog.html" class="block py-2">Blog</a>
+        <a href="../contact.html" class="block py-2">Contact</a>
+        <a href="../customer/dashboard.html" class="block py-2 text-[#D6FF36]">Customer Dashboard</a>
+        <a href="../admin/dashboard.html" class="block py-2 text-blue-400">Admin Dashboard</a>
+        <a href="../technician/dashboard.html" class="block py-2 text-emerald-400">Technician App</a>
+      </nav>
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-3">
+        <a href="../login.html" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#35424D] flex items-center justify-center font-bold text-sm">Login</a>
+        <a href="../customer/book-wash.html" class="btn-primary w-full !h-11 text-sm font-bold flex items-center justify-center">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO HEADER -->
+  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-3">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#D6FF36]/10 text-[#101820] dark:text-[#D6FF36] border border-[#D6FF36]/30">
+        Customer-First Policy
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black font-heading text-gray-900 dark:text-white tracking-tight">
+        Cancellation & Refund Policy
+      </h1>
+      <p class="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto">
+        Clear, fair, and flexible cancellation rules for doorstep detailing appointments across Chennai.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-8 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+    
+    <!-- FREE CANCELLATION CARD -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-4">
+      <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-[#101820] flex items-center justify-center shrink-0">
+        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+      </div>
+      <div class="space-y-1">
+        <h3 class="text-base font-bold text-emerald-500 font-heading">100% Free Cancellation Window</h3>
+        <p class="text-xs text-gray-600 dark:text-gray-300">
+          You can cancel or reschedule any doorstep appointment completely free of charge up to <strong>2 hours prior to your scheduled time slot</strong> directly from your Customer Dashboard. If you paid online via UPI or card, 100% of the funds will be automatically reversed.
+        </p>
+      </div>
+    </div>
+
+    <!-- RESCHEDULING -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#D6FF36]/10 text-[#D6FF36] flex items-center justify-center">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white font-heading">Flexible Rescheduling</h3>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400">
+        Need to change your service time due to a sudden meeting? Reschedule your slot to another time or date with zero penalty. Your booking preferences and assigned vehicle remain preserved in your profile.
+      </p>
+    </div>
+
+    <!-- LATE CANCELLATION -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white font-heading">Late Cancellation & In-Transit Dispatch</h3>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400">
+        If a cancellation is requested after our technician has already departed with the mobile rig (status: "On the Way") or arrived at your doorstep, a nominal compensation fee of <strong>₹150</strong> is applied to cover technician fuel and vehicle setup costs. The remainder is immediately refunded.
+      </p>
+    </div>
+
+    <!-- REFUND TIMELINE -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+          <i data-lucide="credit-card" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white font-heading">Instant & Bank Refund Timelines</h3>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400">
+        Refunds are triggered immediately upon cancellation. Depending on your financial institution:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-xs text-gray-600 dark:text-gray-400">
+        <li><strong>UPI Transfers (GPay, PhonePe, Paytm):</strong> Typically processed within 15 to 45 minutes.</li>
+        <li><strong>Credit & Debit Cards:</strong> Reflected within 2 to 4 business banking days.</li>
+        <li><strong>Subscription Deductions:</strong> If a wash was deducted from a monthly subscription pack, it is restored to your balance instantly.</li>
+      </ul>
+    </div>
+
+    <!-- MONSOON POLICY -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#D6FF36]/10 text-[#D6FF36] flex items-center justify-center">
+          <i data-lucide="cloud-rain" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-base font-bold text-gray-900 dark:text-white font-heading">Chennai Monsoon Weather Reschedule</h3>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400">
+        During severe Chennai monsoon weather or waterlogging advisories, CAR SHINE prioritizes customer and technician safety. In case of unexpected storms, we offer automatic priority rescheduling or a 100% full refund with zero deductions.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- 4-COLUMN FOOTER -->
+  <footer class="bg-[#101820] text-gray-400 pt-16 pb-8 border-t border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#252E35]">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-[#252E35] flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider text-white uppercase font-heading">
+              CAR <span class="text-[#D6FF36]">SHINE</span>
+            </span>
+          </div>
+          <p class="text-xs text-gray-400">YOUR CAR, ALWAYS SHINING. Mobile Car Wash & Doorstep Detailing in Chennai.</p>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="../index.html" class="hover:text-[#D6FF36]">Home</a></li>
+            <li><a href="../about.html" class="hover:text-[#D6FF36]">About Us</a></li>
+            <li><a href="../services.html" class="hover:text-[#D6FF36]">Services</a></li>
+            <li><a href="../pricing.html" class="hover:text-[#D6FF36]">Pricing</a></li>
+            <li><a href="../contact.html" class="hover:text-[#D6FF36]">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Our Services</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="../service-details.html?id=srv_01" class="hover:text-[#D6FF36]">Exterior Wash</a></li>
+            <li><a href="../service-details.html?id=srv_02" class="hover:text-[#D6FF36]">Interior Cleaning</a></li>
+            <li><a href="../service-details.html?id=srv_03" class="hover:text-[#D6FF36]">Car Polishing</a></li>
+            <li><a href="../service-details.html?id=srv_05" class="hover:text-[#D6FF36]">Full Car Detailing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Contact & Support</h4>
+          <ul class="space-y-3 text-xs">
+            <li>+91 98401 23456</li>
+            <li>support@carshine.com</li>
+            <li>12B Nelson Manickam Road, Chennai - 600029</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>© 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.</div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+          <a href="privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="terms.html" class="hover:text-gray-300">Terms & Conditions</a>
+          <a href="cancellation-policy.html" class="text-[#D6FF36]">Cancellation Policy</a>
+          <a href="faq.html" class="hover:text-gray-300">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+

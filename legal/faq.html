@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | CAR SHINE – Doorstep Detailing</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <!-- PUBLIC HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#101820]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#252E35] transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading">
+            CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+          </span>
+          <span class="block text-[10px] tracking-widest text-gray-500 uppercase font-medium">Doorstep Detailing</span>
+        </div>
+      </a>
+
+      <!-- Navigation (Strict Stackly Order) -->
+      <nav class="hidden xl:flex items-center space-x-7 rtl:space-x-reverse text-sm font-semibold">
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1 py-2">
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-1 w-44 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="../index.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 1 – Classic</a>
+            <a href="../home-2.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 2 – Premium</a>
+          </div>
+        </div>
+
+        <a href="../about.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">About</a>
+        <a href="../services.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Services</a>
+        <a href="../pricing.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Pricing</a>
+        <a href="../service-areas.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Service Areas</a>
+        <a href="../blog.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Blog</a>
+        <a href="../contact.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36]">Contact</a>
+
+        <!-- Last: Dashboard -->
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1.5 py-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Dashboard</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="absolute right-0 rtl:right-auto rtl:left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="../customer/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Portal
+            </a>
+            <a href="../admin/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Panel
+            </a>
+            <a href="../technician/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <a href="../login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36]">
+          Login
+        </a>
+
+        <a href="../customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35] text-gray-700 dark:text-gray-300">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end xl:hidden">
+    <div class="bg-white dark:bg-[#1A232C] rounded-t-3xl p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <span class="text-base font-extrabold uppercase font-heading">Menu</span>
+        <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <nav class="space-y-2 text-sm font-semibold">
+        <a href="../index.html" class="block py-2">Home 1 – Classic</a>
+        <a href="../home-2.html" class="block py-2">Home 2 – Premium</a>
+        <a href="../about.html" class="block py-2">About Us</a>
+        <a href="../services.html" class="block py-2">Services</a>
+        <a href="../pricing.html" class="block py-2">Pricing & Plans</a>
+        <a href="../service-areas.html" class="block py-2">Service Areas</a>
+        <a href="../blog.html" class="block py-2">Blog</a>
+        <a href="../contact.html" class="block py-2">Contact</a>
+        <a href="../customer/dashboard.html" class="block py-2 text-[#D6FF36]">Customer Dashboard</a>
+        <a href="../admin/dashboard.html" class="block py-2 text-blue-400">Admin Dashboard</a>
+        <a href="../technician/dashboard.html" class="block py-2 text-emerald-400">Technician App</a>
+      </nav>
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-3">
+        <a href="../login.html" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#35424D] flex items-center justify-center font-bold text-sm">Login</a>
+        <a href="../customer/book-wash.html" class="btn-primary w-full !h-11 text-sm font-bold flex items-center justify-center">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO HEADER -->
+  <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#D6FF36]/10 text-[#101820] dark:text-[#D6FF36] border border-[#D6FF36]/30">
+        Help & Clarity
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black font-heading text-gray-900 dark:text-white tracking-tight">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto">
+        Everything you need to know about our doorstep mobile car wash, power self-sufficiency, and technician arrival in Chennai.
+      </p>
+
+      <!-- Quick Search Input -->
+      <div class="max-w-md mx-auto pt-4 relative">
+        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+        <input type="text" id="faq-search" oninput="handleFaqSearch(event)" placeholder="Search questions (e.g. water, generator, timing)..." class="w-full h-12 pl-11 pr-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-medium focus:border-[#D6FF36] outline-none">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-6">
+    
+    <div id="faq-list" class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <div class="faq-item p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] transition-all">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4">
+          <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-heading">
+            Do I need to provide water or an electricity socket for the wash?
+          </span>
+          <span class="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#252E35] flex items-center justify-center shrink-0 text-gray-500 faq-icon">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </span>
+        </button>
+        <div class="faq-answer hidden pt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#252E35] mt-4">
+          No! Our customized mobile vans are <strong>100% self-contained</strong>. Each van carries an onboard 250-liter demineralized soft water tank and an ultra-silent Honda power generator. We do not require any water or power hookup from your home or apartment.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] transition-all">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4">
+          <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-heading">
+            Can the technician wash my car in an apartment basement or covered parking?
+          </span>
+          <span class="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#252E35] flex items-center justify-center shrink-0 text-gray-500 faq-icon">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </span>
+        </button>
+        <div class="faq-answer hidden pt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#252E35] mt-4">
+          Yes! We use high-foaming water-efficient sprayers and containment runoff mats so that parking floor water pooling is avoided. If your society prohibits wet washing inside basements, our technician can drive or guide your car to the open visitors bay for 30 minutes.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] transition-all">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4">
+          <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-heading">
+            What is the 24-Hour Rain Shine Guarantee?
+          </span>
+          <span class="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#252E35] flex items-center justify-center shrink-0 text-gray-500 faq-icon">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </span>
+        </button>
+        <div class="faq-answer hidden pt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#252E35] mt-4">
+          If Chennai weather brings unexpected rain within 24 hours of your Full Car Detailing or Ceramic treatment, simply open your customer dashboard or WhatsApp us. We dispatch a technician for a complimentary exterior spot clean and gloss touch-up completely free!
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] transition-all">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4">
+          <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-heading">
+            How do monthly subscriptions work, and can I pause anytime?
+          </span>
+          <span class="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#252E35] flex items-center justify-center shrink-0 text-gray-500 faq-icon">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </span>
+        </button>
+        <div class="faq-answer hidden pt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#252E35] mt-4">
+          Our Monthly Wash Plans (like the Premium 4 Washes pack at ₹2,999/mo) give you 25% to 35% savings over single washes. You get 4 doorstep washes valid for 30 days. You can pause, reschedule, or cancel auto-renewal anytime with a single click.
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] transition-all">
+        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4">
+          <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-heading">
+            What payment methods do you accept at the doorstep?
+          </span>
+          <span class="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#252E35] flex items-center justify-center shrink-0 text-gray-500 faq-icon">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </span>
+        </button>
+        <div class="faq-answer hidden pt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-[#252E35] mt-4">
+          We accept instant UPI (Google Pay, PhonePe, Paytm, CRED), credit/debit cards via online checkout, and doorstep cash directly to the technician upon your complete inspection and sign-off.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STILL HAVE QUESTIONS CTA -->
+    <div class="p-8 rounded-3xl bg-[#101820] border-2 border-[#D6FF36] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl mt-12">
+      <div class="space-y-1 text-center sm:text-left">
+        <h3 class="text-xl font-black font-heading">Still Have a Specific Question?</h3>
+        <p class="text-xs text-gray-300">Our Chennai dispatch concierge is available on WhatsApp 7 days a week.</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/919840123456" target="_blank" class="btn-primary !h-11 text-xs font-bold px-6 flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Chat on WhatsApp</span>
+        </a>
+        <a href="../contact.html" class="px-5 h-11 rounded-xl border border-gray-700 hover:border-white text-xs font-bold flex items-center transition-colors">
+          Contact Form
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 4-COLUMN FOOTER -->
+  <footer class="bg-[#101820] text-gray-400 pt-16 pb-8 border-t border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#252E35]">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-[#252E35] flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider text-white uppercase font-heading">
+              CAR <span class="text-[#D6FF36]">SHINE</span>
+            </span>
+          </div>
+          <p class="text-xs text-gray-400">YOUR CAR, ALWAYS SHINING. Mobile Car Wash & Doorstep Detailing in Chennai.</p>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="../index.html" class="hover:text-[#D6FF36]">Home</a></li>
+            <li><a href="../about.html" class="hover:text-[#D6FF36]">About Us</a></li>
+            <li><a href="../services.html" class="hover:text-[#D6FF36]">Services</a></li>
+            <li><a href="../pricing.html" class="hover:text-[#D6FF36]">Pricing</a></li>
+            <li><a href="../contact.html" class="hover:text-[#D6FF36]">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Our Services</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="../service-details.html?id=srv_01" class="hover:text-[#D6FF36]">Exterior Wash</a></li>
+            <li><a href="../service-details.html?id=srv_02" class="hover:text-[#D6FF36]">Interior Cleaning</a></li>
+            <li><a href="../service-details.html?id=srv_03" class="hover:text-[#D6FF36]">Car Polishing</a></li>
+            <li><a href="../service-details.html?id=srv_05" class="hover:text-[#D6FF36]">Full Car Detailing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Contact & Support</h4>
+          <ul class="space-y-3 text-xs">
+            <li>+91 98401 23456</li>
+            <li>support@carshine.com</li>
+            <li>12B Nelson Manickam Road, Chennai - 600029</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>© 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.</div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+          <a href="privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="terms.html" class="hover:text-gray-300">Terms & Conditions</a>
+          <a href="cancellation-policy.html" class="hover:text-gray-300">Cancellation Policy</a>
+          <a href="faq.html" class="text-[#D6FF36]">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    function toggleFaq(button) {
+      const parent = button.closest('.faq-item');
+      const answer = parent.querySelector('.faq-answer');
+      const icon = parent.querySelector('.faq-icon i');
+
+      const isHidden = answer.classList.contains('hidden');
+
+      // Close all first
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        answer.classList.remove('hidden');
+        parent.querySelector('.faq-icon').classList.add('rotate-180');
+      }
+    }
+
+    function handleFaqSearch(e) {
+      const q = e.target.value.toLowerCase().trim();
+      const items = document.querySelectorAll('.faq-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(q)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

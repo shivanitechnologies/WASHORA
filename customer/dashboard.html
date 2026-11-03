@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard | CAR SHINE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5">
+      <div>
+        <!-- Brand Logo Inside Sidebar -->
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">SHINE</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- User Quick Profile Pill -->
+        <div class="my-5 p-3 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="Pravin Kumar" class="w-10 h-10 rounded-xl object-cover border border-[#D6FF36]">
+          <div class="min-w-0 flex-1">
+            <h4 class="text-xs font-bold text-gray-900 dark:text-white truncate">Pravin Kumar</h4>
+            <span class="text-[10px] text-gray-500 truncate block">pravin@carshine.com</span>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation Menu -->
+        <nav class="space-y-1">
+          <a href="dashboard.html" class="dash-nav-item active">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>Overview</span>
+          </a>
+          <a href="book-wash.html" class="dash-nav-item">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Book a Wash</span>
+          </a>
+          <a href="my-bookings.html" class="dash-nav-item">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>My Bookings</span>
+          </a>
+          <a href="track-technician.html" class="dash-nav-item">
+            <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Track Technician</span>
+            <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping ml-auto"></span>
+          </a>
+          <a href="my-vehicles.html" class="dash-nav-item">
+            <i data-lucide="car" class="w-4 h-4"></i>
+            <span>My Vehicles</span>
+          </a>
+          <a href="service-history.html" class="dash-nav-item">
+            <i data-lucide="history" class="w-4 h-4"></i>
+            <span>Service History</span>
+          </a>
+          <a href="subscriptions.html" class="dash-nav-item">
+            <i data-lucide="repeat" class="w-4 h-4"></i>
+            <span>My Subscription</span>
+          </a>
+          <a href="payments.html" class="dash-nav-item">
+            <i data-lucide="credit-card" class="w-4 h-4"></i>
+            <span>Payments</span>
+          </a>
+          <a href="notifications.html" class="dash-nav-item">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span>Notifications</span>
+            <span class="badge-lime text-[10px] !py-0 !px-1.5 ml-auto">1</span>
+          </a>
+          <a href="profile.html" class="dash-nav-item">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>My Profile</span>
+          </a>
+          <a href="settings.html" class="dash-nav-item">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Logout -->
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Logout Account</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <!-- Top Dashboard Header (Search, theme toggle, RTL, profile) -->
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">Customer Portal</h1>
+            <p class="text-xs text-gray-500 hidden sm:block">Doorstep mobile car detailing management</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- Theme Toggle -->
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+            <i data-lucide="languages" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Notifications Direct Icon -->
+          <a href="notifications.html" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center relative">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#D6FF36]"></span>
+          </a>
+
+          <!-- Book CTA -->
+          <a href="book-wash.html" class="btn-primary !h-10 text-xs font-bold px-4 hidden sm:inline-flex">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Book Wash</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main class="p-6 sm:p-8 space-y-8 flex-1">
+        
+        <!-- Welcome Hero Banner -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#101820] to-[#252E35] text-white border border-[#2F3B44] flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl relative overflow-hidden">
+          <div class="space-y-2 relative z-10">
+            <div class="badge-lime text-[11px] uppercase tracking-wider font-extrabold">Customer Dashboard</div>
+            <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Welcome back, Pravin!</h2>
+            <p class="text-xs sm:text-sm text-gray-300 max-w-lg">
+              Manage your doorstep car care services, track your active technician van in real time, and view service history.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 relative z-10">
+            <a href="book-wash.html" class="btn-primary !h-[44px] text-xs font-bold px-5">
+              <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+              <span>Book New Wash</span>
+            </a>
+            <a href="track-technician.html" class="btn-secondary !h-[44px] text-xs font-bold px-5">
+              <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+              <span>Live Tracking</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Metric Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          
+          <div class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm metric-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Total Bookings</span>
+              <div class="w-8 h-8 rounded-lg bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center">
+                <i data-lucide="calendar-check" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="text-3xl font-black font-heading text-[#101820] dark:text-white" id="stat-total-bookings">12</div>
+            <span class="text-[11px] text-gray-500 mt-1 block">Lifetime washes booked</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm metric-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Upcoming</span>
+              <div class="w-8 h-8 rounded-lg bg-[#F5F6F3] dark:bg-[#101820] text-blue-400 flex items-center justify-center">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="text-3xl font-black font-heading text-blue-400" id="stat-upcoming">02</div>
+            <span class="text-[11px] text-gray-500 mt-1 block">Scheduled visits</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm metric-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Completed</span>
+              <div class="w-8 h-8 rounded-lg bg-[#F5F6F3] dark:bg-[#101820] text-emerald-400 flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="text-3xl font-black font-heading text-emerald-400" id="stat-completed">10</div>
+            <span class="text-[11px] text-gray-500 mt-1 block">Sparkling wash finished</span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm metric-card">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Active Plans</span>
+              <div class="w-8 h-8 rounded-lg bg-[#F5F6F3] dark:bg-[#101820] text-[#D6FF36] flex items-center justify-center">
+                <i data-lucide="award" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="text-3xl font-black font-heading text-[#D6FF36]">01</div>
+            <span class="text-[11px] text-gray-500 mt-1 block">Premium Monthly (3 washes left)</span>
+          </div>
+
+        </div>
+
+        <!-- Upcoming Active Service Spotlight -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left: Active Upcoming Service Card -->
+          <div class="lg:col-span-8 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold font-heading">Upcoming Service</h3>
+              <a href="my-bookings.html" class="text-xs font-bold text-[#D6FF36] hover:underline">View All Bookings →</a>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border-2 border-[#D6FF36]/40 shadow-xl relative overflow-hidden">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-gray-100 dark:border-[#252E35]">
+                <div class="flex items-center gap-3">
+                  <span class="badge-lime text-xs font-black">
+                    <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping"></span>
+                    On the Way
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-500">Booking ID: #CS1024</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs text-gray-400">Estimated Arrival:</span>
+                  <span class="text-sm font-black text-[#D6FF36] ml-1">12 Mins</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6">
+                <div>
+                  <h4 class="text-2xl font-black font-heading text-gray-900 dark:text-white">Full Car Detailing</h4>
+                  <p class="text-xs text-gray-500 mt-1">Today · 10:30 AM - 01:00 PM</p>
+                  
+                  <div class="mt-4 flex items-center gap-2 text-xs font-semibold">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36] flex-shrink-0"></i>
+                    <span class="text-gray-600 dark:text-gray-300">Flat 4B, Emerald Heights, Anna Nagar West</span>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-100 dark:border-[#252E35]">
+                  <div class="flex items-center gap-3 mb-3">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Ramesh Kumar" class="w-10 h-10 rounded-full object-cover border border-[#D6FF36]">
+                    <div>
+                      <h5 class="text-xs font-bold text-gray-900 dark:text-white">Ramesh Kumar</h5>
+                      <span class="text-[10px] text-gray-400">Certified Master Detailer · 4.9 ★</span>
+                    </div>
+                  </div>
+                  <div class="text-xs text-gray-500">
+                    <div><strong>Mobile Rig:</strong> Custom Detailing Van</div>
+                    <div><strong>Van Plate:</strong> TN 09 AZ 4521</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-gray-100 dark:border-[#252E35] flex flex-wrap items-center justify-between gap-4">
+                <div class="text-sm">
+                  <span class="text-gray-400 text-xs">Vehicle:</span>
+                  <strong class="ml-1">Honda City ZX (TN 09 CB 1234)</strong>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a href="booking-details.html?id=CS1024" class="btn-secondary !h-10 text-xs">View Details</a>
+                  <a href="track-technician.html?id=CS1024" class="btn-primary !h-10 text-xs font-bold glow-lime-sm">
+                    <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                    <span>Track Van</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Registered Garage & Quick Actions -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-bold font-heading">Primary Vehicle</h3>
+                <a href="my-vehicles.html" class="text-xs text-[#D6FF36] font-semibold hover:underline">Manage</a>
+              </div>
+
+              <div class="rounded-2xl overflow-hidden border border-gray-200 dark:border-[#252E35] mb-4">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80" alt="Honda City" class="w-full h-32 object-cover">
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-bold text-sm">Honda City ZX</h4>
+                  <span class="badge-lime text-[10px]">Default</span>
+                </div>
+                <p class="text-xs text-gray-500 font-mono">TN 09 CB 1234 · Sedan</p>
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-gray-100 dark:border-[#252E35] text-xs flex justify-between text-gray-400">
+                <span>Last Polished:</span>
+                <span class="font-bold text-gray-900 dark:text-white">Oct 24, 2026</span>
+              </div>
+            </div>
+
+            <!-- Need Help Box -->
+            <div class="p-5 rounded-2xl bg-[#101820] text-white border border-[#2F3B44] space-y-3">
+              <div class="flex items-center gap-2 text-xs font-bold text-[#D6FF36]">
+                <i data-lucide="headphones" class="w-4 h-4"></i>
+                <span>Customer Care Hotline</span>
+              </div>
+              <p class="text-xs text-gray-400">Have questions about your booking? Call dispatch directly.</p>
+              <a href="tel:+919840123456" class="btn-secondary !h-9 w-full text-xs font-bold text-center">
+                Call +91 98401 23456
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Responsive drawer toggle
+    document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.add('open');
+    });
+    document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.remove('open');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const bookings = StorageService.getBookings();
+      const upcoming = bookings.filter(b => b.status === 'Confirmed' || b.status === 'On the Way' || b.status === 'In Progress');
+      const completed = bookings.filter(b => b.status === 'Completed');
+
+      document.getElementById('stat-total-bookings').textContent = bookings.length;
+      document.getElementById('stat-upcoming').textContent = upcoming.length < 10 ? '0' + upcoming.length : upcoming.length;
+      document.getElementById('stat-completed').textContent = completed.length < 10 ? '0' + completed.length : completed.length;
+    });
+  </script>
+</body>
+</html>
+

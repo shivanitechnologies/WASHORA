@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAR SHINE – Mobile Car Wash & Doorstep Detailing | Classic Home</title>
+  <meta name="description" content="Doorstep car washing and detailing delivered right to your home or office. Clean, convenient, and eco-friendly.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#101820]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#252E35] transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading flex items-center gap-1">
+            CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+          </span>
+          <span class="block text-[10px] tracking-widest text-gray-500 uppercase font-medium">Doorstep Detailing</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Order: Home -> About -> Services -> Pricing -> Areas -> Blog -> Contact -> Dashboard) -->
+      <nav class="hidden xl:flex items-center space-x-7 rtl:space-x-reverse text-sm font-semibold">
+        <!-- Home dropdown -->
+        <div class="relative group">
+          <button class="public-nav-link text-[#D6FF36] flex items-center gap-1 py-2">
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute left-0 mt-1 w-44 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="index.html" class="block px-3 py-2 text-xs font-semibold rounded-lg bg-gray-100 dark:bg-[#252E35] text-[#101820] dark:text-[#D6FF36]">Home 1 – Classic</a>
+            <a href="home-2.html" class="block px-3 py-2 text-xs font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-700 dark:text-gray-300">Home 2 – Premium</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">About</a>
+        <a href="services.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Services</a>
+        <a href="pricing.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Pricing</a>
+        <a href="service-areas.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Service Areas</a>
+        <a href="blog.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Blog</a>
+        <a href="contact.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Contact</a>
+
+        <!-- Dashboard as Last Navigation Link -->
+        <div class="relative group">
+          <button class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center gap-1.5 py-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Dashboard</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="absolute right-0 rtl:right-auto rtl:left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+            <a href="customer/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Portal
+            </a>
+            <a href="admin/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Panel
+            </a>
+            <a href="technician/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
+              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Header Action Controls & Max Two CTAs -->
+      <div class="flex items-center gap-3">
+        <!-- Equal Dimension Theme Toggle (40x40px) -->
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <!-- Equal Dimension RTL Toggle (40x40px) -->
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" title="Toggle RTL / LTR" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <!-- CTA 1: Login -->
+        <a href="login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36] transition-colors">
+          Login
+        </a>
+
+        <!-- CTA 2: Book Now -->
+        <a href="customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobile-menu-toggle" aria-label="Open mobile menu" class="xl:hidden w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end xl:hidden">
+    <div class="bg-white dark:bg-[#101820] border-t border-gray-200 dark:border-[#252E35] w-full max-h-[85vh] overflow-y-auto p-6 rounded-t-3xl shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-bold font-heading">CAR <span class="text-[#D6FF36] bg-[#101820] px-1 rounded">SHINE</span></span>
+        </div>
+        <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#1A232C]">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="py-4 space-y-3 font-semibold text-sm">
+        <a href="index.html" class="block py-2 text-[#D6FF36]">Home 1 – Classic</a>
+        <a href="home-2.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Home 2 – Premium</a>
+        <a href="about.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">About Us</a>
+        <a href="services.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Services</a>
+        <a href="pricing.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Pricing & Plans</a>
+        <a href="service-areas.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Service Areas</a>
+        <a href="blog.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Blog</a>
+        <a href="contact.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Contact Us</a>
+        
+        <div class="pt-2 border-t border-gray-200 dark:border-[#252E35]">
+          <div class="text-xs uppercase tracking-wider text-gray-400 mb-2">Dashboards</div>
+          <a href="customer/dashboard.html" class="flex items-center gap-2 py-2 text-gray-700 dark:text-gray-300">
+            <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Dashboard
+          </a>
+          <a href="admin/dashboard.html" class="flex items-center gap-2 py-2 text-gray-700 dark:text-gray-300">
+            <i data-lucide="shield" class="w-4 h-4 text-blue-400"></i> Admin Dashboard
+          </a>
+          <a href="technician/dashboard.html" class="flex items-center gap-2 py-2 text-gray-700 dark:text-gray-300">
+            <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="login.html" class="btn-secondary !h-[44px] text-sm">Login</a>
+        <a href="customer/book-wash.html" class="btn-primary !h-[44px] text-sm">Book Wash</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+    <!-- Ambient Glow Background -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#D6FF36]/10 blur-[140px] pointer-events-none rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Text Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] text-xs font-bold tracking-wider uppercase text-gray-700 dark:text-gray-300">
+            <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping"></span>
+            DOORSTEP CAR CARE
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+            Your Car Deserves a <br class="hidden sm:inline">
+            <span class="text-[#D6FF36] drop-shadow-sm">Better Shine.</span>
+          </h1>
+
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+            Professional car washing and detailing, delivered right to your doorstep. We bring pure de-ionized water, silent generator power, and high-end detailing tools straight to your parking spot.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="customer/book-wash.html" class="btn-primary !h-[48px] text-base px-6">
+              <span>Book a Wash</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 rtl:rotate-180"></i>
+            </a>
+            <a href="services.html" class="btn-secondary !h-[48px] text-base px-6">
+              <span>Explore Services</span>
+            </a>
+          </div>
+
+          <!-- Trust Sub-badge -->
+          <div class="flex items-center gap-6 pt-4 border-t border-gray-200 dark:border-[#252E35]">
+            <div class="flex items-center gap-1.5">
+              <div class="flex text-[#D6FF36]">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              </div>
+              <span class="font-extrabold text-sm">4.9 / 5</span>
+            </div>
+            <div class="text-xs text-gray-500 font-medium">
+              Over <strong>25,000+</strong> Spotless Doorstep Washes Completed
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Car Image with Floating Stats Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] shadow-2xl bg-[#1A232C] group">
+            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=80" 
+                 alt="Doorstep Car Detailing Service" 
+                 class="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent opacity-80"></div>
+            
+            <!-- In-Image Badge -->
+            <div class="absolute top-4 left-4 badge-lime">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 100% Water & Power Self-Sufficient
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="p-4 rounded-2xl bg-white/90 dark:bg-[#101820]/90 backdrop-blur-md border border-gray-200 dark:border-[#252E35] flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold">
+                    <i data-lucide="sparkle" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold uppercase text-gray-400">Next Available Slot</h4>
+                    <p class="text-sm font-extrabold text-gray-900 dark:text-white">Today at 11:30 AM</p>
+                  </div>
+                </div>
+                <a href="customer/book-wash.html" class="px-3 py-1.5 rounded-lg bg-[#D6FF36] text-[#101820] text-xs font-bold hover:brightness-110">
+                  Instant Book
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST BAR ==================== -->
+  <section class="py-10 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-200 dark:divide-[#252E35] rtl:divide-x-reverse">
+        
+        <div class="px-4">
+          <div class="text-3xl lg:text-4xl font-extrabold font-heading text-[#101820] dark:text-[#D6FF36]">10,000+</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Happy Car Owners</div>
+        </div>
+
+        <div class="px-4">
+          <div class="text-3xl lg:text-4xl font-extrabold font-heading text-[#101820] dark:text-[#D6FF36]">25,000+</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Doorstep Washes Done</div>
+        </div>
+
+        <div class="px-4">
+          <div class="text-3xl lg:text-4xl font-extrabold font-heading text-[#101820] dark:text-[#D6FF36]">4.9 / 5</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-500 mt-1">Verified Google Rating</div>
+        </div>
+
+        <div class="px-4">
+          <div class="text-3xl lg:text-4xl font-extrabold font-heading text-[#101820] dark:text-[#D6FF36]">99.4%</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-500 mt-1">On-Time Arrival Rate</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT INTRODUCTION ==================== -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35]">
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=900&q=80" alt="About Car Shine" class="w-full h-[400px] object-cover">
+          </div>
+          <!-- Floating mini card -->
+          <div class="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-4 p-4 rounded-2xl bg-white dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] shadow-2xl">
+            <div class="w-12 h-12 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black text-xl">
+              <i data-lucide="droplets" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="text-sm font-extrabold">Eco Water-Saving</div>
+              <div class="text-xs text-gray-500">Saves up to 180 Litres per wash</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-6">
+          <div class="badge-lime uppercase tracking-widest text-xs">About CAR SHINE</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading leading-tight">
+            We Reimagined Car Care For the Modern Car Owner.
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            No more waiting in dusty queues at local washing stations on your precious weekends. CAR SHINE delivers studio-grade detailing directly to your apartment, independent house, or office parking lot.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+              <i data-lucide="truck" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
+              <h4 class="font-bold text-sm">Self-Sufficient Vans</h4>
+              <p class="text-xs text-gray-500 mt-1">We bring our own purified water and silent power supplies.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+              <i data-lucide="sparkles" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
+              <h4 class="font-bold text-sm">Scratch-Free Method</h4>
+              <p class="text-xs text-gray-500 mt-1">Double bucket technique with 800 GSM plush microfibers.</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="about.html" class="inline-flex items-center gap-2 text-sm font-bold text-[#D6FF36] hover:underline">
+              <span>Read Full Story & Mission</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Simple 3-Step Process</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">How CAR SHINE Works</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">From booking to a brilliant shine without lifting a finger.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative group card-hover-glow">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            01
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Book in 60 Seconds</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Pick your vehicle, choose your required service package, and select your preferred date & time slot.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative group card-hover-glow">
+          <div class="w-14 h-14 rounded-2xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            02
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">We Arrive At Your Spot</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Our certified technician reaches your doorstep on time equipped with commercial-grade detailing rigs.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] relative group card-hover-glow">
+          <div class="w-14 h-14 rounded-2xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black text-xl mb-6 shadow-md">
+            03
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Drive a Shining Car</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            Inspect your gleaming vehicle, pay easily online or by cash, and enjoy that fresh showroom fragrance.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED SERVICES ==================== -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="badge-lime uppercase tracking-widest text-xs mb-3">Popular Services</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Precision Doorstep Services</h2>
+        </div>
+        <a href="services.html" class="mt-4 md:mt-0 text-sm font-bold text-[#D6FF36] flex items-center gap-1.5 hover:underline">
+          <span>View All 6 Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Service Card 1 -->
+        <div class="rounded-2xl overflow-hidden bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group card-hover-glow flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=700&q=80" alt="Exterior Wash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 badge-lime">35-45 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-2">Exterior Wash</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                Snow foam treatment, gentle hand scrub, wheel degreasing, tyre shine, and streak-free dry.
+              </p>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-2xl font-extrabold text-[#101820] dark:text-[#D6FF36]">₹499</span>
+                <span class="text-xs text-gray-500">starting price</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 grid grid-cols-2 gap-3">
+            <a href="service-details.html?id=srv_01" class="btn-secondary !h-[42px] text-xs">Details</a>
+            <a href="customer/book-wash.html?service=srv_01" class="btn-primary !h-[42px] text-xs">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="rounded-2xl overflow-hidden bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group card-hover-glow flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=700&q=80" alt="Interior Cleaning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 badge-lime">45-60 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-2">Interior Cleaning</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                Deep vacuuming, dashboard UV conditioning, AC antibacterial steam clean, and luxury fragrance.
+              </p>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-2xl font-extrabold text-[#101820] dark:text-[#D6FF36]">₹699</span>
+                <span class="text-xs text-gray-500">starting price</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 grid grid-cols-2 gap-3">
+            <a href="service-details.html?id=srv_02" class="btn-secondary !h-[42px] text-xs">Details</a>
+            <a href="customer/book-wash.html?service=srv_02" class="btn-primary !h-[42px] text-xs">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="rounded-2xl overflow-hidden bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] group card-hover-glow flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=700&q=80" alt="Car Polishing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-4 left-4 badge-lime">60-75 Mins</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-heading mb-2">Car Polishing</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                Single-stage machine polish eliminating swirl marks, restoring deep mirror reflection and gloss.
+              </p>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-2xl font-extrabold text-[#101820] dark:text-[#D6FF36]">₹1,199</span>
+                <span class="text-xs text-gray-500">starting price</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 grid grid-cols-2 gap-3">
+            <a href="service-details.html?id=srv_03" class="btn-secondary !h-[42px] text-xs">Details</a>
+            <a href="customer/book-wash.html?service=srv_03" class="btn-primary !h-[42px] text-xs">Book Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BEFORE & AFTER COMPARISON ==================== -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Real Transformation</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Witness the CAR SHINE Difference</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">Drag the interactive slider to see how our doorstep detailing removes grime and scratches.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="ba-slider h-[420px] rounded-3xl shadow-2xl border border-gray-200 dark:border-[#252E35]">
+          <!-- After Image (Clean) -->
+          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="After Detailing - Glossy Car">
+          <span class="absolute top-4 right-4 bg-[#101820]/90 text-[#D6FF36] font-bold text-xs uppercase px-3 py-1.5 rounded-lg border border-[#252E35]">After Car Shine</span>
+
+          <!-- Before Image (Dirty / Swirled) -->
+          <div class="resize">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Before Detailing - Muddy Car">
+            <span class="absolute top-4 left-4 bg-[#101820]/90 text-white font-bold text-xs uppercase px-3 py-1.5 rounded-lg border border-[#252E35]">Before Service</span>
+          </div>
+
+          <!-- Handle -->
+          <div class="handle">
+            <div class="handle-circle">
+              <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-4 flex items-center justify-center gap-1.5">
+          <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Drag slider left and right to inspect paint gloss & clarity
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== THREE PRICING PACKAGES ==================== -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Transparent Rates</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Simple, Honest Pricing</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">No hidden costs. Doorstep delivery, water, power, and chemicals included.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Package 1: Basic Wash -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div>
+            <span class="text-xs font-black tracking-widest text-gray-400 uppercase">01. Essential</span>
+            <h3 class="text-2xl font-bold font-heading mt-2">Basic Wash</h3>
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-black font-heading">₹499</span>
+                <span class="text-xs text-gray-500">/ per service</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-1">Sample design rate for hatchback / sedan</p>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Exterior body wash</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Wheel cleaning</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Window glass wipe</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Plush microfiber drying</li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="customer/book-wash.html?plan=basic" class="btn-secondary w-full text-sm">Choose Basic</a>
+          </div>
+        </div>
+
+        <!-- Package 2: Premium Wash (Most Popular Highlighted) -->
+        <div class="p-8 rounded-3xl bg-[#101820] text-white border-2 border-[#D6FF36] flex flex-col justify-between relative shadow-2xl scale-105 z-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D6FF36] text-[#101820] text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow">
+            MOST POPULAR
+          </div>
+          <div>
+            <span class="text-xs font-black tracking-widest text-[#D6FF36] uppercase">02. Recommended</span>
+            <h3 class="text-2xl font-bold font-heading mt-2">Premium Wash</h3>
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-black font-heading text-[#D6FF36]">₹999</span>
+                <span class="text-xs text-gray-400">/ per service</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-1">Most preferred for complete weekend refresh</p>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Exterior snow foam wash</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Deep interior vacuuming</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Dashboard & door trim dressing</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Tyre gloss polishing</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Luxury interior fragrance</li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="customer/book-wash.html?plan=premium" class="btn-primary w-full text-sm">Choose Premium</a>
+          </div>
+        </div>
+
+        <!-- Package 3: Full Detailing -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <div>
+            <span class="text-xs font-black tracking-widest text-gray-400 uppercase">03. Master Studio</span>
+            <h3 class="text-2xl font-bold font-heading mt-2">Full Detailing</h3>
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-black font-heading">₹2,999</span>
+                <span class="text-xs text-gray-500">/ per service</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-1">Complete showroom restoration package</p>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Complete exterior de-tar & wash</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Deep interior steam extraction</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> 2-Stage paint gloss polish</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Ceramic spray sealant coating</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#D6FF36]"></i> Engine bay & jamb detailing</li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <a href="customer/book-wash.html?plan=detailing" class="btn-secondary w-full text-sm">Choose Full Detailing</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subscription banner -->
+      <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#101820] to-[#252E35] border border-gray-800 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-bold">
+            <i data-lucide="repeat" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-base">Want hassle-free monthly care?</h4>
+            <p class="text-xs text-gray-400">Save up to 35% with our Weekly Wash & Family Car Monthly Subscriptions.</p>
+          </div>
+        </div>
+        <a href="pricing.html#subscriptions" class="btn-outline-lime !h-[42px] text-xs whitespace-nowrap">
+          View Monthly Plans
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="badge-lime uppercase tracking-widest text-xs mb-3">Customer Love</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading">Trusted by 10,000+ Car Owners</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-3">Read verified reviews from customers across Chennai.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <p class="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed mb-6">
+            "CAR SHINE completely blew away my expectations. They arrived with full water tank & high power equipment right in my apartment parking. Not a single drip left behind!"
+          </p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Sundaram" class="w-12 h-12 rounded-full object-cover border border-[#D6FF36]">
+            <div>
+              <h4 class="text-sm font-bold">Vikram Sundaram</h4>
+              <p class="text-xs text-gray-500">Audi A4 Owner, Anna Nagar</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <p class="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed mb-6">
+            "The convenience is unmatched. While I was in a Zoom meeting, Ramesh polished and vacuumed my car to showroom shine. The Electric Lime branding is super slick too!"
+          </p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Ananya Deshmukh" class="w-12 h-12 rounded-full object-cover border border-[#D6FF36]">
+            <div>
+              <h4 class="text-sm font-bold">Ananya Deshmukh</h4>
+              <p class="text-xs text-gray-500">Kia Seltos Owner, Velachery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col justify-between card-hover-glow">
+          <p class="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed mb-6">
+            "Subscribed to the Monthly Wash plan. 4 washes per month doorstep at just ₹2,999 is unbeatable value for high quality detailing chemicals and microfiber care."
+          </p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80" alt="Karthik Raja" class="w-12 h-12 rounded-full object-cover border border-[#D6FF36]">
+            <div>
+              <h4 class="text-sm font-bold">Karthik Raja</h4>
+              <p class="text-xs text-gray-500">BMW 3 Series, OMR</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICE AREA CHECKER ==================== -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-[#101820] text-white p-8 lg:p-12 border border-gray-800 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="badge-lime text-xs uppercase tracking-widest">Doorstep Coverage</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+              Check Service Availability at Your PIN Code
+            </h2>
+            <p class="text-gray-400 text-sm">
+              We operate mobile detailing fleets across Chennai including Anna Nagar, Velachery, Tambaram, Porur, Guindy, OMR, and surrounding areas.
+            </p>
+
+            <!-- Interactive PIN Code Checker Form -->
+            <div class="pt-2">
+              <form id="pincode-check-form" class="flex flex-col sm:flex-row gap-3 max-w-lg" onsubmit="handlePincodeCheck(event)">
+                <div class="relative flex-1">
+                  <input type="text" id="pincode-input" placeholder="Enter 6-digit PIN (e.g. 600040 or Anna Nagar)" required
+                         class="w-full h-[48px] px-4 rounded-xl bg-[#1A232C] border border-[#2F3B44] text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#D6FF36]">
+                </div>
+                <button type="submit" class="btn-primary !h-[48px] text-sm whitespace-nowrap">
+                  Check Now
+                </button>
+              </form>
+              <div id="pincode-result" class="mt-3 text-sm hidden font-medium"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 grid grid-cols-2 gap-3 text-xs font-semibold">
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Anna Nagar (600040)
+            </div>
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Velachery (600042)
+            </div>
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Tambaram (600045)
+            </div>
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Porur (600116)
+            </div>
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Guindy (600032)
+            </div>
+            <div class="p-3 rounded-xl bg-[#1A232C] border border-[#2F3B44] flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> OMR Corridor (600096)
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CALL TO ACTION ==================== -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">
+        Ready for that Showroom Shine at Your Doorstep?
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto">
+        Join over 10,000 Chennai drivers who trust CAR SHINE for convenient, spotless, and water-safe mobile car care.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <a href="customer/book-wash.html" class="btn-primary !h-[50px] px-8 text-base font-bold">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <span>Book a Wash Now</span>
+        </a>
+        <a href="contact.html" class="btn-secondary !h-[50px] px-8 text-base">
+          <span>Contact Support</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4-COLUMN DARK FOOTER ==================== -->
+  <footer class="bg-[#101820] text-gray-400 pt-16 pb-8 border-t border-[#252E35]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#252E35]">
+        
+        <!-- Column 1: Brand -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-[#252E35] flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider text-white uppercase font-heading">
+              CAR <span class="text-[#D6FF36]">SHINE</span>
+            </span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            YOUR CAR, ALWAYS SHINING. Chennai’s premier doorstep mobile car wash and precision detailing service. Self-sufficient mobile detailing units right at your home or workplace.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-lg bg-[#1A232C] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-300 flex items-center justify-center transition-colors">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-[#1A232C] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-300 flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-[#1A232C] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-300 flex items-center justify-center transition-colors">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-[#1A232C] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-300 flex items-center justify-center transition-colors">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="index.html" class="hover:text-[#D6FF36] transition-colors">Home (Classic)</a></li>
+            <li><a href="home-2.html" class="hover:text-[#D6FF36] transition-colors">Home (Premium)</a></li>
+            <li><a href="about.html" class="hover:text-[#D6FF36] transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-[#D6FF36] transition-colors">Our Services</a></li>
+            <li><a href="pricing.html" class="hover:text-[#D6FF36] transition-colors">Pricing & Plans</a></li>
+            <li><a href="service-areas.html" class="hover:text-[#D6FF36] transition-colors">Service Areas</a></li>
+            <li><a href="blog.html" class="hover:text-[#D6FF36] transition-colors">Blog & Guides</a></li>
+            <li><a href="contact.html" class="hover:text-[#D6FF36] transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Our Services -->
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Our Services</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="service-details.html?id=srv_01" class="hover:text-[#D6FF36] transition-colors">Exterior Foam Wash</a></li>
+            <li><a href="service-details.html?id=srv_02" class="hover:text-[#D6FF36] transition-colors">Interior Steam Cleaning</a></li>
+            <li><a href="service-details.html?id=srv_03" class="hover:text-[#D6FF36] transition-colors">Car Machine Polishing</a></li>
+            <li><a href="service-details.html?id=srv_04" class="hover:text-[#D6FF36] transition-colors">Deep Grime Restoration</a></li>
+            <li><a href="service-details.html?id=srv_05" class="hover:text-[#D6FF36] transition-colors">Full Car Detailing</a></li>
+            <li><a href="service-details.html?id=srv_06" class="hover:text-[#D6FF36] transition-colors">9H Ceramic Coating</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div>
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Contact & Support</h4>
+          <ul class="space-y-3 text-xs">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-[#D6FF36] flex-shrink-0 mt-0.5"></i>
+              <span>+91 98401 23456 / +91 44 2621 0000</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="mail" class="w-4 h-4 text-[#D6FF36] flex-shrink-0 mt-0.5"></i>
+              <span>support@carshine.com</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36] flex-shrink-0 mt-0.5"></i>
+              <span>Doorstep Headquarters, 12B Nelson Manickam Road, Chennai, Tamil Nadu - 600029</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="clock" class="w-4 h-4 text-[#D6FF36] flex-shrink-0 mt-0.5"></i>
+              <span>Mon – Sun: 07:00 AM – 08:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          © 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.
+        </div>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+          <a href="legal/privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="legal/terms.html" class="hover:text-gray-300">Terms & Conditions</a>
+          <a href="legal/cancellation-policy.html" class="hover:text-gray-300">Cancellation Policy</a>
+          <a href="legal/faq.html" class="hover:text-gray-300">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handlePincodeCheck(e) {
+      e.preventDefault();
+      const input = document.getElementById('pincode-input').value;
+      const res = StorageService.checkAreaAvailability(input);
+      const output = document.getElementById('pincode-result');
+      output.classList.remove('hidden');
+
+      if (res) {
+        output.className = 'mt-3 text-sm font-semibold text-[#D6FF36] flex items-center gap-1.5';
+        output.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i> Great news! Doorstep service available in <strong>${res.area} (${res.pin})</strong> · ETA: ${res.turnaround}`;
+      } else {
+        output.className = 'mt-3 text-sm font-semibold text-red-400 flex items-center gap-1.5';
+        output.innerHTML = `<i data-lucide="alert-circle" class="w-4 h-4"></i> Currently outside our instant van zone. We are expanding to your PIN code soon!`;
+      }
+      if (window.lucide) window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
+

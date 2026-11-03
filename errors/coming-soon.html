@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | CAR SHINE New Innovations</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Top bar -->
+  <header class="p-6 flex items-center justify-between max-w-7xl mx-auto w-full">
+    <a href="../index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-[#101820] dark:bg-[#252E35] border border-gray-300 dark:border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <span class="text-xl font-extrabold tracking-wider text-[#101820] dark:text-white uppercase font-heading">
+          CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-sm font-black">SHINE</span>
+        </span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+        <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+      </button>
+
+      <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+        <i data-lucide="languages" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Hero Container -->
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12">
+    <div class="max-w-2xl w-full text-center space-y-8">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#D6FF36]/15 text-[#101820] dark:text-[#D6FF36] border border-[#D6FF36]/40">
+        <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping"></span>
+        <span>Coming Q1 2027 • Chennai Debut</span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-gray-900 dark:text-white tracking-tight">
+          Doorstep PPF Armor Studio & Waterless Nanotech
+        </h1>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-lg mx-auto">
+          We are preparing our brand new high-precision Paint Protection Film (PPF) mobile studio van. Self-healing TPU film installed right in your private driveway.
+        </p>
+      </div>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-md mx-auto">
+        <div class="p-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] text-center shadow-lg">
+          <span id="cd-days" class="text-2xl sm:text-4xl font-black font-heading text-[#D6FF36] block">28</span>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Days</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] text-center shadow-lg">
+          <span id="cd-hours" class="text-2xl sm:text-4xl font-black font-heading text-[#D6FF36] block">14</span>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Hours</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] text-center shadow-lg">
+          <span id="cd-mins" class="text-2xl sm:text-4xl font-black font-heading text-[#D6FF36] block">35</span>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Mins</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] text-center shadow-lg">
+          <span id="cd-secs" class="text-2xl sm:text-4xl font-black font-heading text-[#D6FF36] block">42</span>
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Secs</span>
+        </div>
+      </div>
+
+      <!-- EMAIL NOTIFICATION FORM -->
+      <form onsubmit="handleNotifySubmit(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <input type="email" id="notify-email" required placeholder="Enter your email for early bird launch pass..." class="flex-1 h-12 px-4 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-300 dark:border-[#252E35] text-xs font-medium focus:border-[#D6FF36] outline-none">
+        <button type="submit" class="btn-primary !h-12 text-xs font-black px-6 shadow-lg shadow-[#D6FF36]/20 whitespace-nowrap">
+          Notify Me
+        </button>
+      </form>
+
+      <!-- Return Button -->
+      <div class="pt-4">
+        <a href="../index.html" class="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-[#D6FF36] transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Return to CAR SHINE Homepage</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="p-6 text-center text-xs text-gray-500">
+    © 2026 CAR SHINE Technologies Pvt Ltd. All rights reserved.
+  </footer>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Simple dynamic countdown simulation
+    let secondsLeft = 28 * 86400 + 14 * 3600 + 35 * 60 + 42;
+
+    function updateCountdown() {
+      if (secondsLeft > 0) secondsLeft--;
+      const d = Math.floor(secondsLeft / 86400);
+      const h = Math.floor((secondsLeft % 86400) / 3600);
+      const m = Math.floor((secondsLeft % 3600) / 60);
+      const s = secondsLeft % 60;
+
+      document.getElementById('cd-days').textContent = d.toString().padStart(2, '0');
+      document.getElementById('cd-hours').textContent = h.toString().padStart(2, '0');
+      document.getElementById('cd-mins').textContent = m.toString().padStart(2, '0');
+      document.getElementById('cd-secs').textContent = s.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    function handleNotifySubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('notify-email').value;
+      showToast(`Thank you! Early bird VIP pass reserved for ${email}`, 'success');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

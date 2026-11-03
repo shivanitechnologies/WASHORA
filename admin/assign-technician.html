@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assign & Dispatch Technician | CAR SHINE Admin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
+        </div>
+
+        <nav class="space-y-1 text-xs font-semibold mt-6">
+          <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
+          <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
+          <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
+          <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
+          <a href="assign-technician.html" class="dash-nav-item active"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
+          <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
+          <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
+          <a href="subscriptions.html" class="dash-nav-item"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
+          <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
+          <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
+          <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
+          <a href="messages.html" class="dash-nav-item"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
+          <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
+          <a href="settings.html" class="dash-nav-item"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Admin Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">Assign & Dispatch Van</h1>
+            <p class="text-xs text-gray-500">Dispatch mobile detailing rigs to customer doorsteps</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-8 flex-1 max-w-5xl mx-auto w-full">
+        
+        <!-- Select Booking to Dispatch -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm space-y-4">
+          <h3 class="text-base font-bold font-heading">1. Select Target Booking</h3>
+          <div>
+            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Choose Service Order</label>
+            <select id="dispatch-booking-select" onchange="onSelectBooking(this.value)" class="w-full h-12 px-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-bold outline-none text-[#D6FF36]">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+
+          <div id="selected-booking-card" class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] text-xs grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Select Available Technician -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-sm space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold font-heading">2. Select Technician for Dispatch</h3>
+            <span class="badge-lime text-[10px]">Real-time Proximity</span>
+          </div>
+
+          <div id="technicians-dispatch-list" class="space-y-3">
+            <!-- Populated via JS -->
+          </div>
+
+          <div class="pt-4 border-t border-gray-100 dark:border-[#252E35] flex justify-end">
+            <button onclick="dispatchSelected()" class="btn-primary !h-12 px-10 text-sm font-bold glow-lime-sm">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Assign & Dispatch Van</span>
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.add('open');
+    });
+    document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.remove('open');
+    });
+
+    let currentBookingId = 'CS1024';
+    let chosenTechId = 'tech_01';
+
+    function initDispatch() {
+      const bookings = StorageService.getBookings();
+      const select = document.getElementById('dispatch-booking-select');
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramId = urlParams.get('bookingId');
+      if (paramId) currentBookingId = paramId;
+
+      select.innerHTML = bookings.map(b => `
+        <option value="${b.id}" ${b.id === currentBookingId ? 'selected' : ''}>
+          #${b.id} – ${b.service} for ${b.customer.name} (${b.date} · ${b.status})
+        </option>
+      `).join('');
+
+      onSelectBooking(currentBookingId);
+      renderTechDispatchList();
+    }
+
+    function onSelectBooking(id) {
+      currentBookingId = id;
+      const b = StorageService.getBookingById(id);
+      if (!b) return;
+
+      document.getElementById('selected-booking-card').innerHTML = `
+        <div>
+          <span class="text-gray-400 block text-[10px] uppercase font-bold">Customer:</span>
+          <strong class="text-sm font-bold">${b.customer.name}</strong>
+          <div class="text-gray-500">${b.customer.phone}</div>
+        </div>
+        <div>
+          <span class="text-gray-400 block text-[10px] uppercase font-bold">Vehicle & Service:</span>
+          <strong>${b.vehicle.brand} ${b.vehicle.model}</strong>
+          <div class="text-[#D6FF36] font-bold">${b.service} (₹${b.servicePrice})</div>
+        </div>
+        <div>
+          <span class="text-gray-400 block text-[10px] uppercase font-bold">Doorstep Location:</span>
+          <div class="truncate text-gray-300">${b.address}</div>
+          <span class="badge-lime text-[10px] mt-1">Status: ${b.status}</span>
+        </div>
+      `;
+    }
+
+    function renderTechDispatchList() {
+      const techs = StorageService.getTechnicians();
+      const container = document.getElementById('technicians-dispatch-list');
+
+      container.innerHTML = techs.map(t => `
+        <label onclick="chosenTechId = '${t.id}'" class="p-4 rounded-2xl border-2 ${t.id === chosenTechId ? 'border-[#D6FF36] bg-[#101820] text-white' : 'border-gray-200 dark:border-[#252E35] bg-[#F5F6F3] dark:bg-[#101820] text-gray-900 dark:text-white'} flex items-center justify-between gap-4 cursor-pointer transition-all">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="tech-radio" value="${t.id}" ${t.id === chosenTechId ? 'checked' : ''} class="hidden">
+            <img src="${t.avatar}" alt="${t.name}" class="w-12 h-12 rounded-xl object-cover border border-[#252E35]">
+            <div>
+              <h4 class="font-bold text-xs">${t.name}</h4>
+              <p class="text-[11px] text-gray-400">Van: <span class="font-mono text-[#D6FF36]">${t.vanNumber}</span> · ${t.currentLocation}</p>
+              <div class="text-[10px] text-amber-400 font-bold">${t.rating} ★ (${t.totalJobs} jobs)</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="badge-lime text-[10px]">${t.status}</span>
+            <div class="text-[10px] text-gray-400 mt-1">Est. 10m Away</div>
+          </div>
+        </label>
+      `).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function dispatchSelected() {
+      const b = StorageService.getBookingById(currentBookingId);
+      const t = StorageService.getTechnicianById(chosenTechId);
+      if (b && t) {
+        b.technicianId = t.id;
+        b.status = 'On the Way';
+        
+        const allBookings = StorageService.getBookings();
+        const idx = allBookings.findIndex(item => item.id === b.id);
+        if (idx !== -1) {
+          allBookings[idx] = b;
+          localStorage.setItem('cs_bookings', JSON.stringify(allBookings));
+        }
+
+        StorageService.addNotification({
+          title: `Technician Dispatched!`,
+          message: `${t.name} (Van: ${t.vanNumber}) has been dispatched for #${b.id}.`,
+          link: `track-technician.html?id=${b.id}`,
+          icon: 'truck'
+        });
+
+        showToast(`${t.name} dispatched to booking #${b.id}! Status is now 'On the Way'.`, 'success');
+        setTimeout(() => window.location.href = 'bookings.html', 1200);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initDispatch);
+  </script>
+</body>
+</html>
+

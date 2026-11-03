@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assigned Jobs | CAR SHINE Mobile Fleet</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- TECHNICIAN SIDEBAR -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
+      <div>
+        <!-- Logo -->
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">FLEET</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
+        </div>
+
+        <!-- Technician Profile Card -->
+        <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Ramesh Kumar" class="w-10 h-10 rounded-xl object-cover border border-[#D6FF36]">
+          <div class="min-w-0 flex-1">
+            <h4 class="text-xs font-bold text-white truncate">Ramesh Kumar</h4>
+            <span class="text-[10px] text-[#D6FF36] font-mono">Van: TN 09 AZ 4521</span>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="space-y-1 text-xs font-semibold">
+          <a href="dashboard.html" class="dash-nav-item">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Fleet Cockpit</span>
+          </a>
+          <a href="assigned-jobs.html" class="dash-nav-item active">
+            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+            <span>Assigned Jobs</span>
+            <span class="w-5 h-5 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-[10px] font-black ml-auto">3</span>
+          </a>
+          <a href="job-details.html?id=CS1024" class="dash-nav-item">
+            <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Active Job (#CS1024)</span>
+            <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping ml-auto"></span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>End Shift & Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <!-- Top Bar -->
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">Doorstep Detailing Schedule</h1>
+            <p class="text-xs text-gray-500">Assigned customer jobs across Chennai zones</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
+            RTL
+          </button>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-6xl">
+        
+        <!-- SEARCH & FILTER -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-white dark:bg-[#1A232C] p-4 rounded-2xl border border-gray-200 dark:border-[#252E35]">
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+            <button onclick="filterJobs('all')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-[#D6FF36] text-[#101820]" data-filter="all">All Jobs</button>
+            <button onclick="filterJobs('Active')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300" data-filter="Active">Active / On Way</button>
+            <button onclick="filterJobs('Confirmed')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300" data-filter="Confirmed">Upcoming</button>
+            <button onclick="filterJobs('Completed')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300" data-filter="Completed">Completed</button>
+          </div>
+
+          <div class="relative w-full sm:w-72">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="job-search" oninput="handleSearch(event)" placeholder="Search customer, vehicle, area..." class="w-full h-10 pl-9 pr-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs focus:border-[#D6FF36] outline-none">
+          </div>
+        </div>
+
+        <!-- JOBS GRID -->
+        <div id="tech-jobs-container" class="space-y-4">
+          <!-- Rendered via JS -->
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function renderJobs() {
+      const allBookings = StorageService.getBookings();
+      // Ramesh Kumar is assigned to CS1024, CS1019, etc.
+      let list = allBookings;
+
+      if (currentFilter === 'Active') {
+        list = list.filter(b => ['On the Way', 'Arrived', 'In Progress', 'Accepted'].includes(b.status));
+      } else if (currentFilter === 'Confirmed') {
+        list = list.filter(b => b.status === 'Confirmed' || b.status === 'Assigned');
+      } else if (currentFilter === 'Completed') {
+        list = list.filter(b => b.status === 'Completed');
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        list = list.filter(b => 
+          (b.id && b.id.toLowerCase().includes(q)) ||
+          (b.customer?.name && b.customer.name.toLowerCase().includes(q)) ||
+          (b.vehicle?.brand && b.vehicle.brand.toLowerCase().includes(q)) ||
+          (b.vehicle?.model && b.vehicle.model.toLowerCase().includes(q)) ||
+          (b.address && b.address.toLowerCase().includes(q)) ||
+          (b.service && b.service.toLowerCase().includes(q))
+        );
+      }
+
+      const container = document.getElementById('tech-jobs-container');
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="py-16 text-center bg-white dark:bg-[#1A232C] rounded-3xl border border-gray-200 dark:border-[#252E35]">
+            <i data-lucide="clipboard-x" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
+            <h3 class="font-bold text-base font-heading">No jobs found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try switching tabs or resetting your search filter.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = list.map(b => {
+        const isActive = ['On the Way', 'Arrived', 'In Progress'].includes(b.status);
+        const isCompleted = b.status === 'Completed';
+
+        return `
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border ${isActive ? 'border-[#D6FF36] shadow-lg shadow-[#D6FF36]/10' : 'border-gray-200 dark:border-[#252E35]'} flex flex-col lg:flex-row lg:items-center justify-between gap-6 transition-all hover:border-[#D6FF36]/80">
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-black text-gray-400">#${b.id}</span>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                  isActive ? 'bg-[#D6FF36] text-[#101820]' :
+                  isCompleted ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' :
+                  'bg-blue-500/10 text-blue-400 border border-blue-500/30'
+                }">
+                  ● ${b.status}
+                </span>
+                <span class="text-xs font-bold text-gray-400">• ${b.date} (${b.timeSlot})</span>
+              </div>
+
+              <h3 class="text-lg font-black font-heading text-gray-900 dark:text-white">
+                ${b.service}
+              </h3>
+
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-500">
+                <span class="flex items-center gap-1 font-bold text-gray-900 dark:text-gray-200">
+                  <i data-lucide="user" class="w-3.5 h-3.5 text-[#D6FF36]"></i> ${b.customer?.name || 'Customer'}
+                </span>
+                <span class="flex items-center gap-1 font-mono">
+                  <i data-lucide="car" class="w-3.5 h-3.5 text-[#D6FF36]"></i> ${b.vehicle?.brand} ${b.vehicle?.model} (${b.vehicle?.regNumber || 'TN Registered'})
+                </span>
+                <span class="flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-400"></i> ${b.address}
+                </span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 border-gray-100 dark:border-[#252E35]">
+              <div class="text-right mr-2 hidden sm:block">
+                <div class="text-base font-black font-heading text-emerald-500">₹${b.servicePrice}</div>
+                <div class="text-[10px] text-gray-400">${b.paymentMethod || 'Doorstep Cash/UPI'}</div>
+              </div>
+
+              ${b.customer?.phone ? `
+                <a href="tel:${b.customer.phone}" class="p-3 rounded-xl bg-gray-100 dark:bg-[#252E35] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-700 dark:text-gray-200 transition-colors" title="Call Customer">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </a>
+              ` : ''}
+
+              <a href="https://maps.google.com/?q=${encodeURIComponent(b.address)}" target="_blank" class="p-3 rounded-xl bg-gray-100 dark:bg-[#252E35] hover:bg-[#D6FF36] hover:text-[#101820] text-gray-700 dark:text-gray-200 transition-colors" title="Google Maps Navigation">
+                <i data-lucide="navigation-2" class="w-4 h-4"></i>
+              </a>
+
+              <a href="job-details.html?id=${b.id}" class="btn-primary !h-11 text-xs font-black px-5">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>Open Job Console</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterJobs(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-[#D6FF36] text-[#101820]';
+        } else {
+          btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-colors bg-gray-100 dark:bg-[#252E35] text-gray-600 dark:text-gray-300';
+        }
+      });
+      renderJobs();
+    }
+
+    function handleSearch(e) {
+      searchQuery = e.target.value;
+      renderJobs();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderJobs();
+
+      const openBtn = document.getElementById('sidebar-open-btn');
+      const closeBtn = document.getElementById('sidebar-close-btn');
+      const sidebar = document.getElementById('dash-sidebar');
+
+      if (openBtn && sidebar) {
+        openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+      }
+      if (closeBtn && sidebar) {
+        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+      }
+    });
+  </script>
+</body>
+</html>
+

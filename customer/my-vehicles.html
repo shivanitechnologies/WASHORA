@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vehicles | CAR SHINE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- Sidebar -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">SHINE</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-1 mt-6">
+          <a href="dashboard.html" class="dash-nav-item">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>Overview</span>
+          </a>
+          <a href="book-wash.html" class="dash-nav-item">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Book a Wash</span>
+          </a>
+          <a href="my-bookings.html" class="dash-nav-item">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>My Bookings</span>
+          </a>
+          <a href="track-technician.html" class="dash-nav-item">
+            <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Track Technician</span>
+          </a>
+          <a href="my-vehicles.html" class="dash-nav-item active">
+            <i data-lucide="car" class="w-4 h-4"></i>
+            <span>My Vehicles</span>
+          </a>
+          <a href="service-history.html" class="dash-nav-item">
+            <i data-lucide="history" class="w-4 h-4"></i>
+            <span>Service History</span>
+          </a>
+          <a href="subscriptions.html" class="dash-nav-item">
+            <i data-lucide="repeat" class="w-4 h-4"></i>
+            <span>My Subscription</span>
+          </a>
+          <a href="payments.html" class="dash-nav-item">
+            <i data-lucide="credit-card" class="w-4 h-4"></i>
+            <span>Payments</span>
+          </a>
+          <a href="notifications.html" class="dash-nav-item">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span>Notifications</span>
+          </a>
+          <a href="profile.html" class="dash-nav-item">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>My Profile</span>
+          </a>
+          <a href="settings.html" class="dash-nav-item">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Logout Account</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">My Vehicles Garage</h1>
+            <p class="text-xs text-gray-500">Register and manage your cars for seamless doorstep bookings</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="openModal('add-vehicle-modal')" class="btn-primary !h-10 text-xs font-bold px-4">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Add Vehicle</span>
+          </button>
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-6 flex-1">
+        <div id="vehicles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered via JS -->
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Add Vehicle Modal -->
+  <div id="add-vehicle-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <h3 class="font-bold text-base font-heading">Add New Vehicle</h3>
+        <button onclick="closeModal('add-vehicle-modal')" class="p-1 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateVehicle(event)" class="py-5 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Brand *</label>
+          <input type="text" id="add-brand" required placeholder="e.g. BMW, Honda, Hyundai" class="w-full h-11 px-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Model *</label>
+          <input type="text" id="add-model" required placeholder="e.g. City ZX, Creta, 3 Series" class="w-full h-11 px-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Registration Plate *</label>
+          <input type="text" id="add-plate" required placeholder="TN 09 AB 1234" class="w-full h-11 px-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono uppercase">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Segment *</label>
+            <select id="add-type" class="w-full h-11 px-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+              <option value="Sedan">Sedan</option>
+              <option value="Hatchback">Hatchback</option>
+              <option value="SUV">SUV</option>
+              <option value="Luxury">Luxury</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Color</label>
+            <input type="text" id="add-color" placeholder="e.g. Pearl White" class="w-full h-11 px-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+          </div>
+        </div>
+        <label class="flex items-center gap-2 text-xs text-gray-400 cursor-pointer pt-1">
+          <input type="checkbox" id="add-default" class="w-4 h-4 rounded text-[#D6FF36] accent-[#D6FF36]">
+          <span>Set as Primary / Default Vehicle</span>
+        </label>
+        <div class="pt-3 border-t border-gray-100 dark:border-[#252E35] flex justify-end gap-3">
+          <button type="button" onclick="closeModal('add-vehicle-modal')" class="btn-secondary !h-10 text-xs">Cancel</button>
+          <button type="submit" class="btn-primary !h-10 text-xs font-bold px-6">Save Vehicle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.add('open');
+    });
+    document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.remove('open');
+    });
+
+    function renderVehicles() {
+      const vehicles = StorageService.getVehicles();
+      const container = document.getElementById('vehicles-grid');
+
+      container.innerHTML = vehicles.map(v => `
+        <div class="rounded-3xl bg-white dark:bg-[#1A232C] border ${v.isDefault ? 'border-2 border-[#D6FF36]' : 'border-gray-200 dark:border-[#252E35]'} shadow-sm overflow-hidden flex flex-col justify-between card-hover-glow">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="${v.image || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80'}" alt="${v.model}" class="w-full h-full object-cover">
+              ${v.isDefault ? '<span class="absolute top-3 left-3 badge-lime">Primary Default</span>' : ''}
+              <span class="absolute bottom-3 left-3 text-[10px] uppercase font-bold bg-[#101820]/90 text-white px-2 py-0.5 rounded">${v.type}</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-lg font-bold font-heading text-gray-900 dark:text-white">${v.brand} ${v.model}</h3>
+              <p class="text-xs font-mono font-bold text-[#D6FF36] mt-0.5">${v.regNumber}</p>
+              <p class="text-xs text-gray-500 mt-1">Color: ${v.color || 'Standard Metallic'}</p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0 border-t border-gray-100 dark:border-[#252E35] flex items-center justify-between gap-2">
+            ${!v.isDefault ? `
+              <button onclick="setAsDefault('${v.id}')" class="text-xs font-bold text-gray-500 hover:text-[#D6FF36]">Set Default</button>
+            ` : '<span class="text-xs text-gray-400 font-semibold">Active Car</span>'}
+            
+            <div class="flex items-center gap-2">
+              <a href="book-wash.html?vehicle=${v.id}" class="btn-primary !h-8 text-xs font-bold px-3">Book Wash</a>
+              <button onclick="deleteVeh('${v.id}')" class="p-2 rounded-lg bg-gray-100 dark:bg-[#252E35] text-red-400 hover:bg-red-500 hover:text-white transition-colors" title="Delete vehicle">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function handleCreateVehicle(e) {
+      e.preventDefault();
+      const brand = document.getElementById('add-brand').value.trim();
+      const model = document.getElementById('add-model').value.trim();
+      const plate = document.getElementById('add-plate').value.trim();
+      const type = document.getElementById('add-type').value;
+      const color = document.getElementById('add-color').value.trim();
+      const isDefault = document.getElementById('add-default').checked;
+
+      StorageService.addVehicle({
+        brand,
+        model,
+        regNumber: plate,
+        type,
+        color,
+        isDefault,
+        image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80'
+      });
+
+      closeModal('add-vehicle-modal');
+      showToast(`${brand} ${model} added to your garage!`, 'success');
+      renderVehicles();
+    }
+
+    function setAsDefault(id) {
+      StorageService.setDefaultVehicle(id);
+      showToast('Default vehicle updated.', 'success');
+      renderVehicles();
+    }
+
+    function deleteVeh(id) {
+      if (confirm('Are you sure you want to remove this vehicle?')) {
+        StorageService.deleteVehicle(id);
+        showToast('Vehicle removed.', 'warning');
+        renderVehicles();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderVehicles);
+  </script>
+</body>
+</html>
+

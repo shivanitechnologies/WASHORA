@@ -1,0 +1,166 @@
+/* CAR SHINE - Dashboard Specific Styles */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.dashboard-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+}
+
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nav Item Active States */
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.925rem;
+  transition: all 0.2s ease;
+  color: #64748B;
+}
+.dark .dash-nav-item {
+  color: #94A3B8;
+}
+
+.dash-nav-item:hover {
+  background-color: rgba(214, 255, 54, 0.08);
+  color: #101820;
+}
+.dark .dash-nav-item:hover {
+  background-color: rgba(214, 255, 54, 0.1);
+  color: #D6FF36;
+}
+
+.dash-nav-item.active {
+  background-color: #101820;
+  color: #D6FF36;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.dark .dash-nav-item.active {
+  background-color: #252E35;
+  color: #D6FF36;
+  border-left: 3px solid #D6FF36;
+}
+[dir="rtl"] .dark .dash-nav-item.active {
+  border-left: none;
+  border-right: 3px solid #D6FF36;
+}
+
+/* Metric Cards */
+.metric-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.metric-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Tracking Step Progress */
+.tracking-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.tracking-step .step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E2E8F0;
+  color: #64748B;
+  font-weight: 700;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.dark .tracking-step .step-dot {
+  background-color: #252E35;
+  color: #94A3B8;
+}
+.tracking-step.completed .step-dot {
+  background-color: #D6FF36;
+  color: #101820;
+  box-shadow: 0 0 15px rgba(214, 255, 54, 0.4);
+}
+.tracking-step.current .step-dot {
+  background-color: #101820;
+  border: 2px solid #D6FF36;
+  color: #D6FF36;
+  animation: pulseGlow 2s infinite;
+}
+.dark .tracking-step.current .step-dot {
+  background-color: #252E35;
+  border: 2px solid #D6FF36;
+}
+
+.tracking-bar {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #E2E8F0;
+  z-index: 1;
+}
+.dark .tracking-bar {
+  background-color: #252E35;
+}
+.tracking-step:last-child .tracking-bar {
+  display: none;
+}
+.tracking-step.completed .tracking-bar {
+  background-color: #D6FF36;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(214, 255, 54, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(214, 255, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(214, 255, 54, 0);
+  }
+}
+
+/* Mobile Sidebar Drawer */
+@media (max-width: 1024px) {
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: 20px 0 50px rgba(0,0,0,0.3);
+  }
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+  .dashboard-sidebar.open {
+    transform: translateX(0);
+  }
+}
+

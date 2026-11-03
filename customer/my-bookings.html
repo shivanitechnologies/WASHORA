@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings | CAR SHINE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35',
+            lightbg: '#F5F6F3'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
+
+  <div class="dashboard-container">
+    
+    <!-- Sidebar -->
+    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">SHINE</span>
+            </span>
+          </a>
+          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-1 mt-6">
+          <a href="dashboard.html" class="dash-nav-item">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>Overview</span>
+          </a>
+          <a href="book-wash.html" class="dash-nav-item">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Book a Wash</span>
+          </a>
+          <a href="my-bookings.html" class="dash-nav-item active">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>My Bookings</span>
+          </a>
+          <a href="track-technician.html" class="dash-nav-item">
+            <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Track Technician</span>
+          </a>
+          <a href="my-vehicles.html" class="dash-nav-item">
+            <i data-lucide="car" class="w-4 h-4"></i>
+            <span>My Vehicles</span>
+          </a>
+          <a href="service-history.html" class="dash-nav-item">
+            <i data-lucide="history" class="w-4 h-4"></i>
+            <span>Service History</span>
+          </a>
+          <a href="subscriptions.html" class="dash-nav-item">
+            <i data-lucide="repeat" class="w-4 h-4"></i>
+            <span>My Subscription</span>
+          </a>
+          <a href="payments.html" class="dash-nav-item">
+            <i data-lucide="credit-card" class="w-4 h-4"></i>
+            <span>Payments</span>
+          </a>
+          <a href="notifications.html" class="dash-nav-item">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span>Notifications</span>
+          </a>
+          <a href="profile.html" class="dash-nav-item">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>My Profile</span>
+          </a>
+          <a href="settings.html" class="dash-nav-item">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Logout Account</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+      
+      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+          <div>
+            <h1 class="text-lg font-bold font-heading">My Bookings</h1>
+            <p class="text-xs text-gray-500">Track and manage your car detailing schedules</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="book-wash.html" class="btn-primary !h-10 text-xs font-bold px-4">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Book New Wash</span>
+          </a>
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+            <i data-lucide="languages" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </header>
+
+      <main class="p-6 sm:p-8 space-y-6 flex-1">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterBookings('All')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-[#101820] text-[#D6FF36] dark:bg-[#252E35]">All</button>
+          <button onclick="filterBookings('Upcoming')" class="tab-btn px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-[#252E35]">Upcoming</button>
+          <button onclick="filterBookings('In Progress')" class="tab-btn px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-[#252E35]">In Progress</button>
+          <button onclick="filterBookings('Completed')" class="tab-btn px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-[#252E35]">Completed</button>
+          <button onclick="filterBookings('Cancelled')" class="tab-btn px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-[#252E35]">Cancelled</button>
+        </div>
+
+        <!-- Bookings Cards Container -->
+        <div id="bookings-container" class="space-y-4">
+          <!-- Rendered via JS -->
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Invoice Modal -->
+  <div id="invoice-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <div class="flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-[#D6FF36]"></i>
+          <h3 class="font-bold text-sm font-heading">Service Tax Invoice</h3>
+        </div>
+        <button onclick="closeModal('invoice-modal')" class="p-1 rounded-lg bg-gray-100 dark:bg-[#252E35]">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div id="invoice-modal-content" class="py-6 space-y-4 text-xs">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] flex justify-end gap-3">
+        <button onclick="closeModal('invoice-modal')" class="btn-secondary !h-9 text-xs">Close</button>
+        <button onclick="window.print()" class="btn-primary !h-9 text-xs font-bold">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print Invoice
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/rtl.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.add('open');
+    });
+    document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+      document.getElementById('dash-sidebar').classList.remove('open');
+    });
+
+    let currentFilter = 'All';
+
+    function renderBookings() {
+      const all = StorageService.getBookings();
+      const container = document.getElementById('bookings-container');
+      
+      const filtered = all.filter(b => {
+        if (currentFilter === 'All') return true;
+        if (currentFilter === 'Upcoming') return b.status === 'Confirmed' || b.status === 'Assigned';
+        if (currentFilter === 'In Progress') return b.status === 'On the Way' || b.status === 'In Progress' || b.status === 'Arrived';
+        if (currentFilter === 'Completed') return b.status === 'Completed';
+        if (currentFilter === 'Cancelled') return b.status === 'Cancelled';
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-12 text-center bg-white dark:bg-[#1A232C] rounded-3xl border border-gray-200 dark:border-[#252E35]">
+            <i data-lucide="calendar-x" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
+            <h4 class="font-bold text-base">No bookings found in this tab</h4>
+            <p class="text-xs text-gray-500 mt-1">Book your next doorstep wash in less than 60 seconds.</p>
+            <a href="book-wash.html" class="btn-primary !h-10 text-xs font-bold mt-4 inline-flex">Book a Wash</a>
+          </div>
+        `;
+        if (window.lucide) window.lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = filtered.map(b => {
+        const isLive = b.status === 'On the Way' || b.status === 'In Progress';
+        return `
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border ${isLive ? 'border-2 border-[#D6FF36]' : 'border-gray-200 dark:border-[#252E35]'} shadow-sm card-hover-glow space-y-4">
+            
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-gray-100 dark:border-[#252E35]">
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono font-bold bg-[#F5F6F3] dark:bg-[#101820] px-2.5 py-1 rounded-lg">#${b.id}</span>
+                <span class="text-xs font-semibold text-gray-400">Booked: ${b.date} (${b.timeSlot})</span>
+              </div>
+              <div>
+                <span class="badge-lime text-[11px] font-bold">${b.status}</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+              <div class="md:col-span-5 space-y-1">
+                <h4 class="text-lg font-bold font-heading text-gray-900 dark:text-white">${b.service}</h4>
+                <p class="text-xs text-gray-500 font-medium">${b.vehicle.brand} ${b.vehicle.model} · <span class="font-mono">${b.vehicle.regNumber}</span></p>
+                <p class="text-xs text-gray-400 truncate max-w-sm mt-1">${b.address}</p>
+              </div>
+
+              <div class="md:col-span-3 text-left md:text-center">
+                <span class="text-xs text-gray-400 block">Payable Amount</span>
+                <span class="text-xl font-black text-[#101820] dark:text-[#D6FF36]">₹${b.servicePrice.toLocaleString('en-IN')}</span>
+                <span class="text-[10px] text-emerald-500 block font-semibold">● ${b.paymentStatus}</span>
+              </div>
+
+              <div class="md:col-span-4 flex flex-wrap items-center justify-end gap-2">
+                <a href="booking-details.html?id=${b.id}" class="btn-secondary !h-9 text-xs">Details</a>
+                ${isLive ? `
+                  <a href="track-technician.html?id=${b.id}" class="btn-primary !h-9 text-xs font-bold glow-lime-sm">
+                    <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Track Van
+                  </a>
+                ` : ''}
+                ${b.status === 'Confirmed' ? `
+                  <button onclick="cancelBooking('${b.id}')" class="px-3 py-1.5 rounded-lg border border-red-500 text-red-500 hover:bg-red-500 hover:text-white text-xs font-semibold transition-colors">
+                    Cancel
+                  </button>
+                ` : ''}
+                ${b.status === 'Completed' ? `
+                  <button onclick="viewInvoice('${b.id}')" class="btn-secondary !h-9 text-xs">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Invoice
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function filterBookings(status) {
+      currentFilter = status;
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => {
+        b.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-medium text-gray-500 hover:bg-gray-200 dark:hover:bg-[#252E35]';
+      });
+      event.target.className = 'tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-[#101820] text-[#D6FF36] dark:bg-[#252E35]';
+      renderBookings();
+    }
+
+    function cancelBooking(id) {
+      if (confirm(`Are you sure you want to cancel booking #${id}?`)) {
+        StorageService.updateBookingStatus(id, 'Cancelled');
+        showToast(`Booking #${id} cancelled.`, 'warning');
+        renderBookings();
+      }
+    }
+
+    function viewInvoice(id) {
+      const b = StorageService.getBookingById(id);
+      if (!b) return;
+
+      const modalContent = document.getElementById('invoice-modal-content');
+      modalContent.innerHTML = `
+        <div class="flex justify-between items-start pb-4 border-b border-gray-100 dark:border-[#252E35]">
+          <div>
+            <h4 class="font-black text-base uppercase text-[#D6FF36]">CAR SHINE Technologies</h4>
+            <span class="text-[11px] text-gray-400">Doorstep Automotive Care · GSTIN: 33ABCDE1234F1Z5</span>
+          </div>
+          <div class="text-right">
+            <span class="font-mono font-bold text-xs">INV-${b.id}</span>
+            <div class="text-[10px] text-gray-400">Date: ${b.date}</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <strong class="text-gray-400 block uppercase text-[10px]">Billed To:</strong>
+            <div class="font-bold text-gray-900 dark:text-white">${b.customer.name}</div>
+            <div class="text-gray-500">${b.customer.phone}</div>
+            <div class="text-gray-500 truncate">${b.address}</div>
+          </div>
+          <div class="text-right">
+            <strong class="text-gray-400 block uppercase text-[10px]">Vehicle Serviced:</strong>
+            <div class="font-bold text-gray-900 dark:text-white">${b.vehicle.brand} ${b.vehicle.model}</div>
+            <div class="text-gray-500 font-mono">${b.vehicle.regNumber}</div>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
+          <div class="flex justify-between font-bold pb-2 border-b border-gray-200 dark:border-[#252E35]">
+            <span>${b.service}</span>
+            <span class="text-[#D6FF36]">₹${b.servicePrice}</span>
+          </div>
+          <div class="flex justify-between text-gray-400 pt-2 text-[11px]">
+            <span>Doorstep Water & Generator Delivery:</span>
+            <span>Free (Included)</span>
+          </div>
+          <div class="flex justify-between font-black text-sm pt-3 mt-2 border-t border-gray-200 dark:border-[#252E35]">
+            <span>Total Paid (Online/UPI):</span>
+            <span class="text-[#D6FF36]">₹${b.servicePrice}</span>
+          </div>
+        </div>
+      `;
+
+      openModal('invoice-modal');
+    }
+
+    document.addEventListener('DOMContentLoaded', renderBookings);
+  </script>
+</body>
+</html>
+
