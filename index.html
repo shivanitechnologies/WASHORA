@@ -72,7 +72,7 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation (Order: Home -> About -> Services -> Pricing -> Areas -> Blog -> Contact -> Dashboard) -->
+      <!-- Desktop Navigation (Order: Home -> About -> Services -> Pricing -> Areas -> Contact -> Dashboard) -->
       <nav class="hidden xl:flex items-center space-x-7 rtl:space-x-reverse text-sm font-semibold">
         <!-- Home dropdown -->
         <div class="relative group">
@@ -91,7 +91,6 @@
         <a href="services.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Services</a>
         <a href="pricing.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Pricing</a>
         <a href="service-areas.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Service Areas</a>
-        <a href="blog.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Blog</a>
         <a href="contact.html" class="public-nav-link text-gray-700 dark:text-gray-300 hover:text-[#101820] dark:hover:text-[#D6FF36] transition-colors">Contact</a>
 
         <!-- Dashboard as Last Navigation Link -->
@@ -167,7 +166,6 @@
         <a href="services.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Services</a>
         <a href="pricing.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Pricing & Plans</a>
         <a href="service-areas.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Service Areas</a>
-        <a href="blog.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Blog</a>
         <a href="contact.html" class="block py-2 text-gray-600 dark:text-gray-400 hover:text-white">Contact Us</a>
         
         <div class="pt-2 border-t border-gray-200 dark:border-[#252E35]">
@@ -191,46 +189,52 @@
     </div>
   </div>
 
-  <!-- ==================== 1. HERO SECTION (100% Video Fit with Centered Top Content & Soft Bottom Transition) ==================== -->
-  <section id="hero-section" class="relative w-full bg-black overflow-hidden flex items-center justify-center">
+  <!-- ==================== 1. HERO SECTION (Full Viewport Height, Video Cover BG, Centered Overlay Text) ==================== -->
+  <section id="hero-section" class="relative w-full bg-black overflow-hidden" style="height:100svh;min-height:520px;">
     
-    <!-- 1. Full 16:9 Background Video (100% Fully Shown, No Cropping - Repeats on 10s Timer) -->
-    <video id="hero-bg-video" autoplay muted playsinline preload="auto" 
-           class="w-full h-auto block aspect-video object-contain mx-auto cursor-pointer">
+    <!-- 1. Full-Cover Background Video (object-cover fills entire section, no bars, no cropping of section) -->
+    <video id="hero-bg-video" autoplay muted playsinline preload="auto"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;">
       <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
 
-    <!-- 2. Simple Centered Text Content (Increased Top Spacing, Enters after 6s, Repeats with Video) -->
-    <div id="hero-center-content" class="hero-content-transition hero-content-hidden absolute top-10 sm:top-14 md:top-20 lg:top-24 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-2xl mx-auto pointer-events-none">
+    <!-- 2. Subtle dark scrim so text pops over the bright video -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.15) 60%,rgba(0,0,0,0.45) 100%);pointer-events:none;z-index:5;"></div>
+
+    <!-- 3. Centered Text Overlay (enters after 6s, repeats with video) -->
+    <div id="hero-center-content"
+         class="hero-content-transition hero-content-hidden"
+         style="position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 1rem;">
       
       <!-- Main Headline -->
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading tracking-tight text-white leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
-        Your Car Deserves a <span class="text-[#D6FF36] drop-shadow-[0_4px_20px_rgba(214,255,54,0.4)]">Better Shine.</span>
+      <h1 style="font-size:clamp(1.75rem,5vw,3.5rem);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.02em;text-shadow:0 4px 24px rgba(0,0,0,0.9);font-family:Manrope,sans-serif;margin:0 0 0.6rem;">
+        Your Car Deserves a <span style="color:#D6FF36;text-shadow:0 4px 20px rgba(214,255,54,0.45);">Better Shine.</span>
       </h1>
 
       <!-- Simple Subtitle -->
-      <p class="text-xs sm:text-sm text-gray-200 font-medium mt-2 max-w-md leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+      <p style="font-size:clamp(0.8rem,2vw,1rem);color:rgba(255,255,255,0.88);font-weight:500;max-width:460px;line-height:1.65;text-shadow:0 2px 10px rgba(0,0,0,0.9);margin:0 0 1.4rem;">
         Professional mobile car washing delivered directly to your doorstep.
       </p>
 
-      <!-- Clean Action CTAs -->
-      <div class="flex items-center justify-center gap-3 mt-4 pointer-events-auto">
-        <a href="customer/book-wash.html" class="btn-primary !h-[38px] px-5 text-xs font-black shadow-xl glow-lime">
-          <span>Book a Wash</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+      <!-- CTAs -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.75rem;pointer-events:auto;">
+        <a href="customer/book-wash.html"
+           style="display:inline-flex;align-items:center;gap:0.4rem;height:42px;padding:0 1.4rem;background:#D6FF36;color:#101820;font-weight:900;font-size:0.8rem;border-radius:0.75rem;text-decoration:none;box-shadow:0 0 20px rgba(214,255,54,0.4);white-space:nowrap;">
+          Book a Wash <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="#services" class="h-[38px] px-4 rounded-xl bg-black/60 hover:bg-black/80 text-white border border-white/30 backdrop-blur-md text-xs font-bold inline-flex items-center justify-center hover:border-[#D6FF36] hover:text-[#D6FF36] transition-all shadow-md">
-          <span>Explore Services</span>
+        <a href="#services"
+           style="display:inline-flex;align-items:center;height:42px;padding:0 1.2rem;background:rgba(0,0,0,0.55);color:#fff;font-weight:700;font-size:0.8rem;border-radius:0.75rem;border:1px solid rgba(255,255,255,0.3);text-decoration:none;backdrop-filter:blur(8px);white-space:nowrap;">
+          Explore Services
         </a>
       </div>
 
     </div>
 
-    <!-- 3. Soft Bottom Edge Feather (Reduces sharp transition into Section 2) -->
-    <div class="absolute inset-x-0 bottom-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-white dark:from-[#1A232C] via-white/40 dark:via-[#1A232C]/40 to-transparent pointer-events-none z-10"></div>
+    <!-- 4. Soft Bottom Edge Fade (blends into next section) -->
+    <div style="position:absolute;inset-x:0;bottom:0;height:120px;background:linear-gradient(to top,#101820 0%,rgba(16,24,32,0.6) 50%,transparent 100%);pointer-events:none;z-index:10;"></div>
     
-    <!-- 4. Cinematic Soundtrack (Original Video Audio is Permanently OFF) -->
+    <!-- 5. Cinematic Soundtrack (Original Video Audio is Permanently OFF) -->
     <audio id="hero-bg-audio" loop preload="auto">
       <source src="assets/audio/hero-soundtrack.mp3" type="audio/mpeg">
       <source src="assets/audio/8-second_cinematic_l_#4-1793714937989.mp3" type="audio/mpeg">
@@ -788,7 +792,6 @@
             <li><a href="services.html" class="hover:text-[#D6FF36] transition-colors">Our Services</a></li>
             <li><a href="pricing.html" class="hover:text-[#D6FF36] transition-colors">Pricing & Plans</a></li>
             <li><a href="service-areas.html" class="hover:text-[#D6FF36] transition-colors">Service Areas</a></li>
-            <li><a href="blog.html" class="hover:text-[#D6FF36] transition-colors">Blog & Guides</a></li>
             <li><a href="contact.html" class="hover:text-[#D6FF36] transition-colors">Contact Us</a></li>
           </ul>
         </div>
@@ -969,18 +972,7 @@
       document.addEventListener('touchstart', onFirstUserGesture, { once: true });
       document.addEventListener('scroll', onFirstUserGesture, { once: true });
 
-      // 5. Clicking video toggles pause/play or restarts
-      video.addEventListener('click', function() {
-        if (video.ended) {
-          startVideoCycle();
-        } else if (video.paused) {
-          video.play();
-          if (audio) audio.play().catch(() => {});
-        } else {
-          video.pause();
-          if (audio) audio.pause();
-        }
-      });
+      // 5. Video is a non-interactive background element — no click handler needed
 
       // Start initial video cycle
       startVideoCycle();
