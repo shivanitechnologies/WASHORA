@@ -174,45 +174,19 @@
     </div>
   </div>
 
-  <!-- ==================== 1. HERO SECTION (100% Opacity Full Video Showcase - Clean & Unobstructed) ==================== -->
-  <section id="hero-section" class="relative w-full h-[72vh] sm:h-[82vh] lg:h-[90vh] min-h-[520px] overflow-hidden bg-black flex items-end justify-center cursor-pointer">
+  <!-- ==================== 1. HERO SECTION (100% Video Fit - Edge to Edge, Fully Shown, Zero Cropping, No Buttons) ==================== -->
+  <section id="hero-section" class="relative w-full bg-black overflow-hidden flex items-center justify-center">
+    <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" 
+           class="w-full h-auto block aspect-video object-contain mx-auto cursor-pointer">
+      <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
+      <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+    </video>
     
-    <!-- 1. FULL BACKGROUND VIDEO (100% Opacity - Original Video Sound Permanently Off) -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-      <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" 
-             class="w-full h-full object-cover object-center opacity-100 scale-100">
-        <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
-        <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-      </video>
-      
-      <!-- Cinematic Soundtrack (Original Video Audio is OFF; This 8s Cinematic Track Plays) -->
-      <audio id="hero-bg-audio" loop preload="auto">
-        <source src="assets/audio/hero-soundtrack.mp3" type="audio/mpeg">
-        <source src="assets/audio/8-second_cinematic_l_#4-1793714937989.mp3" type="audio/mpeg">
-      </audio>
-
-      <!-- Seamless soft blend into Section 2 -->
-      <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#101820] to-transparent"></div>
-    </div>
-
-    <!-- Video Play/Pause & Audio Toggle Button (Bottom-Right Icon Controls) -->
-    <div class="absolute bottom-6 right-6 z-20 flex items-center gap-2">
-      <button onclick="event.stopPropagation(); toggleHeroVideoPlay()" id="btn-hero-video-toggle" aria-label="Pause or Play Background Video" title="Pause or Play Background Video"
-              class="w-10 h-10 rounded-xl bg-black/60 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md flex items-center justify-center transition-all shadow-xl hover:scale-105">
-        <i data-lucide="pause" id="icon-hero-video-pause" class="w-4 h-4"></i>
-        <i data-lucide="play" id="icon-hero-video-play" class="w-4 h-4 hidden"></i>
-      </button>
-      <button onclick="event.stopPropagation(); toggleHeroVideoMute()" id="btn-hero-audio-toggle" aria-label="Play or Mute Cinematic Audio" title="Cinematic Audio (Original Video Audio is OFF)"
-              class="w-10 h-10 rounded-xl bg-black/60 hover:bg-[#D6FF36] text-white hover:text-[#101820] border border-white/20 backdrop-blur-md flex items-center justify-center transition-all shadow-xl hover:scale-105">
-        <i data-lucide="volume-x" id="icon-hero-audio-muted" class="w-4 h-4"></i>
-        <i data-lucide="volume-2" id="icon-hero-audio-unmuted" class="w-4 h-4 hidden"></i>
-      </button>
-    </div>
-
-    <!-- Subtle Scroll Down Chevron Indicator -->
-    <a href="#services" aria-label="Scroll down to services" class="relative z-20 mb-6 text-white/60 hover:text-[#D6FF36] transition-all animate-bounce">
-      <i data-lucide="chevron-down" class="w-8 h-8"></i>
-    </a>
+    <!-- Cinematic Soundtrack (Original Video Audio is Permanently OFF) -->
+    <audio id="hero-bg-audio" loop preload="auto">
+      <source src="assets/audio/hero-soundtrack.mp3" type="audio/mpeg">
+      <source src="assets/audio/8-second_cinematic_l_#4-1793714937989.mp3" type="audio/mpeg">
+    </audio>
   </section>
 
   <!-- ==================== 2. OUR SERVICES (4 Core Services with Images) ==================== -->
@@ -847,88 +821,49 @@
       if (window.lucide) window.lucide.createIcons();
     }
 
-    // Hero Background Video Play/Pause & Cinematic Audio Controllers
-    let isCinematicAudioActive = false;
-
-    // Guarantee original video sound is PERMANENTLY OFF
-    (function enforceVideoMute() {
+    // Hero Background Video & Cinematic Soundtrack Controller (Original Video Audio Permanently OFF)
+    (function initHeroMedia() {
       const video = document.getElementById('hero-bg-video');
+      const audio = document.getElementById('hero-bg-audio');
+
+      // 1. Strictly enforce that the original video sound is PERMANENTLY OFF
       if (video) {
         video.muted = true;
         video.volume = 0;
         video.setAttribute('muted', '');
       }
-    })();
 
-    function toggleHeroVideoPlay() {
-      const video = document.getElementById('hero-bg-video');
-      const audio = document.getElementById('hero-bg-audio');
-      const iconPause = document.getElementById('icon-hero-video-pause');
-      const iconPlay = document.getElementById('icon-hero-video-play');
-      if (!video) return;
-
-      if (video.paused) {
-        video.play();
-        if (isCinematicAudioActive && audio) {
-          audio.play().catch(() => {});
+      // 2. Play the 8-second cinematic soundtrack on the very first user interaction (click, touch, scroll)
+      let audioStarted = false;
+      function playCinematicSoundtrack() {
+        if (!audioStarted && audio) {
+          audio.volume = 0.85;
+          audio.play().then(() => {
+            audioStarted = true;
+          }).catch(() => {});
         }
-        if (iconPause) iconPause.classList.remove('hidden');
-        if (iconPlay) iconPlay.classList.add('hidden');
-      } else {
-        video.pause();
-        if (audio) audio.pause();
-        if (iconPause) iconPause.classList.add('hidden');
-        if (iconPlay) iconPlay.classList.remove('hidden');
+        document.removeEventListener('click', playCinematicSoundtrack);
+        document.removeEventListener('touchstart', playCinematicSoundtrack);
+        document.removeEventListener('scroll', playCinematicSoundtrack);
       }
-      if (window.lucide) window.lucide.createIcons();
-    }
 
-    function toggleHeroVideoMute() {
-      const video = document.getElementById('hero-bg-video');
-      const audio = document.getElementById('hero-bg-audio');
-      const iconMuted = document.getElementById('icon-hero-audio-muted');
-      const iconUnmuted = document.getElementById('icon-hero-audio-unmuted');
-      
-      // Ensure original video audio remains strictly disabled
+      document.addEventListener('click', playCinematicSoundtrack, { once: true });
+      document.addEventListener('touchstart', playCinematicSoundtrack, { once: true });
+      document.addEventListener('scroll', playCinematicSoundtrack, { once: true });
+
+      // 3. Clicking/tapping the video directly toggles video + audio play/pause
       if (video) {
-        video.muted = true;
-        video.volume = 0;
-      }
-      if (!audio) return;
-
-      if (isCinematicAudioActive) {
-        // Mute/Pause the cinematic soundtrack
-        audio.pause();
-        isCinematicAudioActive = false;
-        if (iconMuted) iconMuted.classList.remove('hidden');
-        if (iconUnmuted) iconUnmuted.classList.add('hidden');
-      } else {
-        // Play the cinematic audio soundtrack (8-second loop)
-        audio.volume = 0.85;
-        audio.play().then(() => {
-          isCinematicAudioActive = true;
-          if (iconMuted) iconMuted.classList.add('hidden');
-          if (iconUnmuted) iconUnmuted.classList.remove('hidden');
-        }).catch((err) => {
-          console.log('Audio autoplay prevented, user interaction required:', err);
-          isCinematicAudioActive = false;
+        video.addEventListener('click', function() {
+          if (video.paused) {
+            video.play();
+            if (audio) audio.play().catch(() => {});
+          } else {
+            video.pause();
+            if (audio) audio.pause();
+          }
         });
       }
-      if (window.lucide) window.lucide.createIcons();
-    }
-
-    // Optional quick unmute when tapping the hero video directly
-    const heroSec = document.getElementById('hero-section');
-    if (heroSec) {
-      heroSec.addEventListener('click', function(e) {
-        // Only trigger if click wasn't directly on a button or chevron
-        if (!e.target.closest('button') && !e.target.closest('a')) {
-          if (!isCinematicAudioActive) {
-            toggleHeroVideoMute();
-          }
-        }
-      });
-    }
+    })();
   </script>
 </body>
 </html>
