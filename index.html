@@ -36,26 +36,20 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <style>
-    /* 3-Second Delayed Entrance for Hero Text Content */
-    @keyframes heroTextReveal3s {
-      0% {
-        opacity: 0;
-        transform: translateY(-14px);
-        visibility: hidden;
-      }
-      1% {
-        visibility: visible;
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-      }
+    /* Hero Text 6-Second Entrance & Repeating Loop Transitions */
+    .hero-content-transition {
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-enter-3s {
-      opacity: 0;
-      visibility: hidden;
-      animation: heroTextReveal3s 1s cubic-bezier(0.16, 1, 0.3, 1) 3s forwards;
+    .hero-content-hidden {
+      opacity: 0 !important;
+      transform: translateY(-16px) !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    .hero-content-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      visibility: visible !important;
     }
   </style>
 </head>
@@ -200,28 +194,28 @@
   <!-- ==================== 1. HERO SECTION (100% Video Fit with Centered Top Content & Soft Bottom Transition) ==================== -->
   <section id="hero-section" class="relative w-full bg-black overflow-hidden flex items-center justify-center">
     
-    <!-- 1. Full 16:9 Background Video (100% Fully Shown, No Cropping) -->
-    <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" 
+    <!-- 1. Full 16:9 Background Video (100% Fully Shown, No Cropping - Repeats on 10s Timer) -->
+    <video id="hero-bg-video" autoplay muted playsinline preload="auto" 
            class="w-full h-auto block aspect-video object-contain mx-auto cursor-pointer">
       <source src="assets/videos/Black_Audi_RS7_driving_cd458f62_1080p.mp4" type="video/mp4">
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
 
-    <!-- 2. Simple Centered Text Content (Enters after 3s delay, Smaller Refined Typography, No Badge) -->
-    <div id="hero-center-content" class="hero-enter-3s absolute top-5 sm:top-8 md:top-12 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-2xl mx-auto pointer-events-none">
+    <!-- 2. Simple Centered Text Content (Increased Top Spacing, Enters after 6s, Repeats with Video) -->
+    <div id="hero-center-content" class="hero-content-transition hero-content-hidden absolute top-10 sm:top-14 md:top-20 lg:top-24 inset-x-0 z-20 flex flex-col items-center text-center px-4 max-w-2xl mx-auto pointer-events-none">
       
-      <!-- Main Headline (Decreased Size) -->
+      <!-- Main Headline -->
       <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading tracking-tight text-white leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
         Your Car Deserves a <span class="text-[#D6FF36] drop-shadow-[0_4px_20px_rgba(214,255,54,0.4)]">Better Shine.</span>
       </h1>
 
-      <!-- Simple Subtitle (Decreased Size) -->
-      <p class="text-xs sm:text-sm text-gray-200 font-medium mt-1.5 max-w-md leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+      <!-- Simple Subtitle -->
+      <p class="text-xs sm:text-sm text-gray-200 font-medium mt-2 max-w-md leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
         Professional mobile car washing delivered directly to your doorstep.
       </p>
 
-      <!-- Clean Action CTAs (Compact Sizing) -->
-      <div class="flex items-center justify-center gap-3 mt-3.5 pointer-events-auto">
+      <!-- Clean Action CTAs -->
+      <div class="flex items-center justify-center gap-3 mt-4 pointer-events-auto">
         <a href="customer/book-wash.html" class="btn-primary !h-[38px] px-5 text-xs font-black shadow-xl glow-lime">
           <span>Book a Wash</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
@@ -875,61 +869,121 @@
       if (window.lucide) window.lucide.createIcons();
     }
 
-    // Hero Background Video & Cinematic Soundtrack Controller (Original Video Audio Permanently OFF)
-    (function initHeroMedia() {
+    // Hero Background Video & Cinematic Text Loop Controller
+    // Timeline: Video plays (0-8s) -> Text enters after 6s -> Video ends & stops for 10s -> Repeats
+    (function initHeroLoop() {
       const video = document.getElementById('hero-bg-video');
       const audio = document.getElementById('hero-bg-audio');
+      const heroContent = document.getElementById('hero-center-content');
+      if (!video || !heroContent) return;
 
       // 1. Strictly enforce that the original video sound is PERMANENTLY OFF
-      if (video) {
-        video.muted = true;
-        video.volume = 0;
-        video.setAttribute('muted', '');
+      video.muted = true;
+      video.volume = 0;
+      video.removeAttribute('loop');
+
+      let textShown = false;
+      let restartTimer = null;
+      let isInteracting = false;
+      let audioStarted = false;
+
+      function showHeroText() {
+        if (textShown) return;
+        textShown = true;
+        heroContent.classList.remove('hero-content-hidden');
+        heroContent.classList.add('hero-content-visible');
       }
 
-      // 2. Play the 8-second cinematic soundtrack on the very first user interaction (click, touch, scroll)
-      let audioStarted = false;
-      function playCinematicSoundtrack() {
+      function hideHeroText() {
+        textShown = false;
+        heroContent.classList.remove('hero-content-visible');
+        heroContent.classList.add('hero-content-hidden');
+      }
+
+      function startVideoCycle() {
+        if (restartTimer) {
+          clearTimeout(restartTimer);
+          restartTimer = null;
+        }
+        hideHeroText();
+        video.currentTime = 0;
+        const p = video.play();
+        if (p) p.catch(() => {});
+
+        if (audioStarted && audio) {
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        }
+      }
+
+      // 2. Text enters after exactly 6 seconds of video playback
+      video.addEventListener('timeupdate', function() {
+        if (video.currentTime >= 6.0 && !textShown) {
+          showHeroText();
+        }
+      });
+
+      // 3. When background video ends (at ~7.92s):
+      // Stop/Hold on the final frame for 10 seconds, then repeat the video
+      video.addEventListener('ended', function() {
+        showHeroText();
+        scheduleRestart(10000);
+      });
+
+      function scheduleRestart(delayMs) {
+        if (restartTimer) clearTimeout(restartTimer);
+        restartTimer = setTimeout(function() {
+          // If user is currently hovering or clicking on the CTAs, delay restart
+          if (isInteracting) return;
+
+          // Smooth fade out of text, then repeat video from 0s
+          hideHeroText();
+          setTimeout(() => {
+            startVideoCycle();
+          }, 600);
+        }, delayMs);
+      }
+
+      // Keep text visible if user hovers on buttons
+      heroContent.addEventListener('mouseenter', () => { isInteracting = true; });
+      heroContent.addEventListener('mouseleave', () => {
+        isInteracting = false;
+        if (video.ended && !restartTimer) {
+          scheduleRestart(4000);
+        }
+      });
+
+      // 4. Cinematic Audio starts on first user gesture anywhere on the page
+      function onFirstUserGesture() {
         if (!audioStarted && audio) {
           audio.volume = 0.85;
           audio.play().then(() => {
             audioStarted = true;
           }).catch(() => {});
         }
-        document.removeEventListener('click', playCinematicSoundtrack);
-        document.removeEventListener('touchstart', playCinematicSoundtrack);
-        document.removeEventListener('scroll', playCinematicSoundtrack);
+        document.removeEventListener('click', onFirstUserGesture);
+        document.removeEventListener('touchstart', onFirstUserGesture);
+        document.removeEventListener('scroll', onFirstUserGesture);
       }
+      document.addEventListener('click', onFirstUserGesture, { once: true });
+      document.addEventListener('touchstart', onFirstUserGesture, { once: true });
+      document.addEventListener('scroll', onFirstUserGesture, { once: true });
 
-      document.addEventListener('click', playCinematicSoundtrack, { once: true });
-      document.addEventListener('touchstart', playCinematicSoundtrack, { once: true });
-      document.addEventListener('scroll', playCinematicSoundtrack, { once: true });
-
-      // 3. Clicking/tapping the video directly toggles video + audio play/pause
-      if (video) {
-        video.addEventListener('click', function() {
-          if (video.paused) {
-            video.play();
-            if (audio) audio.play().catch(() => {});
-          } else {
-            video.pause();
-            if (audio) audio.pause();
-          }
-        });
-
-        // 4. Ensure hero text enters at 3 seconds of video playback
-        const heroContent = document.getElementById('hero-center-content');
-        if (heroContent) {
-          video.addEventListener('timeupdate', function onTime() {
-            if (video.currentTime >= 3.0) {
-              heroContent.style.visibility = 'visible';
-              heroContent.style.opacity = '1';
-              heroContent.style.transform = 'translateY(0)';
-              video.removeEventListener('timeupdate', onTime);
-            }
-          });
+      // 5. Clicking video toggles pause/play or restarts
+      video.addEventListener('click', function() {
+        if (video.ended) {
+          startVideoCycle();
+        } else if (video.paused) {
+          video.play();
+          if (audio) audio.play().catch(() => {});
+        } else {
+          video.pause();
+          if (audio) audio.pause();
         }
-      }
+      });
+
+      // Start initial video cycle
+      startVideoCycle();
     })();
   </script>
 </body>
