@@ -15,50 +15,88 @@ img, video, canvas {
   height: auto;
 }
 
-/* Mobile Touch Target Standards (minimum 44px for accessibility) */
+/* Mobile Header & Navbar Specifics (<= 640px) */
 @media (max-width: 640px) {
-  /* Header & Navigation Bar Padding on Mobile */
   header {
-    height: 72px !important;
+    height: 68px !important;
   }
   header > div {
     width: 95% !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    height: 68px !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Compact Brand Logo Pill on Mobile */
+  header a.group, header .brand-logo-pill {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
-    height: 72px !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+    gap: 0.5rem !important;
+    border-radius: 0.875rem !important;
   }
 
-  /* Logo adjustment for smaller mobile screens (iPhone SE / Galaxy Fold) */
+  /* Logo Icon size on mobile */
+  header a.group > div:first-child,
+  header .brand-logo-pill > div:first-child {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* Logo Text Typography on Mobile */
   .brand-title {
-    font-size: 1.25rem !important;
+    font-size: 1.15rem !important;
     line-height: 1 !important;
+    gap: 0.25rem !important;
+  }
+  .brand-title span {
+    font-size: 1.15rem !important;
   }
 
-  /* Buttons & Action Links */
-  .btn-primary, .btn-secondary, .btn-outline-lime {
-    min-height: 44px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    font-size: 0.8125rem !important;
+  /* Subtitle "Doorstep Detailing" hide on ultra-small or keep compact */
+  header a.group span.block,
+  header .brand-logo-pill span.block {
+    display: none !important;
   }
 
-  /* Home 1 Hero headline clamp on small screens */
-  .hero-headline-responsive {
-    white-space: normal !important;
-    font-size: clamp(1.4rem, 6.2vw, 2.2rem) !important;
-    line-height: 1.2 !important;
+  /* Header action controls: hide theme and RTL buttons on mobile to leave room for Book Now & Hamburger */
+  header .flex.items-center.gap-3,
+  header .flex.items-center.gap-2 {
+    gap: 0.35rem !important;
   }
 
-  /* Section Spacing Adjustments (compact on mobile) */
-  section {
-    padding-top: 3.5rem !important;
-    padding-bottom: 3.5rem !important;
+  header button[onclick="toggleTheme()"],
+  header button[onclick="toggleRTL()"] {
+    display: none !important;
   }
 
-  /* Hero Sections keep breathing room */
-  #wash-section, .hero-section {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  /* Compact Book Now CTA button on mobile */
+  header a[href*="book-wash"] {
+    height: 38px !important;
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+    font-size: 0.75rem !important;
+    gap: 0.25rem !important;
+    border-radius: 0.625rem !important;
+    white-space: nowrap !important;
+  }
+  header a[href*="book-wash"] svg,
+  header a[href*="book-wash"] i {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  /* Mobile Hamburger Menu Button - Always perfectly visible and styled */
+  #mobile-menu-toggle, #mobile-menu-btn {
+    display: flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 0.625rem !important;
+    flex-shrink: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   /* Headings & Subheadings */
@@ -69,6 +107,16 @@ img, video, canvas {
   h2 {
     font-size: clamp(1.5rem, 6.5vw, 2rem) !important;
     line-height: 1.2 !important;
+  }
+
+  /* Section Spacing Adjustments */
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+  #wash-section, .hero-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   /* Mobile Grid adjustments */
@@ -94,12 +142,6 @@ img, video, canvas {
   /* Modal & Drawer Bottom Padding safe for iPhone home bar */
   #mobile-menu-drawer > div, #mobile-menu > div {
     padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 16px)) !important;
-  }
-
-  /* Tables horizontal scroll container */
-  .table-responsive {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
   }
 
   /* Card padding reduction for mobile */

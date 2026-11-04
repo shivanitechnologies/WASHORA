@@ -192,6 +192,20 @@
         </div>
       </div>
 
+            <!-- Mobile Drawer Preferences (Theme & RTL) -->
+      <div class="flex items-center justify-between py-3 border-t border-b border-gray-200 dark:border-[#252E35] text-xs font-bold text-gray-700 dark:text-gray-300">
+        <span>Preferences</span>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-9 h-9 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 flex items-center justify-center">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+          <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-9 h-9 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 flex items-center justify-center font-bold text-xs">
+            <i data-lucide="languages" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
       <div class="grid grid-cols-2 gap-3 pt-4 border-t border-gray-200 dark:border-[#252E35]">
         <a href="login.html" class="btn-secondary !h-[44px] text-sm">Login</a>
         <a href="customer/book-wash.html" class="btn-primary !h-[44px] text-sm">Book Wash</a>
