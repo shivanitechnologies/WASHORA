@@ -36,48 +36,37 @@
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#070B0F] dark:text-[#F5F6F3] min-h-screen relative overflow-x-hidden transition-colors duration-300 auth-stage-container">
 
+  <!-- ==================== BACKGROUND: Before & After Car Wash Studio ==================== -->
+  <div class="auth-bg-layer" aria-hidden="true">
+    <img src="assets/images/auth-bg-cars.jpg" 
+         alt="Before & After Car Detailing Comparison Fleet" 
+         class="w-full h-full object-cover object-center">
+    <!-- Ambient Contrast Gradients -->
+    <div class="auth-bg-overlay-dark"></div>
+    <div class="auth-bg-vignette"></div>
+  </div>
+
   <!-- Top Controls: Theme & RTL -->
-  <div class="fixed top-6 right-6 rtl:right-auto rtl:left-6 flex items-center gap-3 z-50">
-    <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm">
+  <div class="fixed top-5 right-5 rtl:right-auto rtl:left-5 flex items-center gap-2.5 z-50">
+    <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200/80 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm">
       <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
       <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
     </button>
-    <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm font-bold text-xs">
+    <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200/80 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm font-bold text-xs">
       <i data-lucide="languages" class="w-4 h-4"></i>
     </button>
   </div>
 
-  <!-- Background Lighting & Ambient Floor Glow -->
-  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#D6FF36]/10 blur-[160px] pointer-events-none rounded-full z-0"></div>
-  <div class="fixed bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/25 to-transparent pointer-events-none z-0"></div>
+  <!-- Ambient Floor Glow Behind Card -->
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[540px] h-[380px] bg-[#D6FF36]/15 blur-[140px] pointer-events-none rounded-full z-10"></div>
 
-  <!-- LEFT SIDE: 3D Entering Clean Sports Car (Audi RS with Headlight Beam) -->
-  <div class="auth-car-left" aria-hidden="true">
-    <div class="relative">
-      <img src="assets/images/car-left.png" 
-           alt="CAR SHINE High Gloss Sports Car" 
-           class="w-full h-auto object-contain">
-      <div class="headlight-glow-left"></div>
-    </div>
-  </div>
-
-  <!-- RIGHT SIDE: 3D Entering Luxury Sedan (Mercedes-Benz with Studio Reflections) -->
-  <div class="auth-car-right" aria-hidden="true">
-    <div class="relative">
-      <img src="assets/images/car-right.png" 
-           alt="CAR SHINE Precision Detailed Luxury Car" 
-           class="w-full h-auto object-contain">
-      <div class="headlight-glow-right"></div>
-    </div>
-  </div>
-
-  <!-- CENTER: Beautiful Focused Sign Up Container -->
-  <div class="w-full max-w-[480px] px-4 py-8 relative z-20 auth-center-card">
-    <div class="bg-white/95 dark:bg-[#141C24]/95 backdrop-blur-xl border border-gray-200/80 dark:border-[#2A3540] rounded-3xl p-7 sm:p-9 shadow-2xl transition-all">
+  <!-- ==================== CENTERED INPUT CARD ==================== -->
+  <div class="w-full max-w-[460px] px-4 py-8 relative z-20 auth-center-card">
+    <div class="auth-glass-box rounded-3xl p-7 sm:p-9 transition-all">
       
       <!-- Brand Logo Header -->
       <div class="text-center mb-6">
-        <a href="index.html" class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-gray-50/90 dark:bg-[#1A232C]/90 shadow-sm hover:scale-[1.02] transition-transform mb-3 border border-gray-200/50 dark:border-white/5">
+        <a href="index.html" class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/90 dark:bg-[#1A232C]/95 shadow-sm hover:scale-[1.02] transition-transform mb-3 border border-gray-200/60 dark:border-white/10">
           <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
             <img src="assets/images/logo-icon.png" alt="CAR SHINE Logo Icon" class="w-full h-full object-contain">
           </div>
@@ -89,7 +78,7 @@
             <span class="block text-[9px] tracking-widest text-gray-500 dark:text-gray-400 uppercase font-bold mt-1">Doorstep Detailing</span>
           </div>
         </a>
-        <h1 class="text-2xl font-black font-heading tracking-tight">Create an Account</h1>
+        <h1 class="text-2xl font-black font-heading tracking-tight text-[#101820] dark:text-white">Create an Account</h1>
         <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Book certified doorstep car detailing anywhere in Chennai</p>
       </div>
 
@@ -100,7 +89,7 @@
           <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Full Name *</label>
           <div class="relative">
             <input type="text" id="reg-name" required placeholder="e.g. Pravin Kumar" 
-                   class="w-full h-11 pl-10 pr-4 rounded-xl bg-[#F8F9FA] dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+                   class="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#D6FF36] transition-colors shadow-inner">
             <i data-lucide="user" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
           </div>
         </div>
@@ -110,7 +99,7 @@
             <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Email *</label>
             <div class="relative">
               <input type="email" id="reg-email" required placeholder="name@domain.com" 
-                     class="w-full h-11 pl-10 pr-4 rounded-xl bg-[#F8F9FA] dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+                     class="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#D6FF36] transition-colors shadow-inner">
               <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
             </div>
           </div>
@@ -119,7 +108,7 @@
             <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Mobile *</label>
             <div class="relative">
               <input type="tel" id="reg-phone" required placeholder="+91 98400 00000" 
-                     class="w-full h-11 pl-10 pr-4 rounded-xl bg-[#F8F9FA] dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+                     class="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#D6FF36] transition-colors shadow-inner">
               <i data-lucide="phone" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
             </div>
           </div>
@@ -129,7 +118,7 @@
           <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">Password *</label>
           <div class="relative">
             <input type="password" id="reg-password" required placeholder="At least 6 characters" minlength="6"
-                   class="w-full h-11 pl-10 pr-11 rounded-xl bg-[#F8F9FA] dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+                   class="w-full h-11 pl-10 pr-11 rounded-xl bg-white dark:bg-[#0C1218] border border-gray-300 dark:border-[#252E35] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#D6FF36] transition-colors shadow-inner">
             <i data-lucide="lock" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
             <button type="button" onclick="togglePasswordVisibility('reg-password', 'reg-eye')" class="absolute right-3.5 top-3 text-gray-400 hover:text-gray-700 dark:hover:text-white">
               <i id="reg-eye" data-lucide="eye" class="w-4 h-4"></i>
@@ -146,13 +135,13 @@
         </div>
 
         <!-- Register CTA -->
-        <button type="submit" class="btn-primary w-full !h-11 text-sm font-bold shadow-lg shadow-[#D6FF36]/15 mt-2 flex items-center justify-center gap-2 group">
+        <button type="submit" class="btn-primary w-full !h-11 text-sm font-bold shadow-lg shadow-[#D6FF36]/20 mt-2 flex items-center justify-center gap-2 group">
           <i data-lucide="user-plus" class="w-4 h-4"></i>
           <span>Create Account</span>
         </button>
 
         <!-- Google Sign In Button -->
-        <button type="button" onclick="handleSocialSignup('Google')" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#252E35] bg-transparent text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-[#1B252F] font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors">
+        <button type="button" onclick="handleSocialSignup('Google')" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#252E35] bg-white/70 dark:bg-transparent text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-[#1B252F] font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors">
           <svg class="w-4 h-4" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -165,7 +154,7 @@
       </form>
 
       <!-- Already Have Account Redirect -->
-      <div class="text-center pt-5 mt-5 border-t border-gray-100 dark:border-[#252E35] text-xs text-gray-500 dark:text-gray-400">
+      <div class="text-center pt-5 mt-5 border-t border-gray-200/80 dark:border-[#252E35] text-xs text-gray-500 dark:text-gray-400">
         Already have an account? 
         <a href="login.html" class="font-bold text-[#101820] dark:text-[#D6FF36] hover:underline ml-1">
           Sign In
@@ -174,7 +163,7 @@
 
       <!-- Quick Back to Home -->
       <div class="text-center mt-3">
-        <a href="index.html" class="text-[11px] text-gray-400 hover:text-gray-700 dark:hover:text-white flex items-center justify-center gap-1 transition-colors">
+        <a href="index.html" class="text-[11px] text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white flex items-center justify-center gap-1 transition-colors">
           <i data-lucide="arrow-left" class="w-3 h-3 rtl:rotate-180"></i> Back to Homepage
         </a>
       </div>
