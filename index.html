@@ -536,27 +536,39 @@
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="ba-slider h-[420px] rounded-3xl shadow-2xl border border-gray-200 dark:border-[#252E35]">
-          <!-- After Image (Clean) -->
-          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="After Detailing - Glossy Car">
-          <span class="absolute top-4 right-4 bg-[#101820]/90 text-[#D6FF36] font-bold text-xs uppercase px-3 py-1.5 rounded-lg border border-[#252E35]">After Car Shine</span>
+        <!-- Interactive 1-to-1 Matching Before/After Vehicle Slider -->
+        <div class="ba-slider h-[440px] sm:h-[480px] rounded-3xl shadow-2xl border border-gray-200 dark:border-[#252E35] bg-[#101820] relative">
+          <!-- After Image: Exact Same Car, Pristine Clean Showroom Shine -->
+          <img src="assets/images/before-after-clean.jpg" alt="After CAR SHINE Doorstep Detailing - Deep Gloss Ceramic Finish">
+          <span class="absolute top-4 right-4 bg-[#101820]/90 text-[#D6FF36] font-extrabold text-xs uppercase px-3.5 py-1.5 rounded-xl border border-[#D6FF36]/40 shadow-lg backdrop-blur-md z-20">
+            After CAR SHINE ✨
+          </span>
 
-          <!-- Before Image (Dirty / Swirled) -->
+          <!-- Before Image: Exact Same Car in Exact Same Angle, Heavy Dust & Road Grime -->
           <div class="resize">
-            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Before Detailing - Muddy Car">
-            <span class="absolute top-4 left-4 bg-[#101820]/90 text-white font-bold text-xs uppercase px-3 py-1.5 rounded-lg border border-[#252E35]">Before Service</span>
+            <img src="assets/images/before-after-dirty.jpg" alt="Before Service - Heavy Road Dust, Grime and Dull Paint">
+            <span class="absolute top-4 left-4 bg-[#101820]/90 text-gray-200 font-extrabold text-xs uppercase px-3.5 py-1.5 rounded-xl border border-white/20 shadow-lg backdrop-blur-md z-20">
+              Before Service (Heavy Dust)
+            </span>
           </div>
 
-          <!-- Handle -->
+          <!-- Interactive Divider Handle -->
           <div class="handle">
-            <div class="handle-circle">
+            <div class="handle-circle shadow-2xl">
               <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
             </div>
           </div>
         </div>
-        <p class="text-center text-xs text-gray-500 mt-4 flex items-center justify-center gap-1.5">
-          <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-[#D6FF36]"></i> Drag slider left and right to inspect paint gloss & clarity
-        </p>
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 dark:text-gray-400 gap-2 px-2">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-[#D6FF36]"></i>
+            <span>Drag slider left and right to compare before & after</span>
+          </div>
+          <div class="flex items-center gap-3 text-[11px] font-semibold">
+            <span class="text-amber-500">● 100% Paint-Safe Hand Wash</span>
+            <span class="text-[#D6FF36]">● Mirror Gloss Finish</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

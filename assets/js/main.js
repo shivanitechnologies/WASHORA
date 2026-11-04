@@ -93,7 +93,17 @@ function initBeforeAfterSliders() {
   sliders.forEach(slider => {
     const resize = slider.querySelector('.resize');
     const handle = slider.querySelector('.handle');
+    const resizeImg = resize ? resize.querySelector('img') : null;
     if (!resize || !handle) return;
+
+    // Keep resize inner image exactly synchronized with the outer slider container width
+    const syncImageWidth = () => {
+      if (resizeImg) {
+        resizeImg.style.width = slider.offsetWidth + 'px';
+      }
+    };
+    syncImageWidth();
+    window.addEventListener('resize', syncImageWidth);
 
     let isDown = false;
 

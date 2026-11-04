@@ -109,6 +109,15 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   width: 50%;
   overflow: hidden;
 }
+.ba-slider .resize img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+}
 .ba-slider .handle {
   position: absolute;
   left: 50%;
