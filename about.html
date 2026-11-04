@@ -169,9 +169,9 @@
            alt="CAR SHINE Premium Fleet in Chennai Skyline" 
            class="w-full h-full object-cover object-bottom hidden dark:block opacity-85">
       
-      <!-- Light Mode Ambient Contrast: 30% image visibility on left (70% tint for clear text) to 90% image visibility on right (10% tint for vibrant, crisp cars) -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#F5F6F3]/70 via-[#F5F6F3]/40 to-[#F5F6F3]/10 block dark:hidden"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#F5F6F3]/40 via-transparent to-transparent block dark:hidden"></div>
+      <!-- Light Mode Master Contrast: Solid opaque background behind left text (100% crisp typography) smoothly feathering to 100% pure image visibility on right (0% tint over cars) -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#F5F6F3] via-[#F5F6F3]/95 sm:via-[#F5F6F3]/80 md:via-[#F5F6F3]/50 to-transparent block dark:hidden"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#F5F6F3]/25 via-transparent to-transparent block dark:hidden"></div>
 
       <!-- Dark Mode Vignettes: Deep midnight gradient contrast -->
       <div class="absolute inset-0 bg-gradient-to-r from-[#05090E] via-[#05090E]/85 sm:via-[#05090E]/70 to-[#05090E]/30 hidden dark:block"></div>
@@ -183,19 +183,19 @@
       <div class="max-w-xl space-y-4 text-left text-gray-900 dark:text-white">
         
         <!-- Live Tag Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D6FF36]/15 border border-[#D6FF36]/30 text-[#D6FF36] text-[11px] font-black uppercase tracking-[2px] shadow-sm backdrop-blur-md">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D6FF36]/25 dark:bg-[#D6FF36]/15 border border-[#D6FF36]/40 dark:border-[#D6FF36]/30 text-[#101820] dark:text-[#D6FF36] text-[11px] font-black uppercase tracking-[2px] shadow-sm backdrop-blur-md">
           <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
           Doorstep Automotive Excellence
         </div>
 
         <!-- Main Headline -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight leading-[1.1] text-gray-950 dark:text-white">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight leading-[1.1] text-[#101820] dark:text-white">
           We Bring Professional <br class="hidden sm:inline">
-          <span class="text-gray-900 dark:text-[#D6FF36] drop-shadow-sm dark:drop-shadow-[0_2px_12px_rgba(214,255,54,0.35)]">Car Care to Your Doorstep.</span>
+          <span class="text-[#101820] dark:text-[#D6FF36] drop-shadow-sm dark:drop-shadow-[0_2px_12px_rgba(214,255,54,0.35)]">Car Care to Your Doorstep.</span>
         </h1>
 
         <!-- Subheading -->
-        <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 max-w-lg leading-relaxed font-medium">
+        <p class="text-sm sm:text-base text-gray-800 dark:text-gray-200 max-w-lg leading-relaxed font-medium text-sm sm:text-base">
           Trained detailing technicians and custom mobile rigs bring studio-quality washing, polishing, and sanitization right to your parking space.
         </p>
 
@@ -210,7 +210,7 @@
           </a>
 
           <!-- Compact Stats Pill -->
-          <div class="hidden sm:inline-flex items-center gap-3 px-3 py-2 rounded-xl bg-white/85 dark:bg-black/50 border border-gray-200 dark:border-white/10 text-xs text-gray-800 dark:text-gray-300 shadow-sm backdrop-blur-md ml-auto">
+          <div class="hidden sm:inline-flex items-center gap-3 px-3 py-2 rounded-xl bg-white/95 dark:bg-black/60 border border-gray-300/80 dark:border-white/10 text-xs text-gray-900 dark:text-gray-200 shadow-md backdrop-blur-md ml-auto">
             <span class="font-bold text-gray-900 dark:text-white"><span class="text-[#101820] dark:text-[#D6FF36] font-black">10,000+</span> Cleaned</span>
             <span class="text-gray-500">·</span>
             <span class="font-bold text-white">4.9 ★</span>
