@@ -33,123 +33,215 @@
   <link rel="stylesheet" href="assets/css/mobile-responsive.css">
   <link rel="stylesheet" href="assets/css/mobile-drawer.css">
 </head>
-<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] min-h-screen flex items-center justify-center p-4 relative transition-colors duration-300">
+<body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#0B1118] dark:text-[#F5F6F3] min-h-screen flex items-center justify-center p-3 sm:p-6 lg:p-10 relative transition-colors duration-300">
 
-  <!-- Controls at Top Right (Theme & RTL equal dimensions 40x40px) -->
-  <div class="fixed top-6 right-6 rtl:right-auto rtl:left-6 flex items-center gap-3 z-50">
-    <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm">
+  <!-- Top Controls: Theme & RTL -->
+  <div class="fixed top-5 right-5 rtl:right-auto rtl:left-5 flex items-center gap-2.5 z-50">
+    <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm">
       <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
       <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
     </button>
-    <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm font-bold text-xs">
+    <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-white/90 dark:bg-[#1A232C]/90 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors shadow-sm font-bold text-xs">
       <i data-lucide="languages" class="w-4 h-4"></i>
     </button>
   </div>
 
   <!-- Background decorative light glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#D6FF36]/10 blur-[120px] pointer-events-none rounded-full"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#D6FF36]/10 blur-[150px] pointer-events-none rounded-full"></div>
 
-  <!-- Main Login Card (No navbar, no footer) -->
-  <div class="w-full max-w-md bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] rounded-3xl p-8 sm:p-10 shadow-2xl relative z-10">
+  <!-- Main Split Auth Card -->
+  <div class="w-full max-w-5xl bg-white dark:bg-[#151D24] border border-gray-200 dark:border-[#252E35] rounded-3xl shadow-2xl relative z-10 overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
     
-    <!-- Logo Inside the Login Card -->
-    <div class="text-center mb-8">
-      <a href="index.html" class="flex items-center gap-3.5 px-4 py-2 rounded-2xl bg-gray-50/95 dark:bg-[#1A232C]/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-white dark:hover:bg-[#1f2a35] transition-all group">
-        <div class="w-12 h-12 sm:w-13 sm:h-13 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-          <img src="assets/images/logo-icon.png" alt="CAR SHINE Logo Icon" class="w-full h-full object-contain">
-        </div>
-        <div>
-          <div class="text-2xl sm:text-[26px] font-black tracking-tight uppercase brand-title flex items-center gap-1.5 leading-none">
-            <span class="text-[#101820] dark:text-white brand-car">CAR</span>
-            <span class="text-[#84cc16] dark:text-[#D6FF36] brand-shine">SHINE</span>
-          </div>
-          <span class="block text-[10px] tracking-widest text-gray-500 dark:text-gray-400 uppercase font-bold mt-1.5">Doorstep Detailing</span>
-        </div>
-      </a>
-      <h1 class="text-2xl font-black font-heading">Welcome Back</h1>
-      <p class="text-xs text-gray-500 mt-1">Sign in to manage bookings, track vans & subscriptions</p>
-    </div>
-
-    <!-- Quick Demo Credentials Pill -->
-    <div class="p-3 mb-6 rounded-xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] text-xs flex items-center justify-between">
-      <div>
-        <span class="text-gray-400 block text-[10px] uppercase font-bold">Demo Customer Credentials:</span>
-        <span class="font-bold text-[#101820] dark:text-[#D6FF36]">pravin@carshine.com</span>
-      </div>
-      <button type="button" onclick="fillDemoCredentials()" class="text-[11px] font-bold text-[#D6FF36] bg-[#101820] px-2.5 py-1 rounded-lg hover:brightness-125">
-        Auto-Fill
-      </button>
-    </div>
-
-    <!-- Login Form (Vertical input layout matching CTA width) -->
-    <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+    <!-- LEFT SIDE: Car Wash & Detailing Showcase Hero Banner (lg:col-span-6 xl:col-span-7) -->
+    <div class="relative hidden lg:flex lg:col-span-6 xl:col-span-7 flex-col justify-between p-8 xl:p-10 text-white overflow-hidden bg-[#0A0F15]">
       
-      <!-- Email or Mobile -->
-      <div>
-        <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Email or Mobile Number</label>
-        <div class="relative">
-          <input type="text" id="login-email" required placeholder="name@example.com or mobile" 
-                 class="w-full h-12 pl-10 pr-4 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
-          <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3.5 top-4"></i>
+      <!-- Background Image with Snow Foam Wash & High-Pressure Detailing -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1400&q=80" 
+             alt="High Pressure Snow Foam Car Wash Detailing" 
+             class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000">
+        <!-- Deep Multi-Gradient Vignette for Sharp Text Contrast -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0A0F15] via-[#0A0F15]/75 to-[#0A0F15]/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#0A0F15]/40 to-[#0A0F15]"></div>
+      </div>
+
+      <!-- Top Branding Pill -->
+      <div class="relative z-10 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 px-3.5 py-1.5 rounded-2xl bg-black/50 border border-white/10 backdrop-blur-md hover:border-[#D6FF36]/40 transition-colors group">
+          <div class="w-9 h-9 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+            <img src="assets/images/logo-icon.png" alt="CAR SHINE Logo Icon" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <div class="text-lg font-black tracking-tight uppercase brand-title flex items-center gap-1 leading-none">
+              <span class="text-white">CAR</span>
+              <span class="text-[#D6FF36]">SHINE</span>
+            </div>
+            <span class="block text-[8px] tracking-widest text-gray-300 uppercase font-bold mt-0.5">Doorstep Detailing</span>
+          </div>
+        </a>
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D6FF36]/20 border border-[#D6FF36]/40 text-[#D6FF36] text-[10px] font-black uppercase tracking-wider backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#D6FF36] animate-pulse"></span>
+          Studio Foam Wash
         </div>
       </div>
 
-      <!-- Password with Eye Toggle -->
-      <div>
-        <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Password</label>
-        <div class="relative">
-          <input type="password" id="login-password" required placeholder="••••••••" 
-                 class="w-full h-12 pl-10 pr-11 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
-          <i data-lucide="lock" class="w-4 h-4 text-gray-400 absolute left-3.5 top-4"></i>
-          <button type="button" onclick="togglePasswordVisibility('login-password', 'eye-icon')" class="absolute right-3.5 top-3.5 text-gray-400 hover:text-white">
-            <i id="eye-icon" data-lucide="eye" class="w-4 h-4"></i>
-          </button>
+      <!-- Center Showcase Tagline & Live Stats -->
+      <div class="relative z-10 space-y-4 my-auto pt-8">
+        <h2 class="text-3xl xl:text-4xl font-black font-heading tracking-tight leading-[1.15]">
+          Your Car Deserves a <br>
+          <span class="text-[#D6FF36] drop-shadow-[0_2px_12px_rgba(214,255,54,0.35)]">Showroom-Level Glow.</span>
+        </h2>
+        <p class="text-xs xl:text-sm text-gray-300 max-w-md leading-relaxed">
+          Trained certified detailing technicians, spot-free deionized water, and PH-neutral snow foam wash delivered right to your parking slot.
+        </p>
+
+        <!-- Detailing Highlights Pill Grid -->
+        <div class="grid grid-cols-2 gap-2.5 pt-2 max-w-md">
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md">
+            <div class="w-7 h-7 rounded-lg bg-[#D6FF36]/20 flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="droplets" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <div class="text-[11px] font-bold text-white leading-tight">Snow Foam Wash</div>
+              <div class="text-[9px] text-gray-400">Zero scratch guarantee</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md">
+            <div class="w-7 h-7 rounded-lg bg-[#D6FF36]/20 flex items-center justify-center text-[#D6FF36]">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <div class="text-[11px] font-bold text-white leading-tight">9H Ceramic Shield</div>
+              <div class="text-[9px] text-gray-400">Hydrophobic protection</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Remember Me & Forgot Password on the SAME line -->
-      <div class="flex items-center justify-between text-xs pt-1">
-        <label class="flex items-center gap-2 cursor-pointer select-none">
-          <input type="checkbox" id="remember-me" checked class="w-4 h-4 rounded text-[#D6FF36] focus:ring-0 accent-[#D6FF36] bg-gray-100 border-gray-300">
-          <span class="text-gray-600 dark:text-gray-400 font-medium">Remember Me</span>
-        </label>
-        <a href="forgot-password.html" class="font-bold text-xs text-[#D6FF36] hover:underline">
-          Forgot Password?
+      <!-- Bottom Verified Customer Feedback Pill -->
+      <div class="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-3">
+          <div class="flex -space-x-2">
+            <img class="w-7 h-7 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+            <img class="w-7 h-7 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+            <img class="w-7 h-7 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Avatar">
+          </div>
+          <span class="text-gray-300 text-[11px] font-medium"><strong class="text-white">10,000+</strong> Cars Washed in Chennai</span>
+        </div>
+        <div class="flex items-center gap-1 text-[#D6FF36] font-black text-xs">
+          <span>4.9</span>
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-[#D6FF36]"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: Login Form (lg:col-span-6 xl:col-span-5) -->
+    <div class="lg:col-span-6 xl:col-span-5 p-6 sm:p-8 xl:p-10 flex flex-col justify-center">
+      
+      <!-- Mobile Logo Visible on Small Screens -->
+      <div class="text-center mb-6">
+        <a href="index.html" class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-gray-50/95 dark:bg-[#1A232C]/90 shadow-sm hover:scale-[1.02] transition-transform mb-4">
+          <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
+            <img src="assets/images/logo-icon.png" alt="CAR SHINE Logo Icon" class="w-full h-full object-contain">
+          </div>
+          <div class="text-left">
+            <div class="text-xl font-black tracking-tight uppercase brand-title flex items-center gap-1 leading-none">
+              <span class="text-[#101820] dark:text-white">CAR</span>
+              <span class="text-[#84cc16] dark:text-[#D6FF36]">SHINE</span>
+            </div>
+            <span class="block text-[9px] tracking-widest text-gray-500 dark:text-gray-400 uppercase font-bold mt-1">Doorstep Detailing</span>
+          </div>
+        </a>
+        <h1 class="text-2xl font-black font-heading tracking-tight">Welcome Back</h1>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Sign in to manage doorstep wash bookings & vehicles</p>
+      </div>
+
+      <!-- Quick Demo Credentials Pill -->
+      <div class="p-3 mb-5 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] text-xs flex items-center justify-between">
+        <div>
+          <span class="text-gray-400 block text-[10px] uppercase font-bold tracking-wider">Demo Credentials:</span>
+          <span class="font-bold text-[#101820] dark:text-[#D6FF36] text-[11px]">pravin@carshine.com</span>
+        </div>
+        <button type="button" onclick="fillDemoCredentials()" class="text-[11px] font-bold text-[#101820] dark:text-[#101820] bg-[#D6FF36] px-3 py-1.5 rounded-xl hover:brightness-110 shadow-sm transition-all flex items-center gap-1">
+          <i data-lucide="sparkles" class="w-3 h-3"></i>
+          <span>Auto-Fill</span>
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+        
+        <!-- Email or Mobile -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Email or Mobile Number</label>
+          <div class="relative">
+            <input type="text" id="login-email" required placeholder="name@example.com or mobile" 
+                   class="w-full h-11 pl-10 pr-4 rounded-xl bg-gray-50 dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+            <i data-lucide="mail" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
+          </div>
+        </div>
+
+        <!-- Password with Eye Toggle -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Password</label>
+          <div class="relative">
+            <input type="password" id="login-password" required placeholder="••••••••" 
+                   class="w-full h-11 pl-10 pr-11 rounded-xl bg-gray-50 dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-sm focus:outline-none focus:border-[#D6FF36] transition-colors">
+            <i data-lucide="lock" class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5"></i>
+            <button type="button" onclick="togglePasswordVisibility('login-password', 'eye-icon')" class="absolute right-3.5 top-3 text-gray-400 hover:text-gray-700 dark:hover:text-white">
+              <i id="eye-icon" data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="flex items-center justify-between text-xs pt-0.5">
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" id="remember-me" checked class="w-4 h-4 rounded text-[#D6FF36] focus:ring-0 accent-[#D6FF36] bg-gray-100 border-gray-300">
+            <span class="text-gray-600 dark:text-gray-400 font-medium">Remember Me</span>
+          </label>
+          <a href="forgot-password.html" class="font-bold text-xs text-[#84cc16] dark:text-[#D6FF36] hover:underline">
+            Forgot Password?
+          </a>
+        </div>
+
+        <!-- Login CTA -->
+        <button type="submit" class="btn-primary w-full !h-11 text-sm font-bold shadow-lg shadow-[#D6FF36]/15 mt-2 flex items-center justify-center gap-2 group">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          <span>Sign In</span>
+        </button>
+
+        <!-- Google Sign In Button -->
+        <button type="button" onclick="handleSocialLogin('Google')" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#252E35] bg-transparent text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-[#202933] font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Sign in with Google</span>
+        </button>
+
+      </form>
+
+      <!-- Sign Up Redirect -->
+      <div class="text-center pt-5 mt-5 border-t border-gray-100 dark:border-[#252E35] text-xs text-gray-500 dark:text-gray-400">
+        Don’t have an account? 
+        <a href="register.html" class="font-bold text-[#101820] dark:text-[#D6FF36] hover:underline ml-1">
+          Sign Up Free
         </a>
       </div>
 
-      <!-- Login CTA (Width matching inputs) -->
-      <button type="submit" class="btn-primary w-full !h-12 text-sm font-bold shadow-lg mt-2">
-        <i data-lucide="log-in" class="w-4 h-4"></i>
-        <span>Sign In</span>
-      </button>
+      <!-- Quick Back to Home -->
+      <div class="text-center mt-3">
+        <a href="index.html" class="text-[11px] text-gray-400 hover:text-gray-700 dark:hover:text-white flex items-center justify-center gap-1 transition-colors">
+          <i data-lucide="arrow-left" class="w-3 h-3 rtl:rotate-180"></i> Back to Homepage
+        </a>
+      </div>
 
-      <!-- Google Sign In Button -->
-      <button type="button" onclick="handleSocialLogin('Google')" class="w-full h-12 rounded-xl border border-gray-300 dark:border-[#252E35] bg-transparent text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-[#252E35] font-semibold text-xs flex items-center justify-center gap-2.5 transition-colors">
-        <svg class="w-4 h-4" viewBox="0 0 24 24">
-          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-        </svg>
-        <span>Sign in with Google</span>
-      </button>
-
-    </form>
-
-    <!-- Sign Up Redirect -->
-    <div class="text-center pt-6 mt-6 border-t border-gray-100 dark:border-[#252E35] text-xs text-gray-500">
-      Don’t have an account? 
-      <a href="register.html" class="font-bold text-[#101820] dark:text-[#D6FF36] hover:underline ml-1">
-        Sign Up Free
-      </a>
-    </div>
-
-    <!-- Quick Back to Home -->
-    <div class="text-center mt-3">
-      <a href="index.html" class="text-[11px] text-gray-400 hover:text-white flex items-center justify-center gap-1">
-        <i data-lucide="arrow-left" class="w-3 h-3 rtl:rotate-180"></i> Back to Homepage
-      </a>
     </div>
 
   </div>
@@ -205,4 +297,3 @@
   </script>
 </body>
 </html>
-
