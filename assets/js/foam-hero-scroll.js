@@ -115,7 +115,7 @@ gsap.registerPlugin(ScrollTrigger);
       },
       scrollTrigger: {
         trigger: "#wash-section",
-        start: "top top",
+        start: "top 80px",
         end: "bottom bottom",
         scrub: 0.4
       }
