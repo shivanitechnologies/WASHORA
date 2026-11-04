@@ -1,5 +1,5 @@
 /* CAR SHINE - Core Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Space+Grotesk:wght@700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --color-primary: #101820;
@@ -327,3 +327,23 @@ img {
   -webkit-backdrop-filter: blur(8px);
 }
 
+
+/* Premium Logo Brand Font & Text-Shadow Enhancements */
+.brand-title {
+  font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.brand-car {
+  text-shadow: 0 1px 2px rgba(16, 24, 32, 0.15);
+}
+.dark .brand-car {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.brand-shine {
+  text-shadow: 0 1px 3px rgba(101, 163, 13, 0.25), 0 0 12px rgba(214, 255, 54, 0.2);
+}
+.dark .brand-shine {
+  text-shadow: 0 0 16px rgba(214, 255, 54, 0.45), 0 1px 2px rgba(0, 0, 0, 0.8);
+}
