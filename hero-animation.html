@@ -1,64 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAR SHINE – Cinematic Hero Animation</title>
+  <title>CAR SHINE – Interactive Real-Time 3D Car Experience (Three.js)</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
-  <link rel="stylesheet" href="css/hero.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#101820',
+            secondary: '#D6FF36',
+            surface: '#252E35'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Import maps polyfill & Three.js Map -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three/three.module.js",
+        "three/addons/": "./assets/vendor/three/"
+      }
+    }
+  </script>
+
+  <style>
+    /* Fullscreen 3D Viewport */
+    #three-canvas-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    #three-canvas-container canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .hero-content-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-content-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
+<body class="bg-[#0a0d11] text-white selection:bg-[#D6FF36] selection:text-[#101820] overflow-x-hidden min-h-screen">
 
-  <!-- Top Demo Control Bar for Testing Variations & Camera Angle -->
-  <div class="demo-control-bar">
-    <button onclick="replayHeroAnimation()" class="demo-btn" title="Replay the entrance animation">
-      <span>↻</span> Replay Animation
-    </button>
-
-    <select class="demo-select" onchange="setHeroAnimationMode(this.value)">
-      <option value="default">Movement: Drives Forward from Darkness</option>
-      <option value="reveal">Movement: Light Reveal (No Driving)</option>
-      <option value="close">Movement: Drives & Stops Close to Viewer</option>
-    </select>
-
-    <a href="index.html" class="demo-btn" style="text-decoration:none;">
-      Back to Website →
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-[#0a0d11]/80 backdrop-blur-md border-b border-[#252E35]/60 h-20 flex items-center justify-between px-6 lg:px-12">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-[#252E35] border border-[#35424D] flex items-center justify-center text-[#D6FF36] shadow-md group-hover:scale-105 transition-transform">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+      </div>
+      <span class="text-xl font-extrabold tracking-wider text-white uppercase font-heading flex items-center gap-1">
+        CAR <span class="text-[#D6FF36] bg-[#252E35] px-1.5 py-0.5 rounded text-sm font-black">SHINE 3D</span>
+      </span>
     </a>
-  </div>
 
-  <!-- THE HERO SECTION -->
-  <section class="hero">
-    <!-- Top Spotlights Focusing on Car -->
-    <div class="spotlight left-light"></div>
-    <div class="spotlight right-light"></div>
+    <!-- Timeline Progress Pill -->
+    <div class="hidden md:flex items-center gap-3 px-4 py-2 rounded-full bg-[#1A232C]/80 border border-[#252E35] text-xs font-semibold">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#D6FF36] animate-pulse"></span>
+      <span id="timeline-status" class="text-gray-300">Phase 1: Dual Headlight Reveal (0–2s)</span>
+    </div>
 
-    <!-- Radial Headlight Glow & Front Projection Cones -->
-    <div class="headlight"></div>
-    <div class="headlight-cone-left"></div>
-    <div class="headlight-cone-right"></div>
+    <!-- Actions -->
+    <div class="flex items-center gap-3">
+      <button id="replay-btn" class="h-10 px-4 rounded-xl bg-[#252E35] hover:bg-[#35424D] text-xs font-bold text-[#D6FF36] flex items-center gap-2 border border-[#35424D] transition-colors">
+        <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        <span>Replay 3D Sequence</span>
+      </button>
+      <a href="index.html" class="btn-primary !h-10 px-5 text-xs font-black glow-lime-sm">
+        <span>Back to Home</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+      </a>
+    </div>
+  </header>
 
-    <!-- Black Luxury Sedan (Mercedes Maybach Front Three-Quarter View) -->
-    <img src="assets/images/luxury-car.png" class="car" alt="Luxury Mercedes Maybach S-Class Sedan">
+  <!-- Fullscreen 3D Scene Container -->
+  <section class="relative w-full h-screen overflow-hidden flex items-center">
+    
+    <!-- Real-time Three.js WebGL Canvas -->
+    <div id="three-canvas-container"></div>
 
-    <!-- Hero Content (Reveals after car entrance) -->
-    <div class="hero-content">
-      <span>PREMIUM DOORSTEP CAR CARE</span>
-      <h1>
-        Your Car Deserves
-        <strong>A Better Shine.</strong>
-      </h1>
-      <p>
-        Professional car washing and detailing delivered right to your doorstep. Pure reverse-osmosis deionized water, quiet generator power, and master craftsmanship.
-      </p>
-      
-      <div class="cta-group">
-        <a href="customer/book-wash.html" class="btn-cta">Book a Wash →</a>
-        <a href="services.html" class="btn-ghost">Explore Services</a>
+    <!-- Left-Side Hero Text (Smoothly Reveals after 6s in Stage 4) -->
+    <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full pointer-events-none">
+      <div class="max-w-xl">
+        <div id="hero-reveal-block" class="hero-content-reveal space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A232C]/90 border border-[#D6FF36]/30 text-xs font-bold text-[#D6FF36] backdrop-blur-md">
+            <i data-lucide="badge-check" class="w-4 h-4"></i>
+            <span>Real-Time WebGL 3D Vehicle Engine</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-[1.1] text-white">
+            Your Car Deserves a <br>
+            <span class="text-[#D6FF36] drop-shadow-[0_4px_24px_rgba(214,255,54,0.4)]">Better Shine.</span>
+          </h1>
+
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
+            Professional doorstep washing and ceramic protection orchestrated by certified technicians. 
+            Pure reverse-osmosis deionized water delivered straight to your residence.
+          </p>
+
+          <div class="flex items-center gap-4 pt-2 pointer-events-auto">
+            <a href="customer/book-wash.html" class="btn-primary !h-[48px] px-8 text-sm font-black shadow-xl glow-lime">
+              <span>Book a Wash</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+            </a>
+            <a href="services.html" class="h-[48px] px-6 rounded-xl bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md text-sm font-bold inline-flex items-center justify-center hover:border-[#D6FF36] hover:text-[#D6FF36] transition-all">
+              <span>Explore Services</span>
+            </a>
+          </div>
+
+          <!-- 3D Interactive Helper -->
+          <div class="pt-4 flex items-center gap-2 text-xs text-gray-400">
+            <i data-lucide="orbit" class="w-4 h-4 text-[#D6FF36]"></i>
+            <span>Interactive 3D Mode Unlocked: Drag anywhere on screen to rotate camera 360°</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Soft Floor Vignette -->
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0d11] via-[#0a0d11]/60 to-transparent pointer-events-none z-10"></div>
   </section>
 
-  <script src="js/hero.js"></script>
-  <script src="assets/js/theme.js"></script>
+  <!-- Scene Timeline Driver Script -->
+  <script type="module">
+    import { CarShineScene } from './assets/js/three-hero-scene.js';
+
+    let sceneInstance = null;
+    const statusText = document.getElementById('timeline-status');
+    const revealBlock = document.getElementById('hero-reveal-block');
+    const replayBtn = document.getElementById('replay-btn');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      sceneInstance = new CarShineScene('three-canvas-container', {
+        modelPath: 'assets/models/car.glb',
+        autoPlay: true,
+        allowOrbitAfterReveal: true,
+        onTimeUpdate: (t) => {
+          if (!statusText) return;
+
+          if (t < 2.0) {
+            statusText.textContent = `0–2s: Dual Headlight Reveal in Darkness (${t.toFixed(1)}s)`;
+          } else if (t < 4.0) {
+            statusText.textContent = `2–4s: Car Moves Forward & Wheels Rotate (${t.toFixed(1)}s)`;
+          } else if (t < 6.0) {
+            statusText.textContent = `4–6s: Dual Overhead Spotlights Reveal Clearcoat (${t.toFixed(1)}s)`;
+          } else if (t < 8.0) {
+            statusText.textContent = `6–8s: Car Turns & Stops / Left Content Enters (${t.toFixed(1)}s)`;
+            if (revealBlock && !revealBlock.classList.contains('active')) {
+              revealBlock.classList.add('active');
+            }
+          } else {
+            statusText.textContent = `3D Interactive Mode: Drag to Orbit Around Vehicle`;
+          }
+        },
+        onSequenceComplete: () => {
+          if (revealBlock) revealBlock.classList.add('active');
+        }
+      });
+
+      if (replayBtn) {
+        replayBtn.addEventListener('click', () => {
+          if (revealBlock) revealBlock.classList.remove('active');
+          if (sceneInstance) sceneInstance.restart();
+        });
+      }
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
 </body>
 </html>
