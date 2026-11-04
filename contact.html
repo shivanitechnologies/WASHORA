@@ -187,17 +187,20 @@
         </div>
 
         <div class="lg:col-span-6 relative flex items-center justify-center">
-          <!-- Ambient Halo Glow behind technicians -->
-          <div class="absolute w-80 h-80 sm:w-96 sm:h-96 bg-[#D6FF36]/20 dark:bg-[#D6FF36]/15 rounded-full blur-[100px] pointer-events-none -z-0"></div>
+          <!-- Expanded Ambient Halo Glow behind technicians -->
+          <div class="absolute w-96 h-96 sm:w-[460px] sm:h-[460px] bg-[#D6FF36]/25 dark:bg-[#D6FF36]/15 rounded-full blur-[110px] pointer-events-none -z-0"></div>
 
-          <!-- 5-Technician Group Cutout (Waist-Up Portrait with Matching Dress Code) -->
-          <div class="relative z-10 w-full max-w-lg sm:max-w-xl flex flex-col items-center">
-            <img src="assets/images/technicians-group.png" 
-                 alt="CAR SHINE 5-Member Certified Detailing Technicians Team" 
-                 class="w-full h-auto max-h-[420px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_25px_45px_rgba(0,0,0,0.75)] hover:scale-[1.02] transition-transform duration-500">
+          <!-- 5-Technician Group Cutout (Increased Size & Feathered Bottom Edge) -->
+          <div class="relative z-10 w-full max-w-xl sm:max-w-2xl lg:max-w-[620px] flex flex-col items-center">
+            <!-- Mask container with CSS linear-gradient fade mask for ultra-smooth edge blending -->
+            <div class="w-full relative [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]">
+              <img src="assets/images/technicians-group.png" 
+                   alt="CAR SHINE 5-Member Certified Detailing Technicians Team" 
+                   class="w-full h-auto max-h-[480px] sm:max-h-[520px] lg:max-h-[560px] object-contain scale-105 sm:scale-110 drop-shadow-[0_25px_40px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_30px_50px_rgba(0,0,0,0.85)] hover:scale-[1.12] transition-transform duration-500">
+            </div>
             
-            <!-- Floating Trust Badge Pill -->
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/95 dark:bg-[#1A232C]/95 border border-gray-200/80 dark:border-[#252E35] shadow-xl backdrop-blur-md -mt-5 sm:-mt-7 z-20">
+            <!-- Floating Trust Badge Pill (Subtly overlaps the soft bottom blend) -->
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/95 dark:bg-[#1A232C]/95 border border-gray-200/80 dark:border-[#252E35] shadow-xl backdrop-blur-md -mt-6 sm:-mt-8 z-20">
               <div class="w-8 h-8 rounded-xl bg-[#D6FF36] flex items-center justify-center text-[#101820]">
                 <i data-lucide="shield-check" class="w-4 h-4"></i>
               </div>
