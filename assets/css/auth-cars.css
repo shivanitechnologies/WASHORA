@@ -1,0 +1,148 @@
+/* ==========================================================================
+   CAR SHINE - Auth Pages 3D-Style Entering Car Animations
+   ========================================================================== */
+
+/* Perspective Wrapper */
+.auth-stage-container {
+  perspective: 1200px;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Central Card Entrance (Zoom & Fade In) */
+.auth-center-card {
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  animation: authCardEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 40px -10px rgba(214, 255, 54, 0.15);
+}
+
+@keyframes authCardEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Left Car 3D Drive-In Entrance */
+.auth-car-left {
+  position: fixed;
+  left: -20px;
+  bottom: 4%;
+  width: 32vw;
+  max-width: 520px;
+  min-width: 280px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-120%, 30px, -150px) rotateY(18deg) rotateZ(-2deg);
+  animation: driveInLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.35s, carFloatLeft 6s ease-in-out infinite 1.75s;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.65));
+}
+
+@keyframes driveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-120%, 30px, -150px) rotateY(18deg) rotateZ(-2deg);
+  }
+  70% {
+    opacity: 0.95;
+    transform: translate3d(5%, -5px, 0px) rotateY(4deg) rotateZ(0deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0) rotateY(6deg) rotateZ(0deg);
+  }
+}
+
+@keyframes carFloatLeft {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateY(6deg);
+  }
+  50% {
+    transform: translate3d(8px, -12px, 0) rotateY(4deg);
+  }
+}
+
+/* Right Car 3D Drive-In Entrance */
+.auth-car-right {
+  position: fixed;
+  right: -30px;
+  bottom: 6%;
+  width: 34vw;
+  max-width: 540px;
+  min-width: 300px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(120%, 30px, -150px) rotateY(-18deg) rotateZ(2deg);
+  animation: driveInRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.45s, carFloatRight 6.5s ease-in-out infinite 1.85s;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.65));
+}
+
+@keyframes driveInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(120%, 30px, -150px) rotateY(-18deg) rotateZ(2deg);
+  }
+  70% {
+    opacity: 0.95;
+    transform: translate3d(-5%, -5px, 0px) rotateY(-4deg) rotateZ(0deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0) rotateY(-6deg) rotateZ(0deg);
+  }
+}
+
+@keyframes carFloatRight {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateY(-6deg);
+  }
+  50% {
+    transform: translate3d(-8px, -14px, 0) rotateY(-4deg);
+  }
+}
+
+/* Headlight Beam Glow Effect Behind Cars */
+.headlight-glow-left {
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  width: 140px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(214, 255, 54, 0.4) 0%, rgba(214, 255, 54, 0) 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  transform: rotate(-10deg);
+  opacity: 0.75;
+}
+
+.headlight-glow-right {
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  width: 140px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(100, 200, 255, 0.45) 0%, rgba(100, 200, 255, 0) 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  transform: rotate(10deg);
+  opacity: 0.75;
+}
+
+/* Hide side cars on mobile / small tablet screens to maintain pristine form readability */
+@media (max-width: 1023px) {
+  .auth-car-left,
+  .auth-car-right {
+    display: none !important;
+  }
+}
