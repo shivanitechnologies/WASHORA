@@ -157,16 +157,26 @@
   </div>
 
   <!-- SECTION 1: HERO (Simple Pricing. Premium Car Care.) -->
-  <section class="relative py-20 lg:py-28 bg-gradient-to-b from-[#F5F6F3] via-white to-[#F5F6F3] dark:from-[#101820] dark:via-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35] overflow-hidden">
+  <section id="pricing-hero-section" class="relative py-20 lg:py-28 bg-gradient-to-b from-[#F5F6F3] via-white to-[#F5F6F3] dark:from-[#101820] dark:via-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35] overflow-hidden">
+    <!-- Full-Section 3D Interactive Driving Canvas: Car drives across the ENTIRE hero section -->
+    <div id="pricing-3d-car-container" class="absolute inset-0 w-full h-full z-10 pointer-events-auto cursor-crosshair overflow-hidden">
+      <!-- Loading Indicator -->
+      <div id="pricing-3d-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 z-30 transition-opacity duration-300 pointer-events-none">
+        <div class="w-9 h-9 border-2 border-[#D6FF36] border-t-transparent rounded-full animate-spin"></div>
+        <div class="w-32 h-1 bg-gray-300 dark:bg-gray-800 rounded-full overflow-hidden">
+          <div id="pricing-3d-bar" class="h-full bg-[#D6FF36] transition-all duration-200 w-1/4"></div>
+        </div>
+      </div>
+    </div>
     <!-- Ambient Background Glow Gradients -->
     <div class="absolute -top-32 left-1/4 w-96 h-96 bg-[#D6FF36]/10 dark:bg-[#D6FF36]/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-32 right-10 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         <!-- Left Content Column -->
-        <div class="lg:col-span-6 space-y-6 text-left">
+        <div class="lg:col-span-7 space-y-6 text-left pointer-events-auto">
           <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D6FF36]/15 border border-[#D6FF36]/30 text-[#101820] dark:text-[#D6FF36] text-xs font-black uppercase tracking-wider shadow-sm">
             <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
             <span>Transparent Rates · Zero Hidden Charges</span>
@@ -228,22 +238,8 @@
           </div>
         </div>
 
-        <!-- Right Visual Column: Seamless 3D Luxury Car (No background card, no text) -->
-        <div class="lg:col-span-6 relative flex items-center justify-center overflow-visible">
-          <!-- Subtle Ambient Halo Glow behind 3D car -->
-          <div class="absolute w-[520px] h-[520px] bg-[#D6FF36]/15 dark:bg-[#D6FF36]/10 rounded-full blur-[130px] pointer-events-none -z-0"></div>
-
-          <!-- Real-Time WebGL 3D Car Canvas (Purely the 3D vehicle without box background or labels) -->
-          <div id="pricing-3d-car-container" class="w-full h-[520px] sm:h-[580px] lg:h-[640px] relative cursor-crosshair z-10 flex items-center justify-center overflow-visible">
-            <!-- Loading Indicator -->
-            <div id="pricing-3d-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 z-20 transition-opacity duration-300">
-              <div class="w-9 h-9 border-2 border-[#D6FF36] border-t-transparent rounded-full animate-spin"></div>
-              <div class="w-32 h-1 bg-gray-300 dark:bg-gray-800 rounded-full overflow-hidden">
-                <div id="pricing-3d-bar" class="h-full bg-[#D6FF36] transition-all duration-200 w-1/4"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Right Column Spacer: Open arena for the 3D Car -->
+        <div class="lg:col-span-5 pointer-events-none min-h-[280px] sm:min-h-[340px] lg:min-h-[460px]"></div>
 
       </div>
     </div>

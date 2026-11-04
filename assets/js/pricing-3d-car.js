@@ -1,9 +1,9 @@
 // CAR SHINE - Dedicated 3D Interactive Car Showcase Controller for Pricing Hero
-// Real Automotive Physics & Interactive Driving Behavior:
-// 1. Natural Car Motion: Moves, turns, steers, and drives towards mouse position like a real vehicle.
-// 2. Real Steering & Wheel Spin: Front wheels (wheel_fl, wheel_fr) angle into the turn, wheels rotate as the car travels.
-// 3. Dynamic Heading: Vehicle faces where it drives, automatically performing smooth about-turns when target changes.
-// 4. Photorealistic Automotive Shaders: Gloss obsidian body paint, tinted glass, alloy rims, rubber tires, and dark leather interior.
+// Entire Hero Section Driving Arena:
+// 1. Full-Hero Freedom: Car drives across the ENTIRE hero section (left to right, top to bottom), not constrained to a box.
+// 2. Realistic Automotive Driving Physics: Car accelerates, banks into curves, steers front wheels, and performs natural about-turns.
+// 3. Complete Frustum Safety: Model is dynamically scaled and arena bounds are strictly mapped so the car NEVER clips any edge.
+// 4. Photorealistic Automotive Materials: Gloss obsidian metallic body paint, tinted glass, alloy rims, rubber tires, and luxury leather interior.
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -18,18 +18,17 @@ export class Pricing3DCarCard {
       modelPath: 'assets/models/car.glb'
     }, options);
 
-    // Target position in world XZ space (bounds: X [-1.6, 1.6], Z [-1.2, 1.2])
-    this.targetPos = new THREE.Vector3(0.15, 0, 0.1);
-    this.carPos = new THREE.Vector3(0.15, 0, 0.1);
+    // Initial position on the right side of the hero section
+    this.targetPos = new THREE.Vector3(2.4, 0, 0.2);
+    this.carPos = new THREE.Vector3(2.4, 0, 0.2);
 
     // Vehicle kinematic state
-    this.heading = 2.45; // Current car angle (in radians)
-    this.targetHeading = 2.45;
+    this.heading = 2.45; // Radians
     this.speed = 0;
     this.steeringAngle = 0;
     this.wheelRotation = 0;
 
-    // References to wheel nodes for realistic steering & rolling
+    // References to wheels
     this.wheelFL = null;
     this.wheelFR = null;
     this.allWheels = [];
@@ -38,18 +37,18 @@ export class Pricing3DCarCard {
   }
 
   init() {
-    const width = this.container.clientWidth || 700;
-    const height = this.container.clientHeight || 600;
+    const width = this.container.clientWidth || window.innerWidth;
+    const height = this.container.clientHeight || 650;
 
     // 1. Transparent WebGL Scene
     this.scene = new THREE.Scene();
 
-    // 2. Camera setup - Positioned high enough for full-perspective dynamic driving arena
-    this.camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-    this.camera.position.set(0, 3.2, 5.8);
-    this.camera.lookAt(0, 0.25, 0);
+    // 2. Camera setup - Broad, cinematic perspective encompassing the entire hero arena
+    this.camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+    this.camera.position.set(0, 4.4, 8.2);
+    this.camera.lookAt(0, 0.1, 0);
 
-    // 3. High Performance Renderer
+    // 3. High Performance Renderer with Alpha Transparency
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
@@ -79,7 +78,7 @@ export class Pricing3DCarCard {
     // 7. Load 3D Model
     this.loadModel();
 
-    // 8. Mouse & Pointer Tracking
+    // 8. Mouse & Pointer Tracking over Entire Hero Section
     this.setupMouseInteraction();
 
     // 9. Resize Handling
@@ -95,26 +94,25 @@ export class Pricing3DCarCard {
     this.scene.add(ambient);
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
-    keyLight.position.set(3, 8, 4);
+    keyLight.position.set(4, 9, 5);
     this.scene.add(keyLight);
 
     const fillLight = new THREE.DirectionalLight(0xffffff, 2.2);
-    fillLight.position.set(-4, 6, 2);
+    fillLight.position.set(-5, 7, 2);
     this.scene.add(fillLight);
 
     const rimLime = new THREE.DirectionalLight(0xD6FF36, 2.2);
-    rimLime.position.set(-5, 3, -3);
+    rimLime.position.set(-6, 4, -4);
     this.scene.add(rimLime);
 
-    const frontFill = new THREE.DirectionalLight(0x9fc5ff, 1.6);
-    frontFill.position.set(0, 2, 5);
+    const frontFill = new THREE.DirectionalLight(0x9fc5ff, 1.8);
+    frontFill.position.set(0, 2, 6);
     this.scene.add(frontFill);
   }
 
   setupMouseInteraction() {
     const updateTarget = (clientX, clientY) => {
       const rect = this.container.getBoundingClientRect();
-      // Normalized device coords relative to the 3D car viewport
       this.mouse2D.x = ((clientX - rect.left) / rect.width) * 2 - 1;
       this.mouse2D.y = -((clientY - rect.top) / rect.height) * 2 + 1;
 
@@ -122,9 +120,10 @@ export class Pricing3DCarCard {
       this.raycaster.setFromCamera(this.mouse2D, this.camera);
       const intersection = new THREE.Vector3();
       if (this.raycaster.ray.intersectPlane(this.groundPlane, intersection)) {
-        // Clamp bounds inside showcase arena so car never leaves or clips viewport
-        this.targetPos.x = THREE.MathUtils.clamp(intersection.x, -1.5, 1.5);
-        this.targetPos.z = THREE.MathUtils.clamp(intersection.z, -1.2, 1.2);
+        // Safe boundaries across the full hero area:
+        // Left (-4.2) to Right (+4.2), Top Z (-2.0) to Bottom Z (+2.2)
+        this.targetPos.x = THREE.MathUtils.clamp(intersection.x, -4.2, 4.2);
+        this.targetPos.z = THREE.MathUtils.clamp(intersection.z, -2.0, 2.2);
       }
     };
 
@@ -148,7 +147,7 @@ export class Pricing3DCarCard {
 
     const loaderEl = document.getElementById('pricing-3d-loader');
 
-    // Automotive Materials
+    // High quality automotive materials
     const metallicPaint = new THREE.MeshPhysicalMaterial({
       color: 0x0f141a,
       emissive: 0x040608,
@@ -225,11 +224,10 @@ export class Pricing3DCarCard {
         const size = bbox.getSize(new THREE.Vector3());
         const center = bbox.getCenter(new THREE.Vector3());
 
-        // Scaled to fit comfortably inside hero section with full travel freedom
-        const scale = 2.85 / Math.max(size.x, size.z);
+        // Scaled to look realistic and agile across the entire hero arena
+        const scale = 2.45 / Math.max(size.x, size.z);
         model.scale.setScalar(scale);
 
-        // Center on local root
         model.position.x = -center.x * scale;
         model.position.y = -bbox.min.y * scale;
         model.position.z = -center.z * scale;
@@ -306,58 +304,54 @@ export class Pricing3DCarCard {
     requestAnimationFrame(this.animate);
 
     if (this.carGroup) {
-      // 1. Vector from current car position to mouse target position
+      // 1. Vector from car to mouse destination
       const dx = this.targetPos.x - this.carPos.x;
       const dz = this.targetPos.z - this.carPos.z;
       const distance = Math.hypot(dx, dz);
 
-      // Deadzone threshold so car rests cleanly when cursor stops
-      if (distance > 0.08) {
+      if (distance > 0.12) {
         // Model front is oriented along -Z axis.
-        // Math.atan2(dx, dz) gives angle from +Z, so for -Z forward:
-        // desired heading = Math.atan2(-dx, -dz) + Math.PI = Math.atan2(dx, dz)
         const desiredHeading = Math.atan2(dx, dz);
 
-        // Compute shortest angle difference (-PI to +PI)
+        // Shortest angular turn difference (-PI to +PI)
         let angleDiff = desiredHeading - this.heading;
         while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
         while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
 
-        // Smooth turning (turn speed responds smoothly to how sharp the corner is)
-        const turnSpeed = 0.065;
+        // Smooth steering response
+        const turnSpeed = 0.07;
         this.heading += angleDiff * turnSpeed;
 
-        // Realistic front wheel steering angle based on angular difference
-        const targetSteer = THREE.MathUtils.clamp(-angleDiff * 0.7, -0.48, 0.48);
-        this.steeringAngle += (targetSteer - this.steeringAngle) * 0.12;
+        // Steering wheel angle
+        const targetSteer = THREE.MathUtils.clamp(-angleDiff * 0.75, -0.5, 0.5);
+        this.steeringAngle += (targetSteer - this.steeringAngle) * 0.15;
 
-        // Drive forward along current heading
-        const forwardSpeed = Math.min(distance * 0.045, 0.038) * Math.max(0.2, Math.cos(angleDiff));
+        // Smooth acceleration and cornering throttle control
+        const forwardSpeed = Math.min(distance * 0.05, 0.055) * Math.max(0.25, Math.cos(angleDiff));
         this.carPos.x += Math.sin(this.heading) * forwardSpeed;
         this.carPos.z += Math.cos(this.heading) * forwardSpeed;
 
-        // Wheel roll animation proportional to travel
-        this.wheelRotation += forwardSpeed * 4.5;
+        // Wheel roll animation
+        this.wheelRotation += forwardSpeed * 4.8;
         this.allWheels.forEach(w => {
           w.rotation.x = this.wheelRotation;
         });
 
-        // Chassis roll / bank into turn
-        this.carGroup.rotation.z = THREE.MathUtils.lerp(this.carGroup.rotation.z, -angleDiff * 0.05, 0.1);
-        // Chassis pitch on acceleration
-        this.carGroup.rotation.x = THREE.MathUtils.lerp(this.carGroup.rotation.x, -forwardSpeed * 0.5, 0.1);
+        // Dynamic chassis bank
+        this.carGroup.rotation.z = THREE.MathUtils.lerp(this.carGroup.rotation.z, -angleDiff * 0.06, 0.12);
+        this.carGroup.rotation.x = THREE.MathUtils.lerp(this.carGroup.rotation.x, -forwardSpeed * 0.5, 0.12);
       } else {
-        // Gentle return to level when stationary
+        // Return to rest
         this.steeringAngle *= 0.88;
         this.carGroup.rotation.z *= 0.88;
         this.carGroup.rotation.x *= 0.88;
       }
 
-      // Apply steering angle to front wheels
+      // Steer front wheels
       if (this.wheelFL) this.wheelFL.rotation.y = this.steeringAngle;
       if (this.wheelFR) this.wheelFR.rotation.y = this.steeringAngle;
 
-      // Update car group position and heading
+      // Update position and heading
       this.carGroup.position.copy(this.carPos);
       this.carGroup.rotation.y = this.heading;
     }
