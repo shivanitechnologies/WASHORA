@@ -83,18 +83,58 @@
             <span>Dashboard</span>
             <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
           </button>
-          <div class="absolute right-0 rtl:right-auto rtl:left-0 mt-1 w-52 rounded-xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
-            <a href="customer/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
-              <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Customer Portal
-            </a>
-            <a href="admin/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
-              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i> Admin Panel
-            </a>
-            <a href="technician/dashboard.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-[#252E35] text-gray-800 dark:text-gray-200">
-              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> Technician App
-            </a>
+                    <div class="absolute right-0 rtl:right-auto rtl:left-0 top-full pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-out z-50">
+            <div class="rounded-2xl bg-white/95 dark:bg-[#161F28]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#252E35] shadow-2xl p-2 space-y-1 ring-1 ring-black/5">
+              
+              <div class="px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 flex items-center justify-between">
+                <span>Select Portal</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#D6FF36]"></span>
+              </div>
+
+              <!-- Customer Portal -->
+              <a href="customer/dashboard.html" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-[#1F2933] transition-all group/item">
+                <div class="w-9 h-9 rounded-xl bg-[#D6FF36]/15 text-[#101820] dark:text-[#D6FF36] flex items-center justify-center flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                  <i data-lucide="user" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-gray-900 dark:text-white">Customer Portal</span>
+                    <span class="text-[10px] font-semibold text-gray-400 group-hover/item:text-[#D6FF36] transition-colors">Bookings &rarr;</span>
+                  </div>
+                  <p class="text-[11px] text-gray-500 dark:text-gray-400 truncate">Live tracking, history & plans</p>
+                </div>
+              </a>
+
+              <!-- Admin Panel -->
+              <a href="admin/dashboard.html" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-[#1F2933] transition-all group/item">
+                <div class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-gray-900 dark:text-white">Admin Panel</span>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400">HQ</span>
+                  </div>
+                  <p class="text-[11px] text-gray-500 dark:text-gray-400 truncate">Fleet control & revenue</p>
+                </div>
+              </a>
+
+              <!-- Technician App -->
+              <a href="technician/dashboard.html" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-[#1F2933] transition-all group/item">
+                <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                  <i data-lucide="wrench" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-gray-900 dark:text-white">Technician App</span>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400">Mobile</span>
+                  </div>
+                  <p class="text-[11px] text-gray-500 dark:text-gray-400 truncate">Field checklist & job route</p>
+                </div>
+              </a>
+
+            </div>
           </div>
-        </div>
       </nav>
 
       <div class="flex items-center gap-3">
