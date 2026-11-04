@@ -115,9 +115,10 @@ gsap.registerPlugin(ScrollTrigger);
       },
       scrollTrigger: {
         trigger: "#wash-section",
-        start: "top 80px",
+        start: () => window.innerWidth <= 640 ? "top 68px" : "top 80px",
         end: "bottom bottom",
-        scrub: 0.4
+        scrub: 0.3,
+        invalidateOnRefresh: true
       }
     });
 

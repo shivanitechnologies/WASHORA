@@ -110,13 +110,19 @@ img, video, canvas {
   }
 
   /* Section Spacing Adjustments */
-  section {
+  section:not(#wash-section) {
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
   }
-  #wash-section, .hero-section {
+  #wash-section {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    height: 550vh !important;
+  }
+  #wash-hero {
+    top: 68px !important;
+    height: calc(100vh - 68px) !important;
+    min-height: 500px !important;
   }
 
   /* Mobile Grid adjustments */
