@@ -81,18 +81,70 @@
           </button>
                               <div class="absolute right-0 rtl:right-auto rtl:left-0 top-full pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-200 ease-out z-50">
             <div class="rounded-2xl bg-white/95 dark:bg-[#161F28]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#252E35] shadow-2xl p-2 space-y-1 ring-1 ring-black/5">
-              <a href="../customer/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
+              <a href="customer/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
                 Customer Dashboard
               </a>
-              <a href="../admin/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
+              <a href="admin/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
                 Admin Dashboard
               </a>
-              <a href="../technician/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
+              <a href="technician/dashboard.html" class="block px-4 py-2.5 text-xs font-bold rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#1F2933] hover:text-[#101820] dark:hover:text-[#D6FF36] transition-all">
                 Technician Dashboard
               </a>
             </div>
           </div>
-        </div>
+      </nav>
+
+      <!-- Action buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <a href="../login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36]">
+          Login
+        </a>
+
+        <a href="../customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35] text-gray-700 dark:text-gray-300">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="mobile-drawer-overlay hidden xl:hidden">
+    <div class="mobile-drawer-panel p-6 space-y-4">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <span class="text-base font-extrabold uppercase font-heading">Menu</span>
+        <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <nav class="space-y-2 text-sm font-semibold">
+        <a href="../index.html" class="block py-2">Home 1</a>
+        <a href="../home-2.html" class="block py-2">Home 2</a>
+        <a href="../about.html" class="block py-2">About Us</a>
+        <a href="../services.html" class="block py-2">Services</a>
+        <a href="../pricing.html" class="block py-2">Pricing & Plans</a>
+        <a href="../contact.html" class="block py-2">Contact</a>
+        <a href="../customer/dashboard.html" class="block py-2 text-[#D6FF36]">Customer Dashboard</a>
+        <a href="../admin/dashboard.html" class="block py-2 text-blue-400">Admin Dashboard</a>
+        <a href="../technician/dashboard.html" class="block py-2 text-emerald-400">Technician App</a>
+      </nav>
+      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-3">
+        <a href="../login.html" class="w-full h-11 rounded-xl border border-gray-300 dark:border-[#35424D] flex items-center justify-center font-bold text-sm">Login</a>
+        <a href="../customer/book-wash.html" class="btn-primary w-full !h-11 text-sm font-bold flex items-center justify-center">Book Now</a>
+      </div>
+    </div>
+  </div>
 
   <!-- HERO HEADER -->
   <section class="py-16 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35]">

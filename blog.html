@@ -92,7 +92,63 @@
               </a>
             </div>
           </div>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <button onclick="toggleRTL()" aria-label="Toggle RTL Direction" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors font-bold text-xs">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
+
+        <a href="login.html" class="hidden sm:inline-flex items-center justify-center h-[44px] px-4 rounded-xl border border-gray-300 dark:border-[#35424D] bg-transparent text-gray-900 dark:text-white font-semibold text-sm hover:border-[#D6FF36]">
+          Login
+        </a>
+
+        <a href="customer/book-wash.html" class="btn-primary !h-[44px] text-sm font-bold">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Book Now</span>
+        </a>
+
+        <button id="mobile-menu-toggle" aria-label="Open mobile menu" class="xl:hidden w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#1A232C] text-gray-700 dark:text-gray-300 flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-drawer" class="mobile-drawer-overlay hidden xl:hidden">
+    <div class="mobile-drawer-panel p-6 space-y-4">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+        <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-gray-50/90 dark:bg-[#1A232C]/90 shadow-sm">
+          <div class="w-8 h-8 flex items-center justify-center flex-shrink-0">
+            <img src="assets/images/logo-icon.png" alt="CAR SHINE Logo Icon" class="w-full h-full object-contain">
+          </div>
+          <div class="text-lg font-black tracking-tight uppercase font-heading flex items-center gap-1">
+            <span class="text-[#101820] dark:text-white">CAR</span>
+            <span class="text-[#84cc16] dark:text-[#D6FF36]">SHINE</span>
+          </div>
         </div>
+        <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#1A232C]">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="py-4 space-y-3 font-semibold text-sm">
+        <a href="index.html" class="block py-2 text-gray-600 dark:text-gray-400">Home 1</a>
+        <a href="home-2.html" class="block py-2 text-gray-600 dark:text-gray-400">Home 2</a>
+        <a href="about.html" class="block py-2 text-gray-600 dark:text-gray-400">About Us</a>
+        <a href="services.html" class="block py-2 text-gray-600 dark:text-gray-400">Services</a>
+        <a href="pricing.html" class="block py-2 text-gray-600 dark:text-gray-400">Pricing & Plans</a>
+        <a href="blog.html" class="block py-2 text-[#D6FF36]">Blog</a>
+        <a href="contact.html" class="block py-2 text-gray-600 dark:text-gray-400">Contact Us</a>
+        <a href="customer/dashboard.html" class="block py-2 text-gray-600 dark:text-gray-400">Customer Dashboard</a>
+      </div>
+    </div>
+  </div>
 
   <!-- SECTION 1: HERO (Car Care Tips & Expert Advice Banner) -->
   <section class="py-20 bg-gradient-to-b from-white to-[#F5F6F3] dark:from-[#1A232C] dark:to-[#101820] border-b border-gray-200 dark:border-[#252E35] text-center">
