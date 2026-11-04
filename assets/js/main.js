@@ -192,12 +192,68 @@ function highlightActiveNav() {
   });
 }
 
+// Universal Dashboard Sidebar & Backdrop Handler for Mobile
+function initDashboardSidebar() {
+  const sidebar = document.getElementById('dash-sidebar');
+  const openBtn = document.getElementById('sidebar-open-btn');
+  const closeBtn = document.getElementById('sidebar-close-btn');
+
+  if (!sidebar) return;
+
+  // Create backdrop element if not exists
+  let backdrop = document.querySelector('.dashboard-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'dashboard-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) {
+    openBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSidebar();
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSidebar();
+    });
+  }
+
+  backdrop.addEventListener('click', closeSidebar);
+
+  // Close when tapping any link inside the sidebar on mobile
+  const navLinks = sidebar.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        closeSidebar();
+      }
+    });
+  });
+}
+
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
     window.lucide.createIcons();
   }
   initMobileMenu();
+  initDashboardSidebar();
   initBeforeAfterSliders();
   highlightActiveNav();
 });
