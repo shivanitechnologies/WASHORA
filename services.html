@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/mobile-responsive.css">
+  <link rel="stylesheet" href="assets/css/mobile-drawer.css">
   <link rel="stylesheet" href="assets/css/service-scroll.css">
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
@@ -124,8 +125,8 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end xl:hidden">
-    <div class="bg-white dark:bg-[#1A232C] rounded-t-3xl p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+  <div id="mobile-menu" class="mobile-drawer-overlay hidden xl:hidden">
+    <div class="mobile-drawer-panel p-6 space-y-4">
       <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
         <span class="text-base font-extrabold uppercase font-heading">Menu</span>
         <button id="mobile-menu-close" class="p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-5 h-5"></i></button>

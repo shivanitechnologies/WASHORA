@@ -69,22 +69,54 @@ function closeModal(modalId) {
   }
 }
 
-// Mobile Menu Drawer
+// Mobile Menu Drawer (Right-Side Slide-In Panel)
 function initMobileMenu() {
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  const menuDrawer = document.getElementById('mobile-menu-drawer');
-  const closeBtn = document.getElementById('mobile-menu-close');
+  const toggleBtns = document.querySelectorAll('#mobile-menu-toggle, #mobile-menu-btn');
+  const menuDrawers = document.querySelectorAll('#mobile-menu-drawer, #mobile-menu');
+  const closeBtns = document.querySelectorAll('#mobile-menu-close');
 
-  if (toggleBtn && menuDrawer) {
-    toggleBtn.addEventListener('click', () => {
-      menuDrawer.classList.toggle('hidden');
-    });
+  function openDrawer(drawer) {
+    if (!drawer) return;
+    drawer.classList.remove('hidden');
+    // Force reflow so CSS animation triggers reliably
+    void drawer.offsetWidth;
+    drawer.classList.add('drawer-open');
+    document.body.style.overflow = 'hidden';
   }
-  if (closeBtn && menuDrawer) {
-    closeBtn.addEventListener('click', () => {
-      menuDrawer.classList.add('hidden');
-    });
+
+  function closeDrawer(drawer) {
+    if (!drawer) return;
+    drawer.classList.remove('drawer-open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (!drawer.classList.contains('drawer-open')) {
+        drawer.classList.add('hidden');
+      }
+    }, 320);
   }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuDrawers.forEach(drawer => openDrawer(drawer));
+    });
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuDrawers.forEach(drawer => closeDrawer(drawer));
+    });
+  });
+
+  // Clicking outside on the dark backdrop overlay closes the drawer
+  menuDrawers.forEach(drawer => {
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        closeDrawer(drawer);
+      }
+    });
+  });
 }
 
 // Before & After Interactive Comparison Slider
