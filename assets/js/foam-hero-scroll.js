@@ -162,3 +162,4 @@ gsap.registerPlugin(ScrollTrigger);
   resizeCanvas();
   loadFrames();
 })();
+
