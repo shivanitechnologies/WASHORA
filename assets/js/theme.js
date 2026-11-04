@@ -1,11 +1,13 @@
 /**
  * CAR SHINE - Theme Engine (Dark / Light Mode)
- * Ensures seamless transition, equal dimension buttons, and local persistence.
+ * Default: Light mode for first-time visitors.
+ * Persists user preference via localStorage.
  */
 
 (function () {
-  const currentTheme = localStorage.getItem('cs_theme') || 
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark'); // Default to dark for premium automotive look
+  const stored = localStorage.getItem('cs_theme');
+  // First visit: default to light. Returning user: use their saved preference.
+  const currentTheme = stored || 'light';
 
   if (currentTheme === 'dark') {
     document.documentElement.classList.add('dark');
