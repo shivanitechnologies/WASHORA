@@ -419,57 +419,106 @@
   </section>
 
   <!-- ==================== 4. WHY CHOOSE US (Doorstep Convenience & Pro Quality) ==================== -->
-  <section class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35]">
+  <section class="py-20 bg-white dark:bg-[#1A232C] border-y border-gray-200 dark:border-[#252E35] transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <div class="lg:col-span-6 relative">
-          <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1200&q=80" alt="Professional Technician Working on Car" class="w-full h-[440px] object-cover object-center rounded-3xl">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#101820]/90 via-transparent to-transparent"></div>
-            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#101820]/90 border border-gray-800 text-white flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black">
-                <i data-lucide="award" class="w-6 h-6"></i>
+        <!-- Interactive Visual Demonstration: Professional Detailer at Customer Doorstep -->
+        <div class="lg:col-span-6 relative group">
+          <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] shadow-2xl bg-gray-100 dark:bg-[#101820]">
+            <!-- Authentic Doorstep Detailing in Action: Professional with Foam Cannon & Soft Hand Mitt Washing Customer Car -->
+            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=85" 
+                 alt="Certified CAR SHINE Technician Detailing Customer Vehicle with Safe Microfiber Mitt" 
+                 class="w-full h-[460px] object-cover object-center rounded-3xl group-hover:scale-105 transition-transform duration-700">
+            
+            <!-- Soft Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#101820]/95 via-[#101820]/30 to-transparent pointer-events-none"></div>
+
+            <!-- Top Floating Live Status Pill -->
+            <div class="absolute top-5 left-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101820]/80 backdrop-blur-md border border-[#D6FF36]/40 text-white shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
+              <span class="text-xs font-bold text-[#D6FF36] tracking-wide uppercase">Doorstep Live Van Service</span>
+            </div>
+
+            <!-- Bottom Floating Trust Card -->
+            <div class="absolute bottom-6 left-6 right-6 p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-[#101820]/95 backdrop-blur-md border border-gray-200 dark:border-[#252E35] text-[#101820] dark:text-white flex items-center justify-between gap-4 shadow-xl">
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black shadow-md flex-shrink-0">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold leading-snug">Certified Master Detailers</h4>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">IDA Certified · 100% Scratch-Free Hand Technique</p>
+                </div>
               </div>
-              <div>
-                <h4 class="text-sm font-bold">100% Certified Detailers</h4>
-                <p class="text-xs text-gray-400">Trained in IDA scratch-prevention protocols</p>
+              <div class="hidden sm:flex flex-col items-end flex-shrink-0 pl-3 border-l border-gray-200 dark:border-[#252E35]">
+                <div class="flex items-center gap-1 text-[#D6FF36] font-bold text-xs">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current text-amber-400"></i>
+                  <span class="text-[#101820] dark:text-white">4.9 / 5</span>
+                </div>
+                <span class="text-[11px] text-gray-500 dark:text-gray-400">25,000+ Washes</span>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Section Pitch & Core Value Proposition Grid -->
         <div class="lg:col-span-6 space-y-6">
-          <div class="badge-lime uppercase tracking-widest text-xs">Why Choose Us</div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading leading-tight">
-            Doorstep Convenience. <br>
-            Trained Professionals. Quality Products.
-          </h2>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-            We built CAR SHINE to make car care as easy as ordering your favorite meal. You never have to spend hours driving to a car wash center or waiting in uncomfortable waiting lounges again.
+          <div>
+            <div class="badge-lime uppercase tracking-widest text-xs inline-block mb-3">Why Choose Us</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold font-heading leading-tight text-[#101820] dark:text-white">
+              Doorstep Convenience. <br>
+              <span class="text-[#101820] dark:text-white">Trained Professionals.</span> <span class="text-[#D6FF36]">Quality Products.</span>
+            </h2>
+          </div>
+          
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+            We built CAR SHINE to make premium car care effortless. No waiting in queue, no driving across traffic, and no scratches from automated brushes. Our mobile van brings pure de-ionized water, power, and detailing right to your parking bay.
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
-              <i data-lucide="home" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
-              <h4 class="font-bold text-sm">Doorstep Convenience</h4>
-              <p class="text-xs text-gray-500 mt-1">We service your vehicle while you work, relax with family, or sleep.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] hover:border-[#D6FF36]/50 transition-all group/card">
+              <div class="w-10 h-10 rounded-xl bg-white dark:bg-[#1A232C] text-[#D6FF36] flex items-center justify-center border border-gray-200 dark:border-[#252E35] mb-3 group-hover/card:scale-105 transition-transform">
+                <i data-lucide="home" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-sm text-[#101820] dark:text-white">Doorstep Convenience</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">We service your vehicle while you work from home, relax with family, or sleep.</p>
             </div>
-            <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
-              <i data-lucide="shield-check" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
-              <h4 class="font-bold text-sm">Trained Professionals</h4>
-              <p class="text-xs text-gray-500 mt-1">Certified technicians with police verification and rigorous hands-on training.</p>
+
+            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] hover:border-[#D6FF36]/50 transition-all group/card">
+              <div class="w-10 h-10 rounded-xl bg-white dark:bg-[#1A232C] text-[#D6FF36] flex items-center justify-center border border-gray-200 dark:border-[#252E35] mb-3 group-hover/card:scale-105 transition-transform">
+                <i data-lucide="badge-check" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-sm text-[#101820] dark:text-white">Trained Professionals</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">Background-verified detailers certified in 2-bucket wash and scratch prevention.</p>
             </div>
-            <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
-              <i data-lucide="sparkles" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
-              <h4 class="font-bold text-sm">pH-Neutral Shampoos</h4>
-              <p class="text-xs text-gray-500 mt-1">Safe chemicals that nourish your clear coat without stripping wax.</p>
+
+            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] hover:border-[#D6FF36]/50 transition-all group/card">
+              <div class="w-10 h-10 rounded-xl bg-white dark:bg-[#1A232C] text-[#D6FF36] flex items-center justify-center border border-gray-200 dark:border-[#252E35] mb-3 group-hover/card:scale-105 transition-transform">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-sm text-[#101820] dark:text-white">pH-Neutral Shampoos</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">Premium formulas that lift grit without stripping wax or ceramic protective coats.</p>
             </div>
-            <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35]">
-              <i data-lucide="truck" class="w-6 h-6 text-[#D6FF36] mb-2"></i>
-              <h4 class="font-bold text-sm">Zero Resources Needed</h4>
-              <p class="text-xs text-gray-500 mt-1">Our vans carry onboard 250L soft water & silent generator power.</p>
+
+            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] hover:border-[#D6FF36]/50 transition-all group/card">
+              <div class="w-10 h-10 rounded-xl bg-white dark:bg-[#1A232C] text-[#D6FF36] flex items-center justify-center border border-gray-200 dark:border-[#252E35] mb-3 group-hover/card:scale-105 transition-transform">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-sm text-[#101820] dark:text-white">100% Self-Powered</h4>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">Zero electricity or water hookup required from you. Vans carry 250L RO water.</p>
             </div>
+          </div>
+
+          <div class="pt-2 flex items-center gap-4">
+            <a href="customer/book-wash.html" class="btn-primary !h-[44px] px-6 text-xs font-black shadow-md glow-lime-sm">
+              <span>Book Doorstep Detailing</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+            </a>
+            <a href="about.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] transition-colors">
+              <span>Learn Our Standards</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 rtl:rotate-180"></i>
+            </a>
           </div>
         </div>
 
