@@ -33,12 +33,12 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Import maps polyfill & Three.js Map -->
+  <!-- Three.js + Addons via ES Modules Importmap -->
   <script type="importmap">
     {
       "imports": {
-        "three": "./assets/vendor/three/three.module.js",
-        "three/addons/": "./assets/vendor/three/"
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
       }
     }
   </script>
@@ -67,9 +67,41 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Loading overlay */
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #0a0d11;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease;
+    }
+    #loading-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="bg-[#0a0d11] text-white selection:bg-[#D6FF36] selection:text-[#101820] overflow-x-hidden min-h-screen">
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-12 h-12 rounded-2xl bg-[#1A232C] border border-[#252E35] flex items-center justify-center text-[#D6FF36] shadow-xl">
+        <i data-lucide="sparkles" class="w-6 h-6 animate-pulse"></i>
+      </div>
+      <span class="text-2xl font-black text-white font-heading">
+        CAR <span class="text-[#D6FF36]">SHINE 3D</span>
+      </span>
+    </div>
+    <div class="w-56 h-1.5 bg-[#1A232C] rounded-full overflow-hidden mb-3 border border-[#252E35]">
+      <div id="loading-bar" class="h-full bg-[#D6FF36] rounded-full w-12 animate-pulse transition-all duration-300"></div>
+    </div>
+    <p id="loading-text" class="text-xs text-gray-400 font-medium">Initializing Real-Time 3D Engine...</p>
+  </div>
 
   <!-- Navigation Bar -->
   <header class="fixed top-0 inset-x-0 z-50 bg-[#0a0d11]/80 backdrop-blur-md border-b border-[#252E35]/60 h-20 flex items-center justify-between px-6 lg:px-12">
@@ -157,12 +189,29 @@
     const statusText = document.getElementById('timeline-status');
     const revealBlock = document.getElementById('hero-reveal-block');
     const replayBtn = document.getElementById('replay-btn');
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingBar = document.getElementById('loading-bar');
+    const loadingText = document.getElementById('loading-text');
 
     document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
       sceneInstance = new CarShineScene('three-canvas-container', {
         modelPath: 'assets/models/car.glb',
         autoPlay: true,
         allowOrbitAfterReveal: true,
+        onLoadProgress: (percent) => {
+          if (loadingBar) loadingBar.style.width = percent + '%';
+          if (loadingText) loadingText.textContent = `Loading 3D Car Model (${percent}%)...`;
+        },
+        onModelLoaded: () => {
+          if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => { loadingScreen.style.display = 'none'; }, 600);
+          }
+        },
         onTimeUpdate: (t) => {
           if (!statusText) return;
 
@@ -191,10 +240,6 @@
           if (revealBlock) revealBlock.classList.remove('active');
           if (sceneInstance) sceneInstance.restart();
         });
-      }
-
-      if (window.lucide) {
-        window.lucide.createIcons();
       }
     });
   </script>

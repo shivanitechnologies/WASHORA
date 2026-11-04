@@ -21,6 +21,8 @@ export class CarShineScene {
       modelPath: 'assets/models/car.glb',
       autoPlay: true,
       allowOrbitAfterReveal: true,
+      onLoadProgress: null,
+      onModelLoaded: null,
       onSequenceComplete: null,
       onTimeUpdate: null
     }, options);
@@ -153,81 +155,118 @@ export class CarShineScene {
 
   loadCarModel() {
     const loader = new GLTFLoader();
-    loader.load(this.options.modelPath, (gltf) => {
-      this.carModel = gltf.scene;
+    
+    loader.load(
+      this.options.modelPath,
+      (gltf) => {
+        this.carModel = gltf.scene;
 
-      // Center and scale car
-      const bbox = new THREE.Box3().setFromObject(this.carModel);
-      const size = bbox.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 3.6 / maxDim;
-      this.carModel.scale.set(scale, scale, scale);
+        // Center and scale car
+        const bbox = new THREE.Box3().setFromObject(this.carModel);
+        const size = bbox.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 3.6 / maxDim;
+        this.carModel.scale.set(scale, scale, scale);
 
-      // Re-center on ground
-      bbox.setFromObject(this.carModel);
-      this.carModel.position.y = -bbox.min.y;
+        // Re-center on ground
+        bbox.setFromObject(this.carModel);
+        this.carModel.position.y = -bbox.min.y;
 
-      // Collect wheels and customize materials for realistic obsidian black clearcoat
-      this.wheels = [];
-      this.carModel.traverse((child) => {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
+        // Collect wheels and customize materials for realistic obsidian black clearcoat
+        this.wheels = [];
+        this.carModel.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
 
-          const name = child.name.toLowerCase();
+            const name = child.name.toLowerCase();
 
-          // High-gloss deep metallic paint
-          if (name.includes('body') || name.includes('metal') || name.includes('yellow_trim')) {
-            child.material = new THREE.MeshPhysicalMaterial({
-              color: 0x11161b,
-              metalness: 0.9,
-              roughness: 0.15,
-              clearcoat: 1.0,
-              clearcoatRoughness: 0.05,
-              reflectivity: 0.95
-            });
+            // High-gloss deep metallic paint
+            if (name.includes('body') || name.includes('metal') || name.includes('yellow_trim')) {
+              child.material = new THREE.MeshPhysicalMaterial({
+                color: 0x11161b,
+                metalness: 0.9,
+                roughness: 0.15,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0.05,
+                reflectivity: 0.95
+              });
+            }
+
+            // Glass
+            if (name.includes('glass')) {
+              child.material = new THREE.MeshPhysicalMaterial({
+                color: 0x05070a,
+                metalness: 0.1,
+                roughness: 0.1,
+                transmission: 0.9,
+                transparent: true,
+                opacity: 0.85
+              });
+            }
+
+            // Headlights (LED glow)
+            if (name.includes('lights') || name.includes('leds')) {
+              child.material = new THREE.MeshStandardMaterial({
+                color: 0xd6ff36,
+                emissive: 0xd6ff36,
+                emissiveIntensity: 0
+              });
+              this.headlightMesh = child;
+            }
           }
 
-          // Glass
-          if (name.includes('glass')) {
-            child.material = new THREE.MeshPhysicalMaterial({
-              color: 0x05070a,
-              metalness: 0.1,
-              roughness: 0.1,
-              transmission: 0.9,
-              transparent: true,
-              opacity: 0.85
-            });
+          // Tag wheels
+          const nodeName = child.name.toLowerCase();
+          if (nodeName.includes('wheel_') || nodeName.includes('wheel') && !nodeName.includes('steering')) {
+            this.wheels.push(child);
           }
+        });
 
-          // Headlights (LED glow)
-          if (name.includes('lights') || name.includes('leds')) {
-            child.material = new THREE.MeshStandardMaterial({
-              color: 0xd6ff36,
-              emissive: 0xd6ff36,
-              emissiveIntensity: 0
-            });
-            this.headlightMesh = child;
-          }
+        this.carRoot.add(this.carModel);
+
+        // Initial placement: Far back in darkness along Z
+        this.carRoot.position.set(0, 0, -4.5);
+        this.carRoot.rotation.set(0, 0, 0);
+
+        if (typeof this.options.onModelLoaded === 'function') {
+          this.options.onModelLoaded();
         }
-
-        // Tag wheels
-        const nodeName = child.name.toLowerCase();
-        if (nodeName.includes('wheel_') || nodeName.includes('wheel') && !nodeName.includes('steering')) {
-          this.wheels.push(child);
+      },
+      (xhr) => {
+        if (xhr.lengthComputable && typeof this.options.onLoadProgress === 'function') {
+          const percent = Math.round((xhr.loaded / xhr.total) * 100);
+          this.options.onLoadProgress(percent);
         }
-      });
+      },
+      (err) => {
+        console.error('Error loading 3D Car GLB:', err);
+        // Fallback: create placeholder vehicle geometry if GLB fetch fails on restricted networks
+        this.createFallbackCar();
+        if (typeof this.options.onModelLoaded === 'function') {
+          this.options.onModelLoaded();
+        }
+      }
+    );
+  }
 
-      this.carRoot.add(this.carModel);
-
-      // Initial placement: Far back in darkness along Z
-      this.carRoot.position.set(0, 0, -4.5);
-      this.carRoot.rotation.set(0, 0, 0);
-
-      console.log('3D Car Loaded Successfully with', this.wheels.length, 'wheel nodes');
-    }, undefined, (err) => {
-      console.error('Error loading 3D Car GLB:', err);
+  createFallbackCar() {
+    const group = new THREE.Group();
+    const bodyMat = new THREE.MeshPhysicalMaterial({
+      color: 0x11161b,
+      metalness: 0.9,
+      roughness: 0.15,
+      clearcoat: 1.0
     });
+
+    const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.65, 3.4), bodyMat);
+    cabin.position.y = 0.65;
+    cabin.castShadow = true;
+    group.add(cabin);
+
+    this.carModel = group;
+    this.carRoot.add(this.carModel);
+    this.carRoot.position.set(0, 0, -4.5);
   }
 
   updateTimeline(t) {
@@ -271,7 +310,6 @@ export class CarShineScene {
     // ==========================================
     else if (t < 4.0) {
       const subT = (t - 2.0) / 2.0; // 0 -> 1
-      // Smooth ease in-out forward drive
       const ease = 0.5 - Math.cos(subT * Math.PI) * 0.5;
 
       // Z moves from -4.5 to 0.0
@@ -389,5 +427,4 @@ export class CarShineScene {
   }
 }
 
-// Global hook for easy initialization
 window.CarShineScene = CarShineScene;
