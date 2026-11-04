@@ -1,9 +1,9 @@
 // CAR SHINE - Dedicated 3D Interactive Car Showcase Controller for Pricing Hero
 // Features:
-// 1. Zero Outline Borders: Removed square shadow plane and clipped mesh borders. Soft radial contact shadow directly underneath wheels.
-// 2. No Continuous Auto-Rotation: Fixed initial luxury beauty angle.
-// 3. Interactive Mouse Parallax & Focus: The car turns, rolls, and pitches gently in response to mouse movement across the hero section.
-// 4. Photorealistic Automotive Materials: Deep gloss metallic paint with reflections, realistic glass, chrome, alloy rims, rubber tires, and interior lighting.
+// 1. Zero Outline Borders: 100% transparent WebGL canvas with NO ground plane geometry, NO clipped textures, and NO rectangular boundary lines.
+// 2. Front 3/4 Showcase Angle: Front headlights, bumper, wheels, and hood face the viewer prominently.
+// 3. Smooth Mouse Travel & Focus: Moving the cursor across the hero section smoothly steers the car, rolls the chassis, and translates the car along the hero area.
+// 4. Photorealistic Automotive Materials: Deep gloss metallic obsidian paint, tinted automotive glass, brushed alloy wheels, chrome accents, and illuminated LEDs.
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -22,23 +22,25 @@ export class Pricing3DCarCard {
     this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
     // Car root rotation offsets
     this.carRoot = null;
-    this.baseRotationY = -0.45; // Hero 3/4 angle facing front-left
-    this.baseRotationX = 0.04;
+    // Front 3/4 beauty view: Front of the car (negative Z in model space) rotated to face the camera/viewer
+    // Rotation of ~2.55 rad (approx 146 deg) positions the front bumper, headlights, and front-left wheel dynamically facing the user
+    this.baseRotationY = 2.55;
+    this.baseRotationX = 0.08;
 
     this.init();
   }
 
   init() {
-    const width = this.container.clientWidth || 600;
-    const height = this.container.clientHeight || 500;
+    const width = this.container.clientWidth || 650;
+    const height = this.container.clientHeight || 560;
 
-    // 1. Pure transparent WebGL Scene
+    // 1. Pure transparent WebGL Scene (No background meshes, zero borders)
     this.scene = new THREE.Scene();
 
-    // 2. Camera setup - Positioned for dynamic 3/4 beauty view
-    this.camera = new THREE.PerspectiveCamera(34, width / height, 0.1, 100);
-    this.camera.position.set(0, 1.25, 4.8);
-    this.camera.lookAt(0, 0.42, 0);
+    // 2. Camera setup - Positioned for dynamic 3/4 front beauty perspective
+    this.camera = new THREE.PerspectiveCamera(32, width / height, 0.1, 100);
+    this.camera.position.set(0, 1.25, 4.6);
+    this.camera.lookAt(0, 0.38, 0);
 
     // 3. High Performance Renderer with Alpha Transparency
     this.renderer = new THREE.WebGLRenderer({
@@ -53,99 +55,64 @@ export class Pricing3DCarCard {
 
     this.container.appendChild(this.renderer.domElement);
 
-    // 4. Studio Automotive Lighting
+    // 4. Studio Automotive Lighting tuned for Front-Facing Supercar
     this.setupLighting();
 
-    // 5. Soft Circular Ground Contact Shadow (Soft radial texture, ZERO rectangular borders)
-    this.setupRadialContactShadow();
-
-    // 6. Car Root Group (Holds model and rotates smoothly with mouse movement)
+    // 5. Car Root Group (Holds model and travels/turns smoothly with mouse focus)
     this.carGroup = new THREE.Group();
     this.carGroup.rotation.y = this.baseRotationY;
     this.carGroup.rotation.x = this.baseRotationX;
     this.scene.add(this.carGroup);
 
-    // 7. Load & Shaderize 3D Model
+    // 6. Load & Shaderize 3D Model
     this.loadModel();
 
-    // 8. Mouse Move Focus Interaction over Hero Section
+    // 7. Mouse Move Focus Interaction over Hero Section
     this.setupMouseInteraction();
 
-    // 9. Resize Handling
+    // 8. Resize Handling
     window.addEventListener('resize', () => this.onResize());
 
-    // 10. Animation Loop
+    // 9. Animation Loop
     this.animate = this.animate.bind(this);
     requestAnimationFrame(this.animate);
   }
 
   setupLighting() {
-    // Ambient Light
-    const ambient = new THREE.AmbientLight(0xffffff, 1.2);
+    // Ambient Light for soft baseline illumination
+    const ambient = new THREE.AmbientLight(0xffffff, 1.4);
     this.scene.add(ambient);
 
     // Overhead Key Studio Softbox
-    const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
-    keyLight.position.set(3, 7, 4);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 3.5);
+    keyLight.position.set(2, 6, 4);
     this.scene.add(keyLight);
 
-    // Electric Lime Rim Accent Light (Brand Identity)
-    const rimLime = new THREE.DirectionalLight(0xD6FF36, 2.4);
-    rimLime.position.set(-5, 3.5, -4);
+    // Front Headlight Accent & Fill Light (Illuminates front bumper and headlights)
+    const frontKey = new THREE.DirectionalLight(0xffffff, 2.8);
+    frontKey.position.set(0, 2.5, 5.5);
+    this.scene.add(frontKey);
+
+    // Electric Lime Rim Accent Light (Brand Identity on body contour)
+    const rimLime = new THREE.DirectionalLight(0xD6FF36, 2.5);
+    rimLime.position.set(-5, 3.5, 2);
     this.scene.add(rimLime);
 
-    // Front-Left Fill Light
-    const fillLight = new THREE.DirectionalLight(0x9fc5ff, 1.8);
-    fillLight.position.set(-4, 2, 4);
+    // Side Fill Light to reveal car doors and wheels
+    const fillLight = new THREE.DirectionalLight(0x9fc5ff, 2.0);
+    fillLight.position.set(4, 2, 2);
     this.scene.add(fillLight);
 
-    // Rear Fill Light to reveal car lines
-    const backLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    backLight.position.set(4, 2, -4);
-    this.scene.add(backLight);
-  }
-
-  setupRadialContactShadow() {
-    // Generate a procedural radial gradient canvas for a smooth contact shadow with ZERO rectangular cutoffs
-    const canvas = document.createElement('canvas');
-    canvas.width = 512;
-    canvas.height = 512;
-    const ctx = canvas.getContext('2d');
-
-    // Oval gradient
-    const gradient = ctx.createRadialGradient(256, 256, 20, 256, 256, 250);
-    gradient.addColorStop(0, 'rgba(0, 0, 0, 0.65)');
-    gradient.addColorStop(0.35, 'rgba(0, 0, 0, 0.35)');
-    gradient.addColorStop(0.7, 'rgba(0, 0, 0, 0.12)');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 512, 512);
-
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.generateMipmaps = false;
-    texture.minFilter = THREE.LinearFilter;
-
-    const shadowGeo = new THREE.PlaneGeometry(4.4, 2.6);
-    const shadowMat = new THREE.MeshBasicMaterial({
-      map: texture,
-      transparent: true,
-      depthWrite: false,
-      opacity: 0.85
-    });
-
-    const contactShadow = new THREE.Mesh(shadowGeo, shadowMat);
-    contactShadow.rotation.x = -Math.PI / 2;
-    contactShadow.position.y = 0.01; // Just above ground
-    this.scene.add(contactShadow);
+    // Top Rim Light for roofline & windshield
+    const roofLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    roofLight.position.set(0, 5, -2);
+    this.scene.add(roofLight);
   }
 
   setupMouseInteraction() {
     // Listen to mouse movement over hero section or entire window
-    const targetArea = document.querySelector('section') || window;
-
     window.addEventListener('mousemove', (e) => {
-      // Normalize mouse coordinates from center (-1 to +1)
+      // Normalize mouse coordinates (-1 to +1 from center of screen)
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = -(e.clientY / window.innerHeight) * 2 + 1;
 
@@ -153,14 +120,14 @@ export class Pricing3DCarCard {
       this.mouse.targetY = y;
     });
 
-    // Mobile touch interaction
+    // Touch interaction for mobile / tablet devices
     window.addEventListener('touchmove', (e) => {
       if (e.touches.length > 0) {
         const touch = e.touches[0];
         const x = (touch.clientX / window.innerWidth) * 2 - 1;
         const y = -(touch.clientY / window.innerHeight) * 2 + 1;
-        this.mouse.targetX = x * 0.7;
-        this.mouse.targetY = y * 0.7;
+        this.mouse.targetX = x * 0.8;
+        this.mouse.targetY = y * 0.8;
       }
     }, { passive: true });
   }
@@ -174,7 +141,7 @@ export class Pricing3DCarCard {
 
     const loaderEl = document.getElementById('pricing-3d-loader');
 
-    // High quality automotive shaders
+    // High quality automotive materials
     const metallicPaint = new THREE.MeshPhysicalMaterial({
       color: 0x0e1319,
       emissive: 0x05070a,
@@ -188,10 +155,10 @@ export class Pricing3DCarCard {
     const tintedGlass = new THREE.MeshPhysicalMaterial({
       color: 0x090e14,
       metalness: 0.1,
-      roughness: 0.06,
+      roughness: 0.05,
       transmission: 0.88,
       transparent: true,
-      opacity: 0.80,
+      opacity: 0.82,
       ior: 1.52
     });
 
@@ -222,15 +189,15 @@ export class Pricing3DCarCard {
     const headlightLens = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       emissive: 0xd6ff36,
-      emissiveIntensity: 0.5,
-      roughness: 0.1,
+      emissiveIntensity: 0.6,
+      roughness: 0.08,
       metalness: 0.2
     });
 
     const taillightRuby = new THREE.MeshPhysicalMaterial({
       color: 0xbb0f1a,
       emissive: 0x88050e,
-      emissiveIntensity: 0.6,
+      emissiveIntensity: 0.5,
       transmission: 0.55,
       transparent: true,
       roughness: 0.1
@@ -245,7 +212,8 @@ export class Pricing3DCarCard {
         const size = bbox.getSize(new THREE.Vector3());
         const center = bbox.getCenter(new THREE.Vector3());
 
-        const scale = 3.6 / Math.max(size.x, size.z);
+        // Increased scale for larger, hero-commanding presence
+        const scale = 4.35 / Math.max(size.x, size.z);
         model.scale.setScalar(scale);
 
         model.position.x = -center.x * scale;
@@ -329,18 +297,22 @@ export class Pricing3DCarCard {
   animate() {
     requestAnimationFrame(this.animate);
 
-    // Smooth mouse interpolation (ease damping)
-    this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.05;
-    this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.05;
+    // Smooth mouse interpolation (spring easing damping)
+    this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.045;
+    this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.045;
 
-    // Subtle 3D mouse focus tracking:
-    // Car turns towards cursor horizontally & tilts slightly vertically
+    // Fluid car steering & travel towards mouse cursor across the hero section:
     if (this.carGroup) {
-      this.carGroup.rotation.y = this.baseRotationY + this.mouse.x * 0.55; // Horizontal turn
-      this.carGroup.rotation.x = this.baseRotationX - this.mouse.y * 0.18; // Vertical tilt
-      this.carGroup.rotation.z = this.mouse.x * -0.05; // Slight chassis roll
-      this.carGroup.position.x = this.mouse.x * 0.12;  // Slight translation
-      this.carGroup.position.y = this.mouse.y * 0.08;
+      // 1. Car steers smoothly toward cursor position
+      this.carGroup.rotation.y = this.baseRotationY + this.mouse.x * 0.52;
+      // 2. Pitch / tilt slightly with vertical mouse position
+      this.carGroup.rotation.x = this.baseRotationX - this.mouse.y * 0.16;
+      // 3. Realistic chassis bank / lean into the turn
+      this.carGroup.rotation.z = -this.mouse.x * 0.05;
+      // 4. Car travels smoothly across the hero section towards mouse position
+      this.carGroup.position.x = this.mouse.x * 0.42;
+      this.carGroup.position.y = this.mouse.y * 0.18;
+      this.carGroup.position.z = -this.mouse.y * 0.25;
     }
 
     if (this.renderer && this.scene && this.camera) {
