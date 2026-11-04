@@ -28,6 +28,9 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- GSAP 3 & ScrollTrigger for Hero Canvas Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
@@ -141,54 +144,68 @@
     </div>
   </div>
 
-  <!-- ==================== 1. HERO (Complete Car Care, All in One Place) ==================== -->
-  <section class="relative py-20 bg-white dark:bg-[#1A232C] border-b border-gray-200 dark:border-[#252E35] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D6FF36]/10 text-[#101820] dark:text-[#D6FF36] border border-[#D6FF36]/30 text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-[#D6FF36]"></span>
-            Doorstep Treatment Menu
-          </div>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight">
-            Complete Car Care, <br class="hidden sm:inline">
-            <span class="text-[#D6FF36]">All in One Place.</span>
-          </h1>
-          <p class="text-base text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-            From a swift 35-minute exterior foam wash to deep interior steam sanitization and 9H nano-ceramic coating, explore our specialized car care packages designed to protect your car's value.
-          </p>
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="customer/book-wash.html" class="btn-primary !h-12 px-6 text-sm font-bold">
-              <span>Book a Doorstep Treatment</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-            </a>
-            <a href="pricing.html" class="btn-secondary !h-12 px-6 text-sm font-bold">
-              <span>Compare Pricing</span>
-            </a>
-          </div>
+  <!-- ==================== 1. HERO (Interactive Scroll-Driven Foam Wash Animation) ==================== -->
+  <section id="wash-section" class="relative" style="height: 450vh;">
+    <div id="wash-hero" class="sticky top-0 w-full h-screen min-h-[580px] overflow-hidden isolate bg-[#05090E]">
+      <!-- 120-Frame HTML5 Canvas -->
+      <canvas id="carCanvas" class="absolute inset-0 w-full h-full block" aria-label="Scroll-controlled car wash animation"></canvas>
+      
+      <!-- Cinematic Vignette & Readability Gradient Overlay -->
+      <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-[#05090E]/95 via-[#05090E]/60 to-transparent"></div>
+      <div class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-[#05090E]/90 via-transparent to-transparent"></div>
+
+      <!-- Live Stage Content Text Overlay -->
+      <div class="absolute z-20 left-[5%] sm:left-[8%] lg:left-[10%] top-1/2 -translate-y-1/2 max-w-xl text-white">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D6FF36]/15 border border-[#D6FF36]/40 text-[#D6FF36] text-[11px] font-black uppercase tracking-[3px] mb-5 shadow-lg backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-pulse"></span>
+          Interactive Treatment Experience
         </div>
 
-        <div class="lg:col-span-5 relative">
-          <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-[#252E35] shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80" alt="Luxury Car Detailing" class="w-full h-[400px] object-cover object-center rounded-3xl">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#101820]/90 via-transparent to-transparent"></div>
-            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#101820]/90 border border-[#2F3B44] text-white flex items-center justify-between">
-              <div>
-                <span class="text-[10px] text-gray-400 uppercase font-bold">Technology</span>
-                <h4 class="text-xs font-bold">pH-Balanced Ceramic Snow Foam</h4>
-              </div>
-              <span class="badge-lime text-[11px]">Zero Swirl Guarantee</span>
-            </div>
-          </div>
-        </div>
+        <h1 id="stage-title" class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-[1.08] text-white">
+          Your Car Deserves <br>
+          <span class="text-[#D6FF36] drop-shadow-[0_2px_16px_rgba(214,255,54,0.4)]">A Perfect Shine.</span>
+        </h1>
 
+        <p id="stage-description" class="text-base sm:text-lg text-gray-300 max-w-md my-6 leading-relaxed">
+          Discover Chennai's premier doorstep car care and precision detailing.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="customer/book-wash.html" class="btn-primary !h-12 px-7 text-sm font-black shadow-xl shadow-[#D6FF36]/20 flex items-center gap-2 group">
+            <span>Book Your Wash</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:rotate-180"></i>
+          </a>
+          <a href="#exterior-wash" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all">
+            Explore All Services ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Side Progress Track -->
+      <div class="absolute z-20 right-6 sm:right-10 top-1/3 h-1/3 w-1 bg-white/20 rounded-full overflow-hidden">
+        <div id="progress-bar" class="w-full bg-[#D6FF36] transition-all duration-75" style="height: 0%;"></div>
+      </div>
+
+      <!-- Scroll to Experience Hint -->
+      <div id="scroll-hint" class="absolute z-20 bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/80 text-[10px] font-black tracking-[4px] uppercase transition-opacity duration-300 pointer-events-none">
+        <span>Scroll to Experience</span>
+        <span class="text-[#D6FF36] text-xl animate-bounce">↓</span>
+      </div>
+
+      <!-- Stage Number Counter Badge -->
+      <div class="absolute z-20 right-6 sm:right-10 bottom-8 px-3.5 py-1.5 rounded-xl bg-black/60 border border-white/10 text-white/90 text-xs font-black tracking-[3px] backdrop-blur-md font-mono">
+        <span id="stage-number" class="text-[#D6FF36]">01 / 05</span>
+      </div>
+
+      <!-- Loading / Ready Indicator -->
+      <div id="loading-message" class="absolute z-20 left-1/2 bottom-16 -translate-x-1/2 text-white/60 text-xs tracking-wider">
+        Preparing 120-frame car wash experience...
       </div>
     </div>
   </section>
 
   <!-- ==================== 2. EXTERIOR WASH (Foam Wash, Body Cleaning & Tyre Care) ==================== -->
-  <section class="py-20">
+  <section id="exterior-wash" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
@@ -545,6 +562,7 @@
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/rtl.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/foam-hero-scroll.js"></script>
   <script>
     function toggleFaq(btn) {
       const card = btn.closest('.faq-card');
