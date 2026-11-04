@@ -117,10 +117,8 @@ img, video, canvas {
   #wash-section {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    height: 550vh !important;
   }
   #wash-hero {
-    top: 68px !important;
     height: calc(100vh - 68px) !important;
     min-height: 500px !important;
   }

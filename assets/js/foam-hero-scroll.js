@@ -61,7 +61,7 @@ gsap.registerPlugin(ScrollTrigger);
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const rect = canvas.getBoundingClientRect();
     const width = rect.width || window.innerWidth;
-    const height = rect.height || window.innerHeight;
+    const height = rect.height || (window.innerHeight - 80);
 
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
@@ -98,6 +98,8 @@ gsap.registerPlugin(ScrollTrigger);
 
   function startScrollAnimation() {
     const playhead = { frame: 0 };
+    
+    // Pin #wash-hero perfectly until all 120 frames are fully played
     gsap.to(playhead, {
       frame: TOTAL_FRAMES - 1,
       ease: "none",
@@ -114,10 +116,13 @@ gsap.registerPlugin(ScrollTrigger);
         }
       },
       scrollTrigger: {
-        trigger: "#wash-section",
+        trigger: "#wash-hero",
         start: () => window.innerWidth <= 640 ? "top 68px" : "top 80px",
-        end: "bottom bottom",
-        scrub: 0.3,
+        end: "+=3500", // Exactly 3500px of user scroll travel distance
+        pin: true,     // GSAP native pinning guarantees it will NEVER unpin early
+        pinSpacing: true, // Reserves space cleanly so the next section waits until finished
+        scrub: 0.5,
+        anticipatePin: 1,
         invalidateOnRefresh: true
       }
     });
@@ -136,14 +141,12 @@ gsap.registerPlugin(ScrollTrigger);
         new Promise((resolve) => {
           img.onload = () => {
             readyCount++;
-            // Draw first frame immediately as soon as frame 0 is ready
             if (readyCount === 1) {
               drawFrame(0);
             }
             resolve();
           };
           img.onerror = () => {
-            // gracefully continue
             resolve();
           };
         })
@@ -163,4 +166,3 @@ gsap.registerPlugin(ScrollTrigger);
   resizeCanvas();
   loadFrames();
 })();
-
