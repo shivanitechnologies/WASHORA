@@ -68,3 +68,4 @@
 .mobile-drawer-panel {
   padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 16px));
 }
+
