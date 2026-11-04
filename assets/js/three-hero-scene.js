@@ -56,12 +56,12 @@ export class CarShineScene {
     // 2. Studio Floor & Turntable
     this.createStudioFloor();
 
-    // 3. Studio Lighting Rig & Headlights
-    this.createLighting();
-
-    // 4. Car Hierarchy
+    // 3. Car Hierarchy (initialized before lighting so light cones can attach)
     this.carRoot = new THREE.Group();
     this.scene.add(this.carRoot);
+
+    // 4. Studio Lighting Rig & Headlights
+    this.createLighting();
 
     // Door Pivot Groups for Opening Doors
     this.doorLeftGroup = new THREE.Group();
