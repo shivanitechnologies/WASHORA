@@ -19,6 +19,9 @@ img, video, canvas {
 @media (max-width: 640px) {
   header {
     height: 68px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
   }
   header > div {
     width: 95% !important;
