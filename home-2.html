@@ -185,36 +185,48 @@
   </div>
 
   <!-- ==================== CINEMATIC FULL-SCREEN HERO ==================== -->
-  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-    <!-- Cinematic High-res Dark Car Background -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#F5F6F3] dark:bg-[#101820] border-b border-gray-200 dark:border-[#252E35]">
+    <!-- Responsive Daylight & Midnight Supercar Backgrounds -->
     <div class="absolute inset-0 z-0">
+      <!-- Light Mode: Bright Daylight Ceramic-Coated Supercar on Coastal Drive -->
+      <img src="assets/images/home2-hero-daylight.jpg" 
+           alt="Luxury Ceramic Coated Supercar in Daylight" 
+           class="w-full h-full object-cover object-center scale-105 block dark:hidden">
+
+      <!-- Dark Mode: Cinematic Midnight Supercar -->
       <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=2000&q=85" 
            alt="Luxury Ceramic Coated Supercar" 
-           class="w-full h-full object-cover object-center scale-105 animate-pulse-slow">
-      <!-- Dark Dramatic Multi-gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/75 to-[#101820]/40"></div>
-      <div class="absolute inset-0 bg-radial from-transparent via-[#101820]/60 to-[#101820]"></div>
+           class="w-full h-full object-cover object-center scale-105 animate-pulse-slow hidden dark:block">
+
+      <!-- Light Mode Overlays: Soft ambient top & bottom vignettes preserving 100% text readability -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#F5F6F3] via-[#F5F6F3]/70 sm:via-[#F5F6F3]/50 to-[#F5F6F3]/40 block dark:hidden"></div>
+      <div class="absolute inset-0 bg-radial from-transparent via-[#F5F6F3]/40 to-[#F5F6F3]/70 block dark:hidden"></div>
+
+      <!-- Dark Mode Overlays: Deep midnight gradients -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/75 to-[#101820]/40 hidden dark:block"></div>
+      <div class="absolute inset-0 bg-radial from-transparent via-[#101820]/60 to-[#101820] hidden dark:block"></div>
     </div>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-20">
       
       <!-- Floating luxury pills -->
-      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1A232C]/80 border border-[#D6FF36]/30 backdrop-blur-md mb-8">
+      <!-- Floating luxury pills -->
+      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/90 dark:bg-[#1A232C]/80 border border-gray-300 dark:border-[#D6FF36]/30 shadow-md backdrop-blur-md mb-8">
         <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping"></span>
-        <span class="text-xs font-bold tracking-widest uppercase text-[#D6FF36]">Atelier Grade Car Detailing</span>
-        <span class="text-gray-500">•</span>
-        <span class="text-xs text-gray-300">Exclusively Doorstep</span>
+        <span class="text-xs font-black tracking-widest uppercase text-[#101820] dark:text-[#D6FF36]">Atelier Grade Car Detailing</span>
+        <span class="text-gray-400">·</span>
+        <span class="text-xs text-gray-700 dark:text-gray-300 font-medium">Exclusively Doorstep</span>
       </div>
 
       <!-- Large Editorial Typography Headline -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading tracking-tight leading-[1.08] mb-6">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading tracking-tight leading-[1.08] mb-6 text-[#101820] dark:text-white">
         More Than a Wash. <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D6FF36] to-white drop-shadow-md">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#101820] via-gray-700 to-[#101820] dark:from-white dark:via-[#D6FF36] dark:to-white drop-shadow-sm dark:drop-shadow-md">
           It’s a Car Care Experience.
         </span>
       </h1>
 
-      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light mb-10">
+      <p class="text-lg sm:text-xl text-gray-800 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
         Bespoke paint correction, hot-steam interior sanitization, and 9H nanotech ceramic protection orchestrated at your private driveway or condominium.
       </p>
 
@@ -224,10 +236,10 @@
           <span>Reserve VIP Detailing</span>
           <i data-lucide="arrow-right" class="w-5 h-5 rtl:rotate-180"></i>
         </a>
-        <a href="#signature" class="btn-secondary !h-[54px] px-8 text-base">
+        <a href="#signature" class="btn-secondary !h-[54px] px-8 text-base bg-white/90 dark:bg-transparent text-gray-900 dark:text-white border-gray-300 dark:border-white/20 shadow-md">
           <span>Explore Signature Atelier</span>
         </a>
-        <a href="hero-animation.html" class="inline-flex items-center gap-2 h-[54px] px-6 rounded-2xl bg-[#1A232C] text-[#D6FF36] border border-[#D6FF36]/40 text-sm font-bold hover:bg-[#D6FF36] hover:text-[#101820] transition-all">
+        <a href="hero-animation.html" class="inline-flex items-center gap-2 h-[54px] px-6 rounded-2xl bg-white/90 dark:bg-[#1A232C] text-[#101820] dark:text-[#D6FF36] border border-gray-300 dark:border-[#D6FF36]/40 text-sm font-bold hover:bg-[#D6FF36] hover:text-[#101820] shadow-md transition-all">
           <i data-lucide="play" class="w-4 h-4 fill-current"></i>
           <span>Watch 3D Car Reveal</span>
         </a>
@@ -235,21 +247,21 @@
 
       <!-- Floating Stat Bar with Glass Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
-        <div class="p-4 rounded-2xl bg-[#1A232C]/80 border border-[#252E35] backdrop-blur-md text-center">
-          <div class="text-2xl font-black text-[#D6FF36]">9H Nano</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">German Ceramic Matrix</div>
+        <div class="p-4 rounded-2xl bg-white/95 dark:bg-[#1A232C]/80 border border-gray-300/80 dark:border-[#252E35] shadow-md backdrop-blur-md text-center">
+          <div class="text-2xl font-black text-[#101820] dark:text-[#D6FF36]">9H Nano</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">German Ceramic Matrix</div>
         </div>
-        <div class="p-4 rounded-2xl bg-[#1A232C]/80 border border-[#252E35] backdrop-blur-md text-center">
-          <div class="text-2xl font-black text-white">0% Swirls</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Dual-Action Polish</div>
+        <div class="p-4 rounded-2xl bg-white/95 dark:bg-[#1A232C]/80 border border-gray-300/80 dark:border-[#252E35] shadow-md backdrop-blur-md text-center">
+          <div class="text-2xl font-black text-[#101820] dark:text-white">0% Swirls</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Dual-Action Polish</div>
         </div>
-        <div class="p-4 rounded-2xl bg-[#1A232C]/80 border border-[#252E35] backdrop-blur-md text-center">
-          <div class="text-2xl font-black text-[#D6FF36]">100% Van</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Independent Power & RO</div>
+        <div class="p-4 rounded-2xl bg-white/95 dark:bg-[#1A232C]/80 border border-gray-300/80 dark:border-[#252E35] shadow-md backdrop-blur-md text-center">
+          <div class="text-2xl font-black text-[#101820] dark:text-[#D6FF36]">100% Van</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Independent Power & RO</div>
         </div>
-        <div class="p-4 rounded-2xl bg-[#1A232C]/80 border border-[#252E35] backdrop-blur-md text-center">
-          <div class="text-2xl font-black text-white">5-Star</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Bespoke Concierge</div>
+        <div class="p-4 rounded-2xl bg-white/95 dark:bg-[#1A232C]/80 border border-gray-300/80 dark:border-[#252E35] shadow-md backdrop-blur-md text-center">
+          <div class="text-2xl font-black text-[#101820] dark:text-white">5-Star</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Bespoke Concierge</div>
         </div>
       </div>
 
