@@ -1,9 +1,9 @@
 // CAR SHINE - Dedicated 3D Interactive Car Showcase Controller for Pricing Hero
-// Complete Visual Perfection:
-// 1. Zero clipping / cropped boundaries: Car stays 100% inside view frustum at all times
-// 2. High-end Ferrari 458 Spider Metallic Nero Daytona & full interior shadering
-// 3. True 3/4 Front Beauty View (Front bumper, headlights, hood, windshield, wheels facing viewer)
-// 4. Smooth Mouse Parallax & Fluid Steering Tracking across hero section
+// Real Automotive Physics & Interactive Driving Behavior:
+// 1. Natural Car Motion: Moves, turns, steers, and drives towards mouse position like a real vehicle.
+// 2. Real Steering & Wheel Spin: Front wheels (wheel_fl, wheel_fr) angle into the turn, wheels rotate as the car travels.
+// 3. Dynamic Heading: Vehicle faces where it drives, automatically performing smooth about-turns when target changes.
+// 4. Photorealistic Automotive Shaders: Gloss obsidian body paint, tinted glass, alloy rims, rubber tires, and dark leather interior.
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -18,29 +18,38 @@ export class Pricing3DCarCard {
       modelPath: 'assets/models/car.glb'
     }, options);
 
-    // Mouse coordinates normalized (-1 to +1)
-    this.mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
-    // Front 3/4 dynamic beauty angle:
-    // With car facing -Z, rotation.y of ~2.45 rad angles the front bumper and front-left wheel toward the viewer
-    this.baseRotationY = 2.45;
-    this.baseRotationX = 0.05;
+    // Target position in world XZ space (bounds: X [-1.6, 1.6], Z [-1.2, 1.2])
+    this.targetPos = new THREE.Vector3(0.15, 0, 0.1);
+    this.carPos = new THREE.Vector3(0.15, 0, 0.1);
+
+    // Vehicle kinematic state
+    this.heading = 2.45; // Current car angle (in radians)
+    this.targetHeading = 2.45;
+    this.speed = 0;
+    this.steeringAngle = 0;
+    this.wheelRotation = 0;
+
+    // References to wheel nodes for realistic steering & rolling
+    this.wheelFL = null;
+    this.wheelFR = null;
+    this.allWheels = [];
 
     this.init();
   }
 
   init() {
-    const width = this.container.clientWidth || 650;
-    const height = this.container.clientHeight || 560;
+    const width = this.container.clientWidth || 700;
+    const height = this.container.clientHeight || 600;
 
-    // 1. Pure transparent WebGL Scene (Zero ground geometry, zero borders)
+    // 1. Transparent WebGL Scene
     this.scene = new THREE.Scene();
 
-    // 2. Camera setup - Positioned with ample margin so entire car is visible without ANY cropping
-    this.camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 100);
-    this.camera.position.set(0, 1.35, 5.4);
-    this.camera.lookAt(0, 0.40, 0);
+    // 2. Camera setup - Positioned high enough for full-perspective dynamic driving arena
+    this.camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
+    this.camera.position.set(0, 3.2, 5.8);
+    this.camera.lookAt(0, 0.25, 0);
 
-    // 3. High Performance Renderer with Alpha Transparency
+    // 3. High Performance Renderer
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
@@ -49,82 +58,83 @@ export class Pricing3DCarCard {
     this.renderer.setSize(width, height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.30;
+    this.renderer.toneMappingExposure = 1.35;
 
     this.container.appendChild(this.renderer.domElement);
 
     // 4. Studio Automotive Lighting
     this.setupLighting();
 
-    // 5. Car Root Group (Holds model and travels/turns smoothly with mouse focus)
+    // 5. Car Root Group
     this.carGroup = new THREE.Group();
-    this.carGroup.rotation.y = this.baseRotationY;
-    this.carGroup.rotation.x = this.baseRotationX;
+    this.carGroup.position.copy(this.carPos);
+    this.carGroup.rotation.y = this.heading;
     this.scene.add(this.carGroup);
 
-    // 6. Load & Shaderize 3D Model
+    // 6. Raycasting plane for smooth mouse-to-ground projection
+    this.raycaster = new THREE.Raycaster();
+    this.mouse2D = new THREE.Vector2(0, 0);
+    this.groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+
+    // 7. Load 3D Model
     this.loadModel();
 
-    // 7. Mouse Move Focus Interaction over Hero Section
+    // 8. Mouse & Pointer Tracking
     this.setupMouseInteraction();
 
-    // 8. Resize Handling
+    // 9. Resize Handling
     window.addEventListener('resize', () => this.onResize());
 
-    // 9. Animation Loop
+    // 10. Animation Loop
     this.animate = this.animate.bind(this);
     requestAnimationFrame(this.animate);
   }
 
   setupLighting() {
-    // Ambient Light
-    const ambient = new THREE.AmbientLight(0xffffff, 1.3);
+    const ambient = new THREE.AmbientLight(0xffffff, 1.4);
     this.scene.add(ambient);
 
-    // Overhead Key Studio Softbox
     const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
-    keyLight.position.set(2, 6, 4);
+    keyLight.position.set(3, 8, 4);
     this.scene.add(keyLight);
 
-    // Front Headlight Accent & Fill Light (Illuminates front bumper and headlights)
-    const frontKey = new THREE.DirectionalLight(0xffffff, 2.5);
-    frontKey.position.set(0, 2.2, 5.0);
-    this.scene.add(frontKey);
-
-    // Electric Lime Rim Accent Light (Brand Identity)
-    const rimLime = new THREE.DirectionalLight(0xD6FF36, 2.2);
-    rimLime.position.set(-5, 3.5, 2);
-    this.scene.add(rimLime);
-
-    // Side Fill Light
-    const fillLight = new THREE.DirectionalLight(0x9fc5ff, 1.8);
-    fillLight.position.set(4, 2, 2);
+    const fillLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    fillLight.position.set(-4, 6, 2);
     this.scene.add(fillLight);
 
-    // Top Rim Light for roofline & windshield
-    const roofLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    roofLight.position.set(0, 5, -2);
-    this.scene.add(roofLight);
+    const rimLime = new THREE.DirectionalLight(0xD6FF36, 2.2);
+    rimLime.position.set(-5, 3, -3);
+    this.scene.add(rimLime);
+
+    const frontFill = new THREE.DirectionalLight(0x9fc5ff, 1.6);
+    frontFill.position.set(0, 2, 5);
+    this.scene.add(frontFill);
   }
 
   setupMouseInteraction() {
-    window.addEventListener('mousemove', (e) => {
-      // Normalize mouse coordinates (-1 to +1 from center of screen)
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+    const updateTarget = (clientX, clientY) => {
+      const rect = this.container.getBoundingClientRect();
+      // Normalized device coords relative to the 3D car viewport
+      this.mouse2D.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+      this.mouse2D.y = -((clientY - rect.top) / rect.height) * 2 + 1;
 
-      this.mouse.targetX = x;
-      this.mouse.targetY = y;
+      // Project onto ground plane (Y = 0)
+      this.raycaster.setFromCamera(this.mouse2D, this.camera);
+      const intersection = new THREE.Vector3();
+      if (this.raycaster.ray.intersectPlane(this.groundPlane, intersection)) {
+        // Clamp bounds inside showcase arena so car never leaves or clips viewport
+        this.targetPos.x = THREE.MathUtils.clamp(intersection.x, -1.5, 1.5);
+        this.targetPos.z = THREE.MathUtils.clamp(intersection.z, -1.2, 1.2);
+      }
+    };
+
+    window.addEventListener('mousemove', (e) => {
+      updateTarget(e.clientX, e.clientY);
     });
 
-    // Touch interaction for mobile devices
     window.addEventListener('touchmove', (e) => {
       if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        const x = (touch.clientX / window.innerWidth) * 2 - 1;
-        const y = -(touch.clientY / window.innerHeight) * 2 + 1;
-        this.mouse.targetX = x * 0.7;
-        this.mouse.targetY = y * 0.7;
+        updateTarget(e.touches[0].clientX, e.touches[0].clientY);
       }
     }, { passive: true });
   }
@@ -138,11 +148,11 @@ export class Pricing3DCarCard {
 
     const loaderEl = document.getElementById('pricing-3d-loader');
 
-    // High quality automotive materials
+    // Automotive Materials
     const metallicPaint = new THREE.MeshPhysicalMaterial({
       color: 0x0f141a,
       emissive: 0x040608,
-      metalness: 0.90,
+      metalness: 0.92,
       roughness: 0.12,
       clearcoat: 1.0,
       clearcoatRoughness: 0.03,
@@ -215,56 +225,47 @@ export class Pricing3DCarCard {
         const size = bbox.getSize(new THREE.Vector3());
         const center = bbox.getCenter(new THREE.Vector3());
 
-        // Calibrated scale to ensure car is bold yet completely fits the canvas without any edge clipping
-        const scale = 3.65 / Math.max(size.x, size.z);
+        // Scaled to fit comfortably inside hero section with full travel freedom
+        const scale = 2.85 / Math.max(size.x, size.z);
         model.scale.setScalar(scale);
 
+        // Center on local root
         model.position.x = -center.x * scale;
         model.position.y = -bbox.min.y * scale;
         model.position.z = -center.z * scale;
 
         model.traverse((child) => {
+          const name = (child.name || '').toLowerCase();
+
+          // Store wheel references for steering and rolling
+          if (name === 'wheel_fl') this.wheelFL = child;
+          if (name === 'wheel_fr') this.wheelFR = child;
+          if (name.includes('tire') || name.includes('rim_')) {
+            this.allWheels.push(child);
+          }
+
           if (child.isMesh) {
-            const name = (child.name || '').toLowerCase();
             const matName = (child.material && child.material.name ? child.material.name : '').toLowerCase();
 
-            // Leather interior & seats (prevents seats from showing bright lime/white raw unshaded faces)
             if (name.includes('leather') || matName.includes('leather') || name.includes('interior_light') || matName.includes('interior_light') || name.includes('carpet') || matName.includes('carpet')) {
               child.material = luxuryLeather;
-            }
-            // Body paint / metal
-            else if (name.includes('body') || matName.includes('body_color') || name.includes('metal') || matName.includes('leather_red')) {
+            } else if (name.includes('body') || matName.includes('body_color') || name.includes('metal') || matName.includes('leather_red')) {
               child.material = metallicPaint;
-            }
-            // Windows & glass
-            else if (name.includes('glass') || matName.includes('glass') || name.includes('window')) {
+            } else if (name.includes('glass') || matName.includes('glass') || name.includes('window')) {
               child.material = tintedGlass;
-            }
-            // Chrome details
-            else if (name.includes('chrome') || matName.includes('chrome') || name.includes('exhaust')) {
+            } else if (name.includes('chrome') || matName.includes('chrome') || name.includes('exhaust')) {
               child.material = chromeMetal;
-            }
-            // Rims & alloy wheels
-            else if (name.includes('wheel') || name.includes('rim') || matName.includes('metal_gray') || name.includes('brakes')) {
+            } else if (name.includes('wheel') || name.includes('rim') || matName.includes('metal_gray') || name.includes('brakes')) {
               child.material = alloyRim;
-            }
-            // Tires
-            else if (name.includes('tire') || matName.includes('tires')) {
+            } else if (name.includes('tire') || matName.includes('tires')) {
               child.material = tireRubber;
-            }
-            // Carbon trims / grills
-            else if (name.includes('carbon') || matName.includes('carbon') || name.includes('plastic') || name.includes('grill') || matName.includes('plastic_gray') || name.includes('trim')) {
+            } else if (name.includes('carbon') || matName.includes('carbon') || name.includes('plastic') || name.includes('grill') || matName.includes('plastic_gray') || name.includes('trim')) {
               child.material = carbonTrim;
-            }
-            // Headlights
-            else if (name.includes('led') || matName.includes('turn_signal') || (name.includes('lights') && !name.includes('red'))) {
+            } else if (name.includes('led') || matName.includes('turn_signal') || (name.includes('lights') && !name.includes('red'))) {
               child.material = headlightLens;
-            }
-            // Taillights
-            else if (name.includes('lights_red') || matName.includes('taillight')) {
+            } else if (name.includes('lights_red') || matName.includes('taillight')) {
               child.material = taillightRuby;
-            }
-            else if (child.material) {
+            } else if (child.material) {
               child.material.roughness = 0.35;
               child.material.metalness = 0.65;
             }
@@ -304,22 +305,61 @@ export class Pricing3DCarCard {
   animate() {
     requestAnimationFrame(this.animate);
 
-    // Smooth mouse interpolation (spring easing damping)
-    this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.045;
-    this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.045;
-
-    // Fluid car steering & travel towards mouse cursor across the hero section:
     if (this.carGroup) {
-      // 1. Car steers smoothly toward cursor position
-      this.carGroup.rotation.y = this.baseRotationY + this.mouse.x * 0.45;
-      // 2. Pitch / tilt slightly with vertical mouse position
-      this.carGroup.rotation.x = this.baseRotationX - this.mouse.y * 0.12;
-      // 3. Realistic chassis bank / lean into the turn
-      this.carGroup.rotation.z = -this.mouse.x * 0.04;
-      // 4. Car travels smoothly across the hero section towards mouse position (well bounded)
-      this.carGroup.position.x = this.mouse.x * 0.22;
-      this.carGroup.position.y = this.mouse.y * 0.10;
-      this.carGroup.position.z = -this.mouse.y * 0.15;
+      // 1. Vector from current car position to mouse target position
+      const dx = this.targetPos.x - this.carPos.x;
+      const dz = this.targetPos.z - this.carPos.z;
+      const distance = Math.hypot(dx, dz);
+
+      // Deadzone threshold so car rests cleanly when cursor stops
+      if (distance > 0.08) {
+        // Model front is oriented along -Z axis.
+        // Math.atan2(dx, dz) gives angle from +Z, so for -Z forward:
+        // desired heading = Math.atan2(-dx, -dz) + Math.PI = Math.atan2(dx, dz)
+        const desiredHeading = Math.atan2(dx, dz);
+
+        // Compute shortest angle difference (-PI to +PI)
+        let angleDiff = desiredHeading - this.heading;
+        while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+        while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+
+        // Smooth turning (turn speed responds smoothly to how sharp the corner is)
+        const turnSpeed = 0.065;
+        this.heading += angleDiff * turnSpeed;
+
+        // Realistic front wheel steering angle based on angular difference
+        const targetSteer = THREE.MathUtils.clamp(-angleDiff * 0.7, -0.48, 0.48);
+        this.steeringAngle += (targetSteer - this.steeringAngle) * 0.12;
+
+        // Drive forward along current heading
+        const forwardSpeed = Math.min(distance * 0.045, 0.038) * Math.max(0.2, Math.cos(angleDiff));
+        this.carPos.x += Math.sin(this.heading) * forwardSpeed;
+        this.carPos.z += Math.cos(this.heading) * forwardSpeed;
+
+        // Wheel roll animation proportional to travel
+        this.wheelRotation += forwardSpeed * 4.5;
+        this.allWheels.forEach(w => {
+          w.rotation.x = this.wheelRotation;
+        });
+
+        // Chassis roll / bank into turn
+        this.carGroup.rotation.z = THREE.MathUtils.lerp(this.carGroup.rotation.z, -angleDiff * 0.05, 0.1);
+        // Chassis pitch on acceleration
+        this.carGroup.rotation.x = THREE.MathUtils.lerp(this.carGroup.rotation.x, -forwardSpeed * 0.5, 0.1);
+      } else {
+        // Gentle return to level when stationary
+        this.steeringAngle *= 0.88;
+        this.carGroup.rotation.z *= 0.88;
+        this.carGroup.rotation.x *= 0.88;
+      }
+
+      // Apply steering angle to front wheels
+      if (this.wheelFL) this.wheelFL.rotation.y = this.steeringAngle;
+      if (this.wheelFR) this.wheelFR.rotation.y = this.steeringAngle;
+
+      // Update car group position and heading
+      this.carGroup.position.copy(this.carPos);
+      this.carGroup.rotation.y = this.heading;
     }
 
     if (this.renderer && this.scene && this.camera) {
