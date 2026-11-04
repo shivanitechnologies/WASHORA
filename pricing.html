@@ -228,58 +228,20 @@
           </div>
         </div>
 
-        <!-- Right Visual Column: Interactive Three.js 3D Car Showcase -->
-        <div class="lg:col-span-5 relative">
-          <!-- Ambient Glow Accent behind 3D Card -->
-          <div class="absolute -top-4 -right-4 w-72 h-72 bg-[#D6FF36]/20 dark:bg-[#D6FF36]/15 rounded-3xl blur-3xl pointer-events-none"></div>
+        <!-- Right Visual Column: Seamless 3D Luxury Car (No background card, no text) -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <!-- Subtle Ambient Halo Glow behind 3D car -->
+          <div class="absolute w-[440px] h-[440px] bg-[#D6FF36]/15 dark:bg-[#D6FF36]/10 rounded-full blur-[110px] pointer-events-none -z-0"></div>
 
-          <!-- 3D Card Container -->
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-[#252E35] bg-[#0c1218] dark:bg-[#0c1218] group">
-            
-            <!-- Real-Time WebGL 3D Car Canvas -->
-            <div id="pricing-3d-car-container" class="w-full h-[420px] sm:h-[440px] relative cursor-grab active:cursor-grabbing">
-              <!-- Loading Indicator -->
-              <div id="pricing-3d-loader" class="absolute inset-0 bg-[#0c1218] flex flex-col items-center justify-center gap-3 z-20 transition-opacity duration-300">
-                <div class="w-10 h-10 border-2 border-[#D6FF36] border-t-transparent rounded-full animate-spin"></div>
-                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider">Loading 3D Car Model...</div>
-                <div class="w-40 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                  <div id="pricing-3d-bar" class="h-full bg-[#D6FF36] transition-all duration-200 w-1/4"></div>
-                </div>
+          <!-- Real-Time WebGL 3D Car Canvas (Purely the 3D vehicle without box background or labels) -->
+          <div id="pricing-3d-car-container" class="w-full h-[440px] sm:h-[480px] lg:h-[520px] relative cursor-grab active:cursor-grabbing z-10">
+            <!-- Loading Indicator -->
+            <div id="pricing-3d-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 z-20 transition-opacity duration-300">
+              <div class="w-9 h-9 border-2 border-[#D6FF36] border-t-transparent rounded-full animate-spin"></div>
+              <div class="w-32 h-1 bg-gray-300 dark:bg-gray-800 rounded-full overflow-hidden">
+                <div id="pricing-3d-bar" class="h-full bg-[#D6FF36] transition-all duration-200 w-1/4"></div>
               </div>
             </div>
-
-            <!-- Gradient blend over floor -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c1218] via-transparent to-transparent pointer-events-none"></div>
-
-            <!-- Floating Top Badges (Interactive 360° Hint & Included Service) -->
-            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
-              <div class="px-3 py-1 rounded-xl bg-black/60 border border-white/10 text-white text-[11px] font-bold backdrop-blur-md shadow-md flex items-center gap-1.5">
-                <i data-lucide="rotate-3d" class="w-3.5 h-3.5 text-[#D6FF36]"></i>
-                <span>360° Drag & Orbit</span>
-              </div>
-              <div class="px-3 py-1 rounded-xl bg-[#101820]/90 border border-[#D6FF36]/30 text-[#D6FF36] text-[11px] font-black uppercase tracking-wider backdrop-blur-md shadow-md flex items-center gap-1.5">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                <span>Doorstep Included</span>
-              </div>
-            </div>
-
-            <!-- Bottom Floating Price Spec Box -->
-            <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-5 rounded-2xl bg-white/95 dark:bg-[#1A232C]/95 border border-gray-200 dark:border-[#2F3B44] text-[#101820] dark:text-white shadow-xl backdrop-blur-md z-10">
-              <div class="flex items-center justify-between pb-2 mb-2 border-b border-gray-200 dark:border-[#252E35]">
-                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">All-Inclusive Service</span>
-                <span class="text-xs font-black text-[#84cc16] dark:text-[#D6FF36] uppercase tracking-wider">Zero Setup Fee</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div>
-                  <div class="text-lg font-black font-heading leading-tight">Starting at ₹499</div>
-                  <div class="text-[11px] text-gray-500 dark:text-gray-400">Water, power & foam included</div>
-                </div>
-                <a href="#plans" class="px-4 py-2 rounded-xl bg-[#101820] dark:bg-[#D6FF36] text-[#D6FF36] dark:text-[#101820] text-xs font-extrabold hover:scale-105 transition-transform">
-                  Explore Plans
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
 
