@@ -7,6 +7,7 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 export class CarShineScene {
@@ -154,8 +155,12 @@ export class CarShineScene {
   }
 
   loadCarModel() {
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('assets/vendor/three/draco/');
+
     const loader = new GLTFLoader();
-    
+    loader.setDRACOLoader(dracoLoader);
+
     loader.load(
       this.options.modelPath,
       (gltf) => {
@@ -229,6 +234,8 @@ export class CarShineScene {
         this.carRoot.position.set(0, 0, -4.5);
         this.carRoot.rotation.set(0, 0, 0);
 
+        console.log('Real-Time 3D Car Model Loaded Successfully! Total Wheels:', this.wheels.length);
+
         if (typeof this.options.onModelLoaded === 'function') {
           this.options.onModelLoaded();
         }
@@ -241,32 +248,8 @@ export class CarShineScene {
       },
       (err) => {
         console.error('Error loading 3D Car GLB:', err);
-        // Fallback: create placeholder vehicle geometry if GLB fetch fails on restricted networks
-        this.createFallbackCar();
-        if (typeof this.options.onModelLoaded === 'function') {
-          this.options.onModelLoaded();
-        }
       }
     );
-  }
-
-  createFallbackCar() {
-    const group = new THREE.Group();
-    const bodyMat = new THREE.MeshPhysicalMaterial({
-      color: 0x11161b,
-      metalness: 0.9,
-      roughness: 0.15,
-      clearcoat: 1.0
-    });
-
-    const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.65, 3.4), bodyMat);
-    cabin.position.y = 0.65;
-    cabin.castShadow = true;
-    group.add(cabin);
-
-    this.carModel = group;
-    this.carRoot.add(this.carModel);
-    this.carRoot.position.set(0, 0, -4.5);
   }
 
   updateTimeline(t) {
