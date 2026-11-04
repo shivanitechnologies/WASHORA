@@ -1,363 +1,363 @@
 <!DOCTYPE html>
 <html lang="en" class="" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technician Cockpit | CAR SHINE Mobile Fleet</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#101820',
-            secondary: '#D6FF36',
-            surface: '#252E35',
-            lightbg: '#F5F6F3'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            brand: ['Montserrat', 'Outfit', 'sans-serif'],
-            heading: ['Manrope', 'sans-serif']
-          }
-        }
-      }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Technician Cockpit | CAR SHINE Mobile Fleet</title>
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+ 
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   darkMode: 'class',
+   theme: {
+    extend: {
+     colors: {
+      primary: '#101820',
+      secondary: '#D6FF36',
+      surface: '#252E35',
+      lightbg: '#F5F6F3'
+     },
+     fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      brand: ['Montserrat', 'Outfit', 'sans-serif'],
+      heading: ['Manrope', 'sans-serif']
+     }
     }
-  </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+   }
+  }
+ </script>
+ <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/animations.css">
-  <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
+ <link rel="stylesheet" href="../assets/css/style.css">
+ <link rel="stylesheet" href="../assets/css/dashboard.css">
+ <link rel="stylesheet" href="../assets/css/animations.css">
+ <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
 
-  <div class="dashboard-container">
-    
-    <!-- TECHNICIAN SIDEBAR -->
-    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
-      <div>
-        <!-- Logo -->
-        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
-          <a href="../index.html" class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
-              <i data-lucide="wrench" class="w-4 h-4"></i>
-            </div>
-            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
-              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">FLEET</span>
-            </span>
-          </a>
-          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
-        </div>
-
-        <!-- Technician Profile Card -->
-        <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Ramesh Kumar" class="w-10 h-10 aspect-square rounded-xl object-cover object-center border-2 border-[#D6FF36] shadow-sm flex-shrink-0">
-          <div class="min-w-0 flex-1">
-            <h4 class="text-xs font-bold text-white truncate">Ramesh Kumar</h4>
-            <span class="text-[10px] text-[#D6FF36] font-mono">Van: TN 09 AZ 4521</span>
-          </div>
-        </div>
-
-        <!-- Navigation Menu -->
-        <nav class="space-y-1 text-xs font-semibold">
-          <a href="dashboard.html" class="dash-nav-item active">
-            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-            <span>Fleet Cockpit</span>
-          </a>
-          <a href="assigned-jobs.html" class="dash-nav-item">
-            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
-            <span>Assigned Jobs</span>
-            <span class="w-5 h-5 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-[10px] font-black ml-auto">3</span>
-          </a>
-          <a href="job-details.html?id=CS1024" class="dash-nav-item">
-            <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
-            <span>Active Job (#CS1024)</span>
-            <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping ml-auto"></span>
-          </a>
-        </nav>
+ <div class="dashboard-container">
+  
+  <!-- TECHNICIAN SIDEBAR -->
+  <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 ">
+   <div>
+    <!-- Logo -->
+    <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+     <a href="../index.html" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+       <i data-lucide="wrench" class="w-4 h-4"></i>
       </div>
-
-      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2">
-        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
-          <i data-lucide="log-out" class="w-4 h-4"></i>
-          <span>End Shift & Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Content Area -->
-    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
-      
-      <!-- Top Bar -->
-      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
-        <div class="flex items-center gap-3">
-          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
-          <div>
-            <h1 class="text-lg font-bold font-heading">Technician Field Console</h1>
-            <p class="text-xs text-gray-500">Doorstep detailing dispatch & active job execution</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <!-- Duty Status Toggle -->
-          <button id="duty-toggle-btn" onclick="toggleDutyStatus()" class="h-10 px-3.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span id="duty-status-text">On Duty (Available)</span>
-          </button>
-
-          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
-            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-          </button>
-          <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
-            RTL
-          </button>
-        </div>
-      </header>
-
-      <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-6xl">
-        
-        <!-- ACTIVE JOB HERO BANNER -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#101820] via-[#1A232C] to-[#101820] border-2 border-[#D6FF36]/50 shadow-2xl relative overflow-hidden text-white">
-          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#D6FF36]/10 rounded-full blur-2xl"></div>
-
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <span class="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#D6FF36] text-[#101820] flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-[#101820] animate-ping"></span>
-                  Current Active Job • #CS1024
-                </span>
-                <span class="text-xs font-bold text-gray-400">Status: <span class="text-[#D6FF36]">On the Way (ETA 12 Mins)</span></span>
-              </div>
-
-              <h2 class="text-2xl sm:text-3xl font-black font-heading">
-                Full Car Detailing <span class="text-gray-400 font-normal text-lg">for Honda City ZX</span>
-              </h2>
-
-              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Pravin Kumar
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Anna Nagar West, Chennai (600040)
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="clock" class="w-4 h-4 text-[#D6FF36]"></i> Slot: 10:30 AM - 01:00 PM
-                </span>
-              </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center gap-3">
-              <a href="tel:+919840123456" class="w-full sm:w-auto px-5 h-12 rounded-xl bg-[#252E35] hover:bg-[#2F3B44] text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-                <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
-                <span>Call Customer</span>
-              </a>
-              <a href="job-details.html?id=CS1024" class="btn-primary w-full sm:w-auto !h-12 text-xs font-black px-6 shadow-lg shadow-[#D6FF36]/20">
-                <i data-lucide="play-circle" class="w-4 h-4"></i>
-                <span>Open Job Execution Console →</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- KPI METRICS -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-500 font-medium">Assigned Today</span>
-            <h3 class="text-2xl font-black font-heading mt-2">3 Jobs</h3>
-            <span class="text-[11px] text-gray-400 mt-1 block">1 Active • 2 Upcoming</span>
-          </div>
-
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-500 font-medium">Today's Earnings</span>
-            <h3 class="text-2xl font-black font-heading text-emerald-500 mt-2">₹1,850</h3>
-            <span class="text-[11px] text-gray-400 mt-1 block">Includes distance commission</span>
-          </div>
-
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-500 font-medium">Customer Rating</span>
-            <h3 class="text-2xl font-black font-heading text-amber-500 mt-2">★ 4.9</h3>
-            <span class="text-[11px] text-gray-400 mt-1 block">From 342 doorsteps</span>
-          </div>
-
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-500 font-medium">Mobile Van Fuel & Rig</span>
-            <h3 class="text-2xl font-black font-heading text-[#D6FF36] mt-2">92% Ready</h3>
-            <span class="text-[11px] text-gray-400 mt-1 block">220L demineralized water</span>
-          </div>
-        </div>
-
-        <!-- SCHEDULE FOR TODAY -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
-          <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
-            <div>
-              <h3 class="font-bold text-base font-heading">Today's Shift Roster</h3>
-              <p class="text-xs text-gray-500">All doorstep service visits assigned to Van TN 09 AZ 4521</p>
-            </div>
-            <a href="assigned-jobs.html" class="text-xs font-bold text-[#D6FF36] hover:underline flex items-center gap-1">
-              <span>View All</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-
-          <div class="space-y-4">
-            <!-- Job 1 -->
-            <div class="p-5 rounded-2xl bg-[#D6FF36]/10 border border-[#D6FF36]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex flex-col items-center justify-center font-black">
-                  <span class="text-xs">10:30</span>
-                  <span class="text-[9px] uppercase">AM</span>
-                </div>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1024 - Full Car Detailing</h4>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-[#D6FF36] text-[#101820]">IN TRANSIT</span>
-                  </div>
-                  <p class="text-xs text-gray-500 mt-0.5">Pravin Kumar • Honda City ZX (TN 09 CB 1234)</p>
-                  <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-red-500"></i> Flat 4B, Emerald Heights, Anna Nagar West
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <span class="text-sm font-black text-emerald-500">₹2,999 (Paid)</span>
-                <a href="job-details.html?id=CS1024" class="btn-primary !h-10 text-xs font-bold px-4">
-                  Manage Job
-                </a>
-              </div>
-            </div>
-
-            <!-- Job 2 -->
-            <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300 flex flex-col items-center justify-center font-black">
-                  <span class="text-xs">02:30</span>
-                  <span class="text-[9px] uppercase">PM</span>
-                </div>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1025 - Exterior Foam Wash</h4>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500">UPCOMING</span>
-                  </div>
-                  <p class="text-xs text-gray-500 mt-0.5">Meenakshi Sundaram • Maruti Baleno (TN 02 BB 5566)</p>
-                  <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gray-400"></i> Kilpauk Garden Road, Chennai
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <span class="text-sm font-bold text-gray-400">₹499 (Doorstep Cash)</span>
-                <a href="job-details.html?id=CS1025" class="px-4 h-10 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] hover:border-[#D6FF36] border border-transparent transition-colors flex items-center">
-                  View Specs
-                </a>
-              </div>
-            </div>
-
-            <!-- Job 3 -->
-            <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300 flex flex-col items-center justify-center font-black">
-                  <span class="text-xs">05:00</span>
-                  <span class="text-[9px] uppercase">PM</span>
-                </div>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1026 - Interior Deep Cleaning</h4>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500">UPCOMING</span>
-                  </div>
-                  <p class="text-xs text-gray-500 mt-0.5">Dinesh Kumar • Toyota Innova Crysta (TN 07 AX 7711)</p>
-                  <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                    <i data-lucide="map-pin" class="w-3 h-3 text-gray-400"></i> Shenoy Nagar East, Chennai
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <span class="text-sm font-bold text-gray-400">₹699 (Paid UPI)</span>
-                <a href="job-details.html?id=CS1026" class="px-4 h-10 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] hover:border-[#D6FF36] border border-transparent transition-colors flex items-center">
-                  View Specs
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- VAN RIG PRE-DEPARTURE CHECKLIST -->
-        <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Self-Contained Rig Checklist</h4>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
-              <i data-lucide="droplet" class="w-4 h-4 text-blue-400"></i>
-              <span>Water Tank: <strong>220L / 250L</strong></span>
-            </div>
-            <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
-              <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
-              <span>Generator: <strong>Full Tank</strong></span>
-            </div>
-            <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
-              <i data-lucide="layers" class="w-4 h-4 text-[#D6FF36]"></i>
-              <span>Microfibers: <strong>24 Clean</strong></span>
-            </div>
-            <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
-              <span>Ceramic Kit: <strong>Inspected</strong></span>
-            </div>
-          </div>
-        </div>
-
-      </main>
+      <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+       CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">FLEET</span>
+      </span>
+     </a>
+     <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
+
+    <!-- Technician Profile Card -->
+    <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
+     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Ramesh Kumar" class="w-10 h-10 aspect-square rounded-xl object-cover object-center border-2 border-[#D6FF36] shadow-sm flex-shrink-0">
+     <div class="min-w-0 flex-1">
+      <h4 class="text-xs font-bold text-white truncate">Ramesh Kumar</h4>
+      <span class="text-[10px] text-[#D6FF36] font-mono">Van: TN 09 AZ 4521</span>
+     </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="space-y-1 text-xs font-semibold">
+     <a href="dashboard.html" class="dash-nav-item active">
+      <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+      <span>Fleet Cockpit</span>
+     </a>
+     <a href="assigned-jobs.html" class="dash-nav-item">
+      <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+      <span>Assigned Jobs</span>
+      <span class="w-5 h-5 rounded-full bg-[#D6FF36] text-[#101820] flex items-center justify-center text-[10px] font-black ml-auto">3</span>
+     </a>
+     <a href="job-details.html?id=CS1024" class="dash-nav-item">
+      <i data-lucide="navigation" class="w-4 h-4 text-[#D6FF36]"></i>
+      <span>Active Job (#CS1024)</span>
+      <span class="w-2 h-2 rounded-full bg-[#D6FF36] animate-ping ml-auto"></span>
+     </a>
+    </nav>
+   </div>
+
+   <div class="pt-4 border-t border-gray-200 dark:border-[#252E35] space-y-2">
+    <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+     <i data-lucide="log-out" class="w-4 h-4"></i>
+     <span>End Shift & Logout</span>
+    </a>
+   </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+   
+   <!-- Top Bar -->
+   <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+    <div class="flex items-center gap-3">
+     <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+     <div>
+      <h1 class="text-lg font-bold font-heading">Technician Field Console</h1>
+      <p class="text-xs text-gray-500">Doorstep detailing dispatch & active job execution</p>
+     </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+     <!-- Duty Status Toggle -->
+     <button id="duty-toggle-btn" onclick="toggleDutyStatus()" class="h-10 px-3.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span id="duty-status-text">On Duty (Available)</span>
+     </button>
+
+     <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+      <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+      <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+     </button>
+     <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
+      RTL
+     </button>
+    </div>
+   </header>
+
+   <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-6xl">
+    
+    <!-- ACTIVE JOB HERO BANNER -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#101820] via-[#1A232C] to-[#101820] border-2 border-[#D6FF36]/50 shadow-2xl relative overflow-hidden text-white">
+     <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#D6FF36]/10 rounded-full blur-2xl"></div>
+
+     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+      <div class="space-y-3">
+       <div class="flex items-center gap-3">
+        <span class="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-[#D6FF36] text-[#101820] flex items-center gap-1.5">
+         <span class="w-2 h-2 rounded-full bg-[#101820] animate-ping"></span>
+         Current Active Job • #CS1024
+        </span>
+        <span class="text-xs font-bold text-gray-400">Status: <span class="text-[#D6FF36]">On the Way (ETA 12 Mins)</span></span>
+       </div>
+
+       <h2 class="text-2xl sm:text-3xl font-black font-heading">
+        Full Car Detailing <span class="text-gray-400 font-normal text-lg">for Honda City ZX</span>
+       </h2>
+
+       <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300">
+        <span class="flex items-center gap-1.5">
+         <i data-lucide="user" class="w-4 h-4 text-[#D6FF36]"></i> Pravin Kumar
+        </span>
+        <span class="flex items-center gap-1.5">
+         <i data-lucide="map-pin" class="w-4 h-4 text-[#D6FF36]"></i> Anna Nagar West, Chennai (600040)
+        </span>
+        <span class="flex items-center gap-1.5">
+         <i data-lucide="clock" class="w-4 h-4 text-[#D6FF36]"></i> Slot: 10:30 AM - 01:00 PM
+        </span>
+       </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+       <a href="tel:+919840123456" class="w-full sm:w-auto px-5 h-12 rounded-xl bg-[#252E35] hover:bg-[#2F3B44] text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+        <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+        <span>Call Customer</span>
+       </a>
+       <a href="job-details.html?id=CS1024" class="btn-primary w-full sm:w-auto !h-12 text-xs font-black px-6 shadow-lg shadow-[#D6FF36]/20">
+        <i data-lucide="play-circle" class="w-4 h-4"></i>
+        <span>Open Job Execution Console →</span>
+       </a>
+      </div>
+     </div>
+    </div>
+
+    <!-- KPI METRICS -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-500 font-medium">Assigned Today</span>
+      <h3 class="text-2xl font-black font-heading mt-2">3 Jobs</h3>
+      <span class="text-[11px] text-gray-400 mt-1 block">1 Active • 2 Upcoming</span>
+     </div>
+
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-500 font-medium">Today's Earnings</span>
+      <h3 class="text-2xl font-black font-heading text-emerald-500 mt-2">₹1,850</h3>
+      <span class="text-[11px] text-gray-400 mt-1 block">Includes distance commission</span>
+     </div>
+
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-500 font-medium">Customer Rating</span>
+      <h3 class="text-2xl font-black font-heading text-amber-500 mt-2">★ 4.9</h3>
+      <span class="text-[11px] text-gray-400 mt-1 block">From 342 doorsteps</span>
+     </div>
+
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-500 font-medium">Mobile Van Fuel & Rig</span>
+      <h3 class="text-2xl font-black font-heading text-[#D6FF36] mt-2">92% Ready</h3>
+      <span class="text-[11px] text-gray-400 mt-1 block">220L demineralized water</span>
+     </div>
+    </div>
+
+    <!-- SCHEDULE FOR TODAY -->
+    <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
+     <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-[#252E35]">
+      <div>
+       <h3 class="font-bold text-base font-heading">Today's Shift Roster</h3>
+       <p class="text-xs text-gray-500">All doorstep service visits assigned to Van TN 09 AZ 4521</p>
+      </div>
+      <a href="assigned-jobs.html" class="text-xs font-bold text-[#D6FF36] hover:underline flex items-center gap-1">
+       <span>View All</span>
+       <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </a>
+     </div>
+
+     <div class="space-y-4">
+      <!-- Job 1 -->
+      <div class="p-5 rounded-2xl bg-[#D6FF36]/10 border border-[#D6FF36]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-[#101820] text-[#D6FF36] flex flex-col items-center justify-center font-black">
+         <span class="text-xs">10:30</span>
+         <span class="text-[9px] uppercase">AM</span>
+        </div>
+        <div>
+         <div class="flex items-center gap-2">
+          <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1024 - Full Car Detailing</h4>
+          <span class="px-2 py-0.5 rounded text-[10px] font-black bg-[#D6FF36] text-[#101820]">IN TRANSIT</span>
+         </div>
+         <p class="text-xs text-gray-500 mt-0.5">Pravin Kumar • Honda City ZX (TN 09 CB 1234)</p>
+         <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3 h-3 text-red-500"></i> Flat 4B, Emerald Heights, Anna Nagar West
+         </p>
+        </div>
+       </div>
+
+       <div class="flex items-center gap-3">
+        <span class="text-sm font-black text-emerald-500">₹2,999 (Paid)</span>
+        <a href="job-details.html?id=CS1024" class="btn-primary !h-10 text-xs font-bold px-4">
+         Manage Job
+        </a>
+       </div>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300 flex flex-col items-center justify-center font-black">
+         <span class="text-xs">02:30</span>
+         <span class="text-[9px] uppercase">PM</span>
+        </div>
+        <div>
+         <div class="flex items-center gap-2">
+          <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1025 - Exterior Foam Wash</h4>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500">UPCOMING</span>
+         </div>
+         <p class="text-xs text-gray-500 mt-0.5">Meenakshi Sundaram • Maruti Baleno (TN 02 BB 5566)</p>
+         <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3 h-3 text-gray-400"></i> Kilpauk Garden Road, Chennai
+         </p>
+        </div>
+       </div>
+
+       <div class="flex items-center gap-3">
+        <span class="text-sm font-bold text-gray-400">₹499 (Doorstep Cash)</span>
+        <a href="job-details.html?id=CS1025" class="px-4 h-10 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] hover:border-[#D6FF36] border border-transparent transition-colors flex items-center">
+         View Specs
+        </a>
+       </div>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="p-5 rounded-2xl bg-gray-50 dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300 flex flex-col items-center justify-center font-black">
+         <span class="text-xs">05:00</span>
+         <span class="text-[9px] uppercase">PM</span>
+        </div>
+        <div>
+         <div class="flex items-center gap-2">
+          <h4 class="text-sm font-bold text-gray-900 dark:text-white font-heading">#CS1026 - Interior Deep Cleaning</h4>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-500">UPCOMING</span>
+         </div>
+         <p class="text-xs text-gray-500 mt-0.5">Dinesh Kumar • Toyota Innova Crysta (TN 07 AX 7711)</p>
+         <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3 h-3 text-gray-400"></i> Shenoy Nagar East, Chennai
+         </p>
+        </div>
+       </div>
+
+       <div class="flex items-center gap-3">
+        <span class="text-sm font-bold text-gray-400">₹699 (Paid UPI)</span>
+        <a href="job-details.html?id=CS1026" class="px-4 h-10 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] hover:border-[#D6FF36] border border-transparent transition-colors flex items-center">
+         View Specs
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- VAN RIG PRE-DEPARTURE CHECKLIST -->
+    <div class="p-6 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+     <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Self-Contained Rig Checklist</h4>
+     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+      <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
+       <i data-lucide="droplet" class="w-4 h-4 text-blue-400"></i>
+       <span>Water Tank: <strong>220L / 250L</strong></span>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
+       <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+       <span>Generator: <strong>Full Tank</strong></span>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
+       <i data-lucide="layers" class="w-4 h-4 text-[#D6FF36]"></i>
+       <span>Microfibers: <strong>24 Clean</strong></span>
+      </div>
+      <div class="p-3 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center gap-2">
+       <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+       <span>Ceramic Kit: <strong>Inspected</strong></span>
+      </div>
+     </div>
+    </div>
+
+   </main>
   </div>
+ </div>
 
-  <script src="../assets/js/storage.js"></script>
-  <script src="../assets/js/theme.js"></script>
-  <script src="../assets/js/rtl.js"></script>
-  <script src="../assets/js/main.js"></script>
+ <script src="../assets/js/storage.js"></script>
+ <script src="../assets/js/theme.js"></script>
+ <script src="../assets/js/rtl.js"></script>
+ <script src="../assets/js/main.js"></script>
 
-  <script>
-    let isOnline = true;
+ <script>
+  let isOnline = true;
 
-    function toggleDutyStatus() {
-      isOnline = !isOnline;
-      const btn = document.getElementById('duty-toggle-btn');
-      const text = document.getElementById('duty-status-text');
+  function toggleDutyStatus() {
+   isOnline = !isOnline;
+   const btn = document.getElementById('duty-toggle-btn');
+   const text = document.getElementById('duty-status-text');
 
-      if (isOnline) {
-        btn.className = 'h-10 px-3.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-2';
-        text.textContent = 'On Duty (Available)';
-        StorageService.updateTechnicianStatus('tech_01', 'Available');
-        showToast('You are now ON DUTY. Ready to receive dispatch calls.', 'success');
-      } else {
-        btn.className = 'h-10 px-3.5 rounded-xl text-xs font-bold bg-gray-500/10 text-gray-400 border border-gray-500/30 flex items-center gap-2';
-        text.textContent = 'Offline (On Break)';
-        StorageService.updateTechnicianStatus('tech_01', 'Offline');
-        showToast('Shift paused: You are marked OFFLINE.', 'info');
-      }
-    }
+   if (isOnline) {
+    btn.className = 'h-10 px-3.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-2';
+    text.textContent = 'On Duty (Available)';
+    StorageService.updateTechnicianStatus('tech_01', 'Available');
+    showToast('You are now ON DUTY. Ready to receive dispatch calls.', 'success');
+   } else {
+    btn.className = 'h-10 px-3.5 rounded-xl text-xs font-bold bg-gray-500/10 text-gray-400 border border-gray-500/30 flex items-center gap-2';
+    text.textContent = 'Offline (On Break)';
+    StorageService.updateTechnicianStatus('tech_01', 'Offline');
+    showToast('Shift paused: You are marked OFFLINE.', 'info');
+   }
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+  document.addEventListener('DOMContentLoaded', () => {
+   lucide.createIcons();
 
-      const openBtn = document.getElementById('sidebar-open-btn');
-      const closeBtn = document.getElementById('sidebar-close-btn');
-      const sidebar = document.getElementById('dash-sidebar');
+   const openBtn = document.getElementById('sidebar-open-btn');
+   const closeBtn = document.getElementById('sidebar-close-btn');
+   const sidebar = document.getElementById('dash-sidebar');
 
-      if (openBtn && sidebar) {
-        openBtn.addEventListener('click', () => sidebar.classList.add('open'));
-      }
-      if (closeBtn && sidebar) {
-        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
-      }
-    });
-  </script>
+   if (openBtn && sidebar) {
+    openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+   }
+   if (closeBtn && sidebar) {
+    closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+   }
+  });
+ </script>
 </body>
 </html>
 

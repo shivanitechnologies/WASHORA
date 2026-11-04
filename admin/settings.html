@@ -1,344 +1,344 @@
 <!DOCTYPE html>
 <html lang="en" class="" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Operations Settings | CAR SHINE Command Center</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#101820',
-            secondary: '#D6FF36',
-            surface: '#252E35',
-            lightbg: '#F5F6F3'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            brand: ['Montserrat', 'Outfit', 'sans-serif'],
-            heading: ['Manrope', 'sans-serif']
-          }
-        }
-      }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Operations Settings | CAR SHINE Command Center</title>
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+ 
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   darkMode: 'class',
+   theme: {
+    extend: {
+     colors: {
+      primary: '#101820',
+      secondary: '#D6FF36',
+      surface: '#252E35',
+      lightbg: '#F5F6F3'
+     },
+     fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      brand: ['Montserrat', 'Outfit', 'sans-serif'],
+      heading: ['Manrope', 'sans-serif']
+     }
     }
-  </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+   }
+  }
+ </script>
+ <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/animations.css">
-  <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
+ <link rel="stylesheet" href="../assets/css/style.css">
+ <link rel="stylesheet" href="../assets/css/dashboard.css">
+ <link rel="stylesheet" href="../assets/css/animations.css">
+ <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
 
-  <div class="dashboard-container">
-    
-    <!-- ADMIN SIDEBAR -->
-    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
-      <div>
-        <!-- Logo -->
-        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
-          <a href="../index.html" class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-            </div>
-            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
-              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
-            </span>
-          </a>
-          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
-        </div>
-
-        <!-- Admin Badge -->
-        <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black text-xs">
-            OP
-          </div>
-          <div>
-            <h4 class="text-xs font-bold text-white">Operations Head</h4>
-            <span class="text-[10px] text-[#D6FF36]">Fleet Dispatch SuperAdmin</span>
-          </div>
-        </div>
-
-        <!-- Admin Nav Items -->
-        <nav class="space-y-1 text-xs font-semibold">
-          <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
-          <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
-          <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
-          <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
-          <a href="assign-technician.html" class="dash-nav-item"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
-          <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
-          <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
-          <a href="subscriptions.html" class="dash-nav-item"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
-          <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
-          <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
-          <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
-          <a href="messages.html" class="dash-nav-item"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
-          <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
-          <a href="settings.html" class="dash-nav-item active"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
-        </nav>
+ <div class="dashboard-container">
+  
+  <!-- ADMIN SIDEBAR -->
+  <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 ">
+   <div>
+    <!-- Logo -->
+    <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+     <a href="../index.html" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+       <i data-lucide="shield-check" class="w-4 h-4"></i>
       </div>
-
-      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
-        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
-          <i data-lucide="log-out" class="w-4 h-4"></i>
-          <span>Admin Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Admin Content Area -->
-    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
-      
-      <!-- Top Bar -->
-      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
-        <div class="flex items-center gap-3">
-          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
-          <div>
-            <h1 class="text-lg font-bold font-heading">Operations & System Settings</h1>
-            <p class="text-xs text-gray-500">Configure business information, dispatch rules, taxes and policies</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
-            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
-          </button>
-          <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
-            RTL
-          </button>
-        </div>
-      </header>
-
-      <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-5xl">
-        
-        <form onsubmit="handleSaveSettings(event)" class="space-y-6">
-          
-          <!-- BRAND & HEADQUARTERS -->
-          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
-            <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
-              <div class="w-10 h-10 rounded-2xl bg-[#D6FF36]/10 text-[#D6FF36] flex items-center justify-center">
-                <i data-lucide="building-2" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-sm font-heading">Company Identity & Headquarters</h3>
-                <p class="text-xs text-gray-500">Public profile and doorstep dispatch central office</p>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Brand Name</label>
-                <input type="text" id="set-brand" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-bold">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Brand Tagline</label>
-                <input type="text" id="set-tagline" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Customer Support Email</label>
-                <input type="email" id="set-email" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fleet Dispatch Hotline</label>
-                <input type="text" id="set-phone" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Operational Hub Headquarters</label>
-              <input type="text" id="set-headquarters" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
-            </div>
-          </div>
-
-          <!-- DISPATCH RULES & OPERATING HOURS -->
-          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
-            <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
-              <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
-                <i data-lucide="clock" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-sm font-heading">Operations & Dispatch Logistics</h3>
-                <p class="text-xs text-gray-500">Service windows, turnarounds and fleet dispatch radius</p>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Operating Hours</label>
-                <input type="text" id="set-hours" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Max Dispatch Radius (km)</label>
-                <input type="number" id="set-radius" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Rain Guarantee Policy</label>
-                <input type="number" id="set-rain" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
-              </div>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center justify-between">
-              <div>
-                <h4 class="text-xs font-bold text-gray-900 dark:text-white">Auto-Assign Nearest Available Van</h4>
-                <p class="text-[11px] text-gray-400">Automatically dispatches technician closest to booking PIN code</p>
-              </div>
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" id="set-auto-assign" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-300 dark:bg-[#252E35] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D6FF36]"></div>
-              </label>
-            </div>
-          </div>
-
-          <!-- FINANCIALS & TAXES -->
-          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
-            <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
-              <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
-                <i data-lucide="receipt" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-sm font-heading">Taxation & Billing Currency</h3>
-                <p class="text-xs text-gray-500">Invoicing rates applied to bookings and subscriptions</p>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Applicable GST / VAT Rate (%)</label>
-                <input type="number" id="set-tax" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Billing Currency</label>
-                <input type="text" id="set-currency" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
-              </div>
-            </div>
-          </div>
-
-          <!-- NOTIFICATION CHANNELS -->
-          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
-            <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
-              <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-                <i data-lucide="bell" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-sm font-heading">Automated Customer Notifications</h3>
-                <p class="text-xs text-gray-500">Live SMS & WhatsApp triggers upon technician assignment</p>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
-                <div>
-                  <h5 class="text-xs font-bold">SMS Dispatch Notifications</h5>
-                  <p class="text-[11px] text-gray-400">Sends SMS when mobile van departs with ETA & driver number</p>
-                </div>
-                <input type="checkbox" id="set-sms" class="w-4 h-4 accent-[#D6FF36]">
-              </label>
-
-              <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
-                <div>
-                  <h5 class="text-xs font-bold">Automated GST Tax Invoices via Email</h5>
-                  <p class="text-[11px] text-gray-400">Attaches PDF receipt instantly upon job completion</p>
-                </div>
-                <input type="checkbox" id="set-invoices" class="w-4 h-4 accent-[#D6FF36]">
-              </label>
-            </div>
-          </div>
-
-          <!-- ACTIONS -->
-          <div class="flex items-center justify-end gap-4 pt-4">
-            <button type="button" onclick="handleResetDefaults()" class="px-5 h-12 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300">
-              Reset to Defaults
-            </button>
-            <button type="submit" class="btn-primary !h-12 text-xs font-bold px-8">
-              <i data-lucide="save" class="w-4 h-4"></i>
-              <span>Save System Settings</span>
-            </button>
-          </div>
-
-        </form>
-
-      </main>
+      <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+       CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
+      </span>
+     </a>
+     <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
+
+    <!-- Admin Badge -->
+    <div class="my-4 p-3 rounded-2xl bg-[#101820] border border-[#2F3B44] flex items-center gap-3">
+     <div class="w-9 h-9 rounded-xl bg-[#D6FF36] text-[#101820] flex items-center justify-center font-black text-xs">
+      OP
+     </div>
+     <div>
+      <h4 class="text-xs font-bold text-white">Operations Head</h4>
+      <span class="text-[10px] text-[#D6FF36]">Fleet Dispatch SuperAdmin</span>
+     </div>
+    </div>
+
+    <!-- Admin Nav Items -->
+    <nav class="space-y-1 text-xs font-semibold">
+     <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
+     <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
+     <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
+     <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
+     <a href="assign-technician.html" class="dash-nav-item"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
+     <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
+     <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
+     <a href="subscriptions.html" class="dash-nav-item"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
+     <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
+     <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
+     <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
+     <a href="messages.html" class="dash-nav-item"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
+     <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
+     <a href="settings.html" class="dash-nav-item active"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
+    </nav>
+   </div>
+
+   <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+    <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+     <i data-lucide="log-out" class="w-4 h-4"></i>
+     <span>Admin Logout</span>
+    </a>
+   </div>
+  </aside>
+
+  <!-- Admin Content Area -->
+  <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+   
+   <!-- Top Bar -->
+   <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+    <div class="flex items-center gap-3">
+     <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+     <div>
+      <h1 class="text-lg font-bold font-heading">Operations & System Settings</h1>
+      <p class="text-xs text-gray-500">Configure business information, dispatch rules, taxes and policies</p>
+     </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+     <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors">
+      <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+      <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+     </button>
+     <button onclick="toggleRTL()" aria-label="Toggle RTL" class="w-10 h-10 rounded-xl border border-gray-200 dark:border-[#252E35] bg-gray-100 dark:bg-[#101820] text-gray-700 dark:text-gray-300 hover:text-[#D6FF36] flex items-center justify-center transition-colors text-xs font-bold">
+      RTL
+     </button>
+    </div>
+   </header>
+
+   <main class="p-6 sm:p-8 space-y-6 flex-1 max-w-5xl">
+    
+    <form onsubmit="handleSaveSettings(event)" class="space-y-6">
+     
+     <!-- BRAND & HEADQUARTERS -->
+     <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
+      <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
+       <div class="w-10 h-10 rounded-2xl bg-[#D6FF36]/10 text-[#D6FF36] flex items-center justify-center">
+        <i data-lucide="building-2" class="w-5 h-5"></i>
+       </div>
+       <div>
+        <h3 class="font-bold text-sm font-heading">Company Identity & Headquarters</h3>
+        <p class="text-xs text-gray-500">Public profile and doorstep dispatch central office</p>
+       </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Brand Name</label>
+        <input type="text" id="set-brand" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-bold">
+       </div>
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Brand Tagline</label>
+        <input type="text" id="set-tagline" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+       </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Customer Support Email</label>
+        <input type="email" id="set-email" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+       </div>
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Fleet Dispatch Hotline</label>
+        <input type="text" id="set-phone" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
+       </div>
+      </div>
+
+      <div>
+       <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Operational Hub Headquarters</label>
+       <input type="text" id="set-headquarters" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+      </div>
+     </div>
+
+     <!-- DISPATCH RULES & OPERATING HOURS -->
+     <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
+      <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
+       <div class="w-10 h-10 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center">
+        <i data-lucide="clock" class="w-5 h-5"></i>
+       </div>
+       <div>
+        <h3 class="font-bold text-sm font-heading">Operations & Dispatch Logistics</h3>
+        <p class="text-xs text-gray-500">Service windows, turnarounds and fleet dispatch radius</p>
+       </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Operating Hours</label>
+        <input type="text" id="set-hours" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+       </div>
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Max Dispatch Radius (km)</label>
+        <input type="number" id="set-radius" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
+       </div>
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Rain Guarantee Policy</label>
+        <input type="number" id="set-rain" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
+       </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] flex items-center justify-between">
+       <div>
+        <h4 class="text-xs font-bold text-gray-900 dark:text-white">Auto-Assign Nearest Available Van</h4>
+        <p class="text-[11px] text-gray-400">Automatically dispatches technician closest to booking PIN code</p>
+       </div>
+       <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="set-auto-assign" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-300 dark:bg-[#252E35] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D6FF36]"></div>
+       </label>
+      </div>
+     </div>
+
+     <!-- FINANCIALS & TAXES -->
+     <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-5">
+      <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
+       <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+        <i data-lucide="receipt" class="w-5 h-5"></i>
+       </div>
+       <div>
+        <h3 class="font-bold text-sm font-heading">Taxation & Billing Currency</h3>
+        <p class="text-xs text-gray-500">Invoicing rates applied to bookings and subscriptions</p>
+       </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Applicable GST / VAT Rate (%)</label>
+        <input type="number" id="set-tax" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs font-mono">
+       </div>
+       <div>
+        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Billing Currency</label>
+        <input type="text" id="set-currency" class="w-full h-11 px-3.5 rounded-xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-300 dark:border-[#252E35] text-xs">
+       </div>
+      </div>
+     </div>
+
+     <!-- NOTIFICATION CHANNELS -->
+     <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35] space-y-4">
+      <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-[#252E35]">
+       <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+       </div>
+       <div>
+        <h3 class="font-bold text-sm font-heading">Automated Customer Notifications</h3>
+        <p class="text-xs text-gray-500">Live SMS & WhatsApp triggers upon technician assignment</p>
+       </div>
+      </div>
+
+      <div class="space-y-3">
+       <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+        <div>
+         <h5 class="text-xs font-bold">SMS Dispatch Notifications</h5>
+         <p class="text-[11px] text-gray-400">Sends SMS when mobile van departs with ETA & driver number</p>
+        </div>
+        <input type="checkbox" id="set-sms" class="w-4 h-4 accent-[#D6FF36]">
+       </label>
+
+       <label class="flex items-center justify-between p-3.5 rounded-2xl bg-[#F5F6F3] dark:bg-[#101820] border border-gray-200 dark:border-[#252E35] cursor-pointer">
+        <div>
+         <h5 class="text-xs font-bold">Automated GST Tax Invoices via Email</h5>
+         <p class="text-[11px] text-gray-400">Attaches PDF receipt instantly upon job completion</p>
+        </div>
+        <input type="checkbox" id="set-invoices" class="w-4 h-4 accent-[#D6FF36]">
+       </label>
+      </div>
+     </div>
+
+     <!-- ACTIONS -->
+     <div class="flex items-center justify-end gap-4 pt-4">
+      <button type="button" onclick="handleResetDefaults()" class="px-5 h-12 rounded-xl text-xs font-bold bg-gray-200 dark:bg-[#252E35] text-gray-700 dark:text-gray-300">
+       Reset to Defaults
+      </button>
+      <button type="submit" class="btn-primary !h-12 text-xs font-bold px-8">
+       <i data-lucide="save" class="w-4 h-4"></i>
+       <span>Save System Settings</span>
+      </button>
+     </div>
+
+    </form>
+
+   </main>
   </div>
+ </div>
 
-  <script src="../assets/js/storage.js"></script>
-  <script src="../assets/js/theme.js"></script>
-  <script src="../assets/js/rtl.js"></script>
-  <script src="../assets/js/main.js"></script>
+ <script src="../assets/js/storage.js"></script>
+ <script src="../assets/js/theme.js"></script>
+ <script src="../assets/js/rtl.js"></script>
+ <script src="../assets/js/main.js"></script>
 
-  <script>
-    function loadSettings() {
-      const s = StorageService.getSettings();
-      document.getElementById('set-brand').value = s.brandName || 'CAR SHINE';
-      document.getElementById('set-tagline').value = s.tagline || 'Your Car, Always Shining.';
-      document.getElementById('set-email').value = s.supportEmail || 'support@carshine.com';
-      document.getElementById('set-phone').value = s.dispatchPhone || '+91 98401 99999';
-      document.getElementById('set-headquarters').value = s.headquarters || 'Anna Nagar West, Chennai';
-      document.getElementById('set-hours').value = s.operatingHours || '07:00 AM - 08:00 PM';
-      document.getElementById('set-radius').value = s.maxRadiusKm || 35;
-      document.getElementById('set-rain').value = s.rainGuaranteeHours || 24;
-      document.getElementById('set-tax').value = s.taxRatePercent || 18;
-      document.getElementById('set-currency').value = s.currency || 'INR (₹)';
-      document.getElementById('set-auto-assign').checked = !!s.autoAssignTechnicians;
-      document.getElementById('set-sms').checked = !!s.smsNotifications;
-      document.getElementById('set-invoices').checked = !!s.emailInvoices;
-    }
+ <script>
+  function loadSettings() {
+   const s = StorageService.getSettings();
+   document.getElementById('set-brand').value = s.brandName || 'CAR SHINE';
+   document.getElementById('set-tagline').value = s.tagline || 'Your Car, Always Shining.';
+   document.getElementById('set-email').value = s.supportEmail || 'support@carshine.com';
+   document.getElementById('set-phone').value = s.dispatchPhone || '+91 98401 99999';
+   document.getElementById('set-headquarters').value = s.headquarters || 'Anna Nagar West, Chennai';
+   document.getElementById('set-hours').value = s.operatingHours || '07:00 AM - 08:00 PM';
+   document.getElementById('set-radius').value = s.maxRadiusKm || 35;
+   document.getElementById('set-rain').value = s.rainGuaranteeHours || 24;
+   document.getElementById('set-tax').value = s.taxRatePercent || 18;
+   document.getElementById('set-currency').value = s.currency || 'INR (₹)';
+   document.getElementById('set-auto-assign').checked = !!s.autoAssignTechnicians;
+   document.getElementById('set-sms').checked = !!s.smsNotifications;
+   document.getElementById('set-invoices').checked = !!s.emailInvoices;
+  }
 
-    function handleSaveSettings(e) {
-      e.preventDefault();
-      const updated = {
-        brandName: document.getElementById('set-brand').value.trim(),
-        tagline: document.getElementById('set-tagline').value.trim(),
-        supportEmail: document.getElementById('set-email').value.trim(),
-        dispatchPhone: document.getElementById('set-phone').value.trim(),
-        headquarters: document.getElementById('set-headquarters').value.trim(),
-        operatingHours: document.getElementById('set-hours').value.trim(),
-        maxRadiusKm: Number(document.getElementById('set-radius').value),
-        rainGuaranteeHours: Number(document.getElementById('set-rain').value),
-        taxRatePercent: Number(document.getElementById('set-tax').value),
-        currency: document.getElementById('set-currency').value.trim(),
-        autoAssignTechnicians: document.getElementById('set-auto-assign').checked,
-        smsNotifications: document.getElementById('set-sms').checked,
-        emailInvoices: document.getElementById('set-invoices').checked
-      };
+  function handleSaveSettings(e) {
+   e.preventDefault();
+   const updated = {
+    brandName: document.getElementById('set-brand').value.trim(),
+    tagline: document.getElementById('set-tagline').value.trim(),
+    supportEmail: document.getElementById('set-email').value.trim(),
+    dispatchPhone: document.getElementById('set-phone').value.trim(),
+    headquarters: document.getElementById('set-headquarters').value.trim(),
+    operatingHours: document.getElementById('set-hours').value.trim(),
+    maxRadiusKm: Number(document.getElementById('set-radius').value),
+    rainGuaranteeHours: Number(document.getElementById('set-rain').value),
+    taxRatePercent: Number(document.getElementById('set-tax').value),
+    currency: document.getElementById('set-currency').value.trim(),
+    autoAssignTechnicians: document.getElementById('set-auto-assign').checked,
+    smsNotifications: document.getElementById('set-sms').checked,
+    emailInvoices: document.getElementById('set-invoices').checked
+   };
 
-      StorageService.saveSettings(updated);
-      showToast('Operations & system settings successfully updated!', 'success');
-    }
+   StorageService.saveSettings(updated);
+   showToast('Operations & system settings successfully updated!', 'success');
+  }
 
-    function handleResetDefaults() {
-      if (confirm('Reset all operational settings to default factory values?')) {
-        StorageService.saveSettings(DEFAULT_SETTINGS);
-        loadSettings();
-        showToast('Settings reset to system defaults', 'info');
-      }
-    }
+  function handleResetDefaults() {
+   if (confirm('Reset all operational settings to default factory values?')) {
+    StorageService.saveSettings(DEFAULT_SETTINGS);
+    loadSettings();
+    showToast('Settings reset to system defaults', 'info');
+   }
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      loadSettings();
+  document.addEventListener('DOMContentLoaded', () => {
+   loadSettings();
 
-      const openBtn = document.getElementById('sidebar-open-btn');
-      const closeBtn = document.getElementById('sidebar-close-btn');
-      const sidebar = document.getElementById('dash-sidebar');
+   const openBtn = document.getElementById('sidebar-open-btn');
+   const closeBtn = document.getElementById('sidebar-close-btn');
+   const sidebar = document.getElementById('dash-sidebar');
 
-      if (openBtn && sidebar) {
-        openBtn.addEventListener('click', () => sidebar.classList.add('open'));
-      }
-      if (closeBtn && sidebar) {
-        closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
-      }
-    });
-  </script>
+   if (openBtn && sidebar) {
+    openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+   }
+   if (closeBtn && sidebar) {
+    closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+   }
+  });
+ </script>
 </body>
 </html>
 

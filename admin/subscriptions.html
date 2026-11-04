@@ -1,182 +1,182 @@
 <!DOCTYPE html>
 <html lang="en" class="" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscriptions Management | CAR SHINE Admin</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#101820',
-            secondary: '#D6FF36',
-            surface: '#252E35',
-            lightbg: '#F5F6F3'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            brand: ['Montserrat', 'Outfit', 'sans-serif'],
-            heading: ['Manrope', 'sans-serif']
-          }
-        }
-      }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Subscriptions Management | CAR SHINE Admin</title>
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D6FF36'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>">
+ 
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   darkMode: 'class',
+   theme: {
+    extend: {
+     colors: {
+      primary: '#101820',
+      secondary: '#D6FF36',
+      surface: '#252E35',
+      lightbg: '#F5F6F3'
+     },
+     fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      brand: ['Montserrat', 'Outfit', 'sans-serif'],
+      heading: ['Manrope', 'sans-serif']
+     }
     }
-  </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/animations.css">
-  <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
+   }
+  }
+ </script>
+ <script src="https://unpkg.com/lucide@latest"></script>
+ <link rel="stylesheet" href="../assets/css/style.css">
+ <link rel="stylesheet" href="../assets/css/dashboard.css">
+ <link rel="stylesheet" href="../assets/css/animations.css">
+ <link rel="stylesheet" href="../assets/css/mobile-responsive.css">
 </head>
 <body class="bg-[#F5F6F3] text-[#101820] dark:bg-[#101820] dark:text-[#F5F6F3] transition-colors duration-300">
 
-  <div class="dashboard-container">
-    <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 overflow-y-auto max-h-screen">
-      <div>
-        <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
-          <a href="../index.html" class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
-            </div>
-            <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
-              CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
-            </span>
-          </a>
-          <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
-        </div>
-
-        <nav class="space-y-1 text-xs font-semibold mt-6">
-          <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
-          <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
-          <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
-          <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
-          <a href="assign-technician.html" class="dash-nav-item"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
-          <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
-          <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
-          <a href="subscriptions.html" class="dash-nav-item active"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
-          <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
-          <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
-          <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
-          <a href="messages.html" class="dash-nav-item"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
-          <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
-          <a href="settings.html" class="dash-nav-item"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
-        </nav>
+ <div class="dashboard-container">
+  <aside id="dash-sidebar" class="dashboard-sidebar bg-white dark:bg-[#1A232C] border-r border-gray-200 dark:border-[#252E35] flex flex-col justify-between p-5 ">
+   <div>
+    <div class="flex items-center justify-between pb-6 border-b border-gray-200 dark:border-[#252E35]">
+     <a href="../index.html" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-[#101820] dark:bg-[#252E35] text-[#D6FF36] flex items-center justify-center font-black">
+       <i data-lucide="shield-check" class="w-4 h-4"></i>
       </div>
-
-      <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
-        <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
-          <i data-lucide="log-out" class="w-4 h-4"></i>
-          <span>Admin Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
-      <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
-        <div class="flex items-center gap-3">
-          <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
-          <div>
-            <h1 class="text-lg font-bold font-heading">Recurring Subscriptions</h1>
-            <p class="text-xs text-gray-500">184 Active monthly subscribers in Chennai</p>
-          </div>
-        </div>
-      </header>
-
-      <main class="p-6 sm:p-8 space-y-6 flex-1">
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-400 font-bold uppercase">Active MRR</span>
-            <div class="text-2xl font-black text-[#D6FF36] mt-1">₹5,52,000</div>
-            <span class="text-[10px] text-emerald-500">↑ 18% Monthly Recurring Revenue</span>
-          </div>
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-400 font-bold uppercase">Total Members</span>
-            <div class="text-2xl font-black text-white mt-1">184</div>
-            <span class="text-[10px] text-gray-400">92% retention rate</span>
-          </div>
-          <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
-            <span class="text-xs text-gray-400 font-bold uppercase">Washes Remaining</span>
-            <div class="text-2xl font-black text-blue-400 mt-1">426</div>
-            <span class="text-[10px] text-gray-400">To be fulfilled this cycle</span>
-          </div>
-        </div>
-
-        <!-- Subscribers Table -->
-        <div class="bg-white dark:bg-[#1A232C] rounded-3xl border border-gray-200 dark:border-[#252E35] shadow-sm overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs">
-              <thead class="bg-gray-100 dark:bg-[#101820] uppercase font-bold text-gray-400">
-                <tr>
-                  <th class="p-4">Customer</th>
-                  <th class="p-4">Active Plan</th>
-                  <th class="p-4">Billing</th>
-                  <th class="p-4">Washes Remaining</th>
-                  <th class="p-4">Next Renewal</th>
-                  <th class="p-4">Status</th>
-                  <th class="p-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200 dark:divide-[#252E35]">
-                <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
-                  <td class="p-4 font-bold text-gray-900 dark:text-white">Pravin Kumar <span class="text-gray-400 block text-[10px]">pravin@carshine.com</span></td>
-                  <td class="p-4 font-semibold text-[#D6FF36]">Premium Monthly</td>
-                  <td class="p-4 font-bold">₹2,999/mo</td>
-                  <td class="p-4 font-black">3 of 4</td>
-                  <td class="p-4">Nov 14, 2026</td>
-                  <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
-                  <td class="p-4 text-right">
-                    <button onclick="showToast('Subscriber #usr_pravin refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
-                  </td>
-                </tr>
-                <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
-                  <td class="p-4 font-bold text-gray-900 dark:text-white">Vikram Sundaram <span class="text-gray-400 block text-[10px]">vikram.s@gmail.com</span></td>
-                  <td class="p-4 font-semibold">Weekly Wash</td>
-                  <td class="p-4 font-bold">₹1,599/mo</td>
-                  <td class="p-4 font-black">2 of 4</td>
-                  <td class="p-4">Nov 20, 2026</td>
-                  <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
-                  <td class="p-4 text-right">
-                    <button onclick="showToast('Subscriber #usr_02 refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
-                  </td>
-                </tr>
-                <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
-                  <td class="p-4 font-bold text-gray-900 dark:text-white">Karthik Raja <span class="text-gray-400 block text-[10px]">karthik.raja@zoho.com</span></td>
-                  <td class="p-4 font-semibold text-amber-400">Family Car Plan</td>
-                  <td class="p-4 font-bold">₹4,999/mo</td>
-                  <td class="p-4 font-black">5 of 8</td>
-                  <td class="p-4">Nov 28, 2026</td>
-                  <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
-                  <td class="p-4 text-right">
-                    <button onclick="showToast('Subscriber #usr_04 refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </main>
+      <span class="text-lg font-black tracking-wider uppercase font-heading text-gray-900 dark:text-white">
+       CAR <span class="text-[#D6FF36] bg-[#101820] px-1.5 py-0.5 rounded text-xs font-black">ADMIN</span>
+      </span>
+     </a>
+     <button id="sidebar-close-btn" class="lg:hidden p-1.5 rounded-lg bg-gray-100 dark:bg-[#252E35]"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
-  </div>
 
-  <script src="../assets/js/storage.js"></script>
-  <script src="../assets/js/theme.js"></script>
-  <script src="../assets/js/rtl.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script>
-    document.getElementById('sidebar-open-btn').addEventListener('click', () => {
-      document.getElementById('dash-sidebar').classList.add('open');
-    });
-    document.getElementById('sidebar-close-btn').addEventListener('click', () => {
-      document.getElementById('dash-sidebar').classList.remove('open');
-    });
-  </script>
+    <nav class="space-y-1 text-xs font-semibold mt-6">
+     <a href="dashboard.html" class="dash-nav-item"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Overview</span></a>
+     <a href="customers.html" class="dash-nav-item"><i data-lucide="users" class="w-4 h-4"></i><span>Customers</span></a>
+     <a href="bookings.html" class="dash-nav-item"><i data-lucide="calendar" class="w-4 h-4"></i><span>Bookings</span></a>
+     <a href="technicians.html" class="dash-nav-item"><i data-lucide="wrench" class="w-4 h-4"></i><span>Technicians</span></a>
+     <a href="assign-technician.html" class="dash-nav-item"><i data-lucide="user-plus" class="w-4 h-4 text-[#D6FF36]"></i><span>Assign Technician</span></a>
+     <a href="services.html" class="dash-nav-item"><i data-lucide="layers" class="w-4 h-4"></i><span>Services</span></a>
+     <a href="pricing.html" class="dash-nav-item"><i data-lucide="tag" class="w-4 h-4"></i><span>Pricing & Plans</span></a>
+     <a href="subscriptions.html" class="dash-nav-item active"><i data-lucide="repeat" class="w-4 h-4"></i><span>Subscriptions</span></a>
+     <a href="service-areas.html" class="dash-nav-item"><i data-lucide="map-pin" class="w-4 h-4"></i><span>Service Areas</span></a>
+     <a href="payments.html" class="dash-nav-item"><i data-lucide="credit-card" class="w-4 h-4"></i><span>Payments</span></a>
+     <a href="reviews.html" class="dash-nav-item"><i data-lucide="star" class="w-4 h-4"></i><span>Reviews</span></a>
+     <a href="messages.html" class="dash-nav-item"><i data-lucide="message-square" class="w-4 h-4"></i><span>Messages</span></a>
+     <a href="analytics.html" class="dash-nav-item"><i data-lucide="bar-chart-3" class="w-4 h-4"></i><span>Analytics & Reports</span></a>
+     <a href="settings.html" class="dash-nav-item"><i data-lucide="settings" class="w-4 h-4"></i><span>Settings</span></a>
+    </nav>
+   </div>
+
+   <div class="pt-4 border-t border-gray-200 dark:border-[#252E35]">
+    <a href="../login.html" class="flex items-center gap-3 px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors">
+     <i data-lucide="log-out" class="w-4 h-4"></i>
+     <span>Admin Logout</span>
+    </a>
+   </div>
+  </aside>
+
+  <div class="dashboard-main bg-[#F5F6F3] dark:bg-[#101820]">
+   <header class="h-20 px-6 sm:px-8 border-b border-gray-200 dark:border-[#252E35] bg-white dark:bg-[#1A232C] flex items-center justify-between sticky top-0 z-30">
+    <div class="flex items-center gap-3">
+     <button id="sidebar-open-btn" class="lg:hidden p-2 rounded-xl bg-gray-100 dark:bg-[#252E35]"><i data-lucide="menu" class="w-5 h-5"></i></button>
+     <div>
+      <h1 class="text-lg font-bold font-heading">Recurring Subscriptions</h1>
+      <p class="text-xs text-gray-500">184 Active monthly subscribers in Chennai</p>
+     </div>
+    </div>
+   </header>
+
+   <main class="p-6 sm:p-8 space-y-6 flex-1">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-400 font-bold uppercase">Active MRR</span>
+      <div class="text-2xl font-black text-[#D6FF36] mt-1">₹5,52,000</div>
+      <span class="text-[10px] text-emerald-500">↑ 18% Monthly Recurring Revenue</span>
+     </div>
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-400 font-bold uppercase">Total Members</span>
+      <div class="text-2xl font-black text-white mt-1">184</div>
+      <span class="text-[10px] text-gray-400">92% retention rate</span>
+     </div>
+     <div class="p-5 rounded-2xl bg-white dark:bg-[#1A232C] border border-gray-200 dark:border-[#252E35]">
+      <span class="text-xs text-gray-400 font-bold uppercase">Washes Remaining</span>
+      <div class="text-2xl font-black text-blue-400 mt-1">426</div>
+      <span class="text-[10px] text-gray-400">To be fulfilled this cycle</span>
+     </div>
+    </div>
+
+    <!-- Subscribers Table -->
+    <div class="bg-white dark:bg-[#1A232C] rounded-3xl border border-gray-200 dark:border-[#252E35] shadow-sm overflow-hidden">
+     <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs">
+       <thead class="bg-gray-100 dark:bg-[#101820] uppercase font-bold text-gray-400">
+        <tr>
+         <th class="p-4">Customer</th>
+         <th class="p-4">Active Plan</th>
+         <th class="p-4">Billing</th>
+         <th class="p-4">Washes Remaining</th>
+         <th class="p-4">Next Renewal</th>
+         <th class="p-4">Status</th>
+         <th class="p-4 text-right">Actions</th>
+        </tr>
+       </thead>
+       <tbody class="divide-y divide-gray-200 dark:divide-[#252E35]">
+        <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
+         <td class="p-4 font-bold text-gray-900 dark:text-white">Pravin Kumar <span class="text-gray-400 block text-[10px]">pravin@carshine.com</span></td>
+         <td class="p-4 font-semibold text-[#D6FF36]">Premium Monthly</td>
+         <td class="p-4 font-bold">₹2,999/mo</td>
+         <td class="p-4 font-black">3 of 4</td>
+         <td class="p-4">Nov 14, 2026</td>
+         <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
+         <td class="p-4 text-right">
+          <button onclick="showToast('Subscriber #usr_pravin refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
+         </td>
+        </tr>
+        <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
+         <td class="p-4 font-bold text-gray-900 dark:text-white">Vikram Sundaram <span class="text-gray-400 block text-[10px]">vikram.s@gmail.com</span></td>
+         <td class="p-4 font-semibold">Weekly Wash</td>
+         <td class="p-4 font-bold">₹1,599/mo</td>
+         <td class="p-4 font-black">2 of 4</td>
+         <td class="p-4">Nov 20, 2026</td>
+         <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
+         <td class="p-4 text-right">
+          <button onclick="showToast('Subscriber #usr_02 refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
+         </td>
+        </tr>
+        <tr class="hover:bg-gray-50 dark:hover:bg-[#252E35]/50">
+         <td class="p-4 font-bold text-gray-900 dark:text-white">Karthik Raja <span class="text-gray-400 block text-[10px]">karthik.raja@zoho.com</span></td>
+         <td class="p-4 font-semibold text-amber-400">Family Car Plan</td>
+         <td class="p-4 font-bold">₹4,999/mo</td>
+         <td class="p-4 font-black">5 of 8</td>
+         <td class="p-4">Nov 28, 2026</td>
+         <td class="p-4"><span class="badge-lime text-[10px]">Active</span></td>
+         <td class="p-4 text-right">
+          <button onclick="showToast('Subscriber #usr_04 refreshed', 'info')" class="text-xs text-[#D6FF36] hover:underline font-bold">Manage</button>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+
+   </main>
+  </div>
+ </div>
+
+ <script src="../assets/js/storage.js"></script>
+ <script src="../assets/js/theme.js"></script>
+ <script src="../assets/js/rtl.js"></script>
+ <script src="../assets/js/main.js"></script>
+ <script>
+  document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+   document.getElementById('dash-sidebar').classList.add('open');
+  });
+  document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+   document.getElementById('dash-sidebar').classList.remove('open');
+  });
+ </script>
 </body>
 </html>
 
